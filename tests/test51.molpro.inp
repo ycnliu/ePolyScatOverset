@@ -1,0 +1,67 @@
+------------------------- Td  ---------------------------
+***,CH4 gs
+
+RCH = 1.083346 ANG
+TANG = 109.471220634491 DEGREES
+
+cartesian
+
+geometry={
+C1;
+H1,C1,RCH;
+H2,C1,RCH,H1,TANG;
+H3,C1,RCH,H1,TANG,H2,TANG,1;
+H4,C1,RCH,H1,TANG,H2,TANG,-1;
+}
+
+basis=avtz
+{rhf;
+wf,10,1,0;}
+put,molden,ch4.molden;
+
+------------------------- C2V ---------------------------
+***,CH4 gs
+
+RCH = 1.083346 ANG
+RCH2 = 1.2 ANG
+TANG = 109.47122 DEGREES
+
+cartesian
+
+geometry={
+C1;
+H1,C1,RCH;
+H2,C1,RCH,H1,TANG;
+H3,C1,RCH2,H1,TANG,H2,TANG,1;
+H4,C1,RCH2,H1,TANG,H2,TANG,-1;
+}
+
+basis=avtz
+{rhf;
+wf,10,1,0;}
+put,molden,ch4c2v.molden;
+
+------------------------- C1  ---------------------------
+***,CH4 gs
+
+RCH1 = 1.083346 ANG
+RCH2 = 1.2 ANG
+RCH3 = 0.9 ANG
+RCH4 = 1.0 ANG
+TANG = 109.47122 DEGREES
+
+cartesian
+
+geometry={
+C1;
+H1,C1,RCH1;
+H2,C1,RCH2,H1,TANG;
+H3,C1,RCH3,H1,TANG,H2,TANG,1;
+H4,C1,RCH4,H1,TANG,H2,TANG,-1;
+}
+
+basis=avtz
+{rhf;
+wf,10,1,0;}
+put,molden,ch4nosym.molden;
+

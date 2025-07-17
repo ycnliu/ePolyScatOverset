@@ -1,0 +1,23 @@
+#
+# input file for test57
+#
+# electron scattering from C6F3H3
+#
+ cKohn
+ EMax  60.0    # EMax, maximum asymptotic energy in eV
+ EngForm       # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+ ScatEng 30.   # list of scattering energies
+ FegeEng 9.5    # Energy correction used in the fege potential
+ ScatContSym 'A1PP'  # Scattering symmetry
+ LMaxK   10      # Maximum l in the K matirx 
+
+Convert '$pe/tests/test57.molden2012' 'molden2012'
+GetBlms
+ExpOrb
+Exit
+
+GetPot
+Scat
+

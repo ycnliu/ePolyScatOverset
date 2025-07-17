@@ -1,0 +1,15 @@
+g03 <<eoi
+# HF AUG-cc-pVTZ 6D 10F SCF(Conver=10) Symmetry(PG=D2) Pop=Full GFinput Test
+
+SiF4
+
+0 1
+Si                    0.        0.        0. 
+F                     1.00962   0.84103   0.84103 
+F                     1.00962  -0.84103  -0.84103 
+F                    -1.00962   0.84103  -0.84103 
+F                    -1.00962  -0.84103   0.84103 
+
+eoi
+#
+cat fort.7

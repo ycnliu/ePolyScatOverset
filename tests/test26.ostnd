@@ -1,0 +1,1911 @@
+Execution on n0149.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  17:35:32.816 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test26
+#
+# electron scattering from N2O in C-inf-v symmetry
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+  FegeEng 11.0   # Energy correction (in eV) used in the fege potential
+  LMaxK   5     # Maximum l in the K matirx
+
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test26.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+ScatEng  0.5 1.0
+ScatContSym 'S'  # Scattering symmetry
+Scat
+ScatContSym 'A2'  # Scattering symmetry
+Scat
+ScatContSym 'B1'  # Scattering symmetry
+Scat
+ScatContSym 'B2'  # Scattering symmetry
+Scat
+ScatContSym 'P'  # Scattering symmetry
+Scat
+ScatContSym 'D'  # Scattering symmetry
+Scat
+ScatContSym 'F'  # Scattering symmetry
+Scat
+ScatContSym 'G'  # Scattering symmetry
+Scat
+TotalCrossSection
++ End of input reached
++ Data Record LMax - 15
++ Data Record EMax - 50.0
++ Data Record EngForm - 0 0
++ Data Record VCorr - 'PZ'
++ Data Record FegeEng - 11.0
++ Data Record LMaxK - 5
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test26.molden2012' 'molden'
+
+----------------------------------------------------------------------
+MoldenCnv - Molden (from Molpro and OpenMolcas) conversion program
+----------------------------------------------------------------------
+
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Conversion using molden
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772090000000
+Convert from Angstroms to Bohr radii
+Found    165 basis functions
+Selecting orbitals
+Number of orbitals selected is    11
+Selecting    1   1 SymOrb =      1.1 Ene =     -20.6585 Spin =Alpha Occup =   2.000000
+Selecting    2   2 SymOrb =      2.1 Ene =     -15.8462 Spin =Alpha Occup =   2.000000
+Selecting    3   3 SymOrb =      3.1 Ene =     -15.6997 Spin =Alpha Occup =   2.000000
+Selecting    4   4 SymOrb =      4.1 Ene =      -1.6145 Spin =Alpha Occup =   2.000000
+Selecting    5   5 SymOrb =      5.1 Ene =      -1.4241 Spin =Alpha Occup =   2.000000
+Selecting    6   6 SymOrb =      6.1 Ene =      -0.8343 Spin =Alpha Occup =   2.000000
+Selecting    7   7 SymOrb =      1.3 Ene =      -0.7633 Spin =Alpha Occup =   2.000000
+Selecting    8   8 SymOrb =      1.2 Ene =      -0.7633 Spin =Alpha Occup =   2.000000
+Selecting    9   9 SymOrb =      7.1 Ene =      -0.6990 Spin =Alpha Occup =   2.000000
+Selecting   10  10 SymOrb =      2.2 Ene =      -0.4918 Spin =Alpha Occup =   2.000000
+Selecting   11  11 SymOrb =      2.3 Ene =      -0.4918 Spin =Alpha Occup =   2.000000
+
+Atoms found    3  Coordinates in Angstroms
+Z =  7 ZS =  7 r =   0.0000000000   0.0000000000  -1.1996367307
+Z =  7 ZS =  7 r =   0.0000000000   0.0000000000  -0.0714367307
+Z =  8 ZS =  8 r =   0.0000000000   0.0000000000   1.1127632693
+Maximum distance from expansion center is    1.1996367307
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+#############################################################################
+Expansion center is not at the center of charge
+For high symmetry systems, a better expansion point may be
+    0.0000000000    0.0000000000    0.0002087238
+#############################################################################
+Found point group  CAv  
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup C2v  
+Time Now =         0.0603  Delta time =         0.0603 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000   7  1.19964   7  0.07144   8  1.11276
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+Computed default value of LMaxA =   13
+Determining angular grid in GetAxMax  LMax =   15  LMaxA =   13  LMaxAb =   30
+MMax =    3  MMaxAbFlag =    2
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13   3   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  16  16   6   6
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is CAv
+LMax    15
+ The dimension of each irreducable representation is
+    S     (  1)    A2    (  1)    B1    (  1)    B2    (  1)    P     (  2)
+    D     (  2)    F     (  2)    G     (  2)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+    11    16     6
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ S         1         1         20       1  1  1
+ A2        1         2          4      -1 -1  1
+ B1        1         3          9       1 -1 -1
+ B2        1         4          9      -1  1 -1
+ P         1         5         23      -1  1 -1
+ P         2         6         23       1 -1 -1
+ D         1         7         22      -1 -1  1
+ D         2         8         22       1  1  1
+ F         1         9         21      -1  1 -1
+ F         2        10         21       1 -1 -1
+ G         1        11         18      -1 -1  1
+ G         2        12         18       1  1  1
+Time Now =         0.1839  Delta time =         0.1235 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+S     1    0(   1)    1(   2)    2(   3)    3(   4)    4(   5)    5(   6)    6(   7)    7(   8)    8(   9)    9(  10)
+          10(  12)   11(  14)   12(  16)   13(  18)
+A2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   0)    7(   0)    8(   0)    9(   0)
+          10(   1)   11(   2)   12(   3)   13(   4)
+B1    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)    6(   2)    7(   3)    8(   4)    9(   5)
+          10(   6)   11(   7)   12(   8)   13(   9)
+B2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)    6(   2)    7(   3)    8(   4)    9(   5)
+          10(   6)   11(   7)   12(   8)   13(   9)
+P     1    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   5)    6(   6)    7(   7)    8(   8)    9(  10)
+          10(  12)   11(  15)   12(  18)   13(  21)
+P     2    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   5)    6(   6)    7(   7)    8(   8)    9(  10)
+          10(  12)   11(  15)   12(  18)   13(  21)
+D     1    0(   0)    1(   0)    2(   1)    3(   2)    4(   3)    5(   4)    6(   5)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  14)   12(  17)   13(  20)
+D     2    0(   0)    1(   0)    2(   1)    3(   2)    4(   3)    5(   4)    6(   5)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  14)   12(  17)   13(  20)
+F     1    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  14)   12(  16)   13(  19)
+F     2    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  14)   12(  16)   13(  19)
+G     1    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   2)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  14)   12(  16)   13(  18)
+G     2    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   2)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  14)   12(  16)   13(  18)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C2v
+LMax    30
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  3       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  4       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1  -1   1  -1
+irep =    4  sym =B2    1  eigs =   1   1  -1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1        222       1  1  1
+ A2        1         2        191      -1 -1  1
+ B1        1         3        204      -1  1 -1
+ B2        1         4        204       1 -1 -1
+Time Now =         0.1875  Delta time =         0.0036 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =   10.1920597341 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+HFacGauss    10.00000
+HFacWave     10.00000
+GridFac       1
+MinExpFac   300.00000
+Maximum R in the grid (RMax) =    10.19206 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMAx) =  50.00000 eV
+Maximum step size (MaxStep) =  10.19206 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.10000E+01
+    2  Center at =     0.07144 Angs  Alpha Max = 0.14700E+05
+    3  Center at =     1.11276 Angs  Alpha Max = 0.19200E+05
+    4  Center at =     1.19964 Angs  Alpha Max = 0.14700E+05
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.24811E-03     0.00198
+    2    8    16    0.34934E-03     0.00478
+    3    8    24    0.56228E-03     0.00928
+    4    8    32    0.75349E-03     0.01531
+    5    8    40    0.87839E-03     0.02233
+    6    8    48    0.89299E-03     0.02948
+    7    8    56    0.82181E-03     0.03605
+    8    8    64    0.79746E-03     0.04243
+    9    8    72    0.87999E-03     0.04947
+   10    8    80    0.10144E-02     0.05759
+   11    8    88    0.63907E-03     0.06270
+   12    8    96    0.49076E-03     0.06662
+   13    8   104    0.44016E-03     0.07015
+   14    8   112    0.16133E-03     0.07144
+   15    8   120    0.43646E-03     0.07493
+   16    8   128    0.46530E-03     0.07865
+   17    8   136    0.57358E-03     0.08324
+   18    8   144    0.87025E-03     0.09020
+   19    8   152    0.13836E-02     0.10127
+   20    8   160    0.21003E-02     0.11807
+   21    8   168    0.24487E-02     0.13766
+   22    8   176    0.30036E-02     0.16169
+   23    8   184    0.44832E-02     0.19756
+   24    8   192    0.69972E-02     0.25353
+   25    8   200    0.11546E-01     0.34590
+   26    8   208    0.14029E-01     0.45813
+   27    8   216    0.12903E-01     0.56136
+   28    8   224    0.12415E-01     0.66068
+   29    8   232    0.13702E-01     0.77030
+   30    8   240    0.15828E-01     0.89692
+   31    8   248    0.98306E-02     0.97556
+   32    8   256    0.62487E-02     1.02555
+   33    8   264    0.39719E-02     1.05733
+   34    8   272    0.25247E-02     1.07753
+   35    8   280    0.16048E-02     1.09037
+   36    8   288    0.10201E-02     1.09853
+   37    8   296    0.64840E-03     1.10371
+   38    8   304    0.46148E-03     1.10741
+   39    8   312    0.39438E-03     1.11056
+   40    8   320    0.27530E-03     1.11276
+   41    8   328    0.38190E-03     1.11582
+   42    8   336    0.40714E-03     1.11908
+   43    8   344    0.50188E-03     1.12309
+   44    8   352    0.76147E-03     1.12918
+   45    8   360    0.12106E-02     1.13887
+   46    8   368    0.19247E-02     1.15427
+   47    8   376    0.20665E-02     1.17080
+   48    8   384    0.13135E-02     1.18131
+   49    8   392    0.83492E-03     1.18798
+   50    8   400    0.56407E-03     1.19250
+   51    8   408    0.46335E-03     1.19620
+   52    8   416    0.42911E-03     1.19964
+   53    8   424    0.43646E-03     1.20313
+   54    8   432    0.46530E-03     1.20685
+   55    8   440    0.57358E-03     1.21144
+   56    8   448    0.87025E-03     1.21840
+   57    8   456    0.13836E-02     1.22947
+   58    8   464    0.21997E-02     1.24707
+   59    8   472    0.34972E-02     1.27505
+   60    8   480    0.55601E-02     1.31953
+   61    8   488    0.88398E-02     1.39025
+   62    8   496    0.14054E-01     1.50268
+   63    8   504    0.22344E-01     1.68143
+   64    8   512    0.31346E-01     1.93220
+   65    8   520    0.35860E-01     2.21908
+   66    8   528    0.40238E-01     2.54099
+   67    8   536    0.44103E-01     2.89381
+   68    8   544    0.47521E-01     3.27398
+   69    8   552    0.50548E-01     3.67836
+   70    8   560    0.53236E-01     4.10425
+   71    8   568    0.55627E-01     4.54926
+   72    8   576    0.57759E-01     5.01134
+   73    8   584    0.59666E-01     5.48866
+   74    8   592    0.61376E-01     5.97967
+   75    8   600    0.62914E-01     6.48299
+   76    8   608    0.64302E-01     6.99740
+   77    8   616    0.65557E-01     7.52186
+   78    8   624    0.66696E-01     8.05542
+   79    8   632    0.67733E-01     8.59729
+   80    8   640    0.68679E-01     9.14672
+   81    8   648    0.69545E-01     9.70308
+   82    8   656    0.61122E-01    10.19206
+Time Now =         0.2137  Delta time =         0.0262 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   15
+Maximum scattering m (mmaxs) =   15
+Maximum numerical integration l (lmaxi) =   30
+Maximum numerical integration m (mmaxi) =   30
+Maximum l to include in the asymptotic region (lmasym) =   13
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   13
+ Actual value of lmasym found =     13
+Number of regions of the same l expansion (NAngReg) =   12
+Angular regions
+    1 L =    2  from (    1)         0.00025  to (    7)         0.00174
+    2 L =    3  from (    8)         0.00198  to (   23)         0.00872
+    3 L =    4  from (   24)         0.00928  to (   31)         0.01455
+    4 L =    5  from (   32)         0.01531  to (   39)         0.02145
+    5 L =    6  from (   40)         0.02233  to (   47)         0.02858
+    6 L =    8  from (   48)         0.02948  to (   55)         0.03523
+    7 L =   10  from (   56)         0.03605  to (   63)         0.04163
+    8 L =   13  from (   64)         0.04243  to (   71)         0.04859
+    9 L =   15  from (   72)         0.04947  to (  160)         0.11807
+   10 L =   13  from (  161)         0.12052  to (  215)         0.54846
+   11 L =   15  from (  216)         0.56136  to (  520)         2.21908
+   12 L =   13  from (  521)         2.25932  to (  656)        10.19206
+There are     2 angular regions for computing spherical harmonics
+    1 lval =   13
+    2 lval =   15
+Maximum number of processors is       81
+Last grid points by processor WorkExp =     1.500
+Proc id =   -1  Last grid point =       1
+Proc id =    0  Last grid point =      80
+Proc id =    1  Last grid point =     112
+Proc id =    2  Last grid point =     144
+Proc id =    3  Last grid point =     168
+Proc id =    4  Last grid point =     208
+Proc id =    5  Last grid point =     240
+Proc id =    6  Last grid point =     264
+Proc id =    7  Last grid point =     296
+Proc id =    8  Last grid point =     320
+Proc id =    9  Last grid point =     352
+Proc id =   10  Last grid point =     376
+Proc id =   11  Last grid point =     408
+Proc id =   12  Last grid point =     432
+Proc id =   13  Last grid point =     464
+Proc id =   14  Last grid point =     496
+Proc id =   15  Last grid point =     520
+Proc id =   16  Last grid point =     552
+Proc id =   17  Last grid point =     592
+Proc id =   18  Last grid point =     624
+Proc id =   19  Last grid point =     656
+Time Now =         0.2253  Delta time =         0.0116 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -20.658500  S     1 at max irg =  328  r =   1.11582
+     2  Orig    2  Eng =  -15.846200  S     1 at max irg =  152  r =   0.10127
+     3  Orig    3  Eng =  -15.699700  S     1 at max irg =  424  r =   1.20313
+     4  Orig    4  Eng =   -1.614500  S     1 at max irg =  232  r =   0.77030
+     5  Orig    5  Eng =   -1.424100  S     1 at max irg =  240  r =   0.89692
+     6  Orig    6  Eng =   -0.834300  S     1 at max irg =  488  r =   1.39025
+     7  Orig    7  Eng =   -0.763300  P     1 at max irg =  336  r =   1.11908
+     8  Orig    8  Eng =   -0.763300  P     2 at max irg =  336  r =   1.11908
+     9  Orig    9  Eng =   -0.699000  S     1 at max irg =  496  r =   1.50268
+    10  Orig   10  Eng =   -0.491800  P     1 at max irg =  400  r =   1.19250
+    11  Orig   11  Eng =   -0.491800  P     2 at max irg =  400  r =   1.19250
+
+Rotation coefficients for orbital     1  grp =    1 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital     3  grp =    3 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital     4  grp =    4 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital     5  grp =    5 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital     6  grp =    6 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital     7  grp =    7 P     1
+     1 -0.0000000000    2  1.0000000000
+
+Rotation coefficients for orbital     8  grp =    7 P     2
+     1  1.0000000000    2  0.0000000000
+
+Rotation coefficients for orbital     9  grp =    8 S     1
+     1  1.0000000000
+
+Rotation coefficients for orbital    10  grp =    9 P     1
+     1  1.0000000000    2 -0.0000000000
+
+Rotation coefficients for orbital    11  grp =    9 P     2
+     1  0.0000000000    2  1.0000000000
+Number of orbital groups and degeneracis are         9
+  1  1  1  1  1  1  2  1  2
+Number of orbital groups and number of electrons when fully occupied
+         9
+  2  2  2  2  2  2  4  2  4
+Time Now =         0.3092  Delta time =         0.0838 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    9
+Orbital     1 of  S     1 symmetry normalization integral =  0.81878835
+Orbital     2 of  S     1 symmetry normalization integral =  0.99998680
+Orbital     3 of  S     1 symmetry normalization integral =  0.84555174
+Orbital     4 of  S     1 symmetry normalization integral =  0.99265639
+Orbital     5 of  S     1 symmetry normalization integral =  0.99186345
+Orbital     6 of  S     1 symmetry normalization integral =  0.99411081
+Orbital     7 of  P     1 symmetry normalization integral =  0.99936956
+Orbital     8 of  S     1 symmetry normalization integral =  0.99648221
+Orbital     9 of  P     1 symmetry normalization integral =  0.99826747
+Time Now =         0.8771  Delta time =         0.5679 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =     22.00000000
+Time Now =         0.8821  Delta time =         0.0050 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.22000000E+02 facnorm =  0.10000000E+01
+Time Now =         0.9028  Delta time =         0.0207 Electronic part
+Time Now =         0.9048  Delta time =         0.0020 End StPot
+
+----------------------------------------------------------------------
+vcppol - VCP polarization potential program
+----------------------------------------------------------------------
+
+Time Now =         0.9165  Delta time =         0.0116 End VcpPol
++ Data Record ScatEng - 0.5 1.0
++ Data Record ScatContSym - 'S'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =         0.9238  Delta time =         0.0074 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = S     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    20
+Number of asymptotic solutions on the right (NAsymR) =     6
+Number of asymptotic solutions on the left (NAsymL) =     6
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     6
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   18
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   18
+Time Now =         0.9340  Delta time =         0.0102 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =         3.6059  Delta time =         2.6719 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+ -0.20385196E+00-0.77713998E-01-0.47391621E-01 0.14379573E-02-0.68233346E-03
+ -0.13078488E-04
+     ROW  2
+ -0.77713998E-01-0.21390754E-01-0.61574105E-01-0.81109892E-02 0.55730715E-04
+ -0.64370596E-04
+     ROW  3
+ -0.47391622E-01-0.61574105E-01-0.42232978E-02-0.38855461E-01-0.41506709E-02
+  0.49490719E-04
+     ROW  4
+  0.14379554E-02-0.81109881E-02-0.38855461E-01-0.79731035E-02-0.28401113E-01
+ -0.26130828E-02
+     ROW  5
+ -0.68233349E-03 0.55730714E-04-0.41506709E-02-0.28401113E-01-0.55075845E-02
+ -0.22592055E-01
+     ROW  6
+ -0.13063862E-04-0.64367694E-04 0.49489995E-04-0.26130827E-02-0.22592055E-01
+ -0.36698395E-02
+ eigenphases
+ -0.2460650E+00 -0.6217234E-01 -0.2644128E-01  0.4106082E-02  0.2894138E-01
+  0.6010996E-01
+ eigenphase sum-0.241521E+00  scattering length=   1.28497
+ eps+pi 0.290007E+01  eps+2*pi 0.604166E+01
+
+MaxIter =   9 c.s. =      6.54566570 rmsk=     0.00000003  Abs eps    0.10000000E-05  Rel eps    0.43925747E-05
+Time Now =        14.8925  Delta time =        11.2866 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        14.9020  Delta time =         0.0095 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = S     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    20
+Number of asymptotic solutions on the right (NAsymR) =     6
+Number of asymptotic solutions on the left (NAsymL) =     6
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     6
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   18
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   18
+Time Now =        14.9082  Delta time =         0.0062 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        17.5805  Delta time =         2.6723 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+ -0.40999326E+00-0.45494824E-01-0.11181097E+00 0.39124841E-02-0.25016054E-02
+ -0.21697118E-04
+     ROW  2
+ -0.45494825E-01-0.71074305E-01-0.60595668E-01-0.12500020E-01 0.32789529E-04
+ -0.31585463E-03
+     ROW  3
+ -0.11181097E+00-0.60595671E-01 0.23771256E-01-0.40448321E-01-0.46224919E-02
+  0.13601680E-03
+     ROW  4
+  0.39124793E-02-0.12500014E-01-0.40448321E-01-0.19398371E-02-0.28753320E-01
+ -0.34524071E-02
+     ROW  5
+ -0.25016057E-02 0.32789157E-04-0.46224919E-02-0.28753320E-01-0.62109591E-02
+ -0.22640763E-01
+     ROW  6
+ -0.21697864E-04-0.31585472E-03 0.13601678E-03-0.34524071E-02-0.22640763E-01
+ -0.49485703E-02
+ eigenphases
+ -0.4199756E+00 -0.8829548E-01 -0.4176929E-01 -0.3530356E-02  0.2678489E-01
+  0.8301468E-01
+ eigenphase sum-0.443771E+00  scattering length=   1.75354
+ eps+pi 0.269782E+01  eps+2*pi 0.583941E+01
+
+MaxIter =   9 c.s. =      8.77957509 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.83352689E-05
+Time Now =        29.4002  Delta time =        11.8197 End ScatStab
++ Data Record ScatContSym - 'A2'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        29.4097  Delta time =         0.0094 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A2    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+No asymptotic partial waves with this value of LMaxK
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        29.4202  Delta time =         0.0105 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A2    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+No asymptotic partial waves with this value of LMaxK
++ Data Record ScatContSym - 'B1'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        29.4307  Delta time =         0.0105 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = B1    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =     9
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     1
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     1
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =    9
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   13
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =    9
+Time Now =        29.4367  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        30.5994  Delta time =         1.1627 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.55235438E-02
+ eigenphases
+  0.5523488E-02
+ eigenphase sum 0.552349E-02  scattering length=  -0.02881
+ eps+pi 0.314712E+01  eps+2*pi 0.628871E+01
+
+MaxIter =   3 c.s. =      0.00292136 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.86523573E-19
+Time Now =        31.1101  Delta time =         0.5106 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        31.1193  Delta time =         0.0093 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = B1    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =     9
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     1
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     1
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =    9
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   13
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =    9
+Time Now =        31.1253  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        32.2891  Delta time =         1.1638 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.78521985E-02
+ eigenphases
+  0.7852037E-02
+ eigenphase sum 0.785204E-02  scattering length=  -0.02896
+ eps+pi 0.314944E+01  eps+2*pi 0.629104E+01
+
+MaxIter =   3 c.s. =      0.00295181 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.23831416E-17
+Time Now =        32.8033  Delta time =         0.5142 End ScatStab
++ Data Record ScatContSym - 'B2'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        32.8127  Delta time =         0.0094 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = B2    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =     9
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     1
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     1
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =    9
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   13
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =    9
+Time Now =        32.8187  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        33.9865  Delta time =         1.1678 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.55235438E-02
+ eigenphases
+  0.5523488E-02
+ eigenphase sum 0.552349E-02  scattering length=  -0.02881
+ eps+pi 0.314712E+01  eps+2*pi 0.628871E+01
+
+MaxIter =   3 c.s. =      0.00292136 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.86523573E-19
+Time Now =        34.4955  Delta time =         0.5090 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        34.5048  Delta time =         0.0093 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = B2    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =     9
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     1
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     1
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =    9
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   13
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =    9
+Time Now =        34.5109  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        35.6818  Delta time =         1.1709 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.78521985E-02
+ eigenphases
+  0.7852037E-02
+ eigenphase sum 0.785204E-02  scattering length=  -0.02896
+ eps+pi 0.314944E+01  eps+2*pi 0.629104E+01
+
+MaxIter =   3 c.s. =      0.00295181 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.23831416E-17
+Time Now =        36.1896  Delta time =         0.5078 End ScatStab
++ Data Record ScatContSym - 'P'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        36.1989  Delta time =         0.0093 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = P     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    23
+Number of asymptotic solutions on the right (NAsymR) =     5
+Number of asymptotic solutions on the left (NAsymL) =     5
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     5
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   21
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   21
+Time Now =        36.2049  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        39.3456  Delta time =         3.1407 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.19637789E+00-0.59769087E-01-0.44308939E-03 0.10452454E-03-0.41375576E-04
+     ROW  2
+ -0.59769088E-01 0.10097118E-01-0.36902135E-01-0.36877316E-02 0.35782717E-04
+     ROW  3
+ -0.44308938E-03-0.36902135E-01-0.52964210E-02-0.27528567E-01-0.24714855E-02
+     ROW  4
+  0.10452504E-03-0.36877316E-02-0.27528567E-01-0.46590035E-02-0.22141123E-01
+     ROW  5
+ -0.41399781E-04 0.35787751E-04-0.24714907E-02-0.22141123E-01-0.33026652E-02
+ eigenphases
+ -0.5552447E-01 -0.1895737E-01  0.1438892E-01  0.3897894E-01  0.2111735E+00
+ eigenphase sum 0.190060E+00  scattering length=  -1.00355
+ eps+pi 0.333165E+01  eps+2*pi 0.647324E+01
+
+MaxIter =   9 c.s. =      4.70158837 rmsk=     0.00000001  Abs eps    0.10000000E-05  Rel eps    0.11015942E-05
+Time Now =        48.3377  Delta time =         8.9921 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        48.3470  Delta time =         0.0093 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = P     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    23
+Number of asymptotic solutions on the right (NAsymR) =     5
+Number of asymptotic solutions on the left (NAsymL) =     5
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     5
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   21
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   21
+Time Now =        48.3531  Delta time =         0.0061 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        51.4919  Delta time =         3.1388 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.31509666E+00-0.82121207E-01 0.16107580E-01-0.23080868E-03-0.10486682E-03
+     ROW  2
+ -0.82121216E-01 0.52823309E-01-0.41581672E-01-0.36197287E-02 0.50076796E-04
+     ROW  3
+  0.16107580E-01-0.41581672E-01 0.38889328E-02-0.28087705E-01-0.31856257E-02
+     ROW  4
+ -0.23080873E-03-0.36197287E-02-0.28087705E-01-0.49742558E-02-0.22196995E-01
+     ROW  5
+ -0.10486681E-03 0.50076676E-04-0.31856257E-02-0.22196995E-01-0.44320297E-02
+ eigenphases
+ -0.4712284E-01 -0.9788498E-02  0.2170907E-01  0.5669804E-01  0.3285252E+00
+ eigenphase sum 0.350021E+00  scattering length=  -1.34653
+ eps+pi 0.349161E+01  eps+2*pi 0.663321E+01
+
+MaxIter =   9 c.s. =      5.27125755 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.10007270E-04
+Time Now =        61.7069  Delta time =        10.2149 End ScatStab
++ Data Record ScatContSym - 'D'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        61.7162  Delta time =         0.0093 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = D     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    22
+Number of asymptotic solutions on the right (NAsymR) =     4
+Number of asymptotic solutions on the left (NAsymL) =     4
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     4
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   20
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   20
+Time Now =        61.7222  Delta time =         0.0061 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        64.6665  Delta time =         2.9443 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.37462518E-01-0.29085343E-01-0.24250132E-02 0.31256820E-04
+     ROW  2
+ -0.29085343E-01 0.18249127E-02-0.24637979E-01-0.20586657E-02
+     ROW  3
+ -0.24250132E-02-0.24637979E-01-0.21276949E-02-0.20727099E-01
+     ROW  4
+  0.31256820E-04-0.20586657E-02-0.20727099E-01-0.22012009E-02
+ eigenphases
+ -0.3853335E-01 -0.5985971E-02  0.2362622E-01  0.5580837E-01
+ eigenphase sum 0.349153E-01  scattering length=  -0.18221
+ eps+pi 0.317651E+01  eps+2*pi 0.631810E+01
+
+MaxIter =   4 c.s. =      0.49690794 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.25163519E-11
+Time Now =        67.5855  Delta time =         2.9189 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        67.5947  Delta time =         0.0092 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = D     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    22
+Number of asymptotic solutions on the right (NAsymR) =     4
+Number of asymptotic solutions on the left (NAsymL) =     4
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     4
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   20
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   20
+Time Now =        67.6008  Delta time =         0.0061 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        70.5489  Delta time =         2.9481 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.83387206E-01-0.31429855E-01-0.15792120E-02 0.13620717E-03
+     ROW  2
+ -0.31429855E-01 0.11611321E-01-0.25117054E-01-0.26144398E-02
+     ROW  3
+ -0.15792120E-02-0.25117054E-01-0.14852093E-02-0.20831905E-01
+     ROW  4
+  0.13620717E-03-0.26144398E-02-0.20831905E-01-0.28942888E-02
+ eigenphases
+ -0.3472992E-01  0.6241331E-03  0.2892886E-01  0.9551037E-01
+ eigenphase sum 0.903334E-01  scattering length=  -0.33411
+ eps+pi 0.323193E+01  eps+2*pi 0.637352E+01
+
+MaxIter =   4 c.s. =      0.53322491 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.14057798E-10
+Time Now =        73.4733  Delta time =         2.9245 End ScatStab
++ Data Record ScatContSym - 'F'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        73.4827  Delta time =         0.0093 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = F     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    21
+Number of asymptotic solutions on the right (NAsymR) =     3
+Number of asymptotic solutions on the left (NAsymL) =     3
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     3
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   19
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   19
+Time Now =        73.4888  Delta time =         0.0061 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        76.2247  Delta time =         2.7359 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.13470818E-01-0.18853239E-01-0.13604647E-02
+     ROW  2
+ -0.18853239E-01 0.20886682E-02-0.18110383E-01
+     ROW  3
+ -0.13604647E-02-0.18110383E-01-0.36426466E-03
+ eigenphases
+ -0.2316160E-01  0.7262134E-02  0.3108868E-01
+ eigenphase sum 0.151892E-01  scattering length=  -0.07924
+ eps+pi 0.315678E+01  eps+2*pi 0.629837E+01
+
+MaxIter =   3 c.s. =      0.14892781 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.11621361E-14
+Time Now =        77.7441  Delta time =         1.5194 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        77.7533  Delta time =         0.0092 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = F     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    21
+Number of asymptotic solutions on the right (NAsymR) =     3
+Number of asymptotic solutions on the left (NAsymL) =     3
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     3
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   19
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   19
+Time Now =        77.7593  Delta time =         0.0061 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        80.5130  Delta time =         2.7536 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.24834729E-01-0.19535923E-01-0.16459989E-02
+     ROW  2
+ -0.19535923E-01 0.42645254E-02-0.18243989E-01
+     ROW  3
+ -0.16459989E-02-0.18243989E-01-0.33567762E-03
+ eigenphases
+ -0.2123235E-01  0.1142394E-01  0.3855557E-01
+ eigenphase sum 0.287472E-01  scattering length=  -0.10607
+ eps+pi 0.317034E+01  eps+2*pi 0.631193E+01
+
+MaxIter =   3 c.s. =      0.09896504 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.12009603E-13
+Time Now =        82.0398  Delta time =         1.5268 End ScatStab
++ Data Record ScatContSym - 'G'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.50000000E+00 eV (  0.18374663E-01 AU)
+Time Now =        82.0490  Delta time =         0.0092 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = G     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    18
+Number of asymptotic solutions on the right (NAsymR) =     2
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   18
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   13
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   18
+Time Now =        82.0550  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    0.5000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103313E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.16103314E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      33
+Final point in integration =   0.44265103E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        84.5415  Delta time =         2.4865 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.79806836E-02-0.13599067E-01
+     ROW  2
+ -0.13599067E-01 0.22100196E-02
+ eigenphases
+ -0.8806211E-02  0.1899486E-01
+ eigenphase sum 0.101886E-01  scattering length=  -0.05315
+ eps+pi 0.315178E+01  eps+2*pi 0.629337E+01
+
+MaxIter =   3 c.s. =      0.04197036 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.21509937E-17
+Time Now =        85.5735  Delta time =         1.0320 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.11000000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        85.5827  Delta time =         0.0092 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = G     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    5
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    18
+Number of asymptotic solutions on the right (NAsymR) =     2
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   18
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  196
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   13
+Higest l included in the K matrix (lna) =    5
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   18
+Time Now =        85.5887  Delta time =         0.0060 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.11102230E-14 Asymp Coef   =  -0.32599331E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.12405682E-02 Asymp Moment =  -0.58137297E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.79956270E-18 Asymp Moment =   0.63649855E-15 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.48056744E-03 Asymp Moment =  -0.38255971E+00 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  2  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  3  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794537E-15
+ i =  4  exps = -0.77040806E+02 -0.20000000E+01  stpote = -0.15794538E-15
+For potential     3
+ i =  1  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  2  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  3  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+ i =  4  exps = -0.10666938E+01 -0.36524419E-01  stpote = -0.25327210E-05
+Number of asymptotic regions =      36
+Final point in integration =   0.35133697E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        88.0715  Delta time =         2.4828 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+  0.12077683E-01-0.13766358E-01
+     ROW  2
+ -0.13766358E-01 0.32481473E-02
+ eigenphases
+ -0.6793909E-02  0.2211624E-01
+ eigenphase sum 0.153223E-01  scattering length=  -0.05652
+ eps+pi 0.315691E+01  eps+2*pi 0.629851E+01
+
+MaxIter =   3 c.s. =      0.02562434 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.91495413E-16
+Time Now =        89.1024  Delta time =         1.0309 End ScatStab
+
++ Command TotalCrossSection
++ 
+Using LMaxK     5
+Continuum Symmetry S - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       6.545666      -0.241521
+       1.000000       8.779575      -0.443771
+Continuum Symmetry A2 - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       0.000000       0.000000
+       1.000000       0.000000       0.000000
+Continuum Symmetry B1 - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       0.002921       0.005523
+       1.000000       0.002952       0.007852
+Continuum Symmetry B2 - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       0.002921       0.005523
+       1.000000       0.002952       0.007852
+Continuum Symmetry P - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       4.701588       0.190060
+       1.000000       5.271258       0.350021
+Continuum Symmetry D - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       0.496908       0.034915
+       1.000000       0.533225       0.090333
+Continuum Symmetry F - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       0.148928       0.015189
+       1.000000       0.098965       0.028747
+Continuum Symmetry G - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       0.500000       0.041970       0.010189
+       1.000000       0.025624       0.015322
+Largest value of LMaxK found    5
+
+ Total Cross Sections
+
+ Energy      Total Cross Section
+   0.50000    17.33030
+   1.00000    20.64362
+Time Now =        89.1042  Delta time =         0.0018 Finalize

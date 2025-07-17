@@ -1,0 +1,2075 @@
+Execution on n0208.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  17:34:41.641 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test37
+#
+# electron scattering from SF6
+# using reduced symmetry (C4v) using the FixCharge data record to modify the recognized symmetry
+#
+  LMax   15     # maximum l to be used for wave functions
+  LMaxI  40     # maximum l value used to determine numerical angular grids
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+    0 0
+  VCorr 'PZ'
+  AsyPol
+   0.15   # SwitchD, distance where switching function is down to 0.1
+   7     # nterm, number of terms needed to define asymptotic potential
+   1     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+  16.198 # value of the spherical polarizability
+   2     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   4.656 # value of the spherical polarizability
+   3     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   4.656 # value of the spherical polarizability
+   4     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   4.656 # value of the spherical polarizability
+   5     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   4.656 # value of the spherical polarizability
+   6     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   4.656 # value of the spherical polarizability
+   7     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   4.656 # value of the spherical polarizability
+   3     # icrtyp, flag to determine where r match is, 3 for second crossing
+         # or at nearest approach
+   0     # ilntyp, flag to determine what matching line is used, 0 - use
+         # l = 0 radial function as matching function
+  ScatEng 1.0      # list of scattering energies
+  FegeEng 13.29   # Energy correction used in the fege potential
+  LMaxK   10    # Maximum l in the K matirx
+#
+FixCharge
+  2 10 'sym'
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test37.g03' 'g03'
+GetBlms
+ExpOrb
+GetPot
+  ScatContSym 'A1'  # Scattering symmetry
+Scat
+  ScatContSym 'E'  # Scattering symmetry
+Scat
+  GrnType  1     # type of Green function (0 -> K matrix, 1 -> T matrix)
+  ScatContSym 'A1'  # Scattering symmetry
+Scat
+  ScatContSym 'E'  # Scattering symmetry
+Scat
++ End of input reached
++ Data Record LMax - 15
++ Data Record LMaxI - 40
++ Data Record EMax - 50.0
++ Data Record EngForm - 0 0
++ Data Record VCorr - 'PZ'
++ Data Record AsyPol
++ 0.15 / 7 / 1 / 1 / 16.198 / 2 / 1 / 4.656 / 3 / 1 / 4.656 / 4 / 1 / 4.656 / 5 / 1 / 4.656 / 6 / 1 / 4.656 / 7 / 1
++ 4.656 / 3 / 0
++ Data Record ScatEng - 1.0
++ Data Record FegeEng - 13.29
++ Data Record LMaxK - 10
++ Data Record FixCharge - 2 10 'sym'
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test37.g03' 'g03'
+
+----------------------------------------------------------------------
+GaussianCnv - read input from Gaussian output
+----------------------------------------------------------------------
+
+Conversion using g03
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772083000000
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Command line = # RHF/6-311G(2D,2P) 6D 10F SCF=TIGHT GFINPUT PUNCH=MO
+CardFlag =    T
+Normal Mode flag =    F
+Selecting orbitals
+from     1  to    35  number already selected     0
+Number of orbitals selected is    35
+Highest orbital read in is =   35
+Time Now =         0.0135  Delta time =         0.0135 End GaussianCnv
+
+Atoms found    7  Coordinates in Angstroms
+Z = 16 ZS = 16 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  9 ZS = 10 r =   0.0000000000   0.0000000000   1.5602260000
+Z =  9 ZS =  9 r =   0.0000000000   1.5602260000   0.0000000000
+Z =  9 ZS =  9 r =  -1.5602260000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   1.5602260000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   0.0000000000  -1.5602260000   0.0000000000
+Z =  9 ZS =  9 r =   0.0000000000   0.0000000000  -1.5602260000
+Maximum distance from expansion center is    1.5602260000
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+#############################################################################
+Expansion center is not at the center of charge
+For high symmetry systems, a better expansion point may be
+    0.0000000000    0.0000000000    0.0219750141
+#############################################################################
+Found point group  C4v  
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup C2v  
+Time Now =         0.0346  Delta time =         0.0210 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000  10  1.56023   9  1.56023
+  2  0.00000  1.00000  0.00000   9  1.56023   9  1.56023
+  3 -1.00000  0.00000  0.00000   9  1.56023   9  1.56023
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  1.00000  0.00000  0.00000
+  3  0.00000  1.00000  0.00000
+Computed default value of LMaxA =   14
+Determining angular grid in GetAxMax  LMax =   15  LMaxA =   14  LMaxAb =   30
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14   3
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C4v
+LMax    15
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)    E     (  2)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     6
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         39       1  1  1
+ A2        1         2         22      -1 -1  1
+ B1        1         3         31       1  1  1
+ B2        1         4         30      -1 -1  1
+ E         1         5         62      -1  1 -1
+ E         2         6         62       1 -1 -1
+Time Now =         0.1123  Delta time =         0.0777 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   2)    2(   3)    3(   4)    4(   6)    5(   8)    6(  10)    7(  12)    8(  15)    9(  18)
+          10(  21)   11(  24)   12(  28)   13(  32)   14(  36)
+A2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   2)    6(   3)    7(   4)    8(   6)    9(   8)
+          10(  10)   11(  12)   12(  15)   13(  18)   14(  21)
+B1    1    0(   0)    1(   0)    2(   1)    3(   2)    4(   3)    5(   4)    6(   6)    7(   8)    8(  10)    9(  12)
+          10(  15)   11(  18)   12(  21)   13(  24)   14(  28)
+B2    1    0(   0)    1(   0)    2(   1)    3(   2)    4(   3)    5(   4)    6(   6)    7(   8)    8(  10)    9(  12)
+          10(  15)   11(  18)   12(  21)   13(  24)   14(  28)
+E     1    0(   0)    1(   1)    2(   2)    3(   4)    4(   6)    5(   9)    6(  12)    7(  16)    8(  20)    9(  25)
+          10(  30)   11(  36)   12(  42)   13(  49)   14(  56)
+E     2    0(   0)    1(   1)    2(   2)    3(   4)    4(   6)    5(   9)    6(  12)    7(  16)    8(  20)    9(  25)
+          10(  30)   11(  36)   12(  42)   13(  49)   14(  56)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C2v
+LMax    30
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2      -1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  3       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  4       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1  -1   1  -1
+irep =    4  sym =B2    1  eigs =   1   1  -1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1        256       1  1  1
+ A2        1         2        225      -1 -1  1
+ B1        1         3        240      -1  1 -1
+ B2        1         4        240       1 -1 -1
+Time Now =         0.1163  Delta time =         0.0040 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =    7.6821016117 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+HFacGauss    10.00000
+HFacWave     10.00000
+GridFac       1
+MinExpFac   300.00000
+Maximum R in the grid (RMax) =     7.68210 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMAx) =  50.00000 eV
+Maximum step size (MaxStep) =   0.01058 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.93413E+05
+    2  Center at =     1.56023 Angs  Alpha Max = 0.24300E+05
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.17314E-03     0.00139
+    2    8    16    0.18458E-03     0.00286
+    3    8    24    0.22753E-03     0.00468
+    4    8    32    0.34522E-03     0.00744
+    5    8    40    0.54886E-03     0.01183
+    6    8    48    0.87261E-03     0.01882
+    7    8    56    0.13873E-02     0.02991
+    8    8    64    0.22057E-02     0.04756
+    9    8    72    0.35067E-02     0.07561
+   10    8    80    0.55752E-02     0.12021
+   11    8    88    0.88638E-02     0.19112
+   12   64   152    0.10584E-01     0.86847
+   13   48   200    0.10584E-01     1.37648
+   14    8   208    0.83742E-02     1.44348
+   15    8   216    0.53174E-02     1.48601
+   16    8   224    0.33800E-02     1.51305
+   17    8   232    0.21484E-02     1.53024
+   18    8   240    0.13656E-02     1.54117
+   19    8   248    0.86805E-03     1.54811
+   20    8   256    0.55188E-03     1.55253
+   21    8   264    0.40163E-03     1.55574
+   22    8   272    0.34784E-03     1.55852
+   23    8   280    0.21299E-03     1.56023
+   24    8   288    0.33947E-03     1.56294
+   25    8   296    0.36190E-03     1.56584
+   26    8   304    0.44612E-03     1.56941
+   27    8   312    0.67686E-03     1.57482
+   28    8   320    0.10761E-02     1.58343
+   29    8   328    0.17109E-02     1.59712
+   30    8   336    0.27201E-02     1.61888
+   31    8   344    0.43245E-02     1.65347
+   32    8   352    0.68754E-02     1.70848
+   33   64   416    0.10584E-01     2.38582
+   34   64   480    0.10584E-01     3.06317
+   35   64   544    0.10584E-01     3.74052
+   36   64   608    0.10584E-01     4.41786
+   37   64   672    0.10584E-01     5.09521
+   38   64   736    0.10584E-01     5.77256
+   39   64   800    0.10584E-01     6.44990
+   40   64   864    0.10584E-01     7.12725
+   41   48   912    0.10584E-01     7.63526
+   42    8   920    0.58550E-02     7.68210
+Time Now =         0.1503  Delta time =         0.0340 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   15
+Maximum scattering m (mmaxs) =   15
+Maximum numerical integration l (lmaxi) =   40
+Maximum numerical integration m (mmaxi) =   40
+Maximum l to include in the asymptotic region (lmasym) =   14
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   14
+ Actual value of lmasym found =     14
+Number of regions of the same l expansion (NAngReg) =   11
+Angular regions
+    1 L =    2  from (    1)         0.00017  to (    7)         0.00121
+    2 L =    5  from (    8)         0.00139  to (   23)         0.00445
+    3 L =    6  from (   24)         0.00468  to (   31)         0.00710
+    4 L =    7  from (   32)         0.00744  to (   47)         0.01794
+    5 L =    8  from (   48)         0.01882  to (   55)         0.02853
+    6 L =   10  from (   56)         0.02991  to (   63)         0.04535
+    7 L =   11  from (   64)         0.04756  to (   71)         0.07211
+    8 L =   13  from (   72)         0.07561  to (   79)         0.11464
+    9 L =   14  from (   80)         0.12021  to (  151)         0.85789
+   10 L =   15  from (  152)         0.86847  to (  448)         2.72450
+   11 L =   14  from (  449)         2.73508  to (  920)         7.68210
+There are     2 angular regions for computing spherical harmonics
+    1 lval =   14
+    2 lval =   15
+Maximum number of processors is      114
+Last grid points by processor WorkExp =     1.500
+Proc id =   -1  Last grid point =       1
+Proc id =    0  Last grid point =      96
+Proc id =    1  Last grid point =     144
+Proc id =    2  Last grid point =     184
+Proc id =    3  Last grid point =     224
+Proc id =    4  Last grid point =     264
+Proc id =    5  Last grid point =     304
+Proc id =    6  Last grid point =     344
+Proc id =    7  Last grid point =     384
+Proc id =    8  Last grid point =     424
+Proc id =    9  Last grid point =     472
+Proc id =   10  Last grid point =     512
+Proc id =   11  Last grid point =     560
+Proc id =   12  Last grid point =     608
+Proc id =   13  Last grid point =     648
+Proc id =   14  Last grid point =     696
+Proc id =   15  Last grid point =     744
+Proc id =   16  Last grid point =     784
+Proc id =   17  Last grid point =     832
+Proc id =   18  Last grid point =     880
+Proc id =   19  Last grid point =     920
+Time Now =         0.1875  Delta time =         0.0371 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -92.447865  A1    1 at max irg =   56  r =   0.02991
+     2  Orig    2  Eng =  -26.385593  A1    1 at max irg =  280  r =   1.56023
+     3  Orig    3  Eng =  -26.385593  B1    1 at max irg =  280  r =   1.56023
+     4  Orig    4  Eng =  -26.385568  E     1 at max irg =  280  r =   1.56023
+     5  Orig    5  Eng =  -26.385568  E     2 at max irg =  280  r =   1.56023
+     6  Orig    6  Eng =  -26.385568  A1    1 at max irg =  280  r =   1.56023
+     7  Orig    7  Eng =  -26.385523  A1    1 at max irg =  280  r =   1.56023
+     8  Orig    8  Eng =   -9.388747  A1    1 at max irg =   88  r =   0.19112
+     9  Orig    9  Eng =   -7.077915  E     1 at max irg =   88  r =   0.19112
+    10  Orig   10  Eng =   -7.077915  E     2 at max irg =   88  r =   0.19112
+    11  Orig   11  Eng =   -7.077915  A1    1 at max irg =   88  r =   0.19112
+    12  Orig   12  Eng =   -1.843564  A1    1 at max irg =  200  r =   1.37648
+    13  Orig   13  Eng =   -1.710841  E     1 at max irg =  280  r =   1.56023
+    14  Orig   14  Eng =   -1.710841  E     2 at max irg =  280  r =   1.56023
+    15  Orig   15  Eng =   -1.710841  A1    1 at max irg =  280  r =   1.56023
+    16  Orig   16  Eng =   -1.655936  A1    1 at max irg =  280  r =   1.56023
+    17  Orig   17  Eng =   -1.655936  B1    1 at max irg =  280  r =   1.56023
+    18  Orig   18  Eng =   -1.099954  A1    1 at max irg =  360  r =   1.79315
+    19  Orig   19  Eng =   -0.924335  E     1 at max irg =  360  r =   1.79315
+    20  Orig   20  Eng =   -0.924335  E     2 at max irg =  360  r =   1.79315
+    21  Orig   21  Eng =   -0.924335  A1    1 at max irg =  360  r =   1.79315
+    22  Orig   22  Eng =   -0.831327  E     1 at max irg =  320  r =   1.58343
+    23  Orig   23  Eng =   -0.831327  E     2 at max irg =  320  r =   1.58343
+    24  Orig   24  Eng =   -0.831327  B2    1 at max irg =  320  r =   1.58343
+    25  Orig   25  Eng =   -0.737660  A1    1 at max irg =  368  r =   1.87781
+    26  Orig   26  Eng =   -0.737660  B1    1 at max irg =  368  r =   1.87781
+    27  Orig   27  Eng =   -0.724814  E     1 at max irg =  320  r =   1.58343
+    28  Orig   28  Eng =   -0.724814  E     2 at max irg =  320  r =   1.58343
+    29  Orig   29  Eng =   -0.724814  B1    1 at max irg =  320  r =   1.58343
+    30  Orig   30  Eng =   -0.712046  E     1 at max irg =  336  r =   1.61888
+    31  Orig   31  Eng =   -0.712046  E     2 at max irg =  336  r =   1.61888
+    32  Orig   32  Eng =   -0.712046  A1    1 at max irg =  336  r =   1.61888
+    33  Orig   33  Eng =   -0.677520  E     1 at max irg =  320  r =   1.58343
+    34  Orig   34  Eng =   -0.677520  E     2 at max irg =  320  r =   1.58343
+    35  Orig   35  Eng =   -0.677520  A2    1 at max irg =  320  r =   1.58343
+
+Rotation coefficients for orbital     1  grp =    1 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 A1    1
+     1 -0.1769666129    2  0.9842168551
+
+Rotation coefficients for orbital     3  grp =    2 B1    1
+     1  0.9842168551    2  0.1769666129
+
+Rotation coefficients for orbital     4  grp =    3 E     1
+     1  1.0000000000    2  0.0000000000
+
+Rotation coefficients for orbital     5  grp =    3 E     2
+     1  0.0000000000    2 -1.0000000000
+
+Rotation coefficients for orbital     6  grp =    4 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     7  grp =    5 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     8  grp =    6 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     9  grp =    7 E     1
+     1  0.0000000000    2 -0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    10  grp =    7 E     2
+     1  1.0000000000    2  0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital    11  grp =    7 A1    1
+     1 -0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    12  grp =    8 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    13  grp =    9 E     1
+     1  1.0000000000    2  0.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    14  grp =    9 E     2
+     1  0.0000000000    2  0.0000000000    3 -1.0000000000
+
+Rotation coefficients for orbital    15  grp =    9 A1    1
+     1 -0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    16  grp =   10 A1    1
+     1  0.5002934503    2  0.8658559139
+
+Rotation coefficients for orbital    17  grp =   10 B1    1
+     1  0.8658559139    2 -0.5002934503
+
+Rotation coefficients for orbital    18  grp =   11 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    19  grp =   12 E     1
+     1 -0.0000000000    2  1.0000000000
+
+Rotation coefficients for orbital    20  grp =   12 E     2
+     1  1.0000000000    2  0.0000000000
+
+Rotation coefficients for orbital    21  grp =   13 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    22  grp =   14 E     1
+     1  1.0000000000    2  0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital    23  grp =   14 E     2
+     1  0.0000000000    2  0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    24  grp =   14 B2    1
+     1 -0.0000000000    2  1.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital    25  grp =   15 A1    1
+     1 -0.1633372268    2  0.9865702967
+
+Rotation coefficients for orbital    26  grp =   15 B1    1
+     1  0.9865702967    2  0.1633372268
+
+Rotation coefficients for orbital    27  grp =   16 E     1
+     1 -0.0000000000    2  1.0000000000
+
+Rotation coefficients for orbital    28  grp =   16 E     2
+     1  1.0000000000    2  0.0000000000
+
+Rotation coefficients for orbital    29  grp =   17 B1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    30  grp =   18 E     1
+     1  1.0000000000    2 -0.0000000000
+
+Rotation coefficients for orbital    31  grp =   18 E     2
+     1  0.0000000000    2  1.0000000000
+
+Rotation coefficients for orbital    32  grp =   19 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    33  grp =   20 E     1
+     1 -0.0000000000    2 -0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    34  grp =   20 E     2
+     1  1.0000000000    2 -0.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    35  grp =   20 A2    1
+     1  0.0000000000    2  1.0000000000    3  0.0000000000
+Number of orbital groups and degeneracis are        27
+  1  1  1  2  1  1  1  2  1  1  2  1  1  1  1  2  1  2  1  1
+  1  2  1  2  1  2  1
+Number of orbital groups and number of electrons when fully occupied
+        27
+  2  2  2  4  2  2  2  4  2  2  4  2  2  2  2  4  2  4  2  2
+  2  4  2  4  2  4  2
+Time Now =         0.5133  Delta time =         0.3259 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =   27
+Orbital     1 of  A1    1 symmetry normalization integral =  0.99999999
+Orbital     2 of  A1    1 symmetry normalization integral =  0.55843519
+Orbital     3 of  B1    1 symmetry normalization integral =  0.55904162
+Orbital     4 of  E     1 symmetry normalization integral =  0.58871336
+Orbital     5 of  A1    1 symmetry normalization integral =  0.58773011
+Orbital     6 of  A1    1 symmetry normalization integral =  0.53527437
+Orbital     7 of  A1    1 symmetry normalization integral =  0.99999990
+Orbital     8 of  E     1 symmetry normalization integral =  0.99999984
+Orbital     9 of  A1    1 symmetry normalization integral =  0.99999984
+Orbital    10 of  A1    1 symmetry normalization integral =  0.96812201
+Orbital    11 of  E     1 symmetry normalization integral =  0.96362569
+Orbital    12 of  A1    1 symmetry normalization integral =  0.96361788
+Orbital    13 of  A1    1 symmetry normalization integral =  0.95603091
+Orbital    14 of  B1    1 symmetry normalization integral =  0.95603293
+Orbital    15 of  A1    1 symmetry normalization integral =  0.98514733
+Orbital    16 of  E     1 symmetry normalization integral =  0.99135577
+Orbital    17 of  A1    1 symmetry normalization integral =  0.99135485
+Orbital    18 of  E     1 symmetry normalization integral =  0.98380449
+Orbital    19 of  B2    1 symmetry normalization integral =  0.98380448
+Orbital    20 of  A1    1 symmetry normalization integral =  0.99404941
+Orbital    21 of  B1    1 symmetry normalization integral =  0.99404961
+Orbital    22 of  E     1 symmetry normalization integral =  0.98304626
+Orbital    23 of  B1    1 symmetry normalization integral =  0.98304624
+Orbital    24 of  E     1 symmetry normalization integral =  0.98575829
+Orbital    25 of  A1    1 symmetry normalization integral =  0.98575827
+Orbital    26 of  E     1 symmetry normalization integral =  0.97340207
+Orbital    27 of  A2    1 symmetry normalization integral =  0.97340206
+Time Now =         2.3049  Delta time =         1.7916 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =     70.00000000
+Time Now =         2.3244  Delta time =         0.0195 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.70000000E+02 facnorm =  0.10000000E+01
+Time Now =         2.3562  Delta time =         0.0318 Electronic part
+Time Now =         2.3592  Delta time =         0.0030 End StPot
+
+----------------------------------------------------------------------
+vcppol - VCP polarization potential program
+----------------------------------------------------------------------
+
+Time Now =         2.3758  Delta time =         0.0166 End VcpPol
+
+----------------------------------------------------------------------
+AsyPol - Program to match polarization potential to asymptotic form
+----------------------------------------------------------------------
+
+Switching distance (SwitchD) =     0.15000
+Number of terms in the asymptotic polarization potential (nterm) =    7
+Term =    1  At center =    1
+Explicit coordinates =  0.00000000E+00  0.00000000E+00  0.00000000E+00
+Type =    1
+Polarizability =  0.16198000E+02 au
+Term =    2  At center =    2
+Explicit coordinates =  0.00000000E+00  0.00000000E+00  0.15602260E+01
+Type =    1
+Polarizability =  0.46560000E+01 au
+Term =    3  At center =    3
+Explicit coordinates =  0.00000000E+00  0.15602260E+01  0.00000000E+00
+Type =    1
+Polarizability =  0.46560000E+01 au
+Term =    4  At center =    4
+Explicit coordinates = -0.15602260E+01  0.00000000E+00  0.00000000E+00
+Type =    1
+Polarizability =  0.46560000E+01 au
+Term =    5  At center =    5
+Explicit coordinates =  0.15602260E+01  0.00000000E+00  0.00000000E+00
+Type =    1
+Polarizability =  0.46560000E+01 au
+Term =    6  At center =    6
+Explicit coordinates =  0.00000000E+00 -0.15602260E+01  0.00000000E+00
+Type =    1
+Polarizability =  0.46560000E+01 au
+Term =    7  At center =    7
+Explicit coordinates =  0.00000000E+00  0.00000000E+00 -0.15602260E+01
+Type =    1
+Polarizability =  0.46560000E+01 au
+Last center is at (RCenterX) =   1.56023 Angs
+ Radial matching parameter (icrtyp) =    3
+ Matching line type (ilntyp) =    0
+ Using closest approach for matching r
+ Matching point is at r =   3.2642829744 Angs
+Matching uses closest approach (iMatchType = 2)
+First nonzero weight at(RFirstWt)  R =        2.80917 Angs
+Last point of the switching region (RLastWt) R=        3.74052 Angs
+Total asymptotic potential is   0.44134000E+02 a.u.
+Time Now =         2.4117  Delta time =         0.0359 End AsyPol
++ Data Record ScatContSym - 'A1'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13290000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =         2.4278  Delta time =         0.0161 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =   10
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Use fixed asymptotic polarization =  0.44134000E+02  au
+Number of integration regions used =    67
+Number of partial waves (np) =    39
+Number of asymptotic solutions on the right (NAsymR) =    21
+Number of asymptotic solutions on the left (NAsymL) =    21
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =    21
+Maximum in the asymptotic region (lpasym) =   14
+Number of partial waves in the asymptotic region (npasym) =   36
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  225
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   10
+Highest l used at large r (lpasym) =   14
+Higest l used in the asymptotic potential (lpzb) =   28
+Maximum L used in the homogeneous solution (LMaxHomo) =   14
+Number of partial waves in the homogeneous solution (npHomo) =   36
+Time Now =         2.4387  Delta time =         0.0109 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.44134000E+02 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.71054274E-14 Asymp Coef   =  -0.67338124E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.00000000E+00 Asymp Moment =   0.00000000E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.20816682E-16 Asymp Moment =  -0.70959517E-14 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) = -0.84293969E-05 Asymp Moment =   0.28733971E-02 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403438E-15
+ i =  2  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403621E-15
+ i =  3  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403958E-15
+ i =  4  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29404399E-15
+For potential     3
+ i =  1  lvals =   6   8  stpote =  0.38328994E-04  second term =  0.51185855E-04
+ i =  2  lvals =   5   5  stpote =  0.21335400E-18  second term =  0.00000000E+00
+ i =  3  lvals =   6   6  stpote = -0.13451988E-18  second term =  0.00000000E+00
+ i =  4  lvals =   6   6  stpote = -0.81775788E-11  second term =  0.00000000E+00
+Number of asymptotic regions =      17
+Final point in integration =   0.15494516E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =         8.3012  Delta time =         5.8625 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+ -0.10924749E+01-0.44210756E-16 0.45589821E-03-0.36713328E-17-0.14510657E-02
+ -0.17140310E-02 0.43869788E-19-0.96933309E-19 0.93439439E-05-0.35133082E-05
+ -0.21040108E-22 0.13798900E-19-0.71647607E-07-0.47022880E-07-0.88402035E-07
+ -0.36038987E-22 0.55159311E-22-0.29896304E-21 0.11698502E-09 0.98240982E-10
+ -0.69164286E-10
+     ROW  2
+ -0.91678757E-17-0.56795269E-01-0.72660630E-17-0.32594562E-02-0.88854665E-20
+ -0.93565068E-20 0.11199003E-03 0.18317267E-03 0.45323085E-20-0.36542534E-19
+ -0.74083402E-06-0.43998233E-07-0.36281741E-22 0.33519653E-22 0.28228122E-20
+  0.77164244E-09 0.99737808E-09 0.90003202E-09-0.41581207E-22-0.17114183E-21
+ -0.12219627E-20
+     ROW  3
+  0.45589821E-03-0.19742760E-16 0.54822869E-01-0.43652452E-17-0.10009619E-02
+  0.89450927E-03 0.52151616E-19 0.35544674E-19 0.28809544E-04 0.76353470E-04
+ -0.33209113E-21-0.49792726E-20-0.38006514E-07-0.15447107E-06 0.11322535E-06
+  0.74160538E-22-0.95494732E-22-0.11598855E-20 0.16571254E-09 0.28204925E-09
+  0.68367336E-09
+     ROW  4
+ -0.25679733E-17-0.32590060E-02-0.53738139E-17 0.33183874E-01 0.21118981E-19
+ -0.93958694E-18-0.32657173E-03 0.33268277E-03 0.18736939E-20 0.20734574E-19
+  0.95145625E-05 0.28977985E-04-0.57071765E-22-0.19507042E-21 0.59700349E-20
+ -0.72321543E-08-0.45487815E-07 0.34152640E-07-0.29933261E-22 0.93917778E-23
+ -0.18880714E-20
+     ROW  5
+ -0.14510652E-02 0.56980774E-20-0.10009619E-02-0.69240481E-19 0.14884181E-01
+  0.33490579E-03-0.20011864E-18-0.52183787E-21-0.14164771E-03-0.23393238E-04
+ -0.38881118E-19-0.10747355E-21 0.13192178E-04 0.40672349E-05 0.34609303E-06
+  0.14061751E-21 0.10798097E-20 0.16429092E-22-0.20601987E-07 0.59020621E-09
+ -0.13921504E-08
+     ROW  6
+ -0.17140304E-02 0.11333561E-18 0.89450927E-03-0.14413945E-17 0.33490579E-03
+  0.15136518E-01 0.45066033E-20-0.68995822E-18-0.12349177E-03 0.13306749E-03
+  0.44140802E-22 0.43430418E-22 0.32497693E-07 0.39074752E-05 0.13530139E-04
+  0.20735287E-23-0.42615608E-22 0.41093444E-20-0.16431726E-08-0.16499432E-07
+  0.12434924E-07
+     ROW  7
+  0.38443856E-19 0.11162314E-03 0.56163403E-20-0.32657173E-03-0.21710652E-18
+  0.23147925E-20 0.76743335E-02 0.14721046E-03-0.18600625E-18-0.16247932E-22
+ -0.51080709E-04-0.15057813E-04-0.15842480E-21-0.27189781E-19 0.22008609E-21
+  0.51957507E-05 0.33433909E-05 0.24343188E-06-0.66894917E-22 0.21959527E-20
+ -0.39233683E-23
+     ROW  8
+ -0.12743053E-18 0.18315776E-03 0.28020890E-19 0.33268277E-03-0.48467819E-21
+ -0.70636646E-18 0.14721046E-03 0.80760828E-02 0.11494928E-20-0.35053154E-18
+ -0.56908211E-04 0.67466466E-04 0.15995651E-22 0.33548445E-21-0.19086882E-19
+  0.92072604E-08 0.18821572E-05 0.72806183E-05-0.17054891E-22-0.25371002E-22
+  0.20391397E-20
+     ROW  9
+  0.93463953E-05 0.17341375E-20 0.28808494E-04 0.21393843E-20-0.14164764E-03
+ -0.12349168E-03-0.19257526E-18-0.82288347E-22 0.46273553E-02 0.76839945E-04
+ -0.10862379E-18 0.13685314E-21-0.16814365E-04-0.15253353E-04-0.97062815E-05
+  0.61170506E-23-0.16200888E-19 0.99781725E-22 0.24649888E-05 0.24570110E-05
+  0.16703854E-06
+     ROW 10
+ -0.35122585E-05-0.35595537E-19 0.76350709E-04 0.22973147E-19-0.23393270E-04
+  0.13306746E-03-0.32186711E-21-0.34082008E-18 0.76839945E-04 0.48324338E-02
+  0.41234471E-21-0.17785147E-18-0.10676004E-07-0.29887768E-04 0.39273947E-04
+  0.65030926E-22 0.36982250E-22-0.12091158E-19 0.29907465E-08 0.10118896E-05
+  0.42928835E-05
+     ROW 11
+  0.31229881E-21-0.73581549E-06 0.13731777E-21 0.95132869E-05-0.36440988E-19
+  0.17563550E-21-0.51080701E-04-0.56908216E-04-0.10641714E-18 0.62564781E-22
+  0.30212430E-02 0.43993740E-04-0.13537190E-21-0.55650549E-19-0.12369942E-21
+ -0.12576739E-04-0.20328873E-05-0.64533663E-05 0.83271122E-23-0.88986851E-20
+  0.17284839E-22
+     ROW 12
+  0.10136947E-19-0.60579010E-07-0.59251838E-20 0.28974821E-04-0.53286024E-21
+ -0.56283657E-20-0.15057793E-04 0.67466457E-04 0.17498572E-21-0.17530846E-18
+  0.43993740E-04 0.31235311E-02 0.68075689E-22-0.38937069E-21-0.88455621E-19
+ -0.46187327E-08-0.17175643E-04 0.25085413E-04-0.13373476E-22 0.54972618E-22
+ -0.10161008E-19
+     ROW 13
+ -0.71582509E-07 0.12424089E-21-0.38123514E-07-0.73068297E-21 0.13192170E-04
+  0.32487381E-07 0.32300258E-21-0.42982779E-22-0.16814365E-04-0.10676018E-07
+ -0.49307994E-22 0.13307198E-21 0.21064046E-02 0.46006366E-05 0.18694017E-08
+  0.11640178E-20 0.48201762E-22 0.68164727E-22-0.10412107E-04-0.31407327E-06
+ -0.16922134E-09
+     ROW 14
+ -0.46979368E-07 0.62980233E-22-0.15445401E-06 0.48490022E-21 0.40672293E-05
+  0.39074683E-05-0.22167935E-19 0.21817025E-21-0.15253353E-04-0.29887768E-04
+ -0.56352094E-19-0.66944369E-22 0.46006366E-05 0.20824251E-02 0.26958508E-04
+  0.15822354E-21-0.29118018E-19 0.32549425E-22-0.86670610E-05 0.26817544E-05
+ -0.44307088E-05
+     ROW 15
+ -0.88314550E-07 0.41530923E-20 0.11325484E-06 0.11071504E-19 0.34608239E-06
+  0.13530127E-04 0.17818219E-21-0.18568869E-19-0.97062814E-05 0.39273948E-04
+  0.32475732E-22-0.89398519E-19 0.18694017E-08 0.26958508E-04 0.21361299E-02
+  0.38138845E-22-0.30478621E-21-0.40413737E-19-0.19870341E-08-0.10557094E-04
+  0.17152817E-04
+     ROW 16
+ -0.79044188E-22 0.77413130E-09 0.19030159E-21-0.72288761E-08 0.18866217E-21
+ -0.18669503E-21 0.51957507E-05 0.92072655E-08 0.57793298E-22-0.16429959E-23
+ -0.12576739E-04-0.46187327E-08-0.37576627E-21 0.85808874E-23 0.17311282E-21
+  0.14802090E-02 0.46198852E-05 0.10904414E-08-0.84850305E-21-0.54866644E-22
+  0.39037024E-22
+     ROW 17
+  0.31205619E-21 0.99225459E-09 0.10024765E-21-0.45484607E-07 0.19812307E-20
+  0.15421143E-21 0.33433909E-05 0.18821572E-05-0.15639810E-19 0.10837597E-21
+ -0.20328873E-05-0.17175643E-04-0.41004634E-22-0.27348000E-19 0.47710089E-23
+  0.46198852E-05 0.14956058E-02 0.17417213E-04-0.85643959E-22-0.13464949E-19
+  0.40245558E-22
+     ROW 18
+ -0.19052363E-20 0.87096168E-09-0.40687109E-21 0.34150694E-07-0.83016102E-22
+  0.54610481E-20 0.24343191E-06 0.72806196E-05-0.95208023E-22-0.11570890E-19
+ -0.64533663E-05 0.25085413E-04-0.11061398E-21 0.10520549E-21-0.41672432E-19
+  0.10904414E-08 0.17417213E-04 0.15255204E-02-0.20807673E-22 0.20239932E-22
+ -0.19942669E-19
+     ROW 19
+  0.11686506E-09-0.25666976E-23 0.16569871E-09-0.38559161E-21-0.20601974E-07
+ -0.16431535E-08 0.35241973E-22-0.93618857E-22 0.24649888E-05 0.29907465E-08
+ -0.51398919E-22 0.65085727E-22-0.10412107E-04-0.86670610E-05-0.19870341E-08
+  0.26536834E-21 0.41981066E-22-0.11776082E-21 0.10899101E-02 0.39602267E-05
+  0.58524455E-09
+     ROW 20
+  0.98138923E-10-0.94440913E-22 0.28200663E-09-0.10600842E-21 0.59021071E-09
+ -0.16499436E-07 0.13288266E-20 0.87421050E-22 0.24570110E-05 0.10118896E-05
+ -0.95481692E-20-0.56040828E-22-0.31407327E-06 0.26817544E-05-0.10557094E-04
+ -0.32902569E-22-0.13737428E-19 0.60289485E-22 0.39602267E-05 0.11098755E-02
+  0.11742072E-04
+     ROW 21
+ -0.69087093E-10-0.53513417E-21 0.68357148E-09-0.36147880E-20-0.13921573E-08
+  0.12434914E-07-0.14698673E-22 0.35325085E-20 0.16703854E-06 0.42928835E-05
+ -0.32373945E-22-0.99397919E-20-0.16922134E-09-0.44307088E-05 0.17152817E-04
+ -0.20733593E-22 0.33596445E-24-0.20362066E-19 0.58524455E-09 0.11742072E-04
+  0.11274737E-02
+ eigenphases
+ -0.8295656E+00 -0.5685259E-01  0.1088802E-02  0.1104544E-02  0.1133294E-02
+  0.1478098E-02  0.1489120E-02  0.1533395E-02  0.2070255E-02  0.2106815E-02
+  0.2147335E-02  0.3003648E-02  0.3139650E-02  0.4598175E-02  0.4857508E-02
+  0.7619782E-02  0.8124773E-02  0.1460839E-01  0.1537484E-01  0.3329793E-01
+  0.5481306E-01
+ eigenphase sum-0.722829E+00  scattering length=   3.25365
+ eps+pi 0.241876E+01  eps+2*pi 0.556036E+01
+
+MaxIter =   7 c.s. =     26.43371467 rmsk=     0.00000000  Abs eps    0.11348907E-05  Rel eps    0.81506856E-01
+Time Now =        71.0478  Delta time =        62.7466 End ScatStab
++ Data Record ScatContSym - 'E'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13290000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =        71.0671  Delta time =         0.0193 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = E     1
+Form of the Green's operator used (iGrnType) =     0
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =   10
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Use fixed asymptotic polarization =  0.44134000E+02  au
+Number of integration regions used =    67
+Number of partial waves (np) =    62
+Number of asymptotic solutions on the right (NAsymR) =    30
+Number of asymptotic solutions on the left (NAsymL) =    30
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =    30
+Maximum in the asymptotic region (lpasym) =   14
+Number of partial waves in the asymptotic region (npasym) =   56
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  225
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   10
+Highest l used at large r (lpasym) =   14
+Higest l used in the asymptotic potential (lpzb) =   28
+Maximum L used in the homogeneous solution (LMaxHomo) =   14
+Number of partial waves in the homogeneous solution (npHomo) =   56
+Time Now =        71.0758  Delta time =         0.0087 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.44134000E+02 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.71054274E-14 Asymp Coef   =  -0.67338124E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.00000000E+00 Asymp Moment =   0.00000000E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.20816682E-16 Asymp Moment =  -0.70959517E-14 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) = -0.84293969E-05 Asymp Moment =   0.28733971E-02 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403438E-15
+ i =  2  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403621E-15
+ i =  3  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403958E-15
+ i =  4  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29404399E-15
+For potential     3
+ i =  1  lvals =   6   8  stpote =  0.38328994E-04  second term =  0.51185855E-04
+ i =  2  lvals =   5   5  stpote =  0.21335400E-18  second term =  0.00000000E+00
+ i =  3  lvals =   6   6  stpote = -0.13451988E-18  second term =  0.00000000E+00
+ i =  4  lvals =   6   6  stpote = -0.81775788E-11  second term =  0.00000000E+00
+Number of asymptotic regions =      17
+Final point in integration =   0.15494516E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        80.6624  Delta time =         9.5866 End SolveHomo
+     REAL PART -  Final K matrix
+     ROW  1
+ -0.57641501E-01-0.51083383E-17-0.26582672E-02 0.21376585E-02 0.45620715E-19
+  0.64888225E-20 0.15040082E-03-0.64356820E-05 0.15303773E-03 0.42119680E-21
+  0.18818055E-21-0.15496807E-19-0.24966100E-06-0.55790970E-06 0.57561703E-07
+  0.41848478E-06 0.81783841E-22-0.44562169E-21 0.44172132E-21 0.16557054E-20
+  0.92268519E-09 0.39446076E-09 0.35972320E-09 0.10549877E-09 0.11251320E-08
+ -0.18009225E-21-0.16807737E-21 0.54108149E-22 0.31483527E-22 0.34046868E-21
+     ROW  2
+ -0.48616942E-17 0.70292221E-01-0.52746069E-19-0.30574019E-17 0.60965618E-03
+  0.27360586E-03 0.53667948E-21 0.12821624E-20 0.12218816E-18 0.33136149E-04
+ -0.13574830E-04 0.66447460E-04-0.27124703E-21-0.84613164E-21-0.14625202E-21
+ -0.95268920E-20 0.16557745E-07-0.15483058E-06 0.69464149E-07 0.78039809E-07
+ -0.12838423E-21 0.62334589E-22-0.11831551E-21-0.39075319E-21-0.14660358E-22
+  0.22618625E-09-0.57222469E-10 0.23827424E-09-0.13235549E-09 0.55111022E-09
+     ROW  3
+ -0.26582538E-02-0.35028199E-19 0.32225623E-01-0.94109551E-03-0.70796313E-18
+ -0.34162088E-19 0.51577946E-05-0.36744789E-03 0.77417242E-04-0.33873546E-21
+ -0.52097809E-19-0.16617357E-20 0.27178856E-04-0.65913833E-07 0.11126293E-04
+ -0.11575785E-05 0.53664789E-22 0.40444217E-22 0.89584507E-20-0.57194942E-22
+  0.12061472E-09-0.56805198E-07 0.64415019E-09 0.13232901E-08 0.52756995E-08
+  0.29904387E-24-0.30751514E-22 0.57591252E-23 0.24887121E-21-0.28473424E-22
+     ROW  4
+  0.21376666E-02-0.34994710E-17-0.94109552E-03 0.31942330E-01 0.69559694E-19
+ -0.15204463E-17-0.23664769E-03 0.19153063E-03 0.19149270E-03 0.23776780E-20
+ -0.16951627E-20 0.19885124E-19-0.12522611E-06 0.10213350E-04-0.43487792E-05
+  0.26448716E-04 0.25574780E-21-0.44600122E-22-0.11554098E-20 0.30159019E-20
+ -0.66873920E-08 0.31727276E-08-0.44347126E-07 0.21208793E-07 0.27729268E-07
+ -0.18229616E-22 0.29478706E-23 0.11546698E-21 0.71061961E-23-0.10069332E-20
+     ROW  5
+  0.33809273E-17 0.60965618E-03-0.73293869E-18 0.20863141E-19 0.14077026E-01
+ -0.31698260E-03-0.65573279E-20-0.56292202E-18 0.38055131E-20 0.24776385E-06
+ -0.85644914E-04 0.34011399E-04 0.60161516E-22 0.50729576E-23-0.33690059E-19
+ -0.45437640E-21 0.87364302E-05-0.11421348E-07 0.75479460E-05-0.59633106E-06
+  0.25086966E-22 0.21904619E-21-0.11332197E-21 0.43968731E-20-0.40636934E-22
+  0.21406852E-11-0.22413908E-07 0.18327520E-09 0.35322415E-08 0.25253898E-08
+     ROW  6
+  0.86373839E-19 0.27360586E-03 0.31537363E-20-0.11730192E-17-0.31698260E-03
+  0.14866514E-01 0.45549844E-20-0.23351648E-20-0.68352574E-18-0.93457495E-04
+  0.72064622E-04 0.10006379E-03 0.16950129E-21-0.23586334E-21-0.10032229E-20
+ -0.22266072E-19-0.24185056E-07 0.40657276E-05-0.18136008E-05 0.12767025E-04
+ -0.18716834E-21-0.14180101E-21 0.97341015E-22 0.28583831E-21 0.46912213E-20
+ -0.15992054E-08 0.72952042E-09-0.15842736E-07 0.79104180E-08 0.11059517E-07
+     ROW  7
+  0.15040059E-03 0.45084575E-21 0.51577554E-05-0.23664745E-03-0.72695478E-20
+  0.54898760E-21 0.79785182E-02-0.29571751E-06 0.64208182E-04-0.50427211E-19
+  0.26320181E-20 0.10676291E-21 0.41894905E-09-0.64348202E-04 0.18280774E-07
+ -0.48140567E-05-0.15139353E-21-0.14617441E-19-0.14935320E-21-0.44946634E-23
+  0.72763892E-05-0.39066773E-11 0.17462879E-05-0.61380372E-09 0.66170483E-07
+ -0.29524591E-22 0.43220689E-22-0.33744578E-21 0.18956491E-22 0.33930920E-22
+     ROW  8
+ -0.64356395E-05-0.21289968E-19-0.36744777E-03 0.19153064E-03-0.57032090E-18
+ -0.34659334E-20-0.29571886E-06 0.76973148E-02-0.12944233E-03-0.26637643E-20
+ -0.29496028E-18 0.59239818E-20-0.34433869E-04 0.49417849E-07-0.14222305E-04
+  0.17818873E-04-0.12941522E-21-0.63933954E-21-0.22382057E-19-0.42765043E-22
+ -0.67872488E-11 0.37306156E-05-0.30371734E-08 0.48783041E-05-0.33769951E-06
+ -0.33931864E-22 0.46397811E-22 0.56051551E-22 0.43580477E-20-0.26027804E-23
+     ROW  9
+  0.15303752E-03 0.10359250E-18 0.77417333E-04 0.19149280E-03 0.73892493E-20
+ -0.70009959E-18 0.64208182E-04-0.12944233E-03 0.80135325E-02 0.40400641E-21
+ -0.23419966E-21-0.35482403E-18 0.38078724E-07-0.44280417E-04 0.33559266E-04
+  0.56436848E-04-0.74993654E-22 0.19240140E-21 0.17717749E-21-0.21373295E-19
+  0.51807511E-08-0.60679972E-08 0.19059905E-05-0.89857056E-06 0.69883732E-05
+ -0.44345333E-22-0.28827708E-22-0.42620196E-22 0.10282140E-21 0.47067513E-20
+     ROW 10
+  0.52596609E-21 0.33093416E-04-0.53117389E-21 0.23056403E-20 0.24794820E-06
+ -0.93457164E-04-0.54559163E-19-0.32737430E-20-0.63055125E-21 0.46398922E-02
+ -0.57707083E-07 0.40427817E-04-0.32652222E-20-0.54325838E-19 0.12954721E-20
+  0.79878913E-22 0.10100366E-10-0.30108287E-04 0.60156136E-08-0.39366214E-05
+ -0.26980875E-21-0.16677993E-21-0.11119762E-19 0.77783261E-22-0.12235882E-21
+  0.32824584E-05-0.45834119E-12 0.16410754E-05-0.28433602E-09 0.58186422E-07
+     ROW 11
+  0.13936621E-20-0.13543792E-04-0.71037331E-19-0.18219300E-20-0.85643908E-04
+  0.72064881E-04 0.35391369E-20-0.29624690E-18-0.64842694E-21-0.57707083E-07
+  0.46805951E-02-0.63244415E-04-0.22669243E-21-0.22290539E-20-0.14095792E-18
+  0.17915861E-20-0.22496393E-04 0.12579051E-07 0.41551169E-05 0.10323112E-04
+ -0.69832664E-22 0.94968692E-22-0.35789526E-21-0.19924660E-19-0.16144927E-21
+ -0.78749053E-12 0.18431340E-05-0.98215211E-09 0.31968143E-05-0.20692112E-06
+     ROW 12
+ -0.19199467E-19 0.66447711E-04-0.23166498E-20 0.13862065E-19 0.34011403E-04
+  0.10006380E-03-0.74327949E-21 0.58438269E-20-0.36798254E-18 0.40427817E-04
+ -0.63244418E-04 0.48108403E-02-0.29460350E-21-0.26493256E-21-0.35315991E-21
+ -0.17597630E-18 0.11910906E-07-0.23512277E-04 0.17816250E-04 0.34800674E-04
+ -0.78851721E-23 0.28213698E-21 0.10102505E-22 0.60421410E-22-0.18442328E-19
+  0.20293847E-08-0.18642889E-08 0.99923715E-06-0.49707383E-06 0.41628257E-05
+     ROW 13
+ -0.25742536E-06 0.29198080E-21 0.27168435E-04-0.12174453E-06-0.18088251E-21
+  0.56667722E-22 0.40513245E-09-0.34433797E-04 0.38061809E-07-0.34896878E-20
+  0.74948977E-23 0.38056621E-22 0.30851331E-02-0.10600025E-10 0.97224065E-05
+ -0.60086740E-08-0.14842095E-20 0.73741555E-21 0.11507798E-21-0.17473820E-21
+  0.54604253E-14-0.17919431E-04 0.48466638E-12-0.69393294E-06 0.51143510E-09
+ -0.15564403E-21-0.21015440E-20-0.37413009E-22 0.16714287E-21-0.42459737E-23
+     ROW 14
+ -0.54537940E-06-0.47199033E-21-0.65409665E-07 0.10210739E-04 0.40585900E-21
+ -0.69618441E-21-0.64348194E-04 0.49398355E-07-0.44280434E-04-0.51778228E-19
+ -0.24097598E-20 0.41120750E-21-0.10600025E-10 0.30023232E-02-0.15588669E-07
+  0.25295872E-04-0.19673928E-20-0.34459535E-19 0.22187333E-20-0.30272668E-21
+ -0.90369461E-05 0.12733352E-11-0.11725742E-04 0.22000312E-08-0.29517756E-05
+ -0.11742044E-21-0.64109642E-21-0.55472384E-20 0.19360892E-22-0.32884978E-22
+     ROW 15
+  0.50281837E-07 0.10368538E-20 0.11122088E-04-0.43458474E-05-0.36597814E-19
+ -0.13298287E-21 0.18268595E-07-0.14222272E-04 0.33559266E-04 0.19200132E-20
+ -0.14192731E-18 0.11400621E-20 0.97224065E-05-0.15588669E-07 0.30550701E-02
+ -0.34801053E-04 0.12717992E-21-0.11411117E-20-0.73681228E-19 0.15713587E-20
+  0.82778014E-12-0.14142872E-04 0.39996869E-08 0.82710954E-05 0.64077262E-05
+  0.74774193E-22 0.10468852E-21-0.68979448E-21-0.83430754E-20 0.64791474E-22
+     ROW 16
+  0.42514126E-06-0.11332540E-19-0.11534119E-05 0.26439765E-04-0.32811365E-21
+ -0.24152183E-19-0.48140088E-05 0.17818827E-04 0.56436831E-04-0.54532220E-21
+  0.23134217E-20-0.18056052E-18-0.60086740E-08 0.25295872E-04-0.34801053E-04
+  0.31145256E-02 0.17420775E-22-0.43211229E-22 0.92831816E-21-0.89716608E-19
+ -0.18846031E-08 0.41452307E-08-0.13558317E-04 0.10349905E-04 0.23017770E-04
+ -0.13365345E-21 0.12673249E-22 0.45485575E-21-0.35057789E-21-0.10363473E-19
+     ROW 17
+  0.33056453E-21 0.16476907E-07 0.89704312E-21 0.24228928E-21 0.87365318E-05
+ -0.24185263E-07-0.59660278E-21-0.50022493E-21 0.14734698E-21 0.10100366E-10
+ -0.22496393E-04 0.11910871E-07-0.47912263E-20-0.23085060E-20 0.12886688E-21
+ -0.57398681E-22 0.20694147E-02-0.13272444E-11 0.87511319E-05-0.27477325E-08
+ -0.14998752E-20-0.42172548E-20 0.69215070E-21-0.14641534E-21-0.49652177E-22
+  0.52976567E-16-0.11263011E-04 0.11653343E-12-0.75998703E-06 0.30796330E-09
+     ROW 18
+ -0.65997099E-21-0.15464310E-06 0.71031245E-22 0.13608735E-21-0.11420740E-07
+  0.40657288E-05-0.18914627E-19-0.24117442E-21 0.98903052E-22-0.30108287E-04
+  0.12579051E-07-0.23512277E-04 0.75681055E-21-0.35975282E-19-0.69233915E-21
+ -0.74096038E-22-0.13272445E-11 0.20658981E-02-0.51435417E-08 0.16330346E-04
+  0.42987445E-22-0.11962305E-20-0.17242983E-19 0.13983096E-20 0.27812176E-21
+ -0.74750477E-05 0.23581191E-12-0.32413673E-05 0.89538514E-09-0.21861046E-05
+     ROW 19
+  0.29378832E-21 0.69324292E-07 0.13551508E-19-0.35277579E-21 0.75479679E-05
+ -0.18136022E-05-0.34085591E-21-0.21991696E-19 0.29385262E-21 0.60156136E-08
+  0.41551169E-05 0.17816249E-04-0.10764608E-21 0.18720454E-20-0.69889971E-19
+ -0.49521838E-21 0.87511319E-05-0.51435417E-08 0.21020662E-02-0.20782077E-04
+  0.25429659E-22 0.23680396E-21-0.33190669E-21-0.35384600E-19 0.15873104E-20
+  0.19358594E-12-0.90797010E-05 0.14862085E-08 0.83917580E-05 0.41907507E-05
+     ROW 20
+ -0.25075668E-20 0.77907094E-07 0.24106540E-21-0.55738199E-20-0.59633267E-06
+  0.12767023E-04-0.23002150E-21-0.41788791E-21-0.21928480E-19-0.39366214E-05
+  0.10323112E-04 0.34800674E-04-0.43972085E-23 0.92521694E-22 0.23398456E-20
+ -0.90136434E-19-0.27477325E-08 0.16330346E-04-0.20782077E-04 0.21318536E-02
+ -0.21569366E-23-0.63564985E-22 0.15886389E-21 0.51059260E-21-0.41448802E-19
+ -0.10298151E-08 0.16136884E-08-0.83312195E-05 0.64267832E-05 0.16100179E-04
+     ROW 21
+  0.89889394E-09-0.12366277E-21 0.12369017E-09-0.66770247E-08 0.28887210E-22
+ -0.10567329E-21 0.72763898E-05-0.67835590E-11 0.51807837E-08-0.37140241E-21
+ -0.56411243E-22 0.16345420E-21 0.54604286E-14-0.90369461E-05 0.82778014E-12
+ -0.18846031E-08-0.13442958E-20 0.26206521E-21 0.22182465E-22-0.22428703E-22
+  0.15011973E-02-0.57310430E-16 0.23732214E-05-0.90455217E-13 0.34975715E-09
+ -0.55286965E-21 0.27824058E-21 0.42478999E-23 0.36366439E-22-0.72920225E-22
+     ROW 22
+  0.40309552E-09 0.14175970E-21-0.56788492E-07 0.31646944E-08 0.21556185E-22
+ -0.21491697E-21-0.38706396E-11 0.37306157E-05-0.60679721E-08-0.33212533E-21
+  0.28278854E-21-0.90769453E-23-0.17919431E-04 0.12733352E-11-0.14142872E-04
+  0.41452307E-08-0.25670485E-20-0.13706416E-20 0.35608002E-21-0.69484768E-22
+ -0.57304411E-16 0.14731275E-02-0.26025539E-12 0.69215375E-05-0.12408584E-08
+ -0.97598539E-21-0.26271214E-20 0.69304273E-21-0.78306089E-22-0.70490937E-22
+     ROW 23
+  0.35020639E-09-0.10376740E-21 0.64219266E-09-0.44342809E-07 0.44111242E-22
+  0.28312266E-21 0.17462879E-05-0.30371186E-08 0.19059906E-05-0.10116360E-19
+ -0.61491954E-21 0.26684156E-22 0.48466639E-12-0.11725742E-04 0.39996869E-08
+ -0.13558317E-04 0.64112952E-21-0.18889105E-19 0.24628116E-22 0.14168980E-21
+  0.23732214E-05-0.26025539E-12 0.14842553E-02-0.19634975E-08 0.10915104E-04
+ -0.15597810E-21-0.82334125E-21-0.11191535E-19 0.97810991E-21-0.89622328E-22
+     ROW 24
+  0.11811971E-09 0.30944298E-22 0.13357340E-08 0.21201622E-07 0.77229145E-20
+ -0.30445396E-22-0.61377325E-09 0.48783044E-05-0.89857064E-06-0.16951567E-21
+ -0.14184329E-19-0.46287693E-21-0.69393294E-06 0.22000312E-08 0.82710954E-05
+  0.10349905E-04-0.48736311E-22 0.10631129E-20-0.35220792E-19 0.52769578E-21
+ -0.90455217E-13 0.69215375E-05-0.19634975E-08 0.15071536E-02-0.13190381E-04
+ -0.70565366E-22 0.98652387E-22-0.32432526E-21-0.17862436E-19 0.10430084E-20
+     ROW 25
+  0.11192301E-08-0.26837863E-20 0.52745374E-08 0.27716313E-07 0.58027455E-22
+  0.65902888E-20 0.66170555E-07-0.33769958E-06 0.69883737E-05 0.48536207E-22
+  0.12028091E-21-0.13985731E-19 0.51143510E-09-0.29517756E-05 0.64077262E-05
+  0.23017770E-04-0.12198571E-23-0.60488362E-22 0.13880912E-20-0.47179791E-19
+  0.34975715E-09-0.12408584E-08 0.10915104E-04-0.13190381E-04 0.15232837E-02
+  0.44160699E-22 0.10444379E-22 0.16812153E-21 0.44349204E-21-0.20243372E-19
+     ROW 26
+  0.24786000E-22 0.22549835E-09-0.66256573E-22-0.34805420E-22 0.21427253E-11
+ -0.15992043E-08 0.11420689E-23-0.16514331E-23-0.13592573E-22 0.32824584E-05
+ -0.78749053E-12 0.20293847E-08-0.34730056E-21-0.22834393E-21 0.30906071E-22
+ -0.16622811E-21 0.52973534E-16-0.74750477E-05 0.19358594E-12-0.10298151E-08
+ -0.24475309E-21-0.12470052E-20-0.21856206E-22-0.11597814E-22-0.47150867E-22
+  0.10945570E-02 0.10333817E-17 0.25949299E-05-0.31573244E-13 0.24529427E-09
+     ROW 27
+ -0.18519412E-21-0.57006071E-10-0.27424947E-21 0.39777460E-22-0.22413894E-07
+  0.72952183E-09 0.10599191E-21-0.38152869E-22 0.25121375E-22-0.45834119E-12
+  0.18431340E-05-0.18642893E-08-0.16130767E-20-0.46654020E-21 0.10714606E-21
+ -0.76811530E-22-0.11263011E-04 0.23581191E-12-0.90797010E-05 0.16136884E-08
+  0.30231952E-21-0.32253118E-20-0.74268284E-21-0.46562629E-23-0.76224785E-22
+  0.10364738E-17 0.10908846E-02-0.64271540E-13 0.52974549E-05-0.58678838E-09
+     ROW 28
+  0.10530133E-21 0.23633581E-09 0.66856122E-22 0.19784347E-22 0.18326618E-09
+ -0.15842735E-07 0.61031372E-21-0.34126056E-22 0.67305517E-23 0.16410754E-05
+ -0.98215211E-09 0.99923715E-06-0.12105454E-22-0.57574355E-20-0.57641303E-21
+  0.11649584E-22 0.11653343E-12-0.32413673E-05 0.14862085E-08-0.83312195E-05
+  0.76382366E-22 0.79743316E-21-0.97247701E-20-0.22054657E-21 0.94165779E-22
+  0.25949299E-05-0.64271541E-13 0.11023896E-02-0.83691037E-09 0.75343103E-05
+     ROW 29
+  0.60141418E-22-0.13202631E-09-0.42638840E-21 0.12163012E-22 0.35322472E-08
+  0.79104203E-08-0.48866826E-22 0.51259803E-20 0.19534584E-21-0.28433602E-09
+  0.31968143E-05-0.49707383E-06-0.10961353E-23-0.22281232E-22-0.96432835E-20
+ -0.40808013E-21-0.75998703E-06 0.89538514E-09 0.83917580E-05 0.64267832E-05
+  0.51066863E-22-0.64566668E-22 0.96514845E-21-0.16141744E-19 0.48520843E-21
+ -0.31573244E-13 0.52974549E-05-0.83691037E-09 0.11168970E-02-0.87797128E-05
+     ROW 30
+ -0.18126440E-21 0.55042289E-09-0.11855619E-21-0.39386282E-20 0.25253849E-08
+  0.11059514E-07 0.49052047E-22-0.43380775E-22 0.40990306E-20 0.58186422E-07
+ -0.20692112E-06 0.41628257E-05 0.34476185E-23 0.20712055E-22 0.15533651E-21
+ -0.84888278E-20 0.30796330E-09-0.21861046E-05 0.41907507E-05 0.16100179E-04
+  0.17858078E-22 0.40458085E-23-0.39558873E-22 0.11139953E-20-0.23086243E-19
+  0.24529427E-09-0.58678838E-09 0.75343103E-05-0.87797128E-05 0.11262124E-02
+ eigenphases
+ -0.5770623E-01  0.1089506E-02  0.1093526E-02  0.1100610E-02  0.1113587E-02
+  0.1132960E-02  0.1471242E-02  0.1480463E-02  0.1501074E-02  0.1502522E-02
+  0.1532633E-02  0.2060602E-02  0.2066990E-02  0.2095554E-02  0.2145423E-02
+  0.2994479E-02  0.3039690E-02  0.3086531E-02  0.3134860E-02  0.4623800E-02
+  0.4662170E-02  0.4843310E-02  0.7643389E-02  0.7944676E-02  0.8093137E-02
+  0.1395765E-01  0.1497919E-01  0.3112577E-01  0.3315904E-01  0.7018477E-01
+ eigenphase sum 0.177153E+00  scattering length=  -0.66037
+ eps+pi 0.331875E+01  eps+2*pi 0.646034E+01
+
+MaxIter =   7 c.s. =      0.52937969 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.49929872E-02
+Time Now =       169.5436  Delta time =        88.8812 End ScatStab
++ Data Record GrnType - 1
++ Data Record ScatContSym - 'A1'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13290000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =       169.5628  Delta time =         0.0192 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =   10
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Use fixed asymptotic polarization =  0.44134000E+02  au
+Number of integration regions used =    67
+Number of partial waves (np) =    39
+Number of asymptotic solutions on the right (NAsymR) =    21
+Number of asymptotic solutions on the left (NAsymL) =    21
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =    21
+Maximum in the asymptotic region (lpasym) =   14
+Number of partial waves in the asymptotic region (npasym) =   36
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  225
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   10
+Highest l used at large r (lpasym) =   14
+Higest l used in the asymptotic potential (lpzb) =   28
+Maximum L used in the homogeneous solution (LMaxHomo) =   14
+Number of partial waves in the homogeneous solution (npHomo) =   36
+Time Now =       169.5714  Delta time =         0.0086 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.44134000E+02 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.71054274E-14 Asymp Coef   =  -0.67338124E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.00000000E+00 Asymp Moment =   0.00000000E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.20816682E-16 Asymp Moment =  -0.70959517E-14 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) = -0.84293969E-05 Asymp Moment =   0.28733971E-02 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403438E-15
+ i =  2  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403621E-15
+ i =  3  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403958E-15
+ i =  4  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29404399E-15
+For potential     3
+ i =  1  lvals =   6   8  stpote =  0.38328994E-04  second term =  0.51185855E-04
+ i =  2  lvals =   5   5  stpote =  0.21335400E-18  second term =  0.00000000E+00
+ i =  3  lvals =   6   6  stpote = -0.13451988E-18  second term =  0.00000000E+00
+ i =  4  lvals =   6   6  stpote = -0.81775788E-11  second term =  0.00000000E+00
+Number of asymptotic regions =      17
+Final point in integration =   0.15494516E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       175.4681  Delta time =         5.8967 End SolveHomo
+      Final T matrix
+     ROW  1
+  (-0.49804831E+00, 0.54410770E+00) (-0.32301417E-16, 0.11219863E-16)
+  ( 0.21959062E-03,-0.21505789E-03) (-0.63650972E-18,-0.69514860E-19)
+  (-0.67262795E-03, 0.71220292E-03) (-0.79419954E-03, 0.84161911E-03)
+  ( 0.62781411E-20,-0.70856038E-20) (-0.47910426E-19, 0.50761104E-19)
+  ( 0.44912305E-05,-0.44334015E-05) (-0.16883258E-05, 0.16688019E-05)
+  ( 0.10899863E-21,-0.40385903E-22) ( 0.63805909E-20,-0.68898546E-20)
+  (-0.42225288E-07, 0.26611816E-07) (-0.27711026E-07, 0.17469344E-07)
+  (-0.52090385E-07, 0.32852998E-07) (-0.16611430E-22, 0.18035543E-22)
+  ( 0.23993095E-22,-0.28232406E-22) (-0.14046520E-21, 0.14497621E-21)
+  ( 0.80809925E-10,-0.31231266E-10) ( 0.67855534E-10,-0.26269424E-10)
+  (-0.47787045E-10, 0.18335116E-10)
+     ROW  2
+  (-0.11589777E-16, 0.57399558E-17) (-0.56614167E-01, 0.32274073E-02)
+  (-0.33148171E-17,-0.95959108E-18) (-0.32523296E-02, 0.76461529E-04)
+  (-0.99973642E-20, 0.29115509E-19) ( 0.15776393E-18, 0.19871151E-19)
+  ( 0.11169673E-03,-0.43941820E-05) ( 0.18263675E-03,-0.99608622E-05)
+  ( 0.34718290E-20, 0.51152522E-21) (-0.36289907E-19, 0.34144624E-20)
+  (-0.73997272E-06,-0.73396887E-08) (-0.45263769E-07,-0.81296263E-07)
+  (-0.33705126E-22, 0.42517052E-23) ( 0.46818913E-22,-0.23145753E-22)
+  ( 0.27881361E-20,-0.24086698E-21) ( 0.79177713E-09, 0.57233339E-09)
+  ( 0.10285619E-08, 0.81250324E-09) ( 0.96828082E-09, 0.11999799E-08)
+  (-0.41216345E-22, 0.29319124E-23) (-0.16986500E-21, 0.10630182E-22)
+  (-0.12169074E-20, 0.78009914E-22)
+     ROW  3
+  ( 0.21959065E-03,-0.21505786E-03) (-0.14882867E-17, 0.33257809E-17)
+  ( 0.54658459E-01, 0.29984351E-02) (-0.48550665E-17, 0.16277249E-18)
+  (-0.99725726E-03,-0.69580630E-04) ( 0.89054797E-03, 0.61668502E-04)
+  ( 0.10669969E-19, 0.16905016E-19) ( 0.37897879E-19, 0.84758917E-21)
+  ( 0.28714487E-04, 0.17467418E-05) ( 0.76091168E-04, 0.46843445E-05)
+  (-0.26479606E-21, 0.13364700E-22) (-0.49723333E-20,-0.42040569E-21)
+  (-0.36929325E-07,-0.15782291E-07) (-0.15378471E-06,-0.12059353E-07)
+  ( 0.11184537E-06, 0.20817874E-07) ( 0.74491752E-22, 0.40671745E-23)
+  (-0.93194694E-22,-0.61781887E-23) (-0.11563948E-20,-0.62218690E-22)
+  ( 0.15920941E-09, 0.10106566E-09) ( 0.27333116E-09, 0.14643366E-09)
+  ( 0.65949783E-09, 0.38460914E-09)
+     ROW  4
+  (-0.12538075E-19, 0.10091183E-17) (-0.32510552E-02, 0.76681517E-04)
+  (-0.25096870E-17,-0.87044592E-19) ( 0.33147259E-01, 0.11107898E-02)
+  (-0.67872076E-20, 0.52513703E-20) (-0.14305294E-17,-0.68645517E-19)
+  (-0.32611479E-03,-0.13643934E-04) ( 0.33219553E-03, 0.13068207E-04)
+  ( 0.20713135E-20, 0.16033857E-21) ( 0.20648470E-19, 0.52192444E-21)
+  ( 0.95030060E-05, 0.34552838E-06) ( 0.28941327E-04, 0.10788241E-05)
+  (-0.50752023E-22,-0.24468212E-23) (-0.16697003E-21, 0.22670959E-23)
+  ( 0.59623343E-20, 0.16348251E-21) (-0.71459927E-08,-0.20640261E-08)
+  (-0.45393347E-07,-0.25598606E-08) ( 0.33991658E-07, 0.41840855E-08)
+  (-0.29667564E-22,-0.81524034E-24) ( 0.93518188E-23, 0.18259460E-26)
+  (-0.18855609E-20,-0.59585381E-22)
+     ROW  5
+  (-0.67262759E-03, 0.71220288E-03) ( 0.45068117E-19, 0.13435050E-19)
+  (-0.99725727E-03,-0.69580629E-04) ( 0.92293822E-20, 0.24498809E-20)
+  ( 0.14881813E-01, 0.22361115E-03) ( 0.33595701E-03, 0.10344471E-04)
+  (-0.20002206E-18,-0.42814683E-20) (-0.30140734E-21,-0.27046096E-21)
+  (-0.14160622E-03,-0.28418241E-05) (-0.23378927E-04,-0.50117602E-06)
+  (-0.38862934E-19,-0.67443092E-21) (-0.95976029E-22,-0.10429643E-22)
+  ( 0.13188751E-04, 0.22660157E-06) ( 0.40660951E-05, 0.73422488E-07)
+  ( 0.34591325E-06, 0.10947397E-07) ( 0.14065174E-21, 0.17327818E-23)
+  ( 0.10796614E-20, 0.19329981E-22) ( 0.16535769E-22, 0.36716801E-23)
+  (-0.20586503E-07,-0.85151833E-09) ( 0.59808425E-09,-0.36501590E-09)
+  (-0.13889283E-08,-0.15483566E-09)
+     ROW  6
+  (-0.79419906E-03, 0.84161916E-03) ( 0.77953956E-19,-0.20760490E-19)
+  ( 0.89054798E-03, 0.61668500E-04) (-0.14628085E-17,-0.63253569E-19)
+  ( 0.33595701E-03, 0.10344471E-04) ( 0.15134399E-01, 0.23138565E-03)
+  ( 0.23485941E-20, 0.13405180E-20) (-0.68969124E-18,-0.16433002E-19)
+  (-0.12346020E-03,-0.24595902E-05) ( 0.13302227E-03, 0.27105732E-05)
+  ( 0.39238461E-22, 0.21902319E-22) ( 0.38394326E-22,-0.12955022E-21)
+  ( 0.32359740E-07, 0.71075606E-08) ( 0.39064759E-05, 0.66810589E-07)
+  ( 0.13526426E-04, 0.24048039E-06) ( 0.20667729E-23, 0.22097840E-24)
+  (-0.42661395E-22, 0.27304177E-24) ( 0.41087878E-20, 0.60409750E-22)
+  (-0.16355722E-08,-0.37173476E-09) (-0.16489437E-07,-0.56857245E-09)
+  ( 0.12415939E-07, 0.96733109E-09)
+     ROW  7
+  ( 0.81098755E-19,-0.16489953E-18) ( 0.11170480E-03,-0.44892703E-05)
+  ( 0.18698900E-19,-0.54052661E-20) (-0.32611475E-03,-0.13643875E-04)
+  (-0.21721194E-18,-0.47258449E-20) ( 0.19955060E-20, 0.33887558E-21)
+  ( 0.76738761E-02, 0.59035438E-04) ( 0.14718905E-03, 0.22323376E-05)
+  (-0.18597004E-18,-0.21953759E-20) ( 0.36171823E-22,-0.68786249E-22)
+  (-0.51075744E-04,-0.55859722E-06) (-0.15056141E-04,-0.16440321E-06)
+  (-0.15886263E-21,-0.13821358E-23) (-0.27188146E-19,-0.26044230E-21)
+  ( 0.22009457E-21, 0.29108194E-24) ( 0.51953653E-05, 0.48223526E-07)
+  ( 0.33431376E-05, 0.31339501E-07) ( 0.24339665E-06, 0.33100985E-08)
+  (-0.66887875E-22,-0.79676797E-24) ( 0.21958010E-20, 0.19138389E-22)
+  (-0.39607179E-23, 0.10124745E-23)
+     ROW  8
+  (-0.52543469E-19, 0.66319041E-19) ( 0.18262157E-03,-0.99674043E-05)
+  ( 0.28066540E-19, 0.86151582E-21) ( 0.33219556E-03, 0.13068161E-04)
+  ( 0.64044615E-22,-0.38408676E-22) (-0.70594881E-18,-0.16739435E-19)
+  ( 0.14718905E-03, 0.22323330E-05) ( 0.80755517E-02, 0.65392299E-04)
+  ( 0.11492514E-20, 0.49574527E-22) (-0.35048918E-18,-0.46273971E-20)
+  (-0.56902628E-04,-0.63305812E-06) ( 0.67459360E-04, 0.76058927E-06)
+  ( 0.15972061E-22, 0.15467708E-24) ( 0.33548967E-21, 0.96452500E-23)
+  (-0.19084749E-19,-0.22195418E-21) ( 0.91847916E-08, 0.15744914E-08)
+  ( 0.18820115E-05, 0.17575203E-07) ( 0.72800078E-05, 0.72040503E-07)
+  (-0.17054381E-22,-0.18331277E-24) (-0.25379136E-22, 0.43141448E-24)
+  ( 0.20389861E-20, 0.15238601E-22)
+     ROW  9
+  ( 0.44902076E-05,-0.44316540E-05) ( 0.25369712E-20,-0.87497387E-21)
+  ( 0.28713511E-04, 0.17462797E-05) ( 0.22236688E-20, 0.29683900E-21)
+  (-0.14160615E-03,-0.28418379E-05) (-0.12346011E-03,-0.24596076E-05)
+  (-0.19254547E-18,-0.23366912E-20) (-0.84229399E-22, 0.37459512E-22)
+  ( 0.46272553E-02, 0.21454654E-04) ( 0.76834947E-04, 0.71599663E-06)
+  (-0.10861924E-18,-0.81454620E-21) ( 0.13706918E-21,-0.13351119E-22)
+  (-0.16813723E-04,-0.11519183E-06) (-0.15252760E-04,-0.10605785E-06)
+  (-0.97059263E-05,-0.64779840E-07) ( 0.61190502E-23, 0.29314354E-24)
+  (-0.16200385E-19,-0.99358573E-22) ( 0.99793781E-22,-0.88631880E-25)
+  ( 0.24649180E-05, 0.14413059E-07) ( 0.24569412E-05, 0.14254418E-07)
+  ( 0.16703100E-06, 0.12197187E-08)
+     ROW 10
+  (-0.16880893E-05, 0.16681945E-05) (-0.34951914E-19, 0.43537171E-20)
+  ( 0.76088528E-04, 0.46830980E-05) ( 0.23146937E-19, 0.71852628E-21)
+  (-0.23378962E-04,-0.50117196E-06) ( 0.13302224E-03, 0.27105796E-05)
+  (-0.31954552E-21,-0.68542565E-22) (-0.34077426E-18,-0.45007486E-20)
+  ( 0.76834947E-04, 0.71599663E-06) ( 0.48323200E-02, 0.23384289E-04)
+  ( 0.41215137E-21, 0.93396363E-23) (-0.17784248E-18,-0.14414859E-20)
+  (-0.10652125E-07,-0.18105995E-08) (-0.29886643E-04,-0.20638058E-06)
+  ( 0.39272419E-04, 0.27398723E-06) ( 0.65029117E-22, 0.40123504E-24)
+  ( 0.36970633E-22, 0.19908754E-23) (-0.12090671E-19,-0.85007484E-22)
+  ( 0.29865621E-08, 0.47045388E-09) ( 0.10118610E-05, 0.57550613E-08)
+  ( 0.42927475E-05, 0.26417092E-07)
+     ROW 11
+  ( 0.21907901E-21,-0.18864607E-21) (-0.73485169E-06, 0.16431284E-08)
+  ( 0.97886930E-22, 0.88625636E-23) ( 0.95016935E-05, 0.34560494E-06)
+  (-0.36449098E-19,-0.65083063E-21) ( 0.15592920E-21, 0.65082109E-22)
+  (-0.51075730E-04,-0.55858724E-06) (-0.56902634E-04,-0.63305432E-06)
+  (-0.10641260E-18,-0.79845162E-21) ( 0.63025334E-22, 0.76661148E-23)
+  ( 0.30212153E-02, 0.91359082E-05) ( 0.43992527E-04, 0.26740623E-06)
+  (-0.13537637E-21, 0.37592113E-24) (-0.55649480E-19,-0.28118047E-21)
+  (-0.12368168E-21,-0.35137650E-23) (-0.12576537E-04,-0.56898565E-07)
+  (-0.20328448E-05,-0.10387331E-07) (-0.64532653E-05,-0.28710496E-07)
+  ( 0.83263635E-23, 0.23586444E-24) (-0.88985586E-20,-0.37266153E-22)
+  ( 0.17288397E-22,-0.25183903E-24)
+     ROW 12
+  ( 0.43128485E-20,-0.47766245E-20) (-0.63085397E-07,-0.91295155E-07)
+  (-0.53845261E-20,-0.48953607E-21) ( 0.28938118E-04, 0.10773440E-05)
+  (-0.54185392E-21,-0.77610773E-23) (-0.56241258E-20,-0.23903069E-21)
+  (-0.15056118E-04,-0.16440035E-06) ( 0.67459353E-04, 0.76057952E-06)
+  ( 0.17501343E-21,-0.11892629E-22) (-0.17529937E-18,-0.14226613E-20)
+  ( 0.43992527E-04, 0.26740623E-06) ( 0.31235005E-02, 0.97648336E-05)
+  ( 0.68074711E-22, 0.33877836E-24) (-0.38938629E-21,-0.70673385E-24)
+  (-0.88453669E-19,-0.47457410E-21) (-0.46130195E-08,-0.73190572E-09)
+  (-0.17175359E-04,-0.78918946E-07) ( 0.25084988E-04, 0.11655674E-06)
+  (-0.13373238E-22,-0.52936490E-25) ( 0.54970020E-22, 0.67009283E-24)
+  (-0.10160841E-19,-0.45894457E-22)
+     ROW 13
+  (-0.42205726E-07, 0.26608551E-07) ( 0.12420519E-21,-0.69120758E-23)
+  (-0.37017861E-07,-0.15894011E-07) (-0.73022214E-21,-0.21617309E-22)
+  ( 0.13188744E-04, 0.22660059E-06) ( 0.32351686E-07, 0.71077318E-08)
+  ( 0.32299059E-21, 0.38702015E-23) (-0.42989297E-22,-0.62028346E-24)
+  (-0.16813723E-04,-0.11519181E-06) (-0.10652135E-07,-0.18105898E-08)
+  (-0.49312372E-22, 0.77553367E-24) ( 0.13306860E-21, 0.66197789E-24)
+  ( 0.21063952E-02, 0.44375104E-05) ( 0.46005722E-05, 0.19671304E-07)
+  ( 0.18669873E-08, 0.30306740E-09) ( 0.11640065E-20, 0.41732416E-23)
+  ( 0.48199491E-22, 0.33246562E-24) ( 0.68163965E-22, 0.25210426E-24)
+  (-0.10412024E-04,-0.33367790E-07) (-0.31407031E-06,-0.10813766E-08)
+  (-0.16906760E-09,-0.27480488E-10)
+     ROW 14
+  (-0.27703866E-07, 0.17471256E-07) ( 0.62679643E-22,-0.25553608E-22)
+  (-0.15376787E-06,-0.12053753E-07) ( 0.48440921E-21, 0.12240224E-22)
+  ( 0.40660904E-05, 0.73422000E-07) ( 0.39064706E-05, 0.66810590E-07)
+  (-0.22166232E-19,-0.21141614E-21) ( 0.21808613E-21, 0.92455449E-23)
+  (-0.15252759E-04,-0.10605782E-06) (-0.29886643E-04,-0.20638058E-06)
+  (-0.56351007E-19,-0.28496996E-21) (-0.66967489E-22, 0.97819072E-24)
+  ( 0.46005722E-05, 0.19671304E-07) ( 0.20824160E-02, 0.43384851E-05)
+  ( 0.26958157E-04, 0.11264982E-06) ( 0.15821930E-21, 0.10271440E-23)
+  (-0.29117737E-19,-0.10396502E-21) ( 0.32551549E-22,-0.61117140E-24)
+  (-0.86669929E-05,-0.27573263E-07) ( 0.26817357E-05, 0.81230455E-08)
+  (-0.44306751E-05,-0.13864098E-07)
+     ROW 15
+  (-0.52077576E-07, 0.32805641E-07) ( 0.40980469E-20,-0.46621680E-21)
+  ( 0.11186685E-06, 0.20850093E-07) ( 0.11056670E-19, 0.29187839E-21)
+  ( 0.34590497E-06, 0.10947649E-07) ( 0.13526416E-04, 0.24047925E-06)
+  ( 0.17836824E-21,-0.12080921E-23) (-0.18566812E-19,-0.21420266E-21)
+  (-0.97059262E-05,-0.64779834E-07) ( 0.39272419E-04, 0.27398710E-06)
+  ( 0.32487789E-22,-0.27190422E-23) (-0.89396555E-19,-0.47932021E-21)
+  ( 0.18669873E-08, 0.30306740E-09) ( 0.26958157E-04, 0.11264982E-06)
+  ( 0.21361201E-02, 0.45659857E-05) ( 0.38138402E-22, 0.14393950E-24)
+  (-0.30478717E-21,-0.77128050E-24) (-0.40413305E-19,-0.15122196E-21)
+  (-0.19854176E-08,-0.30585037E-09) (-0.10557009E-04,-0.33981287E-07)
+  ( 0.17152675E-04, 0.55918306E-07)
+     ROW 16
+  (-0.33838105E-22, 0.38737805E-22) ( 0.80174456E-09, 0.55615395E-09)
+  ( 0.19017715E-21, 0.46153429E-23) (-0.71423635E-08,-0.20629736E-08)
+  ( 0.18858523E-21, 0.23936354E-23) (-0.18660223E-21,-0.29926946E-23)
+  ( 0.51953652E-05, 0.48223539E-07) ( 0.91848022E-08, 0.15744870E-08)
+  ( 0.57793352E-22, 0.65567462E-24) (-0.16408314E-23,-0.19191837E-25)
+  (-0.12576537E-04,-0.56898565E-07) (-0.46130195E-08,-0.73190572E-09)
+  (-0.37576269E-21,-0.13329875E-23) ( 0.85783761E-23, 0.47468716E-24)
+  ( 0.17311110E-21, 0.62751124E-24) ( 0.14802057E-02, 0.21912731E-05)
+  ( 0.46198540E-05, 0.13832193E-07) ( 0.10895628E-08, 0.16871406E-09)
+  (-0.84849883E-21,-0.21767090E-23) (-0.54866851E-22,-0.83617769E-25)
+  ( 0.39036805E-22, 0.10370915E-24)
+     ROW 17
+  ( 0.13538140E-21,-0.15713498E-21) ( 0.10345797E-08, 0.79537373E-09)
+  ( 0.10068302E-21,-0.42359941E-23) (-0.45389545E-07,-0.25578353E-08)
+  ( 0.19804566E-20, 0.33611786E-22) ( 0.15388745E-21, 0.38138751E-23)
+  ( 0.33431376E-05, 0.31339516E-07) ( 0.18820115E-05, 0.17575206E-07)
+  (-0.15639322E-19,-0.96072317E-22) ( 0.10836000E-21, 0.24131647E-23)
+  (-0.20328448E-05,-0.10387331E-07) (-0.17175359E-04,-0.78918946E-07)
+  (-0.41006192E-22, 0.18680357E-25) (-0.27347736E-19,-0.97644694E-22)
+  ( 0.47668883E-23, 0.35721958E-24) ( 0.46198540E-05, 0.13832193E-07)
+  ( 0.14956024E-02, 0.22375337E-05) ( 0.17417096E-04, 0.52149346E-07)
+  (-0.85644142E-22,-0.77981691E-25) (-0.13464879E-19,-0.35207637E-22)
+  ( 0.40245629E-22,-0.62958354E-25)
+     ROW 18
+  (-0.84544381E-21, 0.93908201E-21) ( 0.95469430E-09, 0.11197571E-08)
+  (-0.40402970E-21,-0.55309958E-22) ( 0.33990147E-07, 0.41805095E-08)
+  (-0.81189123E-22, 0.34203822E-23) ( 0.54619333E-20, 0.84615257E-22)
+  ( 0.24339669E-06, 0.33100999E-08) ( 0.72800080E-05, 0.72040260E-07)
+  (-0.95193725E-22,-0.13729582E-23) (-0.11570476E-19,-0.81539636E-22)
+  (-0.64532653E-05,-0.28710496E-07) ( 0.25084988E-04, 0.11655674E-06)
+  (-0.11061289E-21,-0.39802807E-24) ( 0.10520708E-21,-0.37070209E-24)
+  (-0.41671987E-19,-0.15574015E-21) ( 0.10895628E-08, 0.16871406E-09)
+  ( 0.17417096E-04, 0.52149346E-07) ( 0.15255168E-02, 0.23284354E-05)
+  (-0.20807560E-22,-0.56368403E-25) ( 0.20239156E-22, 0.11940615E-24)
+  (-0.19942557E-19,-0.54053673E-22)
+     ROW 19
+  ( 0.80787540E-10,-0.31231514E-10) (-0.26267281E-23, 0.20127803E-23)
+  ( 0.15918233E-09, 0.10107813E-09) (-0.38525024E-21,-0.10578177E-22)
+  (-0.20586491E-07,-0.85151305E-09) (-0.16355573E-08,-0.37173126E-09)
+  ( 0.35239847E-22, 0.12768229E-24) (-0.93607946E-22,-0.97797480E-24)
+  ( 0.24649180E-05, 0.14413059E-07) ( 0.29865621E-08, 0.47045386E-09)
+  (-0.51398675E-22,-0.25972420E-25) ( 0.65085313E-22, 0.24937471E-24)
+  (-0.10412024E-04,-0.33367790E-07) (-0.86669929E-05,-0.27573263E-07)
+  (-0.19854176E-08,-0.30585037E-09) ( 0.26536708E-21, 0.66743536E-24)
+  ( 0.41980189E-22, 0.26191195E-24) (-0.11776022E-21,-0.30634772E-24)
+  ( 0.10899088E-02, 0.11881285E-05) ( 0.39602124E-05, 0.87127480E-08)
+  ( 0.58491765E-09, 0.88330982E-10)
+     ROW 20
+  ( 0.67845085E-10,-0.26266290E-10) (-0.94965809E-22, 0.28265703E-23)
+  ( 0.27329282E-09, 0.14640627E-09) (-0.10615711E-21,-0.36266852E-23)
+  ( 0.59809566E-09,-0.36501222E-09) (-0.16489425E-07,-0.56856883E-09)
+  ( 0.13287349E-20, 0.11615197E-22) ( 0.87407313E-22, 0.13650163E-23)
+  ( 0.24569412E-05, 0.14254418E-07) ( 0.10118610E-05, 0.57550613E-08)
+  (-0.95480341E-20,-0.39923676E-22) (-0.56041839E-22, 0.20687459E-24)
+  (-0.31407031E-06,-0.10813766E-08) ( 0.26817357E-05, 0.81230455E-08)
+  (-0.10557009E-04,-0.33981287E-07) (-0.32902906E-22,-0.17674516E-25)
+  (-0.13737357E-19,-0.35917175E-22) ( 0.60288592E-22, 0.20198303E-24)
+  ( 0.39602124E-05, 0.87127480E-08) ( 0.11098741E-02, 0.12321437E-05)
+  ( 0.11742028E-04, 0.26041671E-07)
+     ROW 21
+  (-0.47703382E-10, 0.18149340E-10) (-0.53958465E-21, 0.20887126E-22)
+  ( 0.65939353E-09, 0.38455792E-09) (-0.36120801E-20,-0.11210075E-21)
+  (-0.13889342E-08,-0.15483499E-09) ( 0.12415929E-07, 0.96732648E-09)
+  (-0.14757350E-22, 0.16660978E-23) ( 0.35323187E-20, 0.28576428E-22)
+  ( 0.16703100E-06, 0.12197187E-08) ( 0.42927475E-05, 0.26417092E-07)
+  (-0.32368273E-22,-0.55015325E-24) (-0.99396275E-20,-0.44947839E-22)
+  (-0.16906760E-09,-0.27480488E-10) (-0.44306751E-05,-0.13864098E-07)
+  ( 0.17152675E-04, 0.55918306E-07) (-0.20733504E-22,-0.53714364E-25)
+  ( 0.33628172E-24,-0.18200381E-24) (-0.20361953E-19,-0.55114290E-22)
+  ( 0.58491765E-09, 0.88330982E-10) ( 0.11742028E-04, 0.26041671E-07)
+  ( 0.11274723E-02, 0.12717738E-05)
+ eigenphases
+ -0.8295656E+00 -0.5685517E-01  0.1088802E-02  0.1104544E-02  0.1133294E-02
+  0.1478098E-02  0.1489120E-02  0.1533395E-02  0.2070255E-02  0.2106815E-02
+  0.2147335E-02  0.3003648E-02  0.3139650E-02  0.4598175E-02  0.4857508E-02
+  0.7619782E-02  0.8124773E-02  0.1460839E-01  0.1537484E-01  0.3329799E-01
+  0.5481306E-01
+ eigenphase sum-0.722831E+00  scattering length=   3.25367
+ eps+pi 0.241876E+01  eps+2*pi 0.556035E+01
+
+MaxIter =   8 c.s. =     26.43372825 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.51875194E-02
+Time Now =       297.5683  Delta time =       122.1001 End ScatStab
++ Data Record ScatContSym - 'E'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13290000E+02  eV
+ Do E =  0.10000000E+01 eV (  0.36749326E-01 AU)
+Time Now =       297.5872  Delta time =         0.0189 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = E     1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =   10
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Use fixed asymptotic polarization =  0.44134000E+02  au
+Number of integration regions used =    67
+Number of partial waves (np) =    62
+Number of asymptotic solutions on the right (NAsymR) =    30
+Number of asymptotic solutions on the left (NAsymL) =    30
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =    30
+Maximum in the asymptotic region (lpasym) =   14
+Number of partial waves in the asymptotic region (npasym) =   56
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  225
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   10
+Highest l used at large r (lpasym) =   14
+Higest l used in the asymptotic potential (lpzb) =   28
+Maximum L used in the homogeneous solution (LMaxHomo) =   14
+Number of partial waves in the homogeneous solution (npHomo) =   56
+Time Now =       297.5958  Delta time =         0.0086 Energy independent setup
+
+Compute solution for E =    1.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.44134000E+02 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.71054274E-14 Asymp Coef   =  -0.67338124E-09 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.00000000E+00 Asymp Moment =   0.00000000E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.20816682E-16 Asymp Moment =  -0.70959517E-14 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) = -0.84293969E-05 Asymp Moment =   0.28733971E-02 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403438E-15
+ i =  2  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403621E-15
+ i =  3  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29403958E-15
+ i =  4  exps = -0.58068273E+02 -0.20000000E+01  stpote = -0.29404399E-15
+For potential     3
+ i =  1  lvals =   6   8  stpote =  0.38328994E-04  second term =  0.51185855E-04
+ i =  2  lvals =   5   5  stpote =  0.21335400E-18  second term =  0.00000000E+00
+ i =  3  lvals =   6   6  stpote = -0.13451988E-18  second term =  0.00000000E+00
+ i =  4  lvals =   6   6  stpote = -0.81775788E-11  second term =  0.00000000E+00
+Number of asymptotic regions =      17
+Final point in integration =   0.15494516E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       307.1858  Delta time =         9.5900 End SolveHomo
+      Final T matrix
+     ROW  1
+  (-0.57449635E-01, 0.33234563E-02) (-0.50634959E-17, 0.32142141E-18)
+  (-0.26516115E-02, 0.65193721E-04) ( 0.21323035E-02,-0.52153776E-04)
+  ( 0.48971927E-19,-0.64511254E-22) (-0.95982196E-20,-0.17897154E-19)
+  ( 0.14995166E-03,-0.79532758E-05) (-0.63937872E-05, 0.16873693E-05)
+  ( 0.15259859E-03,-0.73560853E-05) ( 0.30190110E-21,-0.18059683E-21)
+  ( 0.15481879E-21, 0.25304813E-21) (-0.15410968E-19, 0.12622144E-20)
+  (-0.25038641E-06,-0.58538611E-07) (-0.55646516E-06, 0.35953488E-07)
+  ( 0.56795596E-07,-0.36736689E-07) ( 0.41877710E-06, 0.44360362E-07)
+  ( 0.76860913E-22,-0.10090887E-22) (-0.42466388E-21, 0.38605505E-22)
+  ( 0.42914605E-21,-0.71560896E-22) ( 0.17171155E-20,-0.57175493E-22)
+  ( 0.97592947E-09, 0.10307832E-08) ( 0.38925473E-09, 0.11434918E-09)
+  ( 0.38441082E-09, 0.43711585E-09) ( 0.91400904E-10,-0.12750559E-09)
+  ( 0.11723120E-08, 0.10724242E-08) (-0.17857178E-21, 0.11007204E-22)
+  (-0.16651454E-21, 0.11550737E-22) ( 0.50954451E-22,-0.35317308E-23)
+  ( 0.30751004E-22,-0.24429020E-23) ( 0.31315794E-21,-0.13961941E-22)
+     ROW  2
+  (-0.69303369E-17, 0.34998513E-18) ( 0.69946546E-01, 0.49171475E-02)
+  (-0.90644567E-19, 0.24395039E-19) (-0.30211295E-17,-0.30796238E-18)
+  ( 0.60594626E-03, 0.51090492E-04) ( 0.27193463E-03, 0.22991011E-04)
+  (-0.34034728E-21,-0.45843734E-21) ( 0.35269088E-20,-0.43959520E-21)
+  ( 0.12152478E-18, 0.72900939E-20) ( 0.32963788E-04, 0.24481205E-05)
+  (-0.13500134E-04,-0.10491817E-05) ( 0.66092394E-04, 0.50157441E-05)
+  (-0.18148979E-21,-0.10584408E-21) (-0.83483952E-21,-0.82151432E-22)
+  (-0.15555063E-21,-0.36985551E-22) (-0.94325902E-20,-0.77043143E-21)
+  ( 0.15992746E-07, 0.67835764E-08) (-0.15394465E-06,-0.12594585E-07)
+  ( 0.68672349E-07, 0.10203760E-07) ( 0.77216405E-07, 0.10760677E-07)
+  (-0.99624485E-22,-0.67380347E-23) ( 0.62175314E-22, 0.46045107E-23)
+  (-0.11893519E-21,-0.84147572E-23) (-0.38815831E-21,-0.25691106E-22)
+  (-0.13903790E-22, 0.18002804E-23) ( 0.21683324E-09, 0.12511236E-09)
+  (-0.53652955E-10,-0.43254267E-10) ( 0.22832670E-09, 0.13273264E-09)
+  (-0.12627618E-09,-0.80071636E-10) ( 0.52616611E-09, 0.32539153E-09)
+     ROW  3
+  (-0.26515939E-02, 0.65192657E-04) ( 0.54686323E-18, 0.73090401E-18)
+  ( 0.32192043E-01, 0.10454955E-02) (-0.93813610E-03,-0.65956772E-04)
+  (-0.74374032E-18,-0.32980672E-19) ( 0.36492453E-19, 0.10852684E-20)
+  ( 0.51267290E-05, 0.34370507E-07) (-0.36693622E-03,-0.14827090E-04)
+  ( 0.77316943E-04, 0.25742165E-05) (-0.50790037E-21,-0.18037310E-22)
+  (-0.51833854E-19,-0.17297899E-20) (-0.15226432E-20,-0.50298414E-22)
+  ( 0.27146935E-04, 0.97222174E-06) (-0.64976810E-07,-0.14213578E-07)
+  ( 0.11112826E-04, 0.40417298E-06) (-0.11543013E-05,-0.69368186E-07)
+  ( 0.56850894E-22,-0.22931115E-23) ( 0.42365705E-22, 0.34073307E-23)
+  ( 0.89478745E-20, 0.30643390E-21) (-0.54567252E-22,-0.12416407E-22)
+  ( 0.11952393E-09, 0.46180399E-10) (-0.56661355E-07,-0.39291553E-08)
+  ( 0.63405354E-09, 0.23626582E-09) ( 0.13987052E-08,-0.17743019E-08)
+  ( 0.52465401E-08, 0.85823417E-09) ( 0.16655772E-24, 0.58029346E-24)
+  (-0.30712522E-22,-0.77342902E-24) ( 0.56815154E-23,-0.21246283E-24)
+  ( 0.24686734E-21, 0.62888664E-23) (-0.28475839E-22,-0.52666763E-24)
+     ROW  4
+  ( 0.21323096E-02,-0.52154913E-04) (-0.34027506E-17,-0.23923603E-18)
+  (-0.93813601E-03,-0.65954850E-04) ( 0.31909647E-01, 0.10248489E-02)
+  (-0.24419548E-19,-0.14019542E-19) (-0.12122948E-17,-0.34289835E-19)
+  (-0.23632463E-03,-0.91090423E-05) ( 0.19124997E-03, 0.78904139E-05)
+  ( 0.19124829E-03, 0.78580389E-05) ( 0.12901239E-20, 0.60921017E-23)
+  (-0.10257531E-20,-0.75247298E-22) ( 0.19639324E-19, 0.31502193E-21)
+  (-0.12292717E-06,-0.37017682E-07) ( 0.10201497E-04, 0.36282027E-06)
+  (-0.43432156E-05,-0.15957623E-06) ( 0.26417973E-04, 0.94397727E-06)
+  ( 0.25691856E-21, 0.85832211E-23) (-0.38316678E-22,-0.36078123E-23)
+  (-0.11479570E-20,-0.48465826E-22) ( 0.30137676E-20, 0.86126389E-22)
+  (-0.66079044E-08,-0.20323967E-08) ( 0.31320448E-08, 0.93618480E-09)
+  (-0.44280655E-07,-0.20069509E-08) ( 0.21144693E-07, 0.17061477E-08)
+  ( 0.27625859E-07, 0.27300370E-08) (-0.17987989E-22,-0.10754623E-23)
+  ( 0.21222767E-23,-0.40971253E-24) ( 0.11566697E-21, 0.41057787E-23)
+  ( 0.60974850E-23, 0.10125619E-23) (-0.10052342E-20,-0.31700463E-22)
+     ROW  5
+  (-0.16664065E-19, 0.15591498E-19) ( 0.60594626E-03, 0.51090482E-04)
+  (-0.71812825E-18,-0.28698637E-19) (-0.25938285E-20,-0.20903183E-20)
+  ( 0.14074196E-01, 0.19860128E-03) (-0.31679965E-03,-0.90080035E-05)
+  (-0.65612466E-20,-0.18549820E-21) (-0.56284298E-18,-0.11989498E-19)
+  ( 0.36564687E-20, 0.37378215E-21) ( 0.24489467E-06, 0.55691562E-07)
+  (-0.85618844E-04,-0.16395077E-05) ( 0.33998885E-04, 0.65634861E-06)
+  ( 0.54064562E-22, 0.31939162E-23) ( 0.41997198E-23,-0.85886894E-24)
+  (-0.33682724E-19,-0.56432039E-21) (-0.45423025E-21,-0.20252786E-22)
+  ( 0.87343600E-05, 0.14304375E-06) (-0.11352269E-07,-0.23836597E-08)
+  ( 0.75461620E-05, 0.12304949E-06) (-0.59607589E-06,-0.13519533E-07)
+  ( 0.25761141E-22, 0.32103547E-24) ( 0.22941138E-21, 0.17756377E-23)
+  (-0.11336242E-21,-0.16340876E-23) ( 0.43968472E-20, 0.66444020E-22)
+  (-0.40664843E-22,-0.29509211E-23) ( 0.19104160E-11, 0.16347723E-11)
+  (-0.22402969E-07,-0.66490749E-09) ( 0.18216059E-09, 0.47435603E-10)
+  ( 0.35365625E-08,-0.18681437E-09) ( 0.25213359E-08, 0.21649977E-09)
+     ROW  6
+  ( 0.86583326E-19,-0.19230217E-19) ( 0.27193471E-03, 0.22990992E-04)
+  (-0.56924432E-19,-0.49504949E-21) (-0.12124051E-17,-0.37360201E-19)
+  (-0.31679965E-03,-0.90080036E-05) ( 0.14863216E-01, 0.22116315E-03)
+  ( 0.43845670E-20, 0.39278875E-21) (-0.19757870E-20,-0.14792673E-22)
+  (-0.69272190E-18,-0.15982929E-19) (-0.93429265E-04,-0.18097811E-05)
+  ( 0.72041674E-04, 0.14255546E-05) ( 0.10003113E-03, 0.19677811E-05)
+  ( 0.15804744E-21, 0.30023748E-23) (-0.23541896E-21, 0.16427658E-22)
+  (-0.10594452E-20,-0.15083479E-22) (-0.22269910E-19,-0.49530256E-21)
+  (-0.24059117E-07,-0.48078546E-08) ( 0.40646766E-05, 0.69458936E-07)
+  (-0.18131037E-05,-0.31323922E-07) ( 0.12763629E-04, 0.22187644E-06)
+  (-0.19146281E-21,-0.37397930E-23) (-0.14171893E-21,-0.23614034E-23)
+  ( 0.96813914E-22, 0.17423349E-23) ( 0.27968867E-21, 0.17105408E-23)
+  ( 0.46897638E-20, 0.68895318E-22) (-0.15920032E-08,-0.36236373E-09)
+  ( 0.72601038E-09, 0.16811208E-09) (-0.15835693E-07,-0.42580019E-09)
+  ( 0.79035465E-08, 0.37259708E-09) ( 0.11045150E-07, 0.76106231E-09)
+     ROW  7
+  ( 0.14995294E-03,-0.79513112E-05) ( 0.34214470E-23,-0.31823396E-21)
+  ( 0.51269234E-05, 0.34498878E-07) (-0.23632490E-03,-0.91089982E-05)
+  (-0.72616386E-20,-0.16486500E-21) ( 0.51875779E-21, 0.28767823E-21)
+  ( 0.79780086E-02, 0.63739535E-04) (-0.29339477E-06,-0.61121811E-07)
+  ( 0.64198937E-04, 0.10074276E-05) (-0.50332535E-19,-0.64580810E-21)
+  ( 0.27550336E-20, 0.35568493E-22) ( 0.59963517E-22,-0.29432994E-22)
+  ( 0.41181027E-09, 0.14888380E-09) (-0.64341827E-04,-0.71209411E-06)
+  ( 0.18192330E-07, 0.36223776E-08) (-0.48133635E-05,-0.57623963E-07)
+  (-0.15105534E-21,-0.14048322E-23) (-0.14616385E-19,-0.14293788E-21)
+  (-0.14887487E-21,-0.12006545E-23) (-0.72440784E-23,-0.36007688E-23)
+  ( 0.72758145E-05, 0.69561242E-07) (-0.35791115E-11,-0.27912218E-11)
+  ( 0.17461389E-05, 0.17494271E-07) (-0.61160180E-09,-0.12061260E-09)
+  ( 0.66156693E-07, 0.11693837E-08) (-0.29521378E-22,-0.34293844E-24)
+  ( 0.43214668E-22, 0.41623816E-24) (-0.33742232E-21,-0.27853081E-23)
+  ( 0.18953316E-22, 0.19124279E-24) ( 0.33914915E-22, 0.96288694E-24)
+     ROW  8
+  (-0.63937696E-05, 0.16875225E-05) ( 0.87289604E-20,-0.55624000E-21)
+  (-0.36693602E-03,-0.14827011E-04) ( 0.19124999E-03, 0.78903881E-05)
+  (-0.57066894E-18,-0.12121694E-19) (-0.11140967E-20,-0.55134277E-22)
+  (-0.29339314E-06,-0.61121127E-07) ( 0.76968501E-02, 0.59435075E-04)
+  (-0.12941903E-03,-0.20256626E-05) (-0.26831891E-20,-0.32947090E-22)
+  (-0.29503752E-18,-0.35925979E-20) ( 0.59267906E-20, 0.11999632E-21)
+  (-0.34430239E-04,-0.38146298E-06) ( 0.49209654E-07, 0.87107325E-08)
+  (-0.14220684E-04,-0.16313943E-06) ( 0.17817099E-04, 0.19135793E-06)
+  (-0.12928099E-21, 0.32957173E-24) (-0.63940490E-21,-0.63974501E-23)
+  (-0.22380112E-19,-0.22705289E-21) (-0.41725490E-22,-0.36161603E-24)
+  (-0.61912745E-11,-0.46815687E-11) ( 0.37303318E-05, 0.35083461E-07)
+  (-0.30291417E-08,-0.52967759E-09) ( 0.48779429E-05, 0.45140277E-07)
+  (-0.33766243E-06,-0.37601955E-08) (-0.33927947E-22,-0.30391708E-24)
+  ( 0.46396160E-22, 0.18147229E-24) ( 0.56047508E-22, 0.54189487E-24)
+  ( 0.43577626E-20, 0.37198826E-22) (-0.25855818E-23,-0.10277964E-23)
+     ROW  9
+  ( 0.15259741E-03,-0.73582108E-05) ( 0.10596448E-18, 0.56706038E-20)
+  ( 0.77316994E-04, 0.25738762E-05) ( 0.19124818E-03, 0.78581054E-05)
+  ( 0.74717990E-20, 0.45592866E-21) (-0.70001251E-18,-0.16252211E-19)
+  ( 0.64198939E-04, 0.10074245E-05) (-0.12941903E-03,-0.20256616E-05)
+  ( 0.80130162E-02, 0.64305727E-04) ( 0.38054915E-21,-0.41670322E-22)
+  ( 0.66995080E-22, 0.27138217E-21) (-0.35477273E-18,-0.46232390E-20)
+  ( 0.37909738E-07, 0.72444291E-08) (-0.44276137E-04,-0.48864149E-06)
+  ( 0.33555972E-04, 0.37138056E-06) ( 0.56431125E-04, 0.62824103E-06)
+  (-0.74931279E-22,-0.49924817E-24) ( 0.19172043E-21, 0.73703984E-23)
+  ( 0.17816561E-21,-0.22539780E-23) (-0.21367072E-19,-0.24260293E-21)
+  ( 0.51673076E-08, 0.91982318E-09) (-0.60529772E-08,-0.10253321E-08)
+  ( 0.19058418E-05, 0.18036086E-07) (-0.89849905E-06,-0.84123480E-08)
+  ( 0.69878001E-05, 0.68373577E-07) (-0.44336342E-22,-0.43216013E-24)
+  (-0.28836698E-22,-0.25883588E-24) (-0.42606588E-22,-0.28878572E-24)
+  ( 0.10281609E-21, 0.11601410E-24) ( 0.47064358E-20, 0.40314090E-22)
+     ROW 10
+  ( 0.44268435E-21,-0.22176480E-21) ( 0.32920837E-04, 0.24348596E-05)
+  (-0.78689174E-21,-0.29755276E-22) ( 0.24735808E-20, 0.10975145E-21)
+  ( 0.24506952E-06, 0.55571252E-07) (-0.93429004E-04,-0.18098537E-05)
+  (-0.54590009E-19,-0.73761501E-21) (-0.32693213E-20,-0.38899164E-22)
+  (-0.58605018E-21, 0.42902020E-22) ( 0.46397920E-02, 0.21540512E-04)
+  (-0.57465242E-07,-0.10334167E-07) ( 0.40425153E-04, 0.37547573E-06)
+  (-0.32629160E-20,-0.24307204E-22) (-0.54322915E-19,-0.41043075E-21)
+  ( 0.12962623E-20, 0.10246027E-22) ( 0.78583413E-22,-0.58882559E-23)
+  ( 0.92682973E-11, 0.68460439E-11) (-0.30107202E-04,-0.20332427E-06)
+  ( 0.60022672E-08, 0.10162957E-08) (-0.39364657E-05,-0.26945826E-07)
+  (-0.26980192E-21,-0.15773755E-23) (-0.16677892E-21,-0.93206796E-24)
+  (-0.11119431E-19,-0.67069826E-22) ( 0.77780386E-22, 0.39740813E-24)
+  (-0.12234269E-21,-0.17380686E-23) ( 0.32823653E-05, 0.19052238E-07)
+  (-0.42591965E-12,-0.32190178E-12) ( 0.16410282E-05, 0.96045445E-08)
+  (-0.28387226E-09,-0.48444803E-10) ( 0.58182952E-07, 0.51760829E-09)
+     ROW 11
+  ( 0.15444497E-20, 0.36976652E-21) (-0.13469702E-04,-0.10429883E-05)
+  (-0.70991723E-19,-0.23417579E-20) (-0.17981215E-20,-0.10130781E-21)
+  (-0.85617817E-04,-0.16392916E-05) ( 0.72041938E-04, 0.14256015E-05)
+  ( 0.35364632E-20, 0.44155698E-22) (-0.29620856E-18,-0.35898374E-20)
+  ( 0.10800796E-21, 0.73890072E-23) (-0.57465242E-07,-0.10334167E-07)
+  ( 0.46804922E-02, 0.21924818E-04) (-0.63240179E-04,-0.59642213E-06)
+  (-0.22695946E-21, 0.51441708E-23) (-0.22294233E-20,-0.17208549E-22)
+  (-0.14095159E-18,-0.10848119E-20) ( 0.17909878E-20, 0.22281462E-22)
+  (-0.22495569E-04,-0.15258438E-06) ( 0.12553123E-07, 0.20384352E-08)
+  ( 0.41550012E-05, 0.25875404E-07) ( 0.10322740E-04, 0.69024199E-07)
+  (-0.69828714E-22,-0.36525352E-24) ( 0.94964342E-22, 0.13838207E-23)
+  (-0.35788396E-21,-0.21952196E-23) (-0.19923999E-19,-0.12640518E-21)
+  (-0.16145672E-21,-0.39496198E-24) (-0.73351670E-12,-0.54695228E-12)
+  ( 0.18430801E-05, 0.10872056E-07) (-0.98072917E-09,-0.15772253E-09)
+  ( 0.31967222E-05, 0.18694694E-07) (-0.20691368E-06,-0.13086975E-08)
+     ROW 12
+  (-0.18854848E-19, 0.23301119E-20) ( 0.66092626E-04, 0.50158683E-05)
+  (-0.24860562E-20,-0.15704289E-22) ( 0.17890742E-19, 0.13930886E-21)
+  ( 0.33998889E-04, 0.65635006E-06) ( 0.10003114E-03, 0.19677819E-05)
+  (-0.73765146E-21,-0.41124034E-22) ( 0.58439250E-20, 0.12074849E-21)
+  (-0.36789680E-18,-0.47904853E-20) ( 0.40425152E-04, 0.37548193E-06)
+  (-0.63240182E-04,-0.59642570E-06) ( 0.48107282E-02, 0.23166936E-04)
+  (-0.29486250E-21,-0.26890630E-23) (-0.26521251E-21, 0.89188197E-23)
+  (-0.35306873E-21,-0.27324576E-23) (-0.17596743E-18,-0.14211952E-20)
+  ( 0.11886319E-07, 0.19564893E-08) (-0.23511398E-04,-0.16194934E-06)
+  ( 0.17815586E-04, 0.12226626E-06) ( 0.34799341E-04, 0.24135501E-06)
+  (-0.78836943E-23,-0.86235312E-25) ( 0.28212731E-21, 0.18229489E-23)
+  ( 0.10092656E-22, 0.15126677E-23) ( 0.60418881E-22,-0.53792206E-25)
+  (-0.18441644E-19,-0.12447473E-21) ( 0.20265283E-08, 0.32283815E-09)
+  (-0.18616668E-08,-0.29272714E-09) ( 0.99920832E-06, 0.57910898E-08)
+  (-0.49705964E-06,-0.28111484E-08) ( 0.41626956E-05, 0.25429234E-07)
+     ROW 13
+  (-0.25878617E-06,-0.61645960E-07) ( 0.28944870E-21, 0.12207626E-22)
+  ( 0.27136689E-04, 0.96765415E-06) (-0.11943179E-06,-0.35901330E-07)
+  (-0.18835158E-21, 0.19432436E-22) ( 0.54585465E-22,-0.12718997E-23)
+  ( 0.40097659E-09, 0.14001522E-09) (-0.34430169E-04,-0.38142504E-06)
+  ( 0.37895879E-07, 0.72257836E-08) (-0.34901969E-20,-0.26676635E-22)
+  ( 0.79203825E-23, 0.71438223E-23) ( 0.38635613E-22,-0.33794934E-24)
+  ( 0.30851037E-02, 0.95203023E-05) (-0.98171560E-11,-0.65922924E-11)
+  ( 0.97221106E-05, 0.60737999E-07) (-0.59947743E-08,-0.10287769E-08)
+  (-0.14841816E-20,-0.75749383E-23) ( 0.73740182E-21, 0.39365657E-23)
+  ( 0.11506210E-21, 0.91974558E-24) (-0.17472235E-21,-0.87246958E-24)
+  ( 0.40346770E-14, 0.73585030E-14) (-0.17919138E-04,-0.81964185E-07)
+  ( 0.45159751E-12, 0.32954136E-12) (-0.69391925E-06,-0.34009216E-08)
+  ( 0.51070555E-09, 0.85754920E-10) (-0.15564183E-21,-0.65002897E-24)
+  (-0.21015148E-20,-0.87135556E-23) (-0.37412230E-22,-0.18454268E-24)
+  ( 0.16714262E-21, 0.48276830E-24) (-0.42462223E-23,-0.22450199E-25)
+     ROW 14
+  (-0.54262833E-06, 0.47395257E-07) (-0.31132971E-21, 0.12189029E-23)
+  (-0.64361292E-07,-0.12965060E-07) ( 0.10198888E-04, 0.36070146E-06)
+  ( 0.41446263E-21, 0.30434072E-24) (-0.69571985E-21, 0.82372709E-23)
+  (-0.64341824E-04,-0.71206740E-06) ( 0.49190896E-07, 0.86939612E-08)
+  (-0.44276159E-04,-0.48863482E-06) (-0.51775980E-19,-0.39130575E-21)
+  (-0.24096466E-20,-0.18636020E-22) ( 0.41098867E-21, 0.13446064E-22)
+  (-0.98171560E-11,-0.65922924E-11) ( 0.30022961E-02, 0.90209407E-05)
+  (-0.15557163E-07,-0.25263626E-08) ( 0.25295182E-04, 0.15290198E-06)
+  (-0.19673554E-20,-0.98733830E-23) (-0.34458892E-19,-0.17194510E-21)
+  ( 0.22186907E-20, 0.11327522E-22) (-0.30271495E-21,-0.30877205E-23)
+  (-0.90367974E-05,-0.41204863E-07) ( 0.11958324E-11, 0.83769595E-12)
+  (-0.11725553E-04,-0.53210453E-07) ( 0.21972562E-08, 0.35096105E-09)
+  (-0.29517283E-05,-0.13224326E-07) (-0.11741890E-21,-0.40117707E-24)
+  (-0.64108777E-21,-0.26213253E-23) (-0.55471643E-20,-0.22585158E-22)
+  ( 0.19360822E-22, 0.59545281E-25) (-0.32880569E-22,-0.51453007E-24)
+     ROW 15
+  ( 0.48854027E-07,-0.41612263E-07) ( 0.12635155E-20, 0.15112088E-21)
+  ( 0.11108673E-04, 0.40197090E-06) (-0.43402749E-05,-0.15828361E-06)
+  (-0.36581473E-19,-0.61196169E-21) (-0.37271646E-22,-0.62881018E-23)
+  ( 0.18183144E-07, 0.36083103E-08) (-0.14220652E-04,-0.16312021E-06)
+  ( 0.33555975E-04, 0.37137146E-06) ( 0.19192429E-20, 0.14747370E-22)
+  (-0.14192019E-18,-0.10916499E-20) ( 0.11404449E-20, 0.97826949E-23)
+  ( 0.97221106E-05, 0.60737999E-07) (-0.15557163E-07,-0.25263626E-08)
+  ( 0.30550415E-02, 0.93364561E-05) (-0.34800079E-04,-0.21296012E-06)
+  ( 0.12715505E-21, 0.29025645E-23) (-0.11410867E-20,-0.58486735E-23)
+  (-0.73679738E-19,-0.38083101E-21) ( 0.15713228E-20, 0.10301774E-22)
+  ( 0.77296010E-12, 0.55824434E-12) (-0.14142644E-04,-0.64219305E-07)
+  ( 0.39947700E-08, 0.62453682E-09) ( 0.82709665E-05, 0.37094886E-07)
+  ( 0.64076254E-05, 0.28673205E-07) ( 0.74772952E-22, 0.33940913E-24)
+  ( 0.10468541E-21, 0.81135224E-24) (-0.68978462E-21,-0.29013446E-23)
+  (-0.83429494E-20,-0.36069342E-22) ( 0.64787536E-22, 0.49720846E-24)
+     ROW 16
+  ( 0.42574799E-06, 0.44803807E-07) (-0.11274733E-19,-0.86916628E-21)
+  (-0.11501580E-05,-0.68391177E-07) ( 0.26409223E-04, 0.94019546E-06)
+  (-0.32739476E-21,-0.18020749E-22) (-0.24139260E-19,-0.53259406E-21)
+  (-0.48133179E-05,-0.57596428E-07) ( 0.17817054E-04, 0.19134097E-06)
+  ( 0.56431109E-04, 0.62822654E-06) (-0.54536122E-21,-0.97317095E-23)
+  ( 0.23139427E-20, 0.26380625E-22) (-0.18055137E-18,-0.14572117E-20)
+  (-0.59947743E-08,-0.10287769E-08) ( 0.25295182E-04, 0.15290198E-06)
+  (-0.34800079E-04,-0.21296012E-06) ( 0.31144952E-02, 0.97070793E-05)
+  ( 0.17421036E-22,-0.21193903E-25) (-0.43235453E-22, 0.19976475E-23)
+  ( 0.92830575E-21, 0.53479294E-23) (-0.89714638E-19,-0.47972357E-21)
+  (-0.18821750E-08,-0.30445517E-09) ( 0.41401581E-08, 0.64938543E-09)
+  (-0.13558093E-04,-0.62302604E-07) ( 0.10349736E-04, 0.47284135E-07)
+  ( 0.23017383E-04, 0.10658410E-06) (-0.13365142E-21,-0.56948945E-24)
+  ( 0.12673161E-22, 0.38930017E-25) ( 0.45484642E-21, 0.24415380E-23)
+  (-0.35057256E-21,-0.16743780E-23) (-0.10363307E-19,-0.46381209E-22)
+     ROW 17
+  ( 0.33179873E-21,-0.43417223E-22) ( 0.15915502E-07, 0.67509544E-08)
+  ( 0.89336273E-21, 0.15167039E-22) ( 0.24261913E-21, 0.11153338E-22)
+  ( 0.87343624E-05, 0.14303902E-06) (-0.24059305E-07,-0.48080306E-08)
+  (-0.59944481E-21,-0.55791142E-23) (-0.50203941E-21,-0.26695562E-23)
+  ( 0.14732946E-21, 0.18138432E-23) ( 0.92682973E-11, 0.68460440E-11)
+  (-0.22495569E-04,-0.15258438E-06) ( 0.11886286E-07, 0.19564621E-08)
+  (-0.47916308E-20,-0.24567079E-22) (-0.23084589E-20,-0.11598707E-22)
+  ( 0.12884196E-21, 0.29665009E-23) (-0.57395296E-22,-0.41576483E-24)
+  ( 0.20694059E-02, 0.42832479E-05) (-0.12476914E-11,-0.85926221E-12)
+  ( 0.87510168E-05, 0.36573820E-07) (-0.27443635E-08,-0.43562577E-09)
+  (-0.14998609E-20,-0.53377573E-23) (-0.42172154E-20,-0.14814323E-22)
+  ( 0.69214386E-21, 0.24953305E-23) (-0.14641653E-21,-0.35660742E-24)
+  (-0.49651869E-22,-0.14440630E-24) ( 0.96889915E-17, 0.14739058E-15)
+  (-0.11262924E-04,-0.35725158E-07) ( 0.11016873E-12, 0.75184115E-13)
+  (-0.75998062E-06,-0.24816398E-08) ( 0.30769855E-09, 0.49045113E-10)
+     ROW 18
+  (-0.70521811E-21, 0.12631579E-21) (-0.15373726E-06,-0.12526043E-07)
+  ( 0.70718671E-22, 0.80457644E-23) ( 0.14145333E-21, 0.11597258E-23)
+  (-0.11351708E-07,-0.23831639E-08) ( 0.40646789E-05, 0.69460230E-07)
+  (-0.18913071E-19,-0.18638086E-21) (-0.24100014E-21,-0.24890058E-23)
+  ( 0.98859341E-22, 0.67226016E-23) (-0.30107202E-04,-0.20332427E-06)
+  ( 0.12553123E-07, 0.20384352E-08) (-0.23511398E-04,-0.16194927E-06)
+  ( 0.75679248E-21, 0.40308470E-23) (-0.35974614E-19,-0.17925586E-21)
+  (-0.69232655E-21,-0.34960497E-23) (-0.74117830E-22, 0.16731232E-23)
+  (-0.12476914E-11,-0.85926221E-12) ( 0.20658893E-02, 0.42697325E-05)
+  (-0.51373843E-08,-0.79644336E-09) ( 0.16330135E-04, 0.67894820E-07)
+  ( 0.42986630E-22, 0.30915917E-24) (-0.11962192E-20,-0.42236566E-23)
+  (-0.17242823E-19,-0.60457394E-22) ( 0.13982962E-20, 0.49807275E-23)
+  ( 0.27811887E-21, 0.73933665E-24) (-0.74749891E-05,-0.23736391E-07)
+  ( 0.22338740E-12, 0.15001801E-12) (-0.32413407E-05,-0.10516129E-07)
+  ( 0.89464876E-09, 0.13879240E-09) (-0.21860879E-05,-0.68427842E-08)
+     ROW 19
+  ( 0.24717645E-21, 0.83353955E-23) ( 0.68533386E-07, 0.10152523E-07)
+  ( 0.13533544E-19, 0.43690362E-21) (-0.43853124E-21,-0.11772456E-22)
+  ( 0.75461653E-05, 0.12304598E-06) (-0.18131056E-05,-0.31324989E-07)
+  (-0.33992159E-21,-0.20132284E-23) (-0.21990832E-19,-0.22413767E-21)
+  ( 0.29342250E-21,-0.22004928E-24) ( 0.60022672E-08, 0.10162957E-08)
+  ( 0.41550012E-05, 0.25875404E-07) ( 0.17815586E-04, 0.12226619E-06)
+  (-0.10764725E-21,-0.12998862E-24) ( 0.18720087E-20, 0.95119698E-23)
+  (-0.69888559E-19,-0.36120826E-21) (-0.49519915E-21,-0.20807825E-23)
+  ( 0.87510168E-05, 0.36573820E-07) (-0.51373843E-08,-0.79644336E-09)
+  ( 0.21020569E-02, 0.44197390E-05) (-0.20781804E-04,-0.87232827E-07)
+  ( 0.25429631E-22, 0.56205262E-25) ( 0.23679729E-21, 0.15143038E-23)
+  (-0.33190350E-21,-0.11735451E-23) (-0.35384245E-19,-0.12865684E-21)
+  ( 0.15872938E-20, 0.61714131E-23) ( 0.18317119E-12, 0.12411066E-12)
+  (-0.90796289E-05,-0.29039876E-07) ( 0.14849978E-08, 0.22743306E-09)
+  ( 0.83916918E-05, 0.26798889E-07) ( 0.41907185E-05, 0.13197357E-07)
+     ROW 20
+  (-0.26735244E-20, 0.20889672E-21) ( 0.77082503E-07, 0.10711652E-07)
+  ( 0.24310479E-21, 0.10616836E-22) (-0.55673106E-20,-0.20891448E-21)
+  (-0.59607771E-06,-0.13520249E-07) ( 0.12763629E-04, 0.22187291E-06)
+  (-0.22926354E-21,-0.25070390E-23) (-0.41636852E-21,-0.64047462E-23)
+  (-0.21925727E-19,-0.25066030E-21) (-0.39364657E-05,-0.26945826E-07)
+  ( 0.10322740E-04, 0.69024199E-07) ( 0.34799341E-04, 0.24135490E-06)
+  (-0.44177205E-23, 0.40873096E-25) ( 0.92525959E-22,-0.11542874E-23)
+  ( 0.23397806E-20, 0.14229686E-22) (-0.90134428E-19,-0.48184758E-21)
+  (-0.27443635E-08,-0.43562577E-09) ( 0.16330135E-04, 0.67894820E-07)
+  (-0.20781804E-04,-0.87232827E-07) ( 0.21318439E-02, 0.45473473E-05)
+  (-0.21568455E-23,-0.11529139E-25) (-0.63563970E-22,-0.28273414E-24)
+  ( 0.15885759E-21, 0.11666311E-23) ( 0.51058850E-21, 0.19561798E-23)
+  (-0.41448360E-19,-0.15479604E-21) (-0.10289694E-08,-0.15994732E-09)
+  ( 0.16123780E-08, 0.24705798E-09) (-0.83311524E-05,-0.26850038E-07)
+  ( 0.64267321E-05, 0.20581310E-07) ( 0.16100047E-04, 0.52369683E-07)
+     ROW 21
+  ( 0.96487768E-09, 0.97221885E-09) (-0.12288534E-21,-0.83560616E-23)
+  ( 0.12372852E-09, 0.44953122E-10) (-0.65988814E-08,-0.20237216E-08)
+  ( 0.28700693E-22, 0.35021007E-24) (-0.10401287E-21,-0.16271587E-23)
+  ( 0.72758151E-05, 0.69561112E-07) (-0.62065986E-11,-0.46480127E-11)
+  ( 0.51673723E-08, 0.91981105E-09) (-0.37138648E-21,-0.22010479E-23)
+  (-0.56408602E-22,-0.29645710E-24) ( 0.16345070E-21, 0.99162665E-24)
+  ( 0.40346803E-14, 0.73585030E-14) (-0.90367974E-05,-0.41204863E-07)
+  ( 0.77296010E-12, 0.55824434E-12) (-0.18821750E-08,-0.30445517E-09)
+  (-0.13442829E-20,-0.47818178E-23) ( 0.26206202E-21, 0.11073489E-23)
+  ( 0.22182435E-22, 0.47860432E-25) (-0.22428540E-22,-0.69983141E-25)
+  ( 0.15011939E-02, 0.22537702E-05) (-0.15608982E-16,-0.14218086E-15)
+  ( 0.23732046E-05, 0.72388924E-08) (-0.85441431E-13,-0.58357503E-13)
+  ( 0.34946601E-09, 0.54944724E-10) (-0.55286683E-21,-0.14315649E-23)
+  ( 0.27823905E-21, 0.74705536E-24) ( 0.42477412E-23, 0.30229747E-25)
+  ( 0.36366228E-22, 0.10089305E-24) (-0.72919857E-22,-0.19115649E-24)
+     ROW 22
+  ( 0.39865426E-09, 0.13337331E-09) ( 0.14133013E-21, 0.93002204E-23)
+  (-0.56645447E-07,-0.39144317E-08) ( 0.31242014E-08, 0.93069970E-09)
+  ( 0.21269345E-22,-0.11987341E-23) (-0.21485613E-21,-0.34381378E-23)
+  (-0.35601616E-11,-0.27651627E-11) ( 0.37303319E-05, 0.35083349E-07)
+  (-0.60529679E-08,-0.10252876E-08) (-0.33212892E-21,-0.19435342E-23)
+  ( 0.28277831E-21, 0.25879021E-23) (-0.90774747E-23,-0.57644287E-25)
+  (-0.17919138E-04,-0.81964185E-07) ( 0.11958324E-11, 0.83769595E-12)
+  (-0.14142644E-04,-0.64219305E-07) ( 0.41401581E-08, 0.64938543E-09)
+  (-0.25670243E-20,-0.90377020E-23) (-0.13706287E-20,-0.48278884E-23)
+  ( 0.35607188E-21, 0.19916347E-23) (-0.69483735E-22,-0.30287259E-24)
+  (-0.15602963E-16,-0.14218084E-15) ( 0.14731243E-02, 0.21707279E-05)
+  (-0.24667486E-12,-0.16420038E-12) ( 0.69214916E-05, 0.20571416E-07)
+  (-0.12398731E-08,-0.18980020E-09) (-0.97598059E-21,-0.24918332E-23)
+  (-0.26271087E-20,-0.66654375E-23) ( 0.69303918E-21, 0.17984179E-23)
+  (-0.78306026E-22,-0.19378115E-24) (-0.70490628E-22,-0.16876266E-24)
+     ROW 23
+  ( 0.38012492E-09, 0.40176863E-09) (-0.10239976E-21,-0.52605314E-23)
+  ( 0.63266815E-09, 0.23269593E-09) (-0.44277108E-07,-0.19994551E-08)
+  ( 0.44105713E-22, 0.68989081E-24) ( 0.28308989E-21, 0.43176465E-23)
+  ( 0.17461390E-05, 0.17494196E-07) (-0.30290995E-08,-0.52962806E-09)
+  ( 0.19058419E-05, 0.18036093E-07) (-0.10116059E-19,-0.60904746E-22)
+  (-0.61490066E-21,-0.37834480E-23) ( 0.26671281E-22, 0.18682972E-23)
+  ( 0.45159751E-12, 0.32954136E-12) (-0.11725553E-04,-0.53210453E-07)
+  ( 0.39947700E-08, 0.62453682E-09) (-0.13558093E-04,-0.62302604E-07)
+  ( 0.64112309E-21, 0.23221010E-23) (-0.18888930E-19,-0.66339879E-22)
+  ( 0.24627983E-22, 0.80729745E-25) ( 0.14168414E-21, 0.10134617E-23)
+  ( 0.23732046E-05, 0.72388924E-08) (-0.24667486E-12,-0.16420038E-12)
+  ( 0.14842520E-02, 0.22034963E-05) (-0.19619482E-08,-0.29654531E-09)
+  ( 0.10915032E-04, 0.32541728E-07) (-0.15597766E-21,-0.31660297E-24)
+  (-0.82333717E-21,-0.21097270E-23) (-0.11191478E-19,-0.28856993E-22)
+  ( 0.97810489E-21, 0.25486226E-23) (-0.89621830E-22,-0.32565560E-24)
+     ROW 24
+  ( 0.10162183E-09,-0.10773024E-09) ( 0.23990261E-22, 0.44000590E-23)
+  ( 0.14107017E-08,-0.17674266E-08) ( 0.21138146E-07, 0.17001574E-08)
+  ( 0.77211807E-20, 0.11810192E-21) (-0.30201526E-22,-0.34243771E-23)
+  (-0.61159245E-09,-0.12056338E-09) ( 0.48779433E-05, 0.45140187E-07)
+  (-0.89849914E-06,-0.84123214E-08) (-0.16951087E-21,-0.10938059E-23)
+  (-0.14183841E-19,-0.91186745E-22) (-0.46286075E-21,-0.37136546E-23)
+  (-0.69391925E-06,-0.34009216E-08) ( 0.21972562E-08, 0.35096105E-09)
+  ( 0.82709665E-05, 0.37094886E-07) ( 0.10349736E-04, 0.47284135E-07)
+  (-0.48737969E-22,-0.93167922E-25) ( 0.10631026E-20, 0.38012372E-23)
+  (-0.35220439E-19,-0.12806236E-21) ( 0.52769097E-21, 0.21129274E-23)
+  (-0.85441431E-13,-0.58357503E-13) ( 0.69214916E-05, 0.20571416E-07)
+  (-0.19619482E-08,-0.29654531E-09) ( 0.15071502E-02, 0.22720306E-05)
+  (-0.13190292E-04,-0.39624362E-07) (-0.70564923E-22,-0.20188385E-24)
+  ( 0.98650958E-22, 0.44678018E-24) (-0.32432362E-21,-0.83688088E-24)
+  (-0.17862341E-19,-0.47353169E-22) ( 0.10430027E-20, 0.28752760E-23)
+     ROW 25
+  ( 0.11794855E-08, 0.10376606E-08) (-0.26711394E-20,-0.17098960E-21)
+  ( 0.52467086E-08, 0.85441461E-09) ( 0.27612646E-07, 0.27226601E-08)
+  ( 0.58335226E-22,-0.30776381E-23) ( 0.65883724E-20, 0.99348290E-22)
+  ( 0.66156793E-07, 0.11693967E-08) (-0.33766251E-06,-0.37601681E-08)
+  ( 0.69878006E-05, 0.68373473E-07) ( 0.48558473E-22,-0.73638141E-24)
+  ( 0.12026222E-21, 0.10867606E-23) (-0.13985186E-19,-0.96401166E-22)
+  ( 0.51070555E-09, 0.85754920E-10) (-0.29517283E-05,-0.13224326E-07)
+  ( 0.64076254E-05, 0.28673205E-07) ( 0.23017383E-04, 0.10658410E-06)
+  (-0.12199285E-23, 0.18401652E-25) (-0.60486605E-22,-0.68668816E-24)
+  ( 0.13880752E-20, 0.56604384E-23) (-0.47179294E-19,-0.17549555E-21)
+  ( 0.34946601E-09, 0.54944724E-10) (-0.12398731E-08,-0.18980020E-09)
+  ( 0.10915032E-04, 0.32541728E-07) (-0.13190292E-04,-0.39624362E-07)
+  ( 0.15232802E-02, 0.23214964E-05) ( 0.44160487E-22, 0.11227441E-24)
+  ( 0.10444420E-22, 0.59364273E-26) ( 0.16811966E-21, 0.61331645E-24)
+  ( 0.44348980E-21, 0.12218793E-23) (-0.20243258E-19,-0.54828806E-22)
+     ROW 26
+  ( 0.22012936E-22,-0.15247262E-22) ( 0.21642187E-09, 0.12483739E-09)
+  (-0.66339941E-22,-0.33077342E-23) (-0.34721511E-22,-0.98491652E-25)
+  ( 0.19135254E-11, 0.16343255E-11) (-0.15920015E-08,-0.36236325E-09)
+  ( 0.11418983E-23,-0.61709927E-26) (-0.16527908E-23, 0.64811631E-26)
+  (-0.13591789E-22,-0.10782719E-24) ( 0.32823653E-05, 0.19052238E-07)
+  (-0.73351670E-12,-0.54695228E-12) ( 0.20265284E-08, 0.32283811E-09)
+  (-0.34729555E-21,-0.14496554E-23) (-0.22834085E-21,-0.86147045E-24)
+  ( 0.30905511E-22, 0.15494088E-24) (-0.16622566E-21,-0.70796105E-24)
+  ( 0.96859592E-17, 0.14739057E-15) (-0.74749891E-05,-0.23736391E-07)
+  ( 0.18317119E-12, 0.12411066E-12) (-0.10289694E-08,-0.15994732E-09)
+  (-0.24475186E-21,-0.63146641E-24) (-0.12469991E-20,-0.31827713E-23)
+  (-0.21856367E-22, 0.16742793E-25) (-0.11597665E-22,-0.50369495E-25)
+  (-0.47150598E-22,-0.12686330E-24) ( 0.10945557E-02, 0.11981496E-05)
+  ( 0.44956345E-17,-0.13407409E-16) ( 0.25949203E-05, 0.57490122E-08)
+  (-0.29990959E-13,-0.19765330E-13) ( 0.24515555E-09, 0.37350453E-10)
+     ROW 27
+  (-0.18336620E-21, 0.17213983E-22) (-0.53447357E-10,-0.43104473E-10)
+  (-0.27387633E-21,-0.70962396E-23) ( 0.39765005E-22, 0.28998250E-24)
+  (-0.22402975E-07,-0.66489681E-09) ( 0.72601205E-09, 0.16811343E-09)
+  ( 0.10598279E-21, 0.96777491E-24) (-0.38149936E-22,-0.50637240E-24)
+  ( 0.25117965E-22, 0.21282871E-24) (-0.42591965E-12,-0.32190179E-12)
+  ( 0.18430801E-05, 0.10872056E-07) (-0.18616669E-08,-0.29272707E-09)
+  (-0.16130545E-20,-0.66296381E-23) (-0.46653385E-21,-0.19087245E-23)
+  ( 0.10714310E-21, 0.79673906E-24) (-0.76810475E-22,-0.32198496E-24)
+  (-0.11262924E-04,-0.35725158E-07) ( 0.22338740E-12, 0.15001801E-12)
+  (-0.90796289E-05,-0.29039876E-07) ( 0.16123780E-08, 0.24705798E-09)
+  ( 0.30231786E-21, 0.80889349E-24) (-0.32252962E-20,-0.81961243E-23)
+  (-0.74267916E-21,-0.19011524E-23) (-0.46571034E-23, 0.17284671E-24)
+  (-0.76224291E-22,-0.22120110E-24) ( 0.44987266E-17,-0.13407402E-16)
+  ( 0.10908833E-02, 0.11902844E-05) (-0.61128772E-13,-0.39837841E-13)
+  ( 0.52974358E-05, 0.11639887E-07) (-0.58646233E-09,-0.87967962E-10)
+     ROW 28
+  ( 0.10374011E-21,-0.11894618E-22) ( 0.22785817E-09, 0.13242056E-09)
+  ( 0.66731811E-22, 0.84287664E-24) ( 0.19835087E-22, 0.13784643E-23)
+  ( 0.18215843E-09, 0.47433175E-10) (-0.15835694E-07,-0.42581486E-09)
+  ( 0.61035045E-21, 0.59710378E-23) (-0.34122656E-22,-0.29070281E-24)
+  ( 0.67291740E-23, 0.19794648E-24) ( 0.16410282E-05, 0.96045445E-08)
+  (-0.98072917E-09,-0.15772253E-09) ( 0.99920832E-06, 0.57910897E-08)
+  (-0.12105094E-22,-0.76711125E-25) (-0.57573576E-20,-0.23536060E-22)
+  (-0.57640485E-21,-0.24213028E-23) ( 0.11646751E-22, 0.56104480E-24)
+  ( 0.11016873E-12, 0.75184115E-13) (-0.32413407E-05,-0.10516129E-07)
+  ( 0.14849978E-08, 0.22743306E-09) (-0.83311524E-05,-0.26850038E-07)
+  ( 0.76381732E-22, 0.23193565E-24) ( 0.79742911E-21, 0.20646635E-23)
+  (-0.97247214E-20,-0.25056320E-22) (-0.22054545E-21,-0.56830746E-24)
+  ( 0.94164685E-22, 0.33573784E-24) ( 0.25949203E-05, 0.57490122E-08)
+  (-0.61128773E-13,-0.39837841E-13) ( 0.11023883E-02, 0.12154311E-05)
+  (-0.83644597E-09,-0.12451505E-09) ( 0.75342828E-05, 0.16649691E-07)
+     ROW 29
+  ( 0.60731049E-22,-0.88559918E-26) (-0.12593597E-09,-0.79850205E-10)
+  (-0.42605412E-21,-0.12598415E-22) ( 0.12163748E-22, 0.17545906E-24)
+  ( 0.35365704E-08,-0.18680326E-09) ( 0.79035494E-08, 0.37260297E-09)
+  (-0.48863044E-22,-0.43014706E-24) ( 0.51257883E-20, 0.44302069E-22)
+  ( 0.19534760E-21, 0.75273944E-24) (-0.28387226E-09,-0.48444803E-10)
+  ( 0.31967222E-05, 0.18694694E-07) (-0.49705964E-06,-0.28111483E-08)
+  (-0.10930142E-23,-0.28033568E-24) (-0.22280744E-22,-0.11204503E-24)
+  (-0.96431393E-20,-0.41452920E-22) (-0.40807444E-21,-0.18679739E-23)
+  (-0.75998062E-06,-0.24816398E-08) ( 0.89464876E-09, 0.13879240E-09)
+  ( 0.83916918E-05, 0.26798889E-07) ( 0.64267321E-05, 0.20581310E-07)
+  ( 0.51066581E-22, 0.13846081E-24) (-0.64566832E-22,-0.13421377E-24)
+  ( 0.96514350E-21, 0.25141946E-23) (-0.16141658E-19,-0.42867216E-22)
+  ( 0.48520585E-21, 0.13580637E-23) (-0.29990959E-13,-0.19765330E-13)
+  ( 0.52974358E-05, 0.11639887E-07) (-0.83644597E-09,-0.12451505E-09)
+  ( 0.11168956E-02, 0.12477477E-05) (-0.87796803E-05,-0.19521703E-07)
+     ROW 30
+  (-0.17501189E-21, 0.23232841E-22) ( 0.52496148E-09, 0.32456801E-09)
+  (-0.11800750E-21,-0.42661898E-23) (-0.39355986E-20,-0.11901843E-21)
+  ( 0.25213231E-08, 0.21648664E-09) ( 0.11045153E-07, 0.76105739E-09)
+  ( 0.48883865E-22, 0.16517317E-23) (-0.43373773E-22,-0.18408988E-23)
+  ( 0.40987418E-20, 0.34269938E-22) ( 0.58182952E-07, 0.51760829E-09)
+  (-0.20691368E-06,-0.13086975E-08) ( 0.41626956E-05, 0.25429233E-07)
+  ( 0.34473686E-23, 0.10790836E-25) ( 0.20716069E-22,-0.24460526E-24)
+  ( 0.15533159E-21, 0.81831683E-24) (-0.84886854E-20,-0.38594429E-22)
+  ( 0.30769855E-09, 0.49045113E-10) (-0.21860879E-05,-0.68427842E-08)
+  ( 0.41907185E-05, 0.13197357E-07) ( 0.16100047E-04, 0.52369683E-07)
+  ( 0.17857970E-22, 0.47488703E-25) ( 0.40457337E-23, 0.25977595E-25)
+  (-0.39558350E-22,-0.25197023E-24) ( 0.11139890E-20, 0.31169015E-23)
+  (-0.23086116E-19,-0.62238559E-22) ( 0.24515555E-09, 0.37350453E-10)
+  (-0.58646233E-09,-0.87967962E-10) ( 0.75342828E-05, 0.16649691E-07)
+  (-0.87796803E-05,-0.19521703E-07) ( 0.11262110E-02, 0.12688876E-05)
+ eigenphases
+ -0.5770624E-01  0.1089506E-02  0.1093526E-02  0.1100610E-02  0.1113587E-02
+  0.1132960E-02  0.1471242E-02  0.1480463E-02  0.1501074E-02  0.1502522E-02
+  0.1532633E-02  0.2060602E-02  0.2066990E-02  0.2095554E-02  0.2145423E-02
+  0.2994479E-02  0.3039690E-02  0.3086531E-02  0.3134860E-02  0.4623800E-02
+  0.4662170E-02  0.4843310E-02  0.7643389E-02  0.7944676E-02  0.8093137E-02
+  0.1395765E-01  0.1497919E-01  0.3112578E-01  0.3315905E-01  0.7018477E-01
+ eigenphase sum 0.177153E+00  scattering length=  -0.66037
+ eps+pi 0.331875E+01  eps+2*pi 0.646034E+01
+
+MaxIter =   7 c.s. =      0.52937970 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.51095021E-02
+Time Now =       475.5079  Delta time =       168.3221 End ScatStab
+Time Now =       475.5082  Delta time =         0.0002 Finalize

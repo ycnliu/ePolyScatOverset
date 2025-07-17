@@ -1,0 +1,2918 @@
+Execution on n0159.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  17:34:53.869 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test31
+#
+# Ar SCF, (2p)^-1 photoionization
+#
+  LMax   5     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+
+  ScatEng  0.341 4.241 5.471 9.541   # list of scattering energies
+
+ InitSym 'AG'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 6 2 6  # Orbital occupation of initial state
+ OrbOcc     2 2 6 2 5  # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'T1U'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 15.759   # ionization potentail
+
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test31.g03' 'gaussian'
+GetBlms
+ExpOrb
+
+ ScatSym     'T1U'  # Scattering symmetry of total final state
+ ScatContSym 'AG'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' 'test31AG.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+ ScatSym     'T1U'  # Scattering symmetry of total final state
+ ScatContSym 'HG'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' 'test31HG.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+GetCro 'test31AG.idy' 'test31HG.idy'
+#
+  DPotEng  15.  # Energy (in eV) for the local exchange potential
+  ResSearchEng
+  1                   # nengrb - number of energy step regions
+  1. 0.5     # first energy and step (in eV)
+   20.0          # final ending point, engrb(nengrb+1)
+   10.                 # eendzi, largest imaginary part
+   2.                # estpzi, imaginary energy step
+
+GetDPot
+ResSearch
+
+#
++ End of input reached
++ Data Record LMax - 5
++ Data Record EMax - 50.0
++ Data Record FegeEng - 13.0
++ Data Record ScatEng - 0.341 4.241 5.471 9.541
++ Data Record InitSym - 'AG'
++ Data Record InitSpinDeg - 1
++ Data Record OrbOccInit - 2 2 6 2 6
++ Data Record OrbOcc - 2 2 6 2 5
++ Data Record SpinDeg - 1
++ Data Record TargSym - 'T1U'
++ Data Record TargSpinDeg - 2
++ Data Record IPot - 15.759
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test31.g03' 'gaussian'
+
+----------------------------------------------------------------------
+GaussianCnv - read input from Gaussian output
+----------------------------------------------------------------------
+
+Conversion using g03
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772083000000
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Command line = #HF/6-311G SCF=TIGHT 6D 10F GFINPUT PUNCH=MO
+CardFlag =    T
+Normal Mode flag =    F
+Selecting orbitals
+from     1  to     9  number already selected     0
+Number of orbitals selected is     9
+Highest orbital read in is =    9
+Time Now =         0.0037  Delta time =         0.0037 End GaussianCnv
+
+Atoms found    1  Coordinates in Angstroms
+Z = 18 ZS = 18 r =   0.0000000000   0.0000000000   0.0000000000
+Maximum distance from expansion center is    0.0000000000
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  Ih   
+Reduce angular grid using nthd =  2  nphid =  4
+Found point group for abelian subgroup D2h  
+Time Now =         0.0686  Delta time =         0.0648 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+Computed default value of LMaxA =    5
+Determining angular grid in GetAxMax  LMax =    5  LMaxA =    5  LMaxAb =   10
+MMax =    3  MMaxAbFlag =    2
+For axis     1  mvals:
+   0   1   2   3   4   5
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is Ih
+LMax     5
+ The dimension of each irreducable representation is
+    AG    (  1)    T1G   (  3)    T2G   (  3)    GG    (  4)    HG    (  5)
+    AU    (  1)    T1U   (  3)    T2U   (  3)    GU    (  4)    HU    (  5)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    7
+ The operations are -
+    18    29    30     2     5     4     3
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ AG        1         1          1       1  1  1  1  1  1  1
+ T1G       1         2          0       0  0  0  0  0  0  0
+ T1G       2         3          0       0  0  0  0  0  0  0
+ T1G       3         4          0       0  0  0  0  0  0  0
+ T2G       1         5          0       0  0  0  0  0  0  0
+ T2G       2         6          0       0  0  0  0  0  0  0
+ T2G       3         7          0       0  0  0  0  0  0  0
+ GG        1         8          1      -1 -1  1  1 -1 -1  1
+ GG        2         9          1      -1  1 -1  1 -1  1 -1
+ GG        3        10          1       1 -1 -1  1  1 -1 -1
+ GG        4        11          1       1  1  1  1  1  1  1
+ HG        1        12          2      -1 -1  1  1 -1 -1  1
+ HG        2        13          2      -1  1 -1  1 -1  1 -1
+ HG        3        14          2       1 -1 -1  1  1 -1 -1
+ HG        4        15          2       1  1  1  1  1  1  1
+ HG        5        16          2       1  1  1  1  1  1  1
+ AU        1        17          0       1  1  1 -1 -1 -1 -1
+ T1U       1        18          2      -1 -1  1 -1  1  1 -1
+ T1U       2        19          2      -1  1 -1 -1  1 -1  1
+ T1U       3        20          2       1 -1 -1 -1 -1  1  1
+ T2U       1        21          2      -1 -1  1 -1  1  1 -1
+ T2U       2        22          2      -1  1 -1 -1  1 -1  1
+ T2U       3        23          2       1 -1 -1 -1 -1  1  1
+ GU        1        24          1      -1 -1  1 -1  1  1 -1
+ GU        2        25          1      -1  1 -1 -1  1 -1  1
+ GU        3        26          1       1 -1 -1 -1 -1  1  1
+ GU        4        27          1       1  1  1 -1 -1 -1 -1
+ HU        1        28          1      -1 -1  1 -1  1  1 -1
+ HU        2        29          1      -1  1 -1 -1  1 -1  1
+ HU        3        30          1       1 -1 -1 -1 -1  1  1
+ HU        4        31          1       1  1  1 -1 -1 -1 -1
+ HU        5        32          1       1  1  1 -1 -1 -1 -1
+Time Now =         0.1978  Delta time =         0.1293 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+AG    1    0(   1)    1(   1)    2(   1)    3(   1)    4(   1)    5(   1)
+T1G   1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+T1G   2    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+T1G   3    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+T2G   1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+T2G   2    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+T2G   3    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+GG    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)
+GG    2    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)
+GG    3    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)
+GG    4    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)
+HG    1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)
+HG    2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)
+HG    3    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)
+HG    4    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)
+HG    5    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)
+AU    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)
+T1U   1    0(   0)    1(   1)    2(   1)    3(   1)    4(   1)    5(   2)
+T1U   2    0(   0)    1(   1)    2(   1)    3(   1)    4(   1)    5(   2)
+T1U   3    0(   0)    1(   1)    2(   1)    3(   1)    4(   1)    5(   2)
+T2U   1    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   2)
+T2U   2    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   2)
+T2U   3    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   2)
+GU    1    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   1)
+GU    2    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   1)
+GU    3    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   1)
+GU    4    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   1)
+HU    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)
+HU    2    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)
+HU    3    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)
+HU    4    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)
+HU    5    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is D2h
+LMax    10
+ The dimension of each irreducable representation is
+    AG    (  1)    B1G   (  1)    B2G   (  1)    B3G   (  1)    AU    (  1)
+    B1U   (  1)    B2U   (  1)    B3U   (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+  3       0.000000       1.000000       0.000000 ang =  1  2 type = 2 axis = 2
+  4       1.000000       0.000000       0.000000 ang =  1  2 type = 2 axis = 1
+  5       0.000000       0.000000       1.000000 ang =  1  2 type = 3 axis = 3
+  6       0.000000       0.000000       1.000000 ang =  0  1 type = 1 axis = 3
+  7       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  8       1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+irep =    1  sym =AG    1  eigs =   1   1   1   1   1   1   1   1
+irep =    2  sym =B1G   1  eigs =   1   1  -1  -1   1   1  -1  -1
+irep =    3  sym =B2G   1  eigs =   1  -1   1  -1   1  -1   1  -1
+irep =    4  sym =B3G   1  eigs =   1  -1  -1   1   1  -1  -1   1
+irep =    5  sym =AU    1  eigs =   1   1   1   1  -1  -1  -1  -1
+irep =    6  sym =B1U   1  eigs =   1   1  -1  -1  -1  -1   1   1
+irep =    7  sym =B2U   1  eigs =   1  -1   1  -1  -1   1  -1   1
+irep =    8  sym =B3U   1  eigs =   1  -1  -1   1  -1   1   1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    7
+ The operations are -
+     2     3     4     5     6     7     8
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ AG        1         1         21       1  1  1  1  1  1  1
+ B1G       1         2         15       1 -1 -1  1  1 -1 -1
+ B2G       1         3         15      -1  1 -1  1 -1  1 -1
+ B3G       1         4         15      -1 -1  1  1 -1 -1  1
+ AU        1         5         10       1  1  1 -1 -1 -1 -1
+ B1U       1         6         15       1 -1 -1 -1 -1  1  1
+ B2U       1         7         15      -1  1 -1 -1  1 -1  1
+ B3U       1         8         15      -1 -1  1 -1  1  1 -1
+Time Now =         0.1993  Delta time =         0.0015 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =    5.8403030373 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+HFacGauss    10.00000
+HFacWave     10.00000
+GridFac       1
+MinExpFac   300.00000
+Maximum R in the grid (RMax) =     5.84030 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMAx) =  50.00000 eV
+Maximum step size (MaxStep) =   5.84030 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.11802E+06
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.15403E-03     0.00123
+    2    8    16    0.16422E-03     0.00255
+    3    8    24    0.20243E-03     0.00417
+    4    8    32    0.30713E-03     0.00662
+    5    8    40    0.48829E-03     0.01053
+    6    8    48    0.77632E-03     0.01674
+    7    8    56    0.12342E-02     0.02661
+    8    8    64    0.19623E-02     0.04231
+    9    8    72    0.31198E-02     0.06727
+   10    8    80    0.49600E-02     0.10695
+   11    8    88    0.78857E-02     0.17004
+   12    8    96    0.12537E-01     0.27033
+   13    8   104    0.19932E-01     0.42979
+   14    8   112    0.31690E-01     0.68331
+   15    8   120    0.41476E-01     1.01512
+   16    8   128    0.47960E-01     1.39880
+   17    8   136    0.53302E-01     1.82522
+   18    8   144    0.57657E-01     2.28647
+   19    8   152    0.61204E-01     2.77611
+   20    8   160    0.64108E-01     3.28897
+   21    8   168    0.66502E-01     3.82099
+   22    8   176    0.68496E-01     4.36896
+   23    8   184    0.70171E-01     4.93032
+   24    8   192    0.71592E-01     5.50306
+   25    8   200    0.42155E-01     5.84030
+Time Now =         0.2009  Delta time =         0.0016 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =    5
+Maximum scattering m (mmaxs) =    5
+Maximum numerical integration l (lmaxi) =   10
+Maximum numerical integration m (mmaxi) =   10
+Maximum l to include in the asymptotic region (lmasym) =    5
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =    0
+ Actual value of lmasym found =      5
+Number of regions of the same l expansion (NAngReg) =    2
+Angular regions
+    1 L =    2  from (    1)         0.00015  to (    7)         0.00108
+    2 L =    5  from (    8)         0.00123  to (  200)         5.84030
+There are     1 angular regions for computing spherical harmonics
+    1 lval =    5
+Maximum number of processors is       24
+Last grid points by processor WorkExp =     1.500
+Proc id =   -1  Last grid point =       1
+Proc id =    0  Last grid point =      16
+Proc id =    1  Last grid point =      32
+Proc id =    2  Last grid point =      40
+Proc id =    3  Last grid point =      48
+Proc id =    4  Last grid point =      56
+Proc id =    5  Last grid point =      72
+Proc id =    6  Last grid point =      80
+Proc id =    7  Last grid point =      88
+Proc id =    8  Last grid point =      96
+Proc id =    9  Last grid point =     104
+Proc id =   10  Last grid point =     120
+Proc id =   11  Last grid point =     128
+Proc id =   12  Last grid point =     136
+Proc id =   13  Last grid point =     144
+Proc id =   14  Last grid point =     152
+Proc id =   15  Last grid point =     168
+Proc id =   16  Last grid point =     176
+Proc id =   17  Last grid point =     184
+Proc id =   18  Last grid point =     192
+Proc id =   19  Last grid point =     200
+Time Now =         0.2012  Delta time =         0.0003 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng = -118.608390  AG    1 at max irg =   56  r =   0.02661
+     2  Orig    2  Eng =  -12.320674  AG    1 at max irg =   88  r =   0.17004
+     3  Orig    3  Eng =   -9.570498  T1U   1 at max irg =   88  r =   0.17004
+     4  Orig    4  Eng =   -9.570498  T1U   2 at max irg =   88  r =   0.17004
+     5  Orig    5  Eng =   -9.570498  T1U   3 at max irg =   88  r =   0.17004
+     6  Orig    6  Eng =   -1.276169  AG    1 at max irg =  112  r =   0.68331
+     7  Orig    7  Eng =   -0.590124  T1U   1 at max irg =  112  r =   0.68331
+     8  Orig    8  Eng =   -0.590124  T1U   2 at max irg =  112  r =   0.68331
+     9  Orig    9  Eng =   -0.590124  T1U   3 at max irg =  112  r =   0.68331
+
+Rotation coefficients for orbital     1  grp =    1 AG    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 AG    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     3  grp =    3 T1U   1
+     1 -0.0000000000    2  1.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital     4  grp =    3 T1U   2
+     1  1.0000000000    2  0.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     5  grp =    3 T1U   3
+     1 -0.0000000000    2  0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital     6  grp =    4 AG    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     7  grp =    5 T1U   1
+     1 -0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     8  grp =    5 T1U   2
+     1 -0.0000000000    2 -0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital     9  grp =    5 T1U   3
+     1  1.0000000000    2  0.0000000000    3  0.0000000000
+Number of orbital groups and degeneracis are         5
+  1  1  3  1  3
+Number of orbital groups and number of electrons when fully occupied
+         5
+  2  2  6  2  6
+Time Now =         0.2060  Delta time =         0.0048 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    5
+Orbital     1 of  AG    1 symmetry normalization integral =  0.99999999
+Orbital     2 of  AG    1 symmetry normalization integral =  1.00000001
+Orbital     3 of  T1U   1 symmetry normalization integral =  0.99999996
+Orbital     4 of  AG    1 symmetry normalization integral =  0.99999999
+Orbital     5 of  T1U   1 symmetry normalization integral =  0.99999997
+Time Now =         0.2072  Delta time =         0.0013 End ExpOrb
++ Data Record ScatSym - 'T1U'
++ Data Record ScatContSym - 'AG'
+
++ Command FileName
++ 'MatrixElements' 'test31AG.idy' 'REWIND'
+Opening file test31AG.idy at position REWIND
+
++ Command GenFormPhIon
++ 
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =    5
+Set    1  has degeneracy     1
+Orbital     1  is num     1  type =   1  name - AG    1
+Set    2  has degeneracy     1
+Orbital     1  is num     2  type =   1  name - AG    1
+Set    3  has degeneracy     3
+Orbital     1  is num     3  type =  18  name - T1U   1
+Orbital     2  is num     4  type =  19  name - T1U   2
+Orbital     3  is num     5  type =  20  name - T1U   3
+Set    4  has degeneracy     1
+Orbital     1  is num     6  type =   1  name - AG    1
+Set    5  has degeneracy     3
+Orbital     1  is num     7  type =  18  name - T1U   1
+Orbital     2  is num     8  type =  19  name - T1U   2
+Orbital     3  is num     9  type =  20  name - T1U   3
+Orbital occupations by degenerate group
+    1  AG       occ = 2
+    2  AG       occ = 2
+    3  T1U      occ = 6
+    4  AG       occ = 2
+    5  T1U      occ = 5
+The dimension of each irreducable representation is
+    AG    (  1)    T1G   (  3)    T2G   (  3)    GG    (  4)    HG    (  5)
+    AU    (  1)    T1U   (  3)    T2U   (  3)    GU    (  4)    HU    (  5)
+Symmetry of the continuum orbital is AG   
+Symmetry of the total state is T1U  
+Spin degeneracy of the total state is =    1
+Symmetry of the target state is T1U  
+Spin degeneracy of the target state is =    2
+Symmetry of the initial state is AG   
+Spin degeneracy of the initial state is =    1
+Orbital occupations of initial state by degenerate group
+    1  AG       occ = 2
+    2  AG       occ = 2
+    3  T1U      occ = 6
+    4  AG       occ = 2
+    5  T1U      occ = 6
+Open shell symmetry types
+    1  T1U    iele =    5
+Use only configuration of type T1U  
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+
+ representation T1U    component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T1U    component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T1U    component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Open shell symmetry types
+    1  T1U    iele =    5
+    2  AG     iele =    1
+Use only configuration of type T1U  
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+
+ representation T1U    component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.70711   0.00000    1    2    3    5    6    8
+    2:   0.70711   0.00000    2    3    4    5    6    7
+
+ representation T1U    component     2  fun    1
+Symmeterized Function from AddNewShell
+    1:   0.70711   0.00000    1    2    3    4    6    8
+    2:  -0.70711   0.00000    1    3    4    5    6    7
+
+ representation T1U    component     3  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.70711   0.00000    1    2    3    4    5    8
+    2:   0.70711   0.00000    1    2    4    5    6    7
+Open shell symmetry types
+    1  T1U    iele =    5
+Use only configuration of type T1U  
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+
+ representation T1U    component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T1U    component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T1U    component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Direct product basis set
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   20
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   19
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   20
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   19
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   20
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   19
+Closed shell target
+Time Now =         0.2401  Delta time =         0.0329 End SymProd
+
+----------------------------------------------------------------------
+MatEle - Program to compute Matrix Elements over Determinants
+----------------------------------------------------------------------
+
+Configuration     1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   20
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   19
+Configuration     2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   20
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   19
+Configuration     3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   20
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   19
+Direct product Configuration Cont sym =    1  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   20
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   19
+Direct product Configuration Cont sym =    1  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   20
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   19
+Direct product Configuration Cont sym =    1  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   20
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   19
+Overlap of Direct Product expansion and Symmeterized states
+Symmetry of Continuum =    1
+Symmetry of target =    7
+Symmetry of total states =    7
+
+Total symmetry component =    1
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.10000000E+01  0.00000000E+00  0.00000000E+00
+
+Total symmetry component =    2
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.10000000E+01  0.00000000E+00
+
+Total symmetry component =    3
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.10000000E+01
+Initial State Configuration
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   18
+One electron matrix elements between initial and final states
+    1:   -1.414213562    0.000000000  <   13|   19>
+
+Reduced formula list
+    1    5    1 -0.1414213562E+01
+Time Now =         0.2406  Delta time =         0.0004 End MatEle
+
++ Command DipoleOp
++ 
+
+----------------------------------------------------------------------
+DipoleOp - Dipole Operator Program
+----------------------------------------------------------------------
+
+Number of orbitals in formula for the dipole operator (NOrbSel) =    1
+Symmetry of the continuum orbital (iContSym) =     1 or AG   
+Symmetry of total final state (iTotalSym) =     7 or T1U  
+Symmetry of the initial state (iInitSym) =     1 or AG   
+Symmetry of the ionized target state (iTargSym) =     7 or T1U  
+List of unique symmetry types
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+Unique dipole matrix type     1 Dipole symmetry type =T1U  
+     Final state symmetry type = T1U    Target sym =T1U  
+     Continuum type =AG   
+In the product of the symmetry types T1U   T1G  
+ Each irreducable representation is present the number of times indicated
+In the product of the symmetry types T1U   T2G  
+ Each irreducable representation is present the number of times indicated
+In the product of the symmetry types T1U   GG   
+ Each irreducable representation is present the number of times indicated
+    T2U   (  1)
+    GU    (  1)
+    HU    (  1)
+In the product of the symmetry types T1U   HG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+    T2U   (  1)
+    GU    (  1)
+    HU    (  1)
+Unique dipole matrix type     2 Dipole symmetry type =T1U  
+     Final state symmetry type = T1U    Target sym =T1U  
+     Continuum type =HG   
+In the product of the symmetry types T1U   AU   
+ Each irreducable representation is present the number of times indicated
+    T1G   (  1)
+In the product of the symmetry types T1U   T1U  
+ Each irreducable representation is present the number of times indicated
+    AG    (  1)
+    T1G   (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   T2U  
+ Each irreducable representation is present the number of times indicated
+    GG    (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   GU   
+ Each irreducable representation is present the number of times indicated
+    T2G   (  1)
+    GG    (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   HU   
+ Each irreducable representation is present the number of times indicated
+    T1G   (  1)
+    T2G   (  1)
+    GG    (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+Irreducible representation containing the dipole operator is T1U  
+Number of different dipole operators in this representation is     1
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+Vector of the total symmetry
+ie =    1  ij =    1
+    1 (  0.10000000E+01,  0.00000000E+00)
+    2 ( -0.16653345E-16,  0.00000000E+00)
+    3 (  0.15681900E-15,  0.00000000E+00)
+Vector of the total symmetry
+ie =    2  ij =    1
+    1 ( -0.16653345E-16,  0.00000000E+00)
+    2 (  0.10000000E+01,  0.00000000E+00)
+    3 ( -0.17069679E-15,  0.00000000E+00)
+Vector of the total symmetry
+ie =    3  ij =    1
+    1 (  0.15681900E-15,  0.00000000E+00)
+    2 ( -0.17069679E-15,  0.00000000E+00)
+    3 (  0.10000000E+01,  0.00000000E+00)
+Component Dipole Op Sym =  1 goes to Total Sym component   1 phase = 1.0
+Component Dipole Op Sym =  2 goes to Total Sym component   2 phase = 1.0
+Component Dipole Op Sym =  3 goes to Total Sym component   3 phase = 1.0
+
+Dipole operator types by symmetry components (x=1, y=2, z=3)
+sym comp =  1
+  coefficients =  1.00000000  0.00000000  0.00000000
+sym comp =  2
+  coefficients =  0.00000000  1.00000000  0.00000000
+sym comp =  3
+  coefficients =  0.00000000  0.00000000  1.00000000
+
+Formula for dipole operator
+
+Dipole operator sym comp 1  index =    1
+  1  Cont comp  1  Orb  7  Coef =  -1.4142135620
+Symmetry type to write out (SymTyp) =AG   
+Time Now =         0.2556  Delta time =         0.0150 End DipoleOp
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =     17.00000000
+Time Now =         0.2576  Delta time =         0.0020 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.17000000E+02 facnorm =  0.10000000E+01
+Time Now =         0.2583  Delta time =         0.0007 Electronic part
+Time Now =         0.2583  Delta time =         0.0000 End StPot
+
++ Command PhIon
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.34100000E+00 eV (  0.12531520E-01 AU)
+Time Now =         0.2587  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = AG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     1
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    1
+Number of orthogonality constraints (NOrthUse) =    3
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    0
+Higest l included in the K matrix (lna) =    0
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    1
+Time Now =         0.2595  Delta time =         0.0008 Energy independent setup
+
+Compute solution for E =    0.3410000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894515E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894516E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894516E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894516E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.21413094E+00 Asymp Coef   =  -0.67790927E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.89893862E-03 Asymp Moment =   0.13464654E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16388055E-20 Asymp Moment =  -0.15070784E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16763836E-20 Asymp Moment =  -0.15416359E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17872748E-21 Asymp Moment =   0.16436138E-17 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =      70
+Final point in integration =   0.57799834E+03 Angstroms
+Time Now =         0.3475  Delta time =         0.0879 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  ( 0.12121364E+01,-0.31445493E+00)
+     ROW  2
+  ( 0.64617149E+00,-0.16763114E+00)
+MaxIter =   5 c.s. =      2.01379430 rmsk=     0.00000000  Abs eps    0.12368166E-05  Rel eps    0.25052088E-08
+Time Now =         0.7653  Delta time =         0.4178 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.42410000E+01 eV (  0.15585389E+00 AU)
+Time Now =         0.7656  Delta time =         0.0003 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = AG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     1
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    1
+Number of orthogonality constraints (NOrthUse) =    3
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    0
+Higest l included in the K matrix (lna) =    0
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    1
+Time Now =         0.7663  Delta time =         0.0007 Energy independent setup
+
+Compute solution for E =    4.2410000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270400E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270400E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270400E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270401E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.21413094E+00 Asymp Coef   =  -0.67790927E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.89893862E-03 Asymp Moment =   0.13464654E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16388055E-20 Asymp Moment =  -0.15070784E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16763836E-20 Asymp Moment =  -0.15416359E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17872748E-21 Asymp Moment =   0.16436138E-17 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =     119
+Final point in integration =   0.28633520E+03 Angstroms
+Time Now =         0.8822  Delta time =         0.1159 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  ( 0.90767030E+00,-0.14226480E+00)
+     ROW  2
+  ( 0.59779512E+00,-0.93696131E-01)
+MaxIter =   5 c.s. =      1.21024261 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.15333819E-08
+Time Now =         1.3082  Delta time =         0.4260 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.54710000E+01 eV (  0.20105556E+00 AU)
+Time Now =         1.3086  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = AG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     1
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    1
+Number of orthogonality constraints (NOrthUse) =    3
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    0
+Higest l included in the K matrix (lna) =    0
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    1
+Time Now =         1.3092  Delta time =         0.0007 Energy independent setup
+
+Compute solution for E =    5.4710000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.21413094E+00 Asymp Coef   =  -0.67790927E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.89893862E-03 Asymp Moment =   0.13464654E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16388055E-20 Asymp Moment =  -0.15070784E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16763836E-20 Asymp Moment =  -0.15416359E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17872748E-21 Asymp Moment =   0.16436138E-17 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =     126
+Final point in integration =   0.26755807E+03 Angstroms
+Time Now =         1.4401  Delta time =         0.1309 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  ( 0.82909548E+00,-0.10522404E+00)
+     ROW  2
+  ( 0.58441111E+00,-0.74170100E-01)
+MaxIter =   5 c.s. =      1.04550896 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.13350348E-08
+Time Now =         1.8610  Delta time =         0.4209 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.95410000E+01 eV (  0.35062532E+00 AU)
+Time Now =         1.8613  Delta time =         0.0003 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = AG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     1
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    1
+Number of orthogonality constraints (NOrthUse) =    3
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    0
+Higest l included in the K matrix (lna) =    0
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    1
+Time Now =         1.8620  Delta time =         0.0007 Energy independent setup
+
+Compute solution for E =    9.5410000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.21413094E+00 Asymp Coef   =  -0.67790927E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.89893862E-03 Asymp Moment =   0.13464654E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16388055E-20 Asymp Moment =  -0.15070784E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16763836E-20 Asymp Moment =  -0.15416359E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17872748E-21 Asymp Moment =   0.16436138E-17 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =     142
+Final point in integration =   0.22953605E+03 Angstroms
+Time Now =         2.0043  Delta time =         0.1423 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  ( 0.62058680E+00,-0.21903453E-01)
+     ROW  2
+  ( 0.54538422E+00,-0.19249190E-01)
+MaxIter =   5 c.s. =      0.68342221 rmsk=     0.00000000  Abs eps    0.10000000E-05  Rel eps    0.87656758E-09
+Time Now =         2.4264  Delta time =         0.4222 End ScatStab
+
++ Command GetCro
++ 
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =         2.4267  Delta time =         0.0003 End CnvIdy
+Found     4 energies :
+     0.34100000     4.24100000     5.47100000     9.54100000
+List of matrix element types found   Number =    1
+    1  Cont Sym AG     Targ Sym T1U    Total Sym T1U  
+Keeping     4 energies :
+     0.34100000     4.24100000     5.47100000     9.54100000
+Time Now =         2.4268  Delta time =         0.0001 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     15.7590 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    16.1000  0.47651010E+01
+    20.0000  0.31862739E+01
+    21.2300  0.27986943E+01
+    25.3000  0.18412938E+01
+
+     Sigma MIXED    at all energies
+      Eng  
+    16.1000  0.42933190E+01
+    20.0000  0.28551437E+01
+    21.2300  0.25285410E+01
+    25.3000  0.17404166E+01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    16.1000  0.38682471E+01
+    20.0000  0.25584259E+01
+    21.2300  0.22844652E+01
+    25.3000  0.16450661E+01
+
+     Beta LENGTH   at all energies
+      Eng  
+    16.1000  0.00000000E+00
+    20.0000  0.00000000E+00
+    21.2300  0.00000000E+00
+    25.3000  0.00000000E+00
+
+     Beta MIXED    at all energies
+      Eng  
+    16.1000  0.00000000E+00
+    20.0000  0.00000000E+00
+    21.2300  0.00000000E+00
+    25.3000  0.00000000E+00
+
+     Beta VELOCITY at all energies
+      Eng  
+    16.1000  0.00000000E+00
+    20.0000  0.00000000E+00
+    21.2300  0.00000000E+00
+    25.3000  0.00000000E+00
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     16.1000     4.7651     4.2933     3.8682     0.0000     0.0000     0.0000
+EPhi     20.0000     3.1863     2.8551     2.5584     0.0000     0.0000     0.0000
+EPhi     21.2300     2.7987     2.5285     2.2845     0.0000     0.0000     0.0000
+EPhi     25.3000     1.8413     1.7404     1.6451     0.0000     0.0000     0.0000
+Time Now =         2.4276  Delta time =         0.0008 End CrossSection
++ Data Record ScatSym - 'T1U'
++ Data Record ScatContSym - 'HG'
+
++ Command FileName
++ 'MatrixElements' 'test31HG.idy' 'REWIND'
+Opening file test31HG.idy at position REWIND
+
++ Command GenFormPhIon
++ 
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =    5
+Set    1  has degeneracy     1
+Orbital     1  is num     1  type =   1  name - AG    1
+Set    2  has degeneracy     1
+Orbital     1  is num     2  type =   1  name - AG    1
+Set    3  has degeneracy     3
+Orbital     1  is num     3  type =  18  name - T1U   1
+Orbital     2  is num     4  type =  19  name - T1U   2
+Orbital     3  is num     5  type =  20  name - T1U   3
+Set    4  has degeneracy     1
+Orbital     1  is num     6  type =   1  name - AG    1
+Set    5  has degeneracy     3
+Orbital     1  is num     7  type =  18  name - T1U   1
+Orbital     2  is num     8  type =  19  name - T1U   2
+Orbital     3  is num     9  type =  20  name - T1U   3
+Orbital occupations by degenerate group
+    1  AG       occ = 2
+    2  AG       occ = 2
+    3  T1U      occ = 6
+    4  AG       occ = 2
+    5  T1U      occ = 5
+The dimension of each irreducable representation is
+    AG    (  1)    T1G   (  3)    T2G   (  3)    GG    (  4)    HG    (  5)
+    AU    (  1)    T1U   (  3)    T2U   (  3)    GU    (  4)    HU    (  5)
+Symmetry of the continuum orbital is HG   
+Symmetry of the total state is T1U  
+Spin degeneracy of the total state is =    1
+Symmetry of the target state is T1U  
+Spin degeneracy of the target state is =    2
+Symmetry of the initial state is AG   
+Spin degeneracy of the initial state is =    1
+Orbital occupations of initial state by degenerate group
+    1  AG       occ = 2
+    2  AG       occ = 2
+    3  T1U      occ = 6
+    4  AG       occ = 2
+    5  T1U      occ = 6
+Open shell symmetry types
+    1  T1U    iele =    5
+Use only configuration of type T1U  
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+
+ representation T1U    component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T1U    component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T1U    component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Open shell symmetry types
+    1  T1U    iele =    5
+    2  HG     iele =    1
+Use only configuration of type T1U  
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+    T2U   (  1)
+    GU    (  1)
+    HU    (  1)
+
+ representation T1U    component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.38730   0.00000    1    2    3    4    5   13
+    2:   0.38730   0.00000    1    2    3    4    6   14
+    3:   0.22361   0.00000    1    2    3    5    6   15
+    4:  -0.38730   0.00000    1    2    3    5    6   16
+    5:   0.38730   0.00000    1    2    4    5    6    8
+    6:  -0.38730   0.00000    1    3    4    5    6    9
+    7:  -0.22361   0.00000    2    3    4    5    6   10
+    8:   0.38730   0.00000    2    3    4    5    6   11
+
+ representation T1U    component     2  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.38730   0.00000    1    2    3    4    5   12
+    2:  -0.22361   0.00000    1    2    3    4    6   15
+    3:  -0.38730   0.00000    1    2    3    4    6   16
+    4:  -0.38730   0.00000    1    2    3    5    6   14
+    5:   0.38730   0.00000    1    2    4    5    6    7
+    6:   0.22361   0.00000    1    3    4    5    6   10
+    7:   0.38730   0.00000    1    3    4    5    6   11
+    8:   0.38730   0.00000    2    3    4    5    6    9
+
+ representation T1U    component     3  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.44721   0.00000    1    2    3    4    5   15
+    2:   0.38730   0.00000    1    2    3    4    6   12
+    3:  -0.38730   0.00000    1    2    3    5    6   13
+    4:   0.44721   0.00000    1    2    4    5    6   10
+    5:  -0.38730   0.00000    1    3    4    5    6    7
+    6:   0.38730   0.00000    2    3    4    5    6    8
+Open shell symmetry types
+    1  T1U    iele =    5
+Use only configuration of type T1U  
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+
+ representation T1U    component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T1U    component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T1U    component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Direct product basis set
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   24
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   19
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   25
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   20
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   26
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   21
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   27
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   22
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   28
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   23
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   24
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   19
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   25
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   20
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   26
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   21
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   27
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   22
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   28
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   23
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   24
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   19
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   25
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   20
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   26
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   21
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   27
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   22
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   28
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   23
+Closed shell target
+Time Now =         2.6282  Delta time =         0.2006 End SymProd
+
+----------------------------------------------------------------------
+MatEle - Program to compute Matrix Elements over Determinants
+----------------------------------------------------------------------
+
+Configuration     1
+    1:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   25
+    2:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   26
+    3:   0.22361   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   27
+    4:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   28
+    5:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   20
+    6:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   21
+    7:  -0.22361   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   22
+    8:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   23
+Configuration     2
+    1:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   24
+    2:  -0.22361   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   27
+    3:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   28
+    4:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   26
+    5:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   19
+    6:   0.22361   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   22
+    7:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   23
+    8:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   21
+Configuration     3
+    1:  -0.44721   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   27
+    2:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   24
+    3:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   25
+    4:   0.44721   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   22
+    5:  -0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   19
+    6:   0.38730   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   20
+Direct product Configuration Cont sym =    1  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   24
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   19
+Direct product Configuration Cont sym =    2  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   25
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   20
+Direct product Configuration Cont sym =    3  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   26
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   21
+Direct product Configuration Cont sym =    4  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   27
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   22
+Direct product Configuration Cont sym =    5  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   17   18   28
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   14   15   16   17   18   23
+Direct product Configuration Cont sym =    1  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   24
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   19
+Direct product Configuration Cont sym =    2  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   25
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   20
+Direct product Configuration Cont sym =    3  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   26
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   21
+Direct product Configuration Cont sym =    4  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   27
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   22
+Direct product Configuration Cont sym =    5  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   18   28
+    2:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   15   16   17   18   23
+Direct product Configuration Cont sym =    1  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   24
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   19
+Direct product Configuration Cont sym =    2  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   25
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   20
+Direct product Configuration Cont sym =    3  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   26
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   21
+Direct product Configuration Cont sym =    4  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   27
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   22
+Direct product Configuration Cont sym =    5  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   28
+    2:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   16   17   18   23
+Overlap of Direct Product expansion and Symmeterized states
+Symmetry of Continuum =    5
+Symmetry of target =    7
+Symmetry of total states =    7
+
+Total symmetry component =    1
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   2   0.00000000E+00  0.00000000E+00  0.54772256E+00
+   3   0.00000000E+00  0.54772256E+00  0.00000000E+00
+   4  -0.31622777E+00  0.00000000E+00  0.00000000E+00
+   5   0.54772256E+00  0.00000000E+00  0.00000000E+00
+
+Total symmetry component =    2
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.54772256E+00
+   2   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   3   0.54772256E+00  0.00000000E+00  0.00000000E+00
+   4   0.00000000E+00 -0.31622777E+00  0.00000000E+00
+   5   0.00000000E+00 -0.54772256E+00  0.00000000E+00
+
+Total symmetry component =    3
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.54772256E+00  0.00000000E+00
+   2   0.54772256E+00  0.00000000E+00  0.00000000E+00
+   3   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   4   0.00000000E+00  0.00000000E+00  0.63245553E+00
+   5   0.00000000E+00  0.00000000E+00  0.00000000E+00
+Initial State Configuration
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   18
+One electron matrix elements between initial and final states
+    1:    0.447213595    0.000000000  <   13|   22>
+    2:   -0.774596669    0.000000000  <   13|   23>
+    3:   -0.774596669    0.000000000  <   14|   21>
+    4:   -0.774596669    0.000000000  <   15|   20>
+
+Reduced formula list
+    4    5    1  0.4472135955E+00
+    5    5    1 -0.7745966692E+00
+    3    5    2 -0.7745966692E+00
+    2    5    3 -0.7745966692E+00
+Time Now =         2.6296  Delta time =         0.0014 End MatEle
+
++ Command DipoleOp
++ 
+
+----------------------------------------------------------------------
+DipoleOp - Dipole Operator Program
+----------------------------------------------------------------------
+
+Number of orbitals in formula for the dipole operator (NOrbSel) =    4
+Symmetry of the continuum orbital (iContSym) =     5 or HG   
+Symmetry of total final state (iTotalSym) =     7 or T1U  
+Symmetry of the initial state (iInitSym) =     1 or AG   
+Symmetry of the ionized target state (iTargSym) =     7 or T1U  
+List of unique symmetry types
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+Unique dipole matrix type     1 Dipole symmetry type =T1U  
+     Final state symmetry type = T1U    Target sym =T1U  
+     Continuum type =AG   
+In the product of the symmetry types T1U   T1G  
+ Each irreducable representation is present the number of times indicated
+In the product of the symmetry types T1U   T2G  
+ Each irreducable representation is present the number of times indicated
+In the product of the symmetry types T1U   GG   
+ Each irreducable representation is present the number of times indicated
+    T2U   (  1)
+    GU    (  1)
+    HU    (  1)
+In the product of the symmetry types T1U   HG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+    T2U   (  1)
+    GU    (  1)
+    HU    (  1)
+Unique dipole matrix type     2 Dipole symmetry type =T1U  
+     Final state symmetry type = T1U    Target sym =T1U  
+     Continuum type =HG   
+In the product of the symmetry types T1U   AU   
+ Each irreducable representation is present the number of times indicated
+    T1G   (  1)
+In the product of the symmetry types T1U   T1U  
+ Each irreducable representation is present the number of times indicated
+    AG    (  1)
+    T1G   (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   T2U  
+ Each irreducable representation is present the number of times indicated
+    GG    (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   GU   
+ Each irreducable representation is present the number of times indicated
+    T2G   (  1)
+    GG    (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   HU   
+ Each irreducable representation is present the number of times indicated
+    T1G   (  1)
+    T2G   (  1)
+    GG    (  1)
+    HG    (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+Irreducible representation containing the dipole operator is T1U  
+Number of different dipole operators in this representation is     1
+In the product of the symmetry types T1U   AG   
+ Each irreducable representation is present the number of times indicated
+    T1U   (  1)
+Vector of the total symmetry
+ie =    1  ij =    1
+    1 (  0.10000000E+01,  0.00000000E+00)
+    2 ( -0.16653345E-16,  0.00000000E+00)
+    3 (  0.15681900E-15,  0.00000000E+00)
+Vector of the total symmetry
+ie =    2  ij =    1
+    1 ( -0.16653345E-16,  0.00000000E+00)
+    2 (  0.10000000E+01,  0.00000000E+00)
+    3 ( -0.17069679E-15,  0.00000000E+00)
+Vector of the total symmetry
+ie =    3  ij =    1
+    1 (  0.15681900E-15,  0.00000000E+00)
+    2 ( -0.17069679E-15,  0.00000000E+00)
+    3 (  0.10000000E+01,  0.00000000E+00)
+Component Dipole Op Sym =  1 goes to Total Sym component   1 phase = 1.0
+Component Dipole Op Sym =  2 goes to Total Sym component   2 phase = 1.0
+Component Dipole Op Sym =  3 goes to Total Sym component   3 phase = 1.0
+
+Dipole operator types by symmetry components (x=1, y=2, z=3)
+sym comp =  1
+  coefficients =  1.00000000  0.00000000  0.00000000
+sym comp =  2
+  coefficients =  0.00000000  1.00000000  0.00000000
+sym comp =  3
+  coefficients =  0.00000000  0.00000000  1.00000000
+
+Formula for dipole operator
+
+Dipole operator sym comp 1  index =    1
+  1  Cont comp  4  Orb  7  Coef =   0.4472135955
+  2  Cont comp  5  Orb  7  Coef =  -0.7745966692
+  3  Cont comp  3  Orb  8  Coef =  -0.7745966692
+  4  Cont comp  2  Orb  9  Coef =  -0.7745966692
+Symmetry type to write out (SymTyp) =HG   
+Time Now =         2.6863  Delta time =         0.0566 End DipoleOp
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =     17.00000000
+Time Now =         2.6984  Delta time =         0.0121 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.17000000E+02 facnorm =  0.10000000E+01
+Time Now =         2.6991  Delta time =         0.0007 Electronic part
+Time Now =         2.6991  Delta time =         0.0000 End StPot
+
++ Command PhIon
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.34100000E+00 eV (  0.12531520E-01 AU)
+Time Now =         2.6994  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = HG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     2
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    2
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   22
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    4
+Higest l included in the K matrix (lna) =    2
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    2
+Time Now =         2.7002  Delta time =         0.0008 Energy independent setup
+
+Compute solution for E =    0.3410000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894515E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894516E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894516E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.74894516E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.44946931E-03 Asymp Moment =  -0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.81940275E-21 Asymp Moment =   0.75353918E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.83819180E-21 Asymp Moment =   0.77081797E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.89363742E-22 Asymp Moment =  -0.82180687E-18 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+For potential     7
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential     8
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential     9
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.32119641E-01 Asymp Coef   =  -0.10168639E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.77850368E-04 Asymp Moment =  -0.11660732E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.24582082E-21 Asymp Moment =  -0.22606175E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.25145754E-21 Asymp Moment =  -0.23124539E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.26809123E-22 Asymp Moment =   0.24654206E-18 (e Angs^(n-1)) 
+For potential    10
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    11
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    12
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.73746247E-21 Asymp Moment =  -0.67818526E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.75437262E-21 Asymp Moment =  -0.69373617E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.80427368E-22 Asymp Moment =   0.73962619E-18 (e Angs^(n-1)) 
+For potential    13
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential    14
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    15
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.40452238E-03 Asymp Moment =  -0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.28697450E-20 Asymp Moment =  -0.26390750E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79352491E-21 Asymp Moment =   0.72974141E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.53132105E-21 Asymp Moment =  -0.48861349E-17 (e Angs^(n-1)) 
+For potential    16
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential    17
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential    18
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+For potential    19
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.19147584E-19 Asymp Moment =   0.28679999E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.46710221E-03 Asymp Moment =   0.69964394E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47198764E-21 Asymp Moment =  -0.43404929E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.78031964E-21 Asymp Moment =   0.71759757E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43064825E-20 Asymp Moment =   0.39603276E-16 (e Angs^(n-1)) 
+For potential    20
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    21
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential    22
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =      56
+Final point in integration =   0.46325688E+03 Angstroms
+Time Now =         3.1341  Delta time =         0.4339 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  (-0.28046413E+01, 0.11955847E+00)
+     ROW  2
+  (-0.13412268E+01, 0.57200294E-01)
+MaxIter =   6 c.s. =      9.68246851 rmsk=     0.00000252  Abs eps    0.61817860E-05  Rel eps    0.54582578E-03
+Time Now =         4.2809  Delta time =         1.1468 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.42410000E+01 eV (  0.15585389E+00 AU)
+Time Now =         4.2813  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = HG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     2
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    2
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   22
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    4
+Higest l included in the K matrix (lna) =    2
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    2
+Time Now =         4.2821  Delta time =         0.0008 Energy independent setup
+
+Compute solution for E =    4.2410000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270400E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270400E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270400E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.57270401E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.44946931E-03 Asymp Moment =  -0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.81940275E-21 Asymp Moment =   0.75353918E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.83819180E-21 Asymp Moment =   0.77081797E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.89363742E-22 Asymp Moment =  -0.82180687E-18 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+For potential     7
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential     8
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential     9
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.32119641E-01 Asymp Coef   =  -0.10168639E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.77850368E-04 Asymp Moment =  -0.11660732E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.24582082E-21 Asymp Moment =  -0.22606175E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.25145754E-21 Asymp Moment =  -0.23124539E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.26809123E-22 Asymp Moment =   0.24654206E-18 (e Angs^(n-1)) 
+For potential    10
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    11
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    12
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.73746247E-21 Asymp Moment =  -0.67818526E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.75437262E-21 Asymp Moment =  -0.69373617E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.80427368E-22 Asymp Moment =   0.73962619E-18 (e Angs^(n-1)) 
+For potential    13
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential    14
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    15
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.40452238E-03 Asymp Moment =  -0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.28697450E-20 Asymp Moment =  -0.26390750E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79352491E-21 Asymp Moment =   0.72974141E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.53132105E-21 Asymp Moment =  -0.48861349E-17 (e Angs^(n-1)) 
+For potential    16
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential    17
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential    18
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+For potential    19
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.19147584E-19 Asymp Moment =   0.28679999E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.46710221E-03 Asymp Moment =   0.69964394E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47198764E-21 Asymp Moment =  -0.43404929E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.78031964E-21 Asymp Moment =   0.71759757E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43064825E-20 Asymp Moment =   0.39603276E-16 (e Angs^(n-1)) 
+For potential    20
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    21
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential    22
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =      95
+Final point in integration =   0.22947571E+03 Angstroms
+Time Now =         4.9844  Delta time =         0.7023 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  (-0.31885480E+01, 0.19884229E+00)
+     ROW  2
+  (-0.17242347E+01, 0.10752598E+00)
+MaxIter =   6 c.s. =     13.19092339 rmsk=     0.00000004  Abs eps    0.27987004E-05  Rel eps    0.52772067E-05
+Time Now =         6.1275  Delta time =         1.1431 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.54710000E+01 eV (  0.20105556E+00 AU)
+Time Now =         6.1279  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = HG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     2
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    2
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   22
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    4
+Higest l included in the K matrix (lna) =    2
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    2
+Time Now =         6.1286  Delta time =         0.0008 Energy independent setup
+
+Compute solution for E =    5.4710000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.51991424E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.44946931E-03 Asymp Moment =  -0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.81940275E-21 Asymp Moment =   0.75353918E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.83819180E-21 Asymp Moment =   0.77081797E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.89363742E-22 Asymp Moment =  -0.82180687E-18 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+For potential     7
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential     8
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential     9
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.32119641E-01 Asymp Coef   =  -0.10168639E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.77850368E-04 Asymp Moment =  -0.11660732E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.24582082E-21 Asymp Moment =  -0.22606175E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.25145754E-21 Asymp Moment =  -0.23124539E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.26809123E-22 Asymp Moment =   0.24654206E-18 (e Angs^(n-1)) 
+For potential    10
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    11
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    12
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.73746247E-21 Asymp Moment =  -0.67818526E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.75437262E-21 Asymp Moment =  -0.69373617E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.80427368E-22 Asymp Moment =   0.73962619E-18 (e Angs^(n-1)) 
+For potential    13
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential    14
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    15
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.40452238E-03 Asymp Moment =  -0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.28697450E-20 Asymp Moment =  -0.26390750E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79352491E-21 Asymp Moment =   0.72974141E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.53132105E-21 Asymp Moment =  -0.48861349E-17 (e Angs^(n-1)) 
+For potential    16
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential    17
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential    18
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+For potential    19
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.19147584E-19 Asymp Moment =   0.28679999E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.46710221E-03 Asymp Moment =   0.69964394E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47198764E-21 Asymp Moment =  -0.43404929E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.78031964E-21 Asymp Moment =   0.71759757E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43064825E-20 Asymp Moment =   0.39603276E-16 (e Angs^(n-1)) 
+For potential    20
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    21
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential    22
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =     101
+Final point in integration =   0.21536217E+03 Angstroms
+Time Now =         6.9261  Delta time =         0.7975 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  (-0.32063861E+01, 0.28456572E+00)
+     ROW  2
+  (-0.18046655E+01, 0.16016481E+00)
+MaxIter =   6 c.s. =     13.64435995 rmsk=     0.00000132  Abs eps    0.25800124E-05  Rel eps    0.11675614E-04
+Time Now =         8.0697  Delta time =         1.1437 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.95410000E+01 eV (  0.35062532E+00 AU)
+Time Now =         8.0702  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = HG    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    25
+Number of partial waves (np) =     2
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =    5
+Number of partial waves in the asymptotic region (npasym) =    2
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   22
+Maximum number of asymptotic partial waves =   21
+Maximum l used in usual function (lmax) =    5
+Maximum m used in usual function (LMax) =    5
+Maxamum l used in expanding static potential (lpotct) =   10
+Maximum l used in exapnding the exchange potential (lmaxab) =   10
+Higest l included in the expansion of the wave function (lnp) =    4
+Higest l included in the K matrix (lna) =    2
+Highest l used at large r (lpasym) =    5
+Higest l used in the asymptotic potential (lpzb) =   10
+Maximum L used in the homogeneous solution (LMaxHomo) =    5
+Number of partial waves in the homogeneous solution (npHomo) =    2
+Time Now =         8.0709  Delta time =         0.0008 Energy independent setup
+
+Compute solution for E =    9.5410000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.16653345E-15 Asymp Coef   =   0.52722214E-11 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.33448149E-18 Asymp Moment =   0.50099944E-16 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.56419276E-18 Asymp Moment =   0.84506996E-16 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.25895382E-19 Asymp Moment =   0.23813913E-15 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.82819617E-20 Asymp Moment =  -0.76162579E-16 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.22119144E-19 Asymp Moment =  -0.20341208E-15 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+ i =  2  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+ i =  3  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+ i =  4  exps = -0.44146293E+02 -0.20000000E+01  stpote = -0.42920225E-15
+For potential     3
+For potential     4
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.44946931E-03 Asymp Moment =  -0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.81940275E-21 Asymp Moment =   0.75353918E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.83819180E-21 Asymp Moment =   0.77081797E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.89363742E-22 Asymp Moment =  -0.82180687E-18 (e Angs^(n-1)) 
+For potential     5
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential     6
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+For potential     7
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential     8
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential     9
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.32119641E-01 Asymp Coef   =  -0.10168639E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.77850368E-04 Asymp Moment =  -0.11660732E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.24582082E-21 Asymp Moment =  -0.22606175E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.25145754E-21 Asymp Moment =  -0.23124539E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.26809123E-22 Asymp Moment =   0.24654206E-18 (e Angs^(n-1)) 
+For potential    10
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    11
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.55632850E-01 Asymp Coef   =   0.17612599E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.13484079E-03 Asymp Moment =   0.20196981E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.42577416E-21 Asymp Moment =   0.39155045E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43553723E-21 Asymp Moment =   0.40052877E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.46434762E-22 Asymp Moment =  -0.42702338E-18 (e Angs^(n-1)) 
+For potential    12
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.73746247E-21 Asymp Moment =  -0.67818526E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.75437262E-21 Asymp Moment =  -0.69373617E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.80427368E-22 Asymp Moment =   0.73962619E-18 (e Angs^(n-1)) 
+For potential    13
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.44946931E-03 Asymp Moment =   0.67323269E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.25950123E-03 Asymp Moment =   0.38869108E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.31886056E-20 Asymp Moment =   0.29323056E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.88169435E-21 Asymp Moment =  -0.81082379E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.59035673E-21 Asymp Moment =   0.54290387E-17 (e Angs^(n-1)) 
+For potential    14
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    15
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.40452238E-03 Asymp Moment =  -0.60590942E-01 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.28697450E-20 Asymp Moment =  -0.26390750E-16 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79352491E-21 Asymp Moment =   0.72974141E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.53132105E-21 Asymp Moment =  -0.48861349E-17 (e Angs^(n-1)) 
+For potential    16
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.45174076E-21 Asymp Moment =   0.41542985E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.19736389E-22 Asymp Moment =  -0.18149979E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.10403087E-21 Asymp Moment =  -0.47134862E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.95135605E-23 Asymp Moment =  -0.43104550E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.27822427E-22 Asymp Moment =   0.12605935E-16 (e Angs^(n-1)) 
+For potential    17
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.78243795E-21 Asymp Moment =  -0.71954562E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.34184429E-22 Asymp Moment =   0.31436686E-18 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.18018674E-21 Asymp Moment =   0.81639976E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.16477970E-22 Asymp Moment =   0.74659270E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.48189858E-22 Asymp Moment =  -0.21834119E-16 (e Angs^(n-1)) 
+For potential    18
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) =  0.10706547E+00 Asymp Coef   =   0.33895463E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) =  0.21275093E-19 Asymp Moment =  -0.31866666E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.51900245E-03 Asymp Moment =  -0.77738215E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) = -0.52443071E-21 Asymp Moment =   0.48227699E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) =  0.86702182E-21 Asymp Moment =  -0.79733064E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47849805E-20 Asymp Moment =  -0.44003640E-16 (e Angs^(n-1)) 
+For potential    19
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.96358923E-01 Asymp Coef   =  -0.30505917E+04 (eV Angs^(n)) 
+ i =  2  lval =   2  1/r^n n =   3  StPot(RMax) = -0.19147584E-19 Asymp Moment =   0.28679999E-17 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) = -0.46710221E-03 Asymp Moment =   0.69964394E-01 (e Angs^(n-1)) 
+ i =  4  lval =   4  1/r^n n =   5  StPot(RMax) =  0.47198764E-21 Asymp Moment =  -0.43404929E-17 (e Angs^(n-1)) 
+ i =  5  lval =   4  1/r^n n =   5  StPot(RMax) = -0.78031964E-21 Asymp Moment =   0.71759757E-17 (e Angs^(n-1)) 
+ i =  6  lval =   4  1/r^n n =   5  StPot(RMax) = -0.43064825E-20 Asymp Moment =   0.39603276E-16 (e Angs^(n-1)) 
+For potential    20
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.79390714E-21 Asymp Moment =   0.73009291E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.17951082E-20 Asymp Moment =   0.16508175E-16 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12697369E-21 Asymp Moment =  -0.57529920E-16 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.39184124E-22 Asymp Moment =   0.17753753E-16 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.25475408E-22 Asymp Moment =  -0.11542534E-16 (e Angs^(n-1)) 
+For potential    21
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) =  0.23355110E-03 Asymp Moment =  -0.34982197E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) =  0.16333127E-21 Asymp Moment =  -0.15020271E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) =  0.27507998E-21 Asymp Moment =  -0.25296906E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) = -0.71868840E-23 Asymp Moment =   0.32562719E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) =  0.13192768E-23 Asymp Moment =  -0.59774500E-18 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) = -0.65661001E-22 Asymp Moment =   0.29750038E-16 (e Angs^(n-1)) 
+For potential    22
+ i =  1  lval =   2  1/r^n n =   3  StPot(RMax) = -0.40452238E-03 Asymp Moment =   0.60590942E-01 (e Angs^(n-1)) 
+ i =  2  lval =   4  1/r^n n =   5  StPot(RMax) = -0.28289805E-21 Asymp Moment =   0.26015872E-17 (e Angs^(n-1)) 
+ i =  3  lval =   4  1/r^n n =   5  StPot(RMax) = -0.47645251E-21 Asymp Moment =   0.43815527E-17 (e Angs^(n-1)) 
+ i =  4  lval =   6  1/r^n n =   7  StPot(RMax) =  0.12448048E-22 Asymp Moment =  -0.56400284E-17 (e Angs^(n-1)) 
+ i =  5  lval =   6  1/r^n n =   7  StPot(RMax) = -0.22850544E-23 Asymp Moment =   0.10353247E-17 (e Angs^(n-1)) 
+ i =  6  lval =   6  1/r^n n =   7  StPot(RMax) =  0.11372819E-21 Asymp Moment =  -0.51528578E-16 (e Angs^(n-1)) 
+Number of asymptotic regions =     114
+Final point in integration =   0.18519586E+03 Angstroms
+Time Now =         8.9156  Delta time =         0.8447 End SolveHomo
+      Final Dipole matrix
+     ROW  1
+  (-0.30056596E+01, 0.74900152E+00)
+     ROW  2
+  (-0.19285887E+01, 0.48059880E+00)
+MaxIter =   6 c.s. =     13.54542277 rmsk=     0.00000001  Abs eps    0.22104103E-05  Rel eps    0.77537400E-06
+Time Now =        10.0564  Delta time =         1.1408 End ScatStab
+
++ Command GetCro
++ 
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        10.0568  Delta time =         0.0004 End CnvIdy
+Found     4 energies :
+     0.34100000     4.24100000     5.47100000     9.54100000
+List of matrix element types found   Number =    1
+    1  Cont Sym HG     Targ Sym T1U    Total Sym T1U  
+Keeping     4 energies :
+     0.34100000     4.24100000     5.47100000     9.54100000
+Time Now =        10.0568  Delta time =         0.0000 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     15.7590 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    16.1000  0.23945607E+02
+    20.0000  0.38526398E+02
+    21.2300  0.41518895E+02
+    25.3000  0.45816511E+02
+
+     Sigma MIXED    at all energies
+      Eng  
+    16.1000  0.19354228E+02
+    20.0000  0.28345391E+02
+    21.2300  0.29952104E+02
+    25.3000  0.31619278E+02
+
+     Sigma VELOCITY at all energies
+      Eng  
+    16.1000  0.15643209E+02
+    20.0000  0.20854822E+02
+    21.2300  0.21607716E+02
+    25.3000  0.21821363E+02
+
+     Beta LENGTH   at all energies
+      Eng  
+    16.1000  0.10000000E+01
+    20.0000  0.10000000E+01
+    21.2300  0.10000000E+01
+    25.3000  0.10000000E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    16.1000  0.10000000E+01
+    20.0000  0.10000000E+01
+    21.2300  0.10000000E+01
+    25.3000  0.10000000E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    16.1000  0.10000000E+01
+    20.0000  0.10000000E+01
+    21.2300  0.10000000E+01
+    25.3000  0.10000000E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     16.1000    23.9456    19.3542    15.6432     1.0000     1.0000     1.0000
+EPhi     20.0000    38.5264    28.3454    20.8548     1.0000     1.0000     1.0000
+EPhi     21.2300    41.5189    29.9521    21.6077     1.0000     1.0000     1.0000
+EPhi     25.3000    45.8165    31.6193    21.8214     1.0000     1.0000     1.0000
+Time Now =        10.0575  Delta time =         0.0006 End CrossSection
+
++ Command GetCro
++ 'test31AG.idy' 'test31HG.idy'
+Taking dipole matrix from file test31AG.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        10.0577  Delta time =         0.0002 End CnvIdy
+Taking dipole matrix from file test31HG.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        10.0580  Delta time =         0.0003 End CnvIdy
+Found     4 energies :
+     0.34100000     4.24100000     5.47100000     9.54100000
+List of matrix element types found   Number =    2
+    1  Cont Sym AG     Targ Sym T1U    Total Sym T1U  
+    2  Cont Sym HG     Targ Sym T1U    Total Sym T1U  
+Keeping     4 energies :
+     0.34100000     4.24100000     5.47100000     9.54100000
+Time Now =        10.0581  Delta time =         0.0001 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     15.7590 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    16.1000  0.28710708E+02
+    20.0000  0.41712672E+02
+    21.2300  0.44317589E+02
+    25.3000  0.47657805E+02
+
+     Sigma MIXED    at all energies
+      Eng  
+    16.1000  0.23647547E+02
+    20.0000  0.31200535E+02
+    21.2300  0.32480645E+02
+    25.3000  0.33359695E+02
+
+     Sigma VELOCITY at all energies
+      Eng  
+    16.1000  0.19511456E+02
+    20.0000  0.23413248E+02
+    21.2300  0.23892182E+02
+    25.3000  0.23466429E+02
+
+     Beta LENGTH   at all energies
+      Eng  
+    16.1000 -0.18494607E+00
+    20.0000  0.69132165E+00
+    21.2300  0.84066148E+00
+    25.3000  0.11573706E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    16.1000 -0.23885069E+00
+    20.0000  0.65510527E+00
+    21.2300  0.81552683E+00
+    25.3000  0.11767894E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    16.1000 -0.29016646E+00
+    20.0000  0.61788653E+00
+    21.2300  0.78809680E+00
+    25.3000  0.11895644E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     16.1000    28.7107    23.6475    19.5115    -0.1849    -0.2389    -0.2902
+EPhi     20.0000    41.7127    31.2005    23.4132     0.6913     0.6551     0.6179
+EPhi     21.2300    44.3176    32.4806    23.8922     0.8407     0.8155     0.7881
+EPhi     25.3000    47.6578    33.3597    23.4664     1.1574     1.1768     1.1896
+Time Now =        10.0587  Delta time =         0.0006 End CrossSection
++ Data Record DPotEng - 15.
++ Data Record ResSearchEng
++ 1 / 1. 0.5 / 20.0 / 10. / 2.
+
++ Command GetDPot
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.15000000E+02 eV (  0.55123989E+00 AU)
+Time Now =        10.0591  Delta time =         0.0004 End Fege
+
+----------------------------------------------------------------------
+DPot - compute diabatic local potential
+----------------------------------------------------------------------
+
+Symmetry type of adibatic potential (symtps) =HG     
+For an atom, use partial waves with l =    2  m =   -1
+Positron flag =    F
+Maximum L to include in the diagonal representation (LMaxA) =     5
+Maximum np to to write out (nppx) =    1
+Unit for plot data (iuvpot) =    0
+General print flag (iprnfg) =    0
+Charge at the origin is =   18
+Charge =  1
+Number of radial regions (nrlast) =   25
+Found fege potential
+Maximum l used in usual function (LMax) =    5
+Time Now =        10.0600  Delta time =         0.0009 End DPot
+
++ Command ResSearch
++ 
+
+----------------------------------------------------------------------
+Resonance - program to find resonances
+----------------------------------------------------------------------
+
+iuwavf, unit for adiabatic wave function =    0
+iuwavo, unit for spherical wave function =    0
+iureng, unit to save energies on =    0
+idstop, flag to indicate what calculations to do = 0000
+Print flag =    0
+Runge Kutta Factor =    4
+Resonance search type (ResSearchType) =    0
+Symmetry type of adibatic potential (symtps) =HG   
+Number of energy regions =    1
+Region     1 starts at E =  0.10000000E+01 eV with step size =  0.50000000E+00  eV
+End point of last region E =  0.20000000E+02 eV
+Largest imaginary part =  0.10000000E+02 eV
+Imaginary step size =  0.20000000E+01 eV
+Charge on the molecule is     1
+vmin = -0.25892954E+02 eV
+Time Now =        10.0604  Delta time =         0.0004 Starting docalc
+ Number of energies (neng) =    39
+     E (eV)       Phase Sum        T sum
+    1.0000000000   0.77568332E+00   0.26682708E+02
+    1.5000000000   0.88922126E+00   0.21880805E+02
+    2.0000000000   0.99759791E+00   0.19208157E+02
+    2.5000000000   0.10983222E+01   0.17260559E+02
+    3.0000000000   0.11899542E+01   0.15634524E+02
+    3.5000000000   0.12720080E+01   0.14202022E+02
+    4.0000000000   0.13447029E+01   0.12921963E+02
+    4.5000000000   0.14086913E+01   0.11778917E+02
+    5.0000000000   0.14648371E+01   0.10762805E+02
+    5.5000000000   0.15140632E+01   0.98632340E+01
+    6.0000000000   0.15572619E+01   0.90687997E+01
+    6.5000000000   0.15952490E+01   0.83677280E+01
+    7.0000000000   0.16287465E+01   0.77486011E+01
+    7.5000000000   0.16583803E+01   0.72008478E+01
+    8.0000000000   0.16846871E+01   0.67149863E+01
+    8.5000000000   0.17081236E+01   0.62826888E+01
+    9.0000000000   0.17290778E+01   0.58967400E+01
+    9.5000000000   0.17478784E+01   0.55509408E+01
+   10.0000000000   0.17648046E+01   0.52399908E+01
+   10.5000000000   0.17800937E+01   0.49593681E+01
+   11.0000000000   0.17939478E+01   0.47052168E+01
+   11.5000000000   0.18065399E+01   0.44742466E+01
+   12.0000000000   0.18180181E+01   0.42636448E+01
+   12.5000000000   0.18285100E+01   0.40710018E+01
+   13.0000000000   0.18381256E+01   0.38942477E+01
+   13.5000000000   0.18469601E+01   0.37315990E+01
+   14.0000000000   0.18550966E+01   0.35815144E+01
+   14.5000000000   0.18626071E+01   0.34426575E+01
+   15.0000000000   0.18695549E+01   0.33138657E+01
+   15.5000000000   0.18759955E+01   0.31941245E+01
+   16.0000000000   0.18819775E+01   0.30825455E+01
+   16.5000000000   0.18875442E+01   0.29783487E+01
+   17.0000000000   0.18927336E+01   0.28808466E+01
+   17.5000000000   0.18975795E+01   0.27894318E+01
+   18.0000000000   0.19021121E+01   0.27035659E+01
+   18.5000000000   0.19063583E+01   0.26227703E+01
+   19.0000000000   0.19103420E+01   0.25466186E+01
+   19.5000000000   0.19140848E+01   0.24747294E+01
+   20.0000000000   0.19176060E+01   0.24067614E+01
+ Special Points
+ eng =    1.00000 (eV)  phase =  0.77568332E+00  tsum =  0.26682708E+02 first
+ eng =   20.00000 (eV)  phase =  0.19176060E+01  tsum =  0.24067614E+01 last 
+ Min - Max jumps
+Time Now =        10.1482  Delta time =         0.0878 Begin resonance Search
+The number of initial guesses of roots is        0
+
+ Sorted roots on unphysical sheet of open channels
+
+ Selected roots on unphysical sheet of open channels
+
+Selected roots for comparison (None found)
+
+Time Now =        10.1560  Delta time =         0.0078 End Resonance
+Time Now =        10.1562  Delta time =         0.0002 Finalize

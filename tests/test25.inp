@@ -1,0 +1,31 @@
+#
+# input file for test25
+#
+# electron scattering from H2O in A1 symmetry
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'A1'  # Scattering symmetry
+  LMaxK   3     # Maximum l in the K matirx 
+  ScatEng 20.0      # list of scattering energies (in eV)
+  PCutRd 1.0e-8
+  GrnType 1
+
+   # do the scattering with the center of mass at the origin
+Convert '$pt/test25.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+Scat
+   # do the scattering with the O at the origin
+  NECenter 2
+Convert '$pt/test25.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+Scat
+Exit

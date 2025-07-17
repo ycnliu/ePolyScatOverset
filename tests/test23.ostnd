@@ -1,0 +1,433 @@
+Execution on n0155.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  17:35:27.458 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# inpuut file for test23
+#
+# Determine SiF4 normal modes
+#
+LMax   25
+
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test23.g03' 'gaussian'
+GetBlms
+SymNormMode
+GeomNormMode 7 0.
+GeomNormMode 7 -1. 1.
+GeomNormMode 8 -1. 1.
+GeomNormMode 9 -1. 1.
++ End of input reached
++ Data Record LMax - 25
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test23.g03' 'gaussian'
+
+----------------------------------------------------------------------
+GaussianCnv - read input from Gaussian output
+----------------------------------------------------------------------
+
+Conversion using g03
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772083000000
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Command line = # HF/AUG-CC-PVTZ SCF=TIGHT 6D 10F GFINPUT PUNCH=MO FREQ=HPMODES
+CardFlag =    T
+Normal Mode flag =    T
+Selecting orbitals
+from     1  to    25  number already selected     0
+Number of orbitals selected is    25
+Highest orbital read in is =   25
+Normal modes read in
+Normal mode     1
+Freq =  276.6532  Reduced Mass =   18.9984  Force constant =    0.8567
+    1   0.00000   0.00000   0.00000
+    2  -0.32998  -0.04318   0.37316
+    3   0.32998   0.04318   0.37316
+    4   0.32998  -0.04318  -0.37316
+    5  -0.32998   0.04318  -0.37316
+Normal mode     2
+Freq =  276.6532  Reduced Mass =   18.9984  Force constant =    0.8567
+    1   0.00000   0.00000   0.00000
+    2  -0.24038   0.40596  -0.16558
+    3   0.24038  -0.40596  -0.16558
+    4   0.24038   0.40596   0.16558
+    5  -0.24038  -0.40596   0.16558
+Normal mode     3
+Freq =  409.3729  Reduced Mass =   20.4576  Force constant =    2.0200
+    1   0.23326   0.23202   0.23297
+    2   0.26714   0.26855   0.26747
+    3  -0.08660  -0.08519  -0.43901
+    4  -0.08515  -0.43938  -0.08482
+    5  -0.43889  -0.08564  -0.08671
+Normal mode     4
+Freq =  409.3729  Reduced Mass =   20.4576  Force constant =    2.0200
+    1  -0.29982   0.26734   0.03396
+    2   0.33912  -0.30027  -0.03716
+    3   0.28756  -0.35183   0.01216
+    4  -0.06680   0.10343  -0.44309
+    5  -0.11836   0.15499   0.41809
+Normal mode     5
+Freq =  409.3729  Reduced Mass =   20.4576  Force constant =    2.0200
+    1  -0.13495  -0.19291   0.32724
+    2   0.15167   0.21701  -0.36939
+    3  -0.34522  -0.27988   0.12844
+    4   0.44459  -0.07497  -0.07647
+    5  -0.05230   0.42192  -0.16448
+Normal mode     6
+Freq =  850.0192  Reduced Mass =   18.9984  Force constant =    8.0877
+    1   0.00000   0.00000   0.00000
+    2  -0.28868  -0.28868  -0.28868
+    3   0.28868   0.28868  -0.28868
+    4   0.28868  -0.28868   0.28868
+    5  -0.28868   0.28868   0.28868
+Normal mode     7
+Freq = 1093.0994  Reduced Mass =   22.7048  Force constant =   15.9841
+    1  -0.44692  -0.01446   0.46137
+    2   0.01628   0.00053  -0.01681
+    3   0.32238   0.30662  -0.32290
+    4   0.00669   0.01012  -0.02640
+    5   0.31278  -0.29597  -0.31331
+Normal mode     8
+Freq = 1093.0994  Reduced Mass =   22.7048  Force constant =   15.9841
+    1  -0.27648   0.52264  -0.25143
+    2   0.01182  -0.01729   0.01091
+    3  -0.15499  -0.18410   0.17422
+    4   0.35856  -0.36753   0.35765
+    5   0.19175  -0.20072  -0.17252
+Normal mode     9
+Freq = 1093.0994  Reduced Mass =   22.7048  Force constant =   15.9841
+    1   0.36964   0.37343   0.36976
+    2  -0.38261  -0.38275  -0.38262
+    3  -0.13730  -0.13744   0.11036
+    4  -0.13487   0.10779  -0.13487
+    5   0.11045  -0.13752  -0.13739
+Time Now =         0.0070  Delta time =         0.0070 End GaussianCnv
+
+Atoms found    5  Coordinates in Angstroms
+Z = 14 ZS = 14 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   0.8924150000   0.8924150000   0.8924150000
+Z =  9 ZS =  9 r =  -0.8924150000  -0.8924150000   0.8924150000
+Z =  9 ZS =  9 r =  -0.8924150000   0.8924150000  -0.8924150000
+Z =  9 ZS =  9 r =   0.8924150000  -0.8924150000  -0.8924150000
+Maximum distance from expansion center is    1.5457081214
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  Td   
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup D2   
+Time Now =         0.0161  Delta time =         0.0091 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000
+  2  0.57735  0.57735  0.57735   9  1.54571
+  3 -0.57735 -0.57735  0.57735   9  1.54571
+  4 -0.57735  0.57735 -0.57735   9  1.54571
+  5  0.57735 -0.57735 -0.57735   9  1.54571
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  0.81650 -0.40825 -0.40825
+  3  0.81650 -0.40825  0.40825
+  4  0.81650  0.40825 -0.40825
+  5  0.81650  0.40825  0.40825
+Computed default value of LMaxA =   11
+Determining angular grid in GetAxMax  LMax =   25  LMaxA =   11  LMaxAb =   50
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3   3   3   3   3   3
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3   3   3   3   3   3
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3   3   3   3   3   3
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3   3   3   3   3   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39
+  40  41  42  43  44  45  46  47  48  49  50
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is Td
+LMax    25
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     8    11    14
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         34       1  1  1
+ A2        1         2         17       1  1  1
+ E         1         3         40       1  1  1
+ E         2         4         40       1  1  1
+ T1        1         5         57      -1 -1  1
+ T1        2         6         57      -1  1 -1
+ T1        3         7         57       1 -1 -1
+ T2        1         8         76      -1 -1  1
+ T2        2         9         76      -1  1 -1
+ T2        3        10         76       1 -1 -1
+Time Now =         0.8680  Delta time =         0.8519 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   1)    2(   1)    3(   2)    4(   3)    5(   3)    6(   4)    7(   5)    8(   6)    9(   7)
+          10(   8)   11(   9)
+A2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   1)    7(   1)    8(   1)    9(   2)
+          10(   3)   11(   3)
+E     1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)    7(   5)    8(   7)    9(   8)
+          10(  10)   11(  12)
+E     2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)    7(   5)    8(   7)    9(   8)
+          10(  10)   11(  12)
+T1    1    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  15)
+T1    2    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  15)
+T1    3    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  15)
+T2    1    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)    7(  10)    8(  12)    9(  15)
+          10(  18)   11(  21)
+T2    2    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)    7(  10)    8(  12)    9(  15)
+          10(  18)   11(  21)
+T2    3    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)    7(  10)    8(  12)    9(  15)
+          10(  18)   11(  21)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is D2
+LMax    50
+ The dimension of each irreducable representation is
+    A     (  1)    B1    (  1)    B2    (  1)    B3    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+  3       0.000000       1.000000       0.000000 ang =  1  2 type = 2 axis = 2
+  4       1.000000       0.000000       0.000000 ang =  1  2 type = 2 axis = 1
+irep =    1  sym =A     1  eigs =   1   1   1   1
+irep =    2  sym =B1    1  eigs =   1   1  -1  -1
+irep =    3  sym =B2    1  eigs =   1  -1   1  -1
+irep =    4  sym =B3    1  eigs =   1  -1  -1   1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A         1         1        651       1  1  1
+ B1        1         2        650       1 -1 -1
+ B2        1         3        650      -1  1 -1
+ B3        1         4        650      -1 -1  1
+Time Now =         0.8789  Delta time =         0.0109 End SymGen
+
++ Command SymNormMode
++ 
+
+----------------------------------------------------------------------
+SymNormMode - generate symmetry normal coordinates
+----------------------------------------------------------------------
+
+Tolerence for frequencies (FreqToler) =   0.1000E-03
+Point group is Td
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+AMass =
+      27.976927      27.976927      27.976927      18.998403      18.998403
+      18.998403      18.998403      18.998403      18.998403      18.998403
+      18.998403      18.998403      18.998403      18.998403      18.998403
+Groups of degenerate frequencies
+    1    276.6532   1   2
+    2    409.3729   3   4   5
+    3    850.0192   6
+    4   1093.0994   7   8   9
+Normal modes after symmeterization
+Normal mode     1  Sym =E     1
+Freq (cm-1) =  276.6532  Reduced Mass (u) =   18.9984  Force constant (mDyne/angs)=    0.8567  XCT =    0.080092 angs
+    1   0.00000   0.00000   0.00000
+    2  -0.20412  -0.20412   0.40825
+    3   0.20412   0.20412   0.40825
+    4   0.20412  -0.20412  -0.40825
+    5  -0.20412   0.20412  -0.40825
+Normal mode     2  Sym =E     2
+Freq (cm-1) =  276.6532  Reduced Mass (u) =   18.9984  Force constant (mDyne/angs)=    0.8567  XCT =    0.080092 angs
+    1   0.00000   0.00000   0.00000
+    2   0.35355  -0.35355  -0.00000
+    3  -0.35355   0.35355  -0.00000
+    4  -0.35355  -0.35355   0.00000
+    5   0.35355   0.35355   0.00000
+Normal mode     3  Sym =T2    1
+Freq (cm-1) =  409.3729  Reduced Mass (u) =   20.4576  Force constant (mDyne/angs)=    2.0200  XCT =    0.063449 angs
+    1  -0.40313   0.00000  -0.00000
+    2   0.14841  -0.30606  -0.30606
+    3   0.14841  -0.30606   0.30606
+    4   0.14841   0.30606  -0.30606
+    5   0.14842   0.30606   0.30606
+Normal mode     4  Sym =T2    2
+Freq (cm-1) =  409.3729  Reduced Mass (u) =   20.4576  Force constant (mDyne/angs)=    2.0200  XCT =    0.063449 angs
+    1  -0.00000  -0.40314  -0.00000
+    2  -0.30605   0.14841  -0.30606
+    3  -0.30606   0.14841   0.30606
+    4   0.30606   0.14841   0.30606
+    5   0.30606   0.14841  -0.30606
+Normal mode     5  Sym =T2    3
+Freq (cm-1) =  409.3729  Reduced Mass (u) =   20.4575  Force constant (mDyne/angs)=    2.0200  XCT =    0.063449 angs
+    1  -0.00000  -0.00000  -0.40313
+    2  -0.30606  -0.30606   0.14841
+    3   0.30606   0.30606   0.14841
+    4  -0.30606   0.30606   0.14841
+    5   0.30606  -0.30606   0.14841
+Normal mode     6  Sym =A1    1
+Freq (cm-1) =  850.0192  Reduced Mass (u) =   18.9984  Force constant (mDyne/angs)=    8.0877  XCT =    0.045692 angs
+    1  -0.00000  -0.00000  -0.00000
+    2  -0.28868  -0.28868  -0.28868
+    3   0.28868   0.28868  -0.28867
+    4   0.28868  -0.28867   0.28868
+    5  -0.28867   0.28868   0.28868
+Normal mode     7  Sym =T2    1
+Freq (cm-1) = 1093.0994  Reduced Mass (u) =   22.7048  Force constant (mDyne/angs)=   15.9841  XCT =    0.036857 angs
+    1  -0.64250   0.00000  -0.00000
+    2   0.23654   0.21313   0.21313
+    3   0.23654   0.21313  -0.21313
+    4   0.23653  -0.21313   0.21313
+    5   0.23654  -0.21313  -0.21313
+Normal mode     8  Sym =T2    2
+Freq (cm-1) = 1093.0994  Reduced Mass (u) =   22.7048  Force constant (mDyne/angs)=   15.9841  XCT =    0.036857 angs
+    1   0.00000  -0.64250   0.00000
+    2   0.21313   0.23654   0.21313
+    3   0.21313   0.23654  -0.21313
+    4  -0.21313   0.23654  -0.21313
+    5  -0.21313   0.23654   0.21313
+Normal mode     9  Sym =T2    3
+Freq (cm-1) = 1093.0994  Reduced Mass (u) =   22.7048  Force constant (mDyne/angs)=   15.9841  XCT =    0.036857 angs
+    1   0.00000   0.00000  -0.64250
+    2   0.21313   0.21313   0.23654
+    3  -0.21313  -0.21313   0.23654
+    4   0.21313  -0.21313   0.23654
+    5  -0.21313   0.21313   0.23654
+Location of the Center of Mass    0.00000000E+00   0.00000000E+00   0.00000000E+00
+Mode, COM momentum and Angular momentum
+    1 Lin    0.00000000E+00   0.00000000E+00   0.00000000E+00
+    1 Ang    0.00000000E+00   0.00000000E+00   0.00000000E+00
+    2 Lin    0.00000000E+00   0.00000000E+00   0.00000000E+00
+    2 Ang    0.00000000E+00   0.00000000E+00   0.00000000E+00
+    3 Lin    0.21567676E-03  -0.65404311E-04   0.75795183E-04
+    3 Ang    0.66195665E-03  -0.29118523E-03   0.00000000E+00
+    4 Lin    0.65451226E-04  -0.14400751E-03  -0.19534012E-03
+    4 Ang   -0.24054271E-03   0.60933311E-03   0.35527137E-14
+    5 Lin   -0.18835362E-03  -0.15804141E-03   0.11451737E-03
+    5 Ang    0.13118145E-03   0.23912433E-03   0.00000000E+00
+    6 Lin    0.14373391E-09  -0.56849192E-09  -0.64046546E-11
+    6 Ang    0.85892360E-09   0.85892182E-09  -0.17763568E-14
+    7 Lin   -0.36379506E-04   0.15555282E-03   0.72655314E-04
+    7 Ang    0.27848532E-08   0.38530945E-04   0.38533840E-04
+    8 Lin    0.46279029E-04   0.16334088E-03   0.58719108E-04
+    8 Ang   -0.28966101E-08  -0.17900461E-03  -0.17900291E-03
+    9 Lin    0.64668719E-05  -0.10797346E-04   0.32359257E-03
+    9 Ang    0.20981519E-08  -0.41446087E-03  -0.41445899E-03
+Time Now =         0.8799  Delta time =         0.0010 End SymNormMode
+
++ Command GeomNormMode
++ 7 0.
+Generated geometry (in angs) for mode     7  with factor times X_CT =    0.000000
+   14     0.000000     0.000000     0.000000
+    9     0.892415     0.892415     0.892415
+    9    -0.892415    -0.892415     0.892415
+    9    -0.892415     0.892415    -0.892415
+    9     0.892415    -0.892415    -0.892415
+
++ Command GeomNormMode
++ 7 -1. 1.
+Generated geometry (in angs) for mode     7  with factor times X_CT =   -1.000000
+   14     0.023681    -0.000000     0.000000
+    9     0.883697     0.884560     0.884560
+    9    -0.901133    -0.900270     0.900270
+    9    -0.901133     0.900270    -0.900270
+    9     0.883697    -0.884560    -0.884560
+Generated geometry (in angs) for mode     7  with factor times X_CT =    1.000000
+   14    -0.023681     0.000000    -0.000000
+    9     0.901133     0.900270     0.900270
+    9    -0.883697    -0.884560     0.884560
+    9    -0.883697     0.884560    -0.884560
+    9     0.901133    -0.900270    -0.900270
+
++ Command GeomNormMode
++ 8 -1. 1.
+Generated geometry (in angs) for mode     8  with factor times X_CT =   -1.000000
+   14    -0.000000     0.023681    -0.000000
+    9     0.884560     0.883697     0.884560
+    9    -0.900270    -0.901133     0.900270
+    9    -0.884560     0.883697    -0.884560
+    9     0.900270    -0.901133    -0.900270
+Generated geometry (in angs) for mode     8  with factor times X_CT =    1.000000
+   14     0.000000    -0.023681     0.000000
+    9     0.900270     0.901133     0.900270
+    9    -0.884560    -0.883697     0.884560
+    9    -0.900270     0.901133    -0.900270
+    9     0.884560    -0.883697    -0.884560
+
++ Command GeomNormMode
++ 9 -1. 1.
+Generated geometry (in angs) for mode     9  with factor times X_CT =   -1.000000
+   14    -0.000000    -0.000000     0.023681
+    9     0.884560     0.884560     0.883697
+    9    -0.884560    -0.884560     0.883697
+    9    -0.900270     0.900270    -0.901133
+    9     0.900270    -0.900270    -0.901133
+Generated geometry (in angs) for mode     9  with factor times X_CT =    1.000000
+   14     0.000000     0.000000    -0.023681
+    9     0.900270     0.900270     0.901133
+    9    -0.900270    -0.900270     0.901133
+    9    -0.884560     0.884560    -0.883697
+    9     0.884560    -0.884560    -0.883697
+Time Now =         0.8808  Delta time =         0.0009 Finalize

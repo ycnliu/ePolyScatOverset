@@ -1,0 +1,35 @@
+#
+# inpute file for test34
+#
+# Test for the RotOrientAsym subroutine, using the generated information fron the photoionization from 
+# the carbon 1s orbital of CH4 that is from the 1a_1 orbital.
+#
+#
+TestOut
+Label 'CH4 core ionization'
+LMax 20	    # maximum l
+LMaxK 10
+EMax 40.0	    # maximum E
+IPot 290.84	    # IPot, ionization potential
+
+Convert '$pt/test34.g09' 'gaussian'
+GetCro '$pt/test34.dat'
+
+FileName 'OrientAsymData' 'test34OrientAsymData.dat' 'REWIND'
+FileName 'OrientAsymGeom' 'test34OrientAsymGeom.dat' 'REWIND'
+FileName 'OrientAsymEig' 'test34OrientAsymEig.dat' 'REWIND'
+
+JMax 4           # maximum J for final state rotational quantum number.
+JPPMax 0          # maximum initial state rotational quantum number
+RotOrientAsym 4.35 '$pt/test34.dat'
+
+RotConstants   0.52891694E+01 0.52891694E+01  0.52891694E+01 
+JMax 4
+JPPMax 2
+RotOrientAsym 4.35 '$pt/test34.dat'
+
+RmDataRecord 'JMax'
+RmDataRecord 'RotConstants'
+LMaxK 5
+JPPMax 2
+RotOrientAsym 4.35 '$pt/test34.dat'

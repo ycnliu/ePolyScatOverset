@@ -1,0 +1,2332 @@
+Execution on n0381.lr3
+
+----------------------------------------------------------------------
+ePolyScat cKohn Version
+----------------------------------------------------------------------
+
+cKohn version being developed by L. Greenman, C. W. McCurdy, and R. R. Lucchese
+Single center Schwinger verions developed by:
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, J. Lopez-Dominguez,  and F. A. Gianturco
+http://www.chem.tamu.edu/rgroup/lucchese/ePolyScat.E3.manual/manual.html
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2021-05-03  13:41:02.962 (GMT -0700)
+Using    16 processors
+Current git commit sha-1 cb0817d68428d9ba56633365273b0f9a824d22f7
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test62
+#
+# slightly larger calculation of electron scattering from CF4
+#
+  Comment "Using Molpro orbitals but with original Molpro orientation"
+  cKohn
+
+  LMax 20
+  LMaxA 6
+  NccZeta 5
+  EMax  150.0    # EMax, maximum asymptotic energy in eV
+  EngForm        # Energy formulas
+   0 1           # charge, formula type
+   10             # number of terms in the formulas
+   2.0 -1.0      # orbital occupation and coefficient for the K operators
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  LMaxK   1     # Maximum l in the K matrix -- commenting this out means code figures it out
+
+  nrFEM 12
+  NLambda 8
+  N_rpnts_SG 30
+  HFacGauss 16.0
+  GridFac 1
+  NrfemFac 1.0
+  RMax 20.
+  IterMax 25
+  CnvgKMat 1e-8
+  ScatEng 11.5
+  OrbOcc  6  2  2  2  6  2  6  4  6  6
+
+  SpinDeg 2
+  TargSym 'A1'
+  TargSpinDeg 1
+
+  ScatSym 'A1'
+  ScatContSym 'A1'
+
+Comment '--------------------------- Expansion at the CF4 - Td with D2 subgroup ----------------------------'
+Convert '/global/home/users/rlucchese/Applications/complexkohn/tests/test62.molden2015' 'molden2015'
+GetBlms
+ExpOrb
+GetPot
+
+FileName 'MatrixElements' 'tmatrix_cf4_d2.dat' 'APPEND'
+
+  Scat
+  TotalCrossSection
+
+Comment '--------------------------- Expansion at the CF4 - With C2v subgroup ----------------------------'
+RotateForm 1 3 45.
+   0. 0. 0.
+Convert '/global/home/users/rlucchese/Applications/complexkohn/tests/test62.molden2015' 'molden2015'
+GetBlms
+ExpOrb
+GetPot
+FileName 'MatrixElements' 'tmatrix_cf4_c2v.dat' 'APPEND'
+
+  Scat
+  TotalCrossSection
+
+Exit
++ End of input reached
+
++ Command Comment
++ Comment "Using Molpro orbitals but with original Molpro orientation"
++ Data Record cKohn - 
++ Data Record LMax - 20
++ Data Record LMaxA - 6
++ Data Record NccZeta - 5
++ Data Record EMax - 150.0
++ Data Record EngForm
++ 0 1 / 10 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0 / 2.0 -1.0
++ Data Record FegeEng - 13.0
++ Data Record FegeScale - 0.0
++ Data Record LMaxK - 1
++ Data Record nrFEM - 12
++ Data Record NLambda - 8
++ Data Record N_rpnts_SG - 30
++ Data Record HFacGauss - 16.0
++ Data Record GridFac - 1
++ Data Record NrfemFac - 1.0
++ Data Record RMax - 20.
++ Data Record IterMax - 25
++ Data Record CnvgKMat - 1e-8
++ Data Record ScatEng - 11.5
++ Data Record OrbOcc - 6  2  2  2  6  2  6  4  6  6
++ Data Record SpinDeg - 2
++ Data Record TargSym - 'A1'
++ Data Record TargSpinDeg - 1
++ Data Record ScatSym - 'A1'
++ Data Record ScatContSym - 'A1'
+
++ Command Comment
++ Comment '--------------------------- Expansion at the CF4 - Td with D2 subgroup ----------------------------'
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/complexkohn/tests/test62.molden2015' 'molden2015'
+
+----------------------------------------------------------------------
+MoldenCnv - Molden (from Molpro) conversion program
+----------------------------------------------------------------------
+
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Conversion using molden2015
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772109200000
+Convert from Angstroms to Bohr radii
+Found     45 basis functions
+Selecting orbitals
+Number of orbitals selected is    21
+Selecting    1   1 SymOrb =      1.1 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    2   2 SymOrb =      1.2 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    3   3 SymOrb =      1.3 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    4   4 SymOrb =      2.1 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    5   5 SymOrb =      3.1 Ene =     -11.6536 Spin =Alpha Occup =   2.000000
+Selecting    6   6 SymOrb =      4.1 Ene =      -1.8509 Spin =Alpha Occup =   2.000000
+Selecting    7   7 SymOrb =      2.2 Ene =      -1.7095 Spin =Alpha Occup =   2.000000
+Selecting    8   8 SymOrb =      2.3 Ene =      -1.7095 Spin =Alpha Occup =   2.000000
+Selecting    9   9 SymOrb =      5.1 Ene =      -1.7095 Spin =Alpha Occup =   2.000000
+Selecting   10  10 SymOrb =      6.1 Ene =      -1.0248 Spin =Alpha Occup =   2.000000
+Selecting   11  11 SymOrb =      3.2 Ene =      -0.9081 Spin =Alpha Occup =   2.000000
+Selecting   12  12 SymOrb =      3.3 Ene =      -0.9081 Spin =Alpha Occup =   2.000000
+Selecting   13  13 SymOrb =      7.1 Ene =      -0.9081 Spin =Alpha Occup =   2.000000
+Selecting   14  14 SymOrb =      1.4 Ene =      -0.7764 Spin =Alpha Occup =   2.000000
+Selecting   15  15 SymOrb =      8.1 Ene =      -0.7764 Spin =Alpha Occup =   2.000000
+Selecting   16  16 SymOrb =      9.1 Ene =      -0.7170 Spin =Alpha Occup =   2.000000
+Selecting   17  17 SymOrb =      4.2 Ene =      -0.7170 Spin =Alpha Occup =   2.000000
+Selecting   18  18 SymOrb =      4.3 Ene =      -0.7170 Spin =Alpha Occup =   2.000000
+Selecting   19  19 SymOrb =      5.2 Ene =      -0.7022 Spin =Alpha Occup =   2.000000
+Selecting   20  20 SymOrb =      5.3 Ene =      -0.7022 Spin =Alpha Occup =   2.000000
+Selecting   21  21 SymOrb =      2.4 Ene =      -0.7022 Spin =Alpha Occup =   2.000000
+
+Atoms found    5  Coordinates in Angstroms
+Z =  6 ZS =  6 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   1.0736930039   0.0000000000   0.7592156040
+Z =  9 ZS =  9 r =  -1.0736930039   0.0000000000   0.7592156040
+Z =  9 ZS =  9 r =   0.0000000000  -1.0736930039  -0.7592156040
+Z =  9 ZS =  9 r =   0.0000000000   1.0736930039  -0.7592156040
+Maximum distance from expansion center is    1.3150000000
+
++ Command GetBlms
++ 
+The functions will be represented in terms of the switching functions.
+The regular scattering states variational equations will be used, and then the coupling computed.
+In cKohn calculation SGFactor is   1.10000
+In cKohn calculation SGLMaxFactor is  10.00000
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  Td   
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup C2v  
+List of groups of equivalent atoms in full group
+Group   1
+   2   5   4   3
+List of groups of equivalent atoms in abelian subgroup
+Group   1
+   2   3
+Group   2
+   4   5
+Time Now =         0.1570  Delta time =         0.1570 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000
+  2  0.81650  0.00000  0.57735   9  1.31500
+  3 -0.81650  0.00000  0.57735   9  1.31500
+  4  0.00000 -0.81650 -0.57735   9  1.31500
+  5  0.00000  0.81650 -0.57735   9  1.31500
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  0.57735  0.00000 -0.81650
+  3  0.57735  0.00000  0.81650
+  4  1.00000  0.00000  0.00000
+  5  1.00000  0.00000  0.00000
+Value of NccZeta used    5 Def val    5
+N_SG, N_SG_Ab    4    4
+    1    List_SG(i)%center    2  %ig    1  %in    1
+    2    List_SG(i)%center    3  %ig    1  %in    4
+    3    List_SG(i)%center    4  %ig    1  %in    3
+    4    List_SG(i)%center    5  %ig    1  %in    2
+
+    1 List_SG_Ab(i)%center    2  %ig    1  %in    1
+    2 List_SG_Ab(i)%center    3  %ig    1  %in    2
+    3 List_SG_Ab(i)%center    4  %ig    2  %in    1
+    4 List_SG_Ab(i)%center    5  %ig    2  %in    2
+N_EG, N_EG_Ab    1    2
+    1    1     List_EG(ieg)%m(i)    1
+    1    2     List_EG(ieg)%m(i)    4
+    1    3     List_EG(ieg)%m(i)    3
+    1    4     List_EG(ieg)%m(i)    2
+
+    1    1  List_EG_Ab(ieg)%m(i)    1
+    1    2  List_EG_Ab(ieg)%m(i)    2
+    2    1  List_EG_Ab(ieg)%m(i)    3
+    2    2  List_EG_Ab(ieg)%m(i)    4
+Maximum L for the subgrids
+Maximum L at the origin    5
+Maximum L for the subgrids based on the full symmetry
+Subgrid    1  LMax    5
+Maximum L for the subgrids based on the abelian subgroup symmetry
+Subgrid    1  LMax    5
+Subgrid    2  LMax    5
+Distance matrix (in Angstroms)
+         1         2         3         4         5
+     1   0.00000   1.31500   1.31500   1.31500   1.31500
+     2   1.31500   0.00000   2.14739   2.14739   2.14739
+     3   1.31500   2.14739   0.00000   2.14739   2.14739
+     4   1.31500   2.14739   2.14739   0.00000   2.14739
+     5   1.31500   2.14739   2.14739   2.14739   0.00000
+   Min   1.31500   1.31500   1.31500   1.31500   1.31500
+Radius   0.29886   0.29886   0.29886   0.29886   0.29886
+Computed LMaxFromSG using SGLMaxFactor   10.00000 with LMaxOrigin     5
+    1   0.00000   0.00000   0.00000    5
+    2   1.07369   0.00000   0.75922   49
+    3  -1.07369   0.00000   0.75922   49
+    4   0.00000  -1.07369  -0.75922   49
+    5   0.00000   1.07369  -0.75922   49
+Computed LMax value   49
+Computed default value of LMax   49
+Maximum L used LMax   20
+Computed default value of LMaxA   20
+Use input value of LMaxA =    6
+Determining angular grid in GetAxMax  LMax =   20  LMaxA =    6  LMaxAb =   40
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  -1  -1  -1  -1  -1  -1
+  -1
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39
+  40
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+SymToler   0.1000E-04  toler   0.1421E-08
+Point group is Td
+LMax    20
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     7     8
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         24       1  1  1
+ A2        1         2         12      -1 -1  1
+ E         1         3         30      -1 -1  1
+ E         2         4         30       1  1  1
+ T1        1         5         42      -1 -1  1
+ T1        2         6         42      -1  1 -1
+ T1        3         7         42       1 -1 -1
+ T2        1         8         56      -1  1 -1
+ T2        2         9         56       1 -1 -1
+ T2        3        10         56       1  1  1
+  Rep  Component  Sym Num  Nuc Grp Num Found  Eigenvalues of abelian sub-group
+ A1        1         1          1       9       1  1  1
+ A2        1         2          1       3      -1 -1  1
+ E         1         3          1      12      -1 -1  1
+ E         2         4          1      12       1  1  1
+ T1        1         5          1      15      -1 -1  1
+ T1        2         6          1      15      -1  1 -1
+ T1        3         7          1      15       1 -1 -1
+ T2        1         8          1      21      -1  1 -1
+ T2        2         9          1      21       1 -1 -1
+ T2        3        10          1      21       1  1  1
+Time Now =         0.8032  Delta time =         0.6463 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   1)    2(   1)    3(   2)    4(   3)    5(   3)    6(   4)
+A2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   1)
+E     1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)
+E     2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)
+T1    1    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)
+T1    2    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)
+T1    3    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)
+T2    1    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)
+T2    2    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)
+T2    3    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)
+ntypeb    4
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+SymToler   0.1000E-04  toler   0.1421E-08
+Point group is C2v
+LMax    40
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  3       1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  4       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1   1  -1  -1
+irep =    4  sym =B2    1  eigs =   1  -1   1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1        441       1  1  1
+ A2        1         2        400      -1 -1  1
+ B1        1         3        420       1 -1 -1
+ B2        1         4        420      -1  1 -1
+  Rep  Component  Sym Num  Nuc Grp Num Found  Eigenvalues of abelian sub-group
+ A1        1         1          1      21       1  1  1
+ A1        1         1          2      21       1  1  1
+ A2        1         2          1      15      -1 -1  1
+ A2        1         2          2      15      -1 -1  1
+ B1        1         3          1      21       1 -1 -1
+ B1        1         3          2      15       1 -1 -1
+ B2        1         4          1      15      -1  1 -1
+ B2        1         4          2      21      -1  1 -1
+Time Now =         0.8148  Delta time =         0.0116 End SymGen
+
++ Command ExpOrb
++ 
+RMax used   20.00000
+nrFEM (order of the Gauss quadrature used in finite elements) used   12
+NLambda (used pick stepsize based on local wavelength) used   8.00000
+N_rpnts_SG (used pick stepsize based on subgrid size) used  30.00000
+HFacGauss    16.00000 Def val    3.00000
+GridFac       1       Def Val    1
+MinExpFac   300.00000 Def val  300.00000
+FirstPoint    0.00000 Def val    0.00000
+nrFEM        12       Def Val   16
+NrfemFac      1.00000 Def val    1.00000
+NLambda       8.00000 Def val  100.00000
+N_rpnts_SG   30.00000 Def val   15.00000
+Subgrid Radii
+Group   1  Radius   0.29886 Angs  Atoms    2    5    4    3
+Grid information for group    0 of equivalent nuclei
+Number of grid points       444
+FEMDef nr        12
+FEMDef ni        37
+Grid information for group    1 of equivalent nuclei
+Number of grid points       168
+FEMDef nr        12
+FEMDef ni        14
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   20
+Maximum scattering m (mmaxs) =   20
+Maximum numerical integration l (lmaxi) =   40
+Maximum numerical integration m (mmaxi) =   40
+Maximum l to include in the asymptotic region (lmasym) =    6
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au Def val  0.10000000E-07
+Maximum E used to determine grid (in eV) =      150.00000
+Print flag (iprnfg) =    0
+lmasymtyts =    6
+ Actual value of lmasym found =      6
+Number of regions of the same l expansion (NAngReg) =    5
+Angular regions
+    1 L    5  from (    1 )         0.00000  to (   36 )         0.01271
+    2 L    6  from (   37 )         0.01271  to (  156 )         0.63544
+    3 L   14  from (  157 )         0.63544  to (  168 )         0.75499
+    4 L   20  from (  169 )         0.75499  to (  300 )         3.02904
+    5 L    6  from (  301 )         3.02904  to (  444 )        20.00000
+    6 L    5  Group     1
+AbelianaAngular regions
+    1 L    5  from (    1 )         0.00000  to (   36 )         0.01271
+    2 L    6  from (   37 )         0.01271  to (  156 )         0.63544
+    3 L   14  from (  157 )         0.63544  to (  168 )         0.75499
+    4 L   20  from (  169 )         0.75499  to (  300 )         3.02904
+    5 L    6  from (  301 )         3.02904  to (  444 )        20.00000
+    6 L    5  Group     1
+    7 L    5  Group     2
+There are     3 angular regions for computing spherical harmonics
+    1 lval =    6
+    2 lval =   20
+    3 lval =    5
+Can use up to    36 processors
+Last grid points by processor WorkExp      1.500
+Proc id     0  First grid point       1  Last grid point       84
+Proc id     1  First grid point      85  Last grid point      156
+Proc id     2  First grid point     157  Last grid point      180
+Proc id     3  First grid point     181  Last grid point      192
+Proc id     4  First grid point     193  Last grid point      204
+Proc id     5  First grid point     205  Last grid point      216
+Proc id     6  First grid point     217  Last grid point      228
+Proc id     7  First grid point     229  Last grid point      240
+Proc id     8  First grid point     241  Last grid point      252
+Proc id     9  First grid point     253  Last grid point      264
+Proc id    10  First grid point     265  Last grid point      276
+Proc id    11  First grid point     277  Last grid point      288
+Proc id    12  First grid point     289  Last grid point      300
+Proc id    13  First grid point     301  Last grid point      312
+Proc id    14  First grid point     313  Last grid point      384
+Proc id    15  First grid point     385  Last grid point      444
+Time Now =         1.1781  Delta time =         0.3633 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -26.399200  T2    1 at max irg =  228  r =   1.35272
+     2  Orig    2  Eng =  -26.399200  T2    2 at max irg =  228  r =   1.35272
+     3  Orig    3  Eng =  -26.399200  T2    3 at max irg =  228  r =   1.35272
+     4  Orig    4  Eng =  -26.399200  A1    1 at max irg =  228  r =   1.35272
+     5  Orig    5  Eng =  -11.653600  A1    1 at max irg =   84  r =   0.07390
+     6  Orig    6  Eng =   -1.850900  A1    1 at max irg =  204  r =   1.11363
+     7  Orig    7  Eng =   -1.709500  T2    1 at max irg =  228  r =   1.35272
+     8  Orig    8  Eng =   -1.709500  T2    2 at max irg =  228  r =   1.35272
+     9  Orig    9  Eng =   -1.709500  T2    3 at max irg =  228  r =   1.35272
+    10  Orig   10  Eng =   -1.024800  A1    1 at max irg =  252  r =   1.59181
+    11  Orig   11  Eng =   -0.908100  T2    1 at max irg =  240  r =   1.47226
+    12  Orig   12  Eng =   -0.908100  T2    2 at max irg =  240  r =   1.47226
+    13  Orig   13  Eng =   -0.908100  T2    3 at max irg =  240  r =   1.47226
+    14  Orig   14  Eng =   -0.776400  E     1 at max irg =  228  r =   1.35272
+    15  Orig   15  Eng =   -0.776400  E     2 at max irg =  228  r =   1.35272
+    16  Orig   16  Eng =   -0.717000  T2    1 at max irg =  240  r =   1.47226
+    17  Orig   17  Eng =   -0.717000  T2    2 at max irg =  240  r =   1.47226
+    18  Orig   18  Eng =   -0.717000  T2    3 at max irg =  240  r =   1.47226
+    19  Orig   19  Eng =   -0.702200  T1    1 at max irg =  228  r =   1.35272
+    20  Orig   20  Eng =   -0.702200  T1    2 at max irg =  228  r =   1.35272
+    21  Orig   21  Eng =   -0.702200  T1    3 at max irg =  228  r =   1.35272
+
+Rotation coefficients for orbital     1  grp =    1 T2    1
+     1  0.0000000000    2  0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    1 T2    2
+     1 -0.0000000000    2 -1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     3  grp =    1 T2    3
+     1 -1.0000000000    2  0.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     4  grp =    2 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     5  grp =    3 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     6  grp =    4 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     7  grp =    5 T2    1
+     1 -0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     8  grp =    5 T2    2
+     1 -1.0000000000    2 -0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital     9  grp =    5 T2    3
+     1  0.0000000000    2  0.0000000000    3 -1.0000000000
+
+Rotation coefficients for orbital    10  grp =    6 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    11  grp =    7 T2    1
+     1 -0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    12  grp =    7 T2    2
+     1  1.0000000000    2  0.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    13  grp =    7 T2    3
+     1 -0.0000000000    2 -0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    14  grp =    8 E     1
+     1  1.0000000000    2  0.0000000000
+
+Rotation coefficients for orbital    15  grp =    8 E     2
+     1 -0.0000000000    2  1.0000000000
+
+Rotation coefficients for orbital    16  grp =    9 T2    1
+     1  0.0000000000    2  0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    17  grp =    9 T2    2
+     1  0.0000000000    2  1.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital    18  grp =    9 T2    3
+     1  1.0000000000    2 -0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital    19  grp =   10 T1    1
+     1  0.0000000000    2 -0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    20  grp =   10 T1    2
+     1 -0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital    21  grp =   10 T1    3
+     1  1.0000000000    2  0.0000000000    3 -0.0000000000
+Number of orbital groups and degeneracis are        10
+  3  1  1  1  3  1  3  2  3  3
+Number of orbital groups and number of electrons when fully occupied
+        10
+  6  2  2  2  6  2  6  4  6  6
+Time Now =         1.3237  Delta time =         0.1456 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrbOverset - Expansion of Orbitals on Overset Grid
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =   21
+Orbital normalization from CD representation
+Orbital     1  Normalization  1.000000007742476  Error    0.774E-08
+Orbital     2  Normalization  1.000000007742476  Error    0.774E-08
+Orbital     3  Normalization  1.000000007743472  Error    0.774E-08
+Orbital     4  Normalization  1.000000007741925  Error    0.774E-08
+Orbital     5  Normalization  0.999999999998638  Error    0.136E-11
+Orbital     6  Normalization  1.000000000355233  Error    0.355E-09
+Orbital     7  Normalization  1.000000000459392  Error    0.459E-09
+Orbital     8  Normalization  1.000000000459370  Error    0.459E-09
+Orbital     9  Normalization  1.000000000412161  Error    0.412E-09
+Orbital    10  Normalization  1.000000000128315  Error    0.128E-09
+Orbital    11  Normalization  0.999999999953602  Error    0.464E-10
+Orbital    12  Normalization  0.999999999953577  Error    0.464E-10
+Orbital    13  Normalization  1.000000000194029  Error    0.194E-09
+Orbital    14  Normalization  1.000000000000314  Error    0.314E-12
+Orbital    15  Normalization  0.999999999974442  Error    0.256E-10
+Orbital    16  Normalization  1.000000000025093  Error    0.251E-10
+Orbital    17  Normalization  1.000000000025100  Error    0.251E-10
+Orbital    18  Normalization  0.999999999951254  Error    0.487E-10
+Orbital    19  Normalization  1.000000000005630  Error    0.563E-11
+Orbital    20  Normalization  0.999999999971951  Error    0.280E-10
+Orbital    21  Normalization  0.999999999971955  Error    0.280E-10
+Maximum Normalization Error   0.774E-08
+Orbital kinetic energy from CD representation
+Orbital     1  Kinetic Energy 37.228858606224861  0.000000000000000
+Orbital     2  Kinetic Energy 37.228858606224854  0.000000000000000
+Orbital     3  Kinetic Energy 37.228858606355445  0.000000000000000
+Orbital     4  Kinetic Energy 37.227600379801380  0.000000000000000
+Orbital     5  Kinetic Energy 16.025615588688236  0.000000000000000
+Orbital     6  Kinetic Energy  3.232267867845626  0.000000000000000
+Orbital     7  Kinetic Energy  3.849888943877425  0.000000000000000
+Orbital     8  Kinetic Energy  3.849888943877418  0.000000000000000
+Orbital     9  Kinetic Energy  3.849888941574368  0.000000000000000
+Orbital    10  Kinetic Energy  3.245689731883731  0.000000000000000
+Orbital    11  Kinetic Energy  2.773531319024556  0.000000000000000
+Orbital    12  Kinetic Energy  2.773531319024538  0.000000000000000
+Orbital    13  Kinetic Energy  2.773531319492779  0.000000000000000
+Orbital    14  Kinetic Energy  3.089170229358776  0.000000000000000
+Orbital    15  Kinetic Energy  3.089170224151122  0.000000000000000
+Orbital    16  Kinetic Energy  3.294325376306049  0.000000000000000
+Orbital    17  Kinetic Energy  3.294325376306002  0.000000000000000
+Orbital    18  Kinetic Energy  3.294325372530016  0.000000000000000
+Orbital    19  Kinetic Energy  3.506484609624679  0.000000000000000
+Orbital    20  Kinetic Energy  3.506484605720037  0.000000000000000
+Orbital    21  Kinetic Energy  3.506484605719948  0.000000000000000
+Orbital normalization from CD representation
+Orbital     1  Normalization  1.000000000000001  Error    0.666E-15
+Orbital     2  Normalization  1.000000000000001  Error    0.666E-15
+Orbital     3  Normalization  1.000000000000000  Error    0.222E-15
+Orbital     4  Normalization  1.000000000000000  Error    0.111E-15
+Orbital     5  Normalization  1.000000000000000  Error    0.333E-15
+Orbital     6  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     7  Normalization  1.000000000000000  Error    0.444E-15
+Orbital     8  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     9  Normalization  1.000000000000000  Error    0.444E-15
+Orbital    10  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    11  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    12  Normalization  1.000000000000000  Error    0.444E-15
+Orbital    13  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    14  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    15  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    16  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    17  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    18  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    19  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    20  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    21  Normalization  1.000000000000000  Error    0.000E+00
+Max Error After Renormalization   0.666E-15
+Orbital kinetic energy from CD representation
+Orbital     1  Kinetic Energy 37.228858317981285  0.000000000000000
+Orbital     2  Kinetic Energy 37.228858317981299  0.000000000000000
+Orbital     3  Kinetic Energy 37.228858318074820  0.000000000000000
+Orbital     4  Kinetic Energy 37.227600091588073  0.000000000000000
+Orbital     5  Kinetic Energy 16.025615588710071  0.000000000000000
+Orbital     6  Kinetic Energy  3.232267866697418  0.000000000000000
+Orbital     7  Kinetic Energy  3.849888942108818  0.000000000000000
+Orbital     8  Kinetic Energy  3.849888942108894  0.000000000000000
+Orbital     9  Kinetic Energy  3.849888939987593  0.000000000000000
+Orbital    10  Kinetic Energy  3.245689731467261  0.000000000000000
+Orbital    11  Kinetic Energy  2.773531319153242  0.000000000000000
+Orbital    12  Kinetic Energy  2.773531319153293  0.000000000000000
+Orbital    13  Kinetic Energy  2.773531318954632  0.000000000000000
+Orbital    14  Kinetic Energy  3.089170229357808  0.000000000000000
+Orbital    15  Kinetic Energy  3.089170224230074  0.000000000000000
+Orbital    16  Kinetic Energy  3.294325376223384  0.000000000000000
+Orbital    17  Kinetic Energy  3.294325376223314  0.000000000000000
+Orbital    18  Kinetic Energy  3.294325372690603  0.000000000000000
+Orbital    19  Kinetic Energy  3.506484609604936  0.000000000000000
+Orbital    20  Kinetic Energy  3.506484605818389  0.000000000000000
+Orbital    21  Kinetic Energy  3.506484605818289  0.000000000000000
+Partial wave normalization
+Time Now =         3.4083  Delta time =         2.0846 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+StPot_overset - calculate static potential on Overset Grid
+----------------------------------------------------------------------
+
+OrbDegn    3    1    1    1    3    1    3    2    3    3
+NCoefKInt, CoefKInt   21    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2
+NCoefKInt, CoefKInt    2    2
+CoefKInt(ij)%SymL    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
+CoefKInt(ij)%SymL    1
+CoefKInt(ij)%SymR    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
+CoefKInt(ij)%SymR    1
+CoefKInt(ij)%OrbG    1    1    1    2    3    4    5    5    5    6    7    7    7    8    8    9    9    9   10   10
+CoefKInt(ij)%OrbG   10
+CoefKInt(ij)%OrbCL    1    2    3    1    1    1    1    2    3    1    1    2    3    1    2    1    2    3    1    2
+CoefKInt(ij)%OrbCL    3
+CoefKInt(ij)%OrbCR    1    2    3    1    1    1    1    2    3    1    1    2    3    1    2    1    2    3    1    2
+CoefKInt(ij)%OrbCR    3
+CoefKInt(ij)%Coef  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000
+CoefKInt(ij)%Coef  -1.00000
+
+      Initializing LIBINT
+
+
+      Checking WF Norm with LIBINT
+
+Overlap Integrals 
+          1    0.219059    0.184261           0           0           0           0           0           0 1.32621e-07
+   0.219059           1    0.812273           0           0           0           0           0           0   0.0107034
+   0.184261    0.812273           1           0           0           0           0           0           0   0.0359157
+          0           0           0           1           0           0    0.569754           0           0   0.0198752
+          0           0           0           0           1           0           0    0.569754           0           0
+          0           0           0           0           0           1           0           0    0.569754   0.0140539
+          0           0           0    0.569754           0           0           1           0           0   0.0589262
+          0           0           0           0    0.569754           0           0           1           0           0
+          0           0           0           0           0    0.569754           0           0           1   0.0416671
+1.32621e-07   0.0107034   0.0359157   0.0198752           0   0.0140539   0.0589262           0   0.0416671           1
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01987521
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.05892623
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01987521 0.00000000 0.01405389 0.05892623 0.00000000 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+
+      Checking WF Kinetic Energy with LIBINT
+
+K. E. Integrals 
+16.20756777 -1.24756871  0.08995050  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000 -0.00000729
+-1.24756871  0.93224558  0.30671846  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000 -0.01867496
+ 0.08995050  0.30671846  0.25307172  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00565942
+ 0.00000000  0.00000000  0.00000000  2.17833218  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000 -0.01526159
+ 0.00000000  0.00000000  0.00000000  0.00000000  2.17833218  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  2.17833218  0.00000000  0.00000000  0.37667340 -0.01079157
+ 0.00000000  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000  0.42178620  0.00000000  0.00000000  0.02885763
+ 0.00000000  0.00000000  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000  0.42178620  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000  0.42178620  0.02040542
+-0.00000729 -0.01867496  0.00565942 -0.01526159  0.00000000 -0.01079157  0.02885763  0.00000000  0.02040542 37.69070358
+WFNORM KINETIC ENERGY CHECK COMPLETE 435.73755594
+Processor 13 has finished its portion of the static potential 
+Processor 15 has finished its portion of the static potential 
+Processor 14 has finished its portion of the static potential 
+Processor 11 has finished its portion of the static potential 
+Processor 12 has finished its portion of the static potential 
+Processor  7 has finished its portion of the static potential 
+Processor  5 has finished its portion of the static potential 
+Processor  9 has finished its portion of the static potential 
+Processor  6 has finished its portion of the static potential 
+Processor  8 has finished its portion of the static potential 
+Processor 10 has finished its portion of the static potential 
+Processor  4 has finished its portion of the static potential 
+Processor  1 has finished its portion of the static potential 
+Processor  0 has finished its portion of the static potential 
+Processor  3 has finished its portion of the static potential 
+Processor  2 has finished its portion of the static potential 
+
+      Finalizing LIBINT
+
+
+      Determine the extent of the overlap
+
+There are      43008 UG pts and     162624 SG pts on proc.          0
+There are      36864 UG pts and     162624 SG pts on proc.          1
+There are      92928 UG pts and     162624 SG pts on proc.          2
+There are      46464 UG pts and     162624 SG pts on proc.          3
+There are      46464 UG pts and          0 SG pts on proc.          4
+There are      46464 UG pts and          0 SG pts on proc.          5
+There are      46464 UG pts and          0 SG pts on proc.          6
+There are      46464 UG pts and          0 SG pts on proc.          7
+There are      46464 UG pts and          0 SG pts on proc.          8
+There are      46464 UG pts and          0 SG pts on proc.          9
+There are      46464 UG pts and          0 SG pts on proc.         10
+There are      46464 UG pts and          0 SG pts on proc.         11
+There are      46464 UG pts and          0 SG pts on proc.         12
+There are       6144 UG pts and          0 SG pts on proc.         13
+There are      36864 UG pts and          0 SG pts on proc.         14
+There are      30720 UG pts and          0 SG pts on proc.         15
+There are     711168 total UG pts and     650496 total SG pts 
+   1361664 total points should take      20.78 MB per grid function
+There are      27181 overlapping UG pts and          0 overlapping SG(   1) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.          0
+There are      27181 overlapping UG pts and          0 overlapping SG(   4) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.          1
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.          1
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.          1
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.          1
+There are          0 overlapping UG pts and        856 overlapping SG(   1) pts on proc.          2
+There are          0 overlapping UG pts and        856 overlapping SG(   2) pts on proc.          2
+There are          0 overlapping UG pts and        856 overlapping SG(   3) pts on proc.          2
+There are          0 overlapping UG pts and        856 overlapping SG(   4) pts on proc.          2
+There are          0 overlapping UG pts and       2062 overlapping SG(   1) pts on proc.          3
+There are          0 overlapping UG pts and       2062 overlapping SG(   2) pts on proc.          3
+There are          0 overlapping UG pts and       2062 overlapping SG(   3) pts on proc.          3
+There are          0 overlapping UG pts and       2062 overlapping SG(   4) pts on proc.          3
+There are          0 overlapping UG pts and       4672 overlapping SG(   1) pts on proc.          4
+There are          0 overlapping UG pts and       4672 overlapping SG(   2) pts on proc.          4
+There are          0 overlapping UG pts and       4672 overlapping SG(   3) pts on proc.          4
+There are          0 overlapping UG pts and       4672 overlapping SG(   4) pts on proc.          4
+There are          0 overlapping UG pts and      11098 overlapping SG(   1) pts on proc.          5
+There are          0 overlapping UG pts and      11098 overlapping SG(   2) pts on proc.          5
+There are          0 overlapping UG pts and      11098 overlapping SG(   3) pts on proc.          5
+There are          0 overlapping UG pts and      11098 overlapping SG(   4) pts on proc.          5
+There are          0 overlapping UG pts and     108234 overlapping SG(   1) pts on proc.          6
+There are          0 overlapping UG pts and     108234 overlapping SG(   2) pts on proc.          6
+There are          0 overlapping UG pts and     108234 overlapping SG(   3) pts on proc.          6
+There are          0 overlapping UG pts and     108234 overlapping SG(   4) pts on proc.          6
+There are          0 overlapping UG pts and      19062 overlapping SG(   1) pts on proc.          7
+There are          0 overlapping UG pts and      19062 overlapping SG(   2) pts on proc.          7
+There are          0 overlapping UG pts and      19062 overlapping SG(   3) pts on proc.          7
+There are          0 overlapping UG pts and      19062 overlapping SG(   4) pts on proc.          7
+There are          0 overlapping UG pts and       8054 overlapping SG(   1) pts on proc.          8
+There are          0 overlapping UG pts and       8054 overlapping SG(   2) pts on proc.          8
+There are          0 overlapping UG pts and       8054 overlapping SG(   3) pts on proc.          8
+There are          0 overlapping UG pts and       8054 overlapping SG(   4) pts on proc.          8
+There are          0 overlapping UG pts and       5250 overlapping SG(   1) pts on proc.          9
+There are          0 overlapping UG pts and       5250 overlapping SG(   2) pts on proc.          9
+There are          0 overlapping UG pts and       5250 overlapping SG(   3) pts on proc.          9
+There are          0 overlapping UG pts and       5250 overlapping SG(   4) pts on proc.          9
+There are          0 overlapping UG pts and       2756 overlapping SG(   1) pts on proc.         10
+There are          0 overlapping UG pts and       2756 overlapping SG(   2) pts on proc.         10
+There are          0 overlapping UG pts and       2756 overlapping SG(   3) pts on proc.         10
+There are          0 overlapping UG pts and       2756 overlapping SG(   4) pts on proc.         10
+There are          0 overlapping UG pts and        580 overlapping SG(   1) pts on proc.         11
+There are          0 overlapping UG pts and        580 overlapping SG(   2) pts on proc.         11
+There are          0 overlapping UG pts and        580 overlapping SG(   3) pts on proc.         11
+There are          0 overlapping UG pts and        580 overlapping SG(   4) pts on proc.         11
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         15
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         15
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         15
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         15
+Time Now =        99.2866  Delta time =        95.8783 End StPot_overset
+
++ Command FileName
++ 'MatrixElements' 'tmatrix_cf4_d2.dat' 'APPEND'
+Opening file tmatrix_cf4_d2.dat at position APPEND
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+PrepareScatCK - Complex Kohn Scattering preparations
+----------------------------------------------------------------------
+
+Build interpolating matrices for A1    1
+       Building interpolation matrix --  full symmetry group
+       Allocating UG interp.  matrices,      1         0
+       Allocating SG interp.  matrices,      1     54362
+Build subgroup interpolating matrices and RGOff for B2    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      4         0
+       Allocating SG interp.  matrices,      4     27181
+Build subgroup interpolating matrices and RGOff for B1    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      3         0
+       Allocating SG interp.  matrices,      3     27181
+Build subgroup interpolating matrices and RGOff for A1    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      1         0
+       Allocating SG interp.  matrices,      1     27181
+Build subgroup interpolating matrices and RGOff for A2    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      2         0
+       Allocating SG interp.  matrices,      2     27181
+Time Now =       228.8649  Delta time =       129.5783 End PrepareScatCK
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =   10
+Set    1  has degeneracy     3
+Orbital     1  is num     1  type =   8  name - T2    1
+Orbital     2  is num     2  type =   9  name - T2    2
+Orbital     3  is num     3  type =  10  name - T2    3
+Set    2  has degeneracy     1
+Orbital     1  is num     4  type =   1  name - A1    1
+Set    3  has degeneracy     1
+Orbital     1  is num     5  type =   1  name - A1    1
+Set    4  has degeneracy     1
+Orbital     1  is num     6  type =   1  name - A1    1
+Set    5  has degeneracy     3
+Orbital     1  is num     7  type =   8  name - T2    1
+Orbital     2  is num     8  type =   9  name - T2    2
+Orbital     3  is num     9  type =  10  name - T2    3
+Set    6  has degeneracy     1
+Orbital     1  is num    10  type =   1  name - A1    1
+Set    7  has degeneracy     3
+Orbital     1  is num    11  type =   8  name - T2    1
+Orbital     2  is num    12  type =   9  name - T2    2
+Orbital     3  is num    13  type =  10  name - T2    3
+Set    8  has degeneracy     2
+Orbital     1  is num    14  type =   3  name - E     1
+Orbital     2  is num    15  type =   4  name - E     2
+Set    9  has degeneracy     3
+Orbital     1  is num    16  type =   8  name - T2    1
+Orbital     2  is num    17  type =   9  name - T2    2
+Orbital     3  is num    18  type =  10  name - T2    3
+Set   10  has degeneracy     3
+Orbital     1  is num    19  type =   5  name - T1    1
+Orbital     2  is num    20  type =   6  name - T1    2
+Orbital     3  is num    21  type =   7  name - T1    3
+Orbital occupations by degenerate group
+    1  T2       occ = 6
+    2  A1       occ = 2
+    3  A1       occ = 2
+    4  A1       occ = 2
+    5  T2       occ = 6
+    6  A1       occ = 2
+    7  T2       occ = 6
+    8  E        occ = 4
+    9  T2       occ = 6
+   10  T1       occ = 6
+The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+Symmetry of the continuum orbital is A1   
+Symmetry of the total state is A1   
+Spin degeneracy of the total state is =    2
+Symmetry of the target state is A1   
+Spin degeneracy of the target state is =    1
+Closed shell target
+Open shell symmetry types
+    1  A1     iele =    1
+Use only configuration of type A1   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+
+ representation A1     component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:   1.00000   0.00000    1
+Closed shell target
+Direct product basis set
+Direct product basis function
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   18   19   20
+                             21   22   23   24   25   26   27   28   29   30
+                             31   32   33   34   35   36   37   38   39   40
+                             41   42   43
+Time Now =       228.8697  Delta time =         0.0048 End SymProd
+
+----------------------------------------------------------------------
+ScatStab_overset - Complex Kohn Scattering program on an overset grid (rev. 03/30/2016)
+----------------------------------------------------------------------
+
+  ntypes info: itype, ntype, ntypes, symtps, symtpa(itype)    1   10    1  A1    1A1    1
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    1
+Maximum number of iterations (itmax) =   25
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Using variational dipole expressions) =    F
+Number of partial waves (np) =    24
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     1
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     1
+Maximum in the asymptotic region (lpasym) =    6
+Number of partial waves in the asymptotic region (npasym) =    4
+Time Now =       238.3114  Delta time =         9.4417 Built h+(kr>) off the subgrids
+Time Now =       239.1618  Delta time =         0.8504 Built outgoing function
+Time Now =       298.0585  Delta time =        58.8966 Built J and JV
+
+Compute solution for E =   11.5000000000 eV
+MaxEleIter =  21 c.s. =      3.53334001 angs^2  rmsk=     0.00000001
+iL =    1 iR =    1 E =     11.50000000 c.s. =       3.53334001
+Time Now =      1541.3914  Delta time =      1243.3329 Finished matrix element
+      Final T matrix
+     ROW  1
+  (-0.12702449E+00, 0.91244593E+00)
+E =     11.50000000 Total c.s. =       3.53334001
+MaxIter =  21 c.s. =      3.53334001 angs^2
+Time Now =      1541.3945  Delta time =         0.0031 End ScatStab
+
++ Command TotalCrossSection
++ 
+Using LMaxK     1
+Continuum Symmetry A1 - 
+        E (eV)      XS(angs^2)    EPS(radians)
+      11.500000       3.533340      -1.385571
+Largest value of LMaxK found    0
+
+ Total Cross Sections
+
+ Energy      Total Cross Section
+  11.50000     3.53334
+
++ Command Comment
++ Comment '--------------------------- Expansion at the CF4 - With C2v subgroup ----------------------------'
++ Data Record RotateForm
++ 1 3 45. / 0. 0. 0.
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/complexkohn/tests/test62.molden2015' 'molden2015'
+
+----------------------------------------------------------------------
+MoldenCnv - Molden (from Molpro) conversion program
+----------------------------------------------------------------------
+
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Conversion using molden2015
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772109200000
+Convert from Angstroms to Bohr radii
+Found     45 basis functions
+Selecting orbitals
+Number of orbitals selected is    21
+Selecting    1   1 SymOrb =      1.1 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    2   2 SymOrb =      1.2 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    3   3 SymOrb =      1.3 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    4   4 SymOrb =      2.1 Ene =     -26.3992 Spin =Alpha Occup =   2.000000
+Selecting    5   5 SymOrb =      3.1 Ene =     -11.6536 Spin =Alpha Occup =   2.000000
+Selecting    6   6 SymOrb =      4.1 Ene =      -1.8509 Spin =Alpha Occup =   2.000000
+Selecting    7   7 SymOrb =      2.2 Ene =      -1.7095 Spin =Alpha Occup =   2.000000
+Selecting    8   8 SymOrb =      2.3 Ene =      -1.7095 Spin =Alpha Occup =   2.000000
+Selecting    9   9 SymOrb =      5.1 Ene =      -1.7095 Spin =Alpha Occup =   2.000000
+Selecting   10  10 SymOrb =      6.1 Ene =      -1.0248 Spin =Alpha Occup =   2.000000
+Selecting   11  11 SymOrb =      3.2 Ene =      -0.9081 Spin =Alpha Occup =   2.000000
+Selecting   12  12 SymOrb =      3.3 Ene =      -0.9081 Spin =Alpha Occup =   2.000000
+Selecting   13  13 SymOrb =      7.1 Ene =      -0.9081 Spin =Alpha Occup =   2.000000
+Selecting   14  14 SymOrb =      1.4 Ene =      -0.7764 Spin =Alpha Occup =   2.000000
+Selecting   15  15 SymOrb =      8.1 Ene =      -0.7764 Spin =Alpha Occup =   2.000000
+Selecting   16  16 SymOrb =      9.1 Ene =      -0.7170 Spin =Alpha Occup =   2.000000
+Selecting   17  17 SymOrb =      4.2 Ene =      -0.7170 Spin =Alpha Occup =   2.000000
+Selecting   18  18 SymOrb =      4.3 Ene =      -0.7170 Spin =Alpha Occup =   2.000000
+Selecting   19  19 SymOrb =      5.2 Ene =      -0.7022 Spin =Alpha Occup =   2.000000
+Selecting   20  20 SymOrb =      5.3 Ene =      -0.7022 Spin =Alpha Occup =   2.000000
+Selecting   21  21 SymOrb =      2.4 Ene =      -0.7022 Spin =Alpha Occup =   2.000000
+
+----------------------------------------------------------------------
+Rotate - Rotate and Translate the Molecule
+----------------------------------------------------------------------
+
+Number of rotation (NumRot) =    1
+Rotation axis =  3 or z  angle =  45.00000 Degs
+Translate molecule using    0.00000   0.00000   0.00000 Angstroms
+Geometry before translation and rotation (in Angstroms)
+Center   1 Charge z =   6  zs =   6      0.0000000    0.0000000    0.0000000
+Center   2 Charge z =   9  zs =   9      1.0736930    0.0000000    0.7592156
+Center   3 Charge z =   9  zs =   9     -1.0736930    0.0000000    0.7592156
+Center   4 Charge z =   9  zs =   9      0.0000000   -1.0736930   -0.7592156
+Center   5 Charge z =   9  zs =   9      0.0000000    1.0736930   -0.7592156
+Geometry after translation and rotation (in Angstroms)
+Center   1 Charge z =   6  zs =   6      0.0000000    0.0000000    0.0000000
+Center   2 Charge z =   9  zs =   9      0.7592156    0.7592156    0.7592156
+Center   3 Charge z =   9  zs =   9     -0.7592156   -0.7592156    0.7592156
+Center   4 Charge z =   9  zs =   9      0.7592156   -0.7592156   -0.7592156
+Center   5 Charge z =   9  zs =   9     -0.7592156    0.7592156   -0.7592156
+Time Now =      1541.6670  Delta time =         0.2725 End Rotate
+
+Atoms found    5  Coordinates in Angstroms
+Z =  6 ZS =  6 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   0.7592156040   0.7592156040   0.7592156040
+Z =  9 ZS =  9 r =  -0.7592156040  -0.7592156040   0.7592156040
+Z =  9 ZS =  9 r =   0.7592156040  -0.7592156040  -0.7592156040
+Z =  9 ZS =  9 r =  -0.7592156040   0.7592156040  -0.7592156040
+Maximum distance from expansion center is    1.3150000000
+
++ Command GetBlms
++ 
+The functions will be represented in terms of the switching functions.
+The regular scattering states variational equations will be used, and then the coupling computed.
+In cKohn calculation SGFactor is   1.10000
+In cKohn calculation SGLMaxFactor is  10.00000
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  Td   
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup D2   
+List of groups of equivalent atoms in full group
+Group   1
+   2   5   4   3
+List of groups of equivalent atoms in abelian subgroup
+Group   1
+   2   3   4   5
+Time Now =      1541.6708  Delta time =         0.0037 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000
+  2  0.57735  0.57735  0.57735   9  1.31500
+  3 -0.57735 -0.57735  0.57735   9  1.31500
+  4  0.57735 -0.57735 -0.57735   9  1.31500
+  5 -0.57735  0.57735 -0.57735   9  1.31500
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  0.81650 -0.40825 -0.40825
+  3  0.81650 -0.40825  0.40825
+  4  0.81650  0.40825  0.40825
+  5  0.81650  0.40825 -0.40825
+Value of NccZeta used    5 Def val    5
+N_SG, N_SG_Ab    4    4
+    1    List_SG(i)%center    2  %ig    1  %in    1
+    2    List_SG(i)%center    3  %ig    1  %in    4
+    3    List_SG(i)%center    4  %ig    1  %in    3
+    4    List_SG(i)%center    5  %ig    1  %in    2
+
+    1 List_SG_Ab(i)%center    2  %ig    1  %in    1
+    2 List_SG_Ab(i)%center    3  %ig    1  %in    2
+    3 List_SG_Ab(i)%center    4  %ig    1  %in    3
+    4 List_SG_Ab(i)%center    5  %ig    1  %in    4
+N_EG, N_EG_Ab    1    1
+    1    1     List_EG(ieg)%m(i)    1
+    1    2     List_EG(ieg)%m(i)    4
+    1    3     List_EG(ieg)%m(i)    3
+    1    4     List_EG(ieg)%m(i)    2
+
+    1    1  List_EG_Ab(ieg)%m(i)    1
+    1    2  List_EG_Ab(ieg)%m(i)    2
+    1    3  List_EG_Ab(ieg)%m(i)    3
+    1    4  List_EG_Ab(ieg)%m(i)    4
+Maximum L for the subgrids
+Maximum L at the origin    5
+Maximum L for the subgrids based on the full symmetry
+Subgrid    1  LMax    5
+Maximum L for the subgrids based on the abelian subgroup symmetry
+Subgrid    1  LMax    5
+Distance matrix (in Angstroms)
+         1         2         3         4         5
+     1   0.00000   1.31500   1.31500   1.31500   1.31500
+     2   1.31500   0.00000   2.14739   2.14739   2.14739
+     3   1.31500   2.14739   0.00000   2.14739   2.14739
+     4   1.31500   2.14739   2.14739   0.00000   2.14739
+     5   1.31500   2.14739   2.14739   2.14739   0.00000
+   Min   1.31500   1.31500   1.31500   1.31500   1.31500
+Radius   0.29886   0.29886   0.29886   0.29886   0.29886
+Computed LMaxFromSG using SGLMaxFactor   10.00000 with LMaxOrigin     5
+    1   0.00000   0.00000   0.00000    5
+    2   0.75922   0.75922   0.75922   49
+    3  -0.75922  -0.75922   0.75922   49
+    4   0.75922  -0.75922  -0.75922   49
+    5  -0.75922   0.75922  -0.75922   49
+Computed LMax value   49
+Computed default value of LMax   49
+Maximum L used LMax   20
+Computed default value of LMaxA   20
+Use input value of LMaxA =    6
+Determining angular grid in GetAxMax  LMax =   20  LMaxA =    6  LMaxAb =   40
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  -1  -1  -1  -1  -1  -1
+  -1
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   3   3   3   3
+   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36  37  38  39
+  40
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+SymToler   0.1000E-04  toler   0.1421E-08
+Point group is Td
+LMax    20
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     8    11    14
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         24       1  1  1
+ A2        1         2         12       1  1  1
+ E         1         3         30       1  1  1
+ E         2         4         30       1  1  1
+ T1        1         5         42      -1 -1  1
+ T1        2         6         42      -1  1 -1
+ T1        3         7         42       1 -1 -1
+ T2        1         8         56      -1 -1  1
+ T2        2         9         56      -1  1 -1
+ T2        3        10         56       1 -1 -1
+  Rep  Component  Sym Num  Nuc Grp Num Found  Eigenvalues of abelian sub-group
+ A1        1         1          1       9       1  1  1
+ A2        1         2          1       3       1  1  1
+ E         1         3          1      12       1  1  1
+ E         2         4          1      12       1  1  1
+ T1        1         5          1      15      -1 -1  1
+ T1        2         6          1      15      -1  1 -1
+ T1        3         7          1      15       1 -1 -1
+ T2        1         8          1      21      -1 -1  1
+ T2        2         9          1      21      -1  1 -1
+ T2        3        10          1      21       1 -1 -1
+Time Now =      1542.2372  Delta time =         0.5665 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   1)    2(   1)    3(   2)    4(   3)    5(   3)    6(   4)
+A2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   1)
+E     1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)
+E     2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)
+T1    1    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)
+T1    2    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)
+T1    3    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)
+T2    1    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)
+T2    2    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)
+T2    3    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)
+ntypeb    4
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+SymToler   0.1000E-04  toler   0.1421E-08
+Point group is D2
+LMax    40
+ The dimension of each irreducable representation is
+    A     (  1)    B1    (  1)    B2    (  1)    B3    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+  3       1.000000       0.000000       0.000000 ang =  1  2 type = 2 axis = 1
+  4       0.000000       1.000000       0.000000 ang =  1  2 type = 2 axis = 2
+irep =    1  sym =A     1  eigs =   1   1   1   1
+irep =    2  sym =B1    1  eigs =   1   1  -1  -1
+irep =    3  sym =B2    1  eigs =   1  -1  -1   1
+irep =    4  sym =B3    1  eigs =   1  -1   1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A         1         1        421       1  1  1
+ B1        1         2        420       1 -1 -1
+ B2        1         3        420      -1 -1  1
+ B3        1         4        420      -1  1 -1
+  Rep  Component  Sym Num  Nuc Grp Num Found  Eigenvalues of abelian sub-group
+ A         1         1          1      36       1  1  1
+ B1        1         2          1      36       1 -1 -1
+ B2        1         3          1      36      -1 -1  1
+ B3        1         4          1      36      -1  1 -1
+Time Now =      1542.2649  Delta time =         0.0277 End SymGen
+
++ Command ExpOrb
++ 
+RMax used   20.00000
+nrFEM (order of the Gauss quadrature used in finite elements) used   12
+NLambda (used pick stepsize based on local wavelength) used   8.00000
+N_rpnts_SG (used pick stepsize based on subgrid size) used  30.00000
+HFacGauss    16.00000 Def val    3.00000
+GridFac       1       Def Val    1
+MinExpFac   300.00000 Def val  300.00000
+FirstPoint    0.00000 Def val    0.00000
+nrFEM        12       Def Val   16
+NrfemFac      1.00000 Def val    1.00000
+NLambda       8.00000 Def val  100.00000
+N_rpnts_SG   30.00000 Def val   15.00000
+Subgrid Radii
+Group   1  Radius   0.29886 Angs  Atoms    2    5    4    3
+Grid information for group    0 of equivalent nuclei
+Number of grid points       444
+FEMDef nr        12
+FEMDef ni        37
+Grid information for group    1 of equivalent nuclei
+Number of grid points       168
+FEMDef nr        12
+FEMDef ni        14
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   20
+Maximum scattering m (mmaxs) =   20
+Maximum numerical integration l (lmaxi) =   40
+Maximum numerical integration m (mmaxi) =   40
+Maximum l to include in the asymptotic region (lmasym) =    6
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au Def val  0.10000000E-07
+Maximum E used to determine grid (in eV) =      150.00000
+Print flag (iprnfg) =    0
+lmasymtyts =    6
+ Actual value of lmasym found =      6
+Number of regions of the same l expansion (NAngReg) =    5
+Angular regions
+    1 L    5  from (    1 )         0.00000  to (   36 )         0.01271
+    2 L    6  from (   37 )         0.01271  to (  156 )         0.63544
+    3 L   14  from (  157 )         0.63544  to (  168 )         0.75499
+    4 L   20  from (  169 )         0.75499  to (  300 )         3.02904
+    5 L    6  from (  301 )         3.02904  to (  444 )        20.00000
+    6 L    5  Group     1
+AbelianaAngular regions
+    1 L    5  from (    1 )         0.00000  to (   36 )         0.01271
+    2 L    6  from (   37 )         0.01271  to (  156 )         0.63544
+    3 L   14  from (  157 )         0.63544  to (  168 )         0.75499
+    4 L   20  from (  169 )         0.75499  to (  300 )         3.02904
+    5 L    6  from (  301 )         3.02904  to (  444 )        20.00000
+    6 L    5  Group     1
+There are     3 angular regions for computing spherical harmonics
+    1 lval =    6
+    2 lval =   20
+    3 lval =    5
+Can use up to    36 processors
+Last grid points by processor WorkExp      1.500
+Proc id     0  First grid point       1  Last grid point       84
+Proc id     1  First grid point      85  Last grid point      156
+Proc id     2  First grid point     157  Last grid point      180
+Proc id     3  First grid point     181  Last grid point      192
+Proc id     4  First grid point     193  Last grid point      204
+Proc id     5  First grid point     205  Last grid point      216
+Proc id     6  First grid point     217  Last grid point      228
+Proc id     7  First grid point     229  Last grid point      240
+Proc id     8  First grid point     241  Last grid point      252
+Proc id     9  First grid point     253  Last grid point      264
+Proc id    10  First grid point     265  Last grid point      276
+Proc id    11  First grid point     277  Last grid point      288
+Proc id    12  First grid point     289  Last grid point      300
+Proc id    13  First grid point     301  Last grid point      312
+Proc id    14  First grid point     313  Last grid point      384
+Proc id    15  First grid point     385  Last grid point      444
+Time Now =      1542.6127  Delta time =         0.3478 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -26.399200  T2    1 at max irg =  228  r =   1.35272
+     2  Orig    2  Eng =  -26.399200  T2    2 at max irg =  228  r =   1.35272
+     3  Orig    3  Eng =  -26.399200  T2    3 at max irg =  228  r =   1.35272
+     4  Orig    4  Eng =  -26.399200  A1    1 at max irg =  228  r =   1.35272
+     5  Orig    5  Eng =  -11.653600  A1    1 at max irg =   84  r =   0.07390
+     6  Orig    6  Eng =   -1.850900  A1    1 at max irg =  204  r =   1.11363
+     7  Orig    7  Eng =   -1.709500  T2    1 at max irg =  228  r =   1.35272
+     8  Orig    8  Eng =   -1.709500  T2    2 at max irg =  228  r =   1.35272
+     9  Orig    9  Eng =   -1.709500  T2    3 at max irg =  228  r =   1.35272
+    10  Orig   10  Eng =   -1.024800  A1    1 at max irg =  252  r =   1.59181
+    11  Orig   11  Eng =   -0.908100  T2    1 at max irg =  252  r =   1.59181
+    12  Orig   12  Eng =   -0.908100  T2    2 at max irg =  252  r =   1.59181
+    13  Orig   13  Eng =   -0.908100  T2    3 at max irg =  252  r =   1.59181
+    14  Orig   14  Eng =   -0.776400  E     1 at max irg =  228  r =   1.35272
+    15  Orig   15  Eng =   -0.776400  E     2 at max irg =  228  r =   1.35272
+    16  Orig   16  Eng =   -0.717000  T2    1 at max irg =  240  r =   1.47226
+    17  Orig   17  Eng =   -0.717000  T2    2 at max irg =  240  r =   1.47226
+    18  Orig   18  Eng =   -0.717000  T2    3 at max irg =  240  r =   1.47226
+    19  Orig   19  Eng =   -0.702200  T1    1 at max irg =  228  r =   1.35272
+    20  Orig   20  Eng =   -0.702200  T1    2 at max irg =  228  r =   1.35272
+    21  Orig   21  Eng =   -0.702200  T1    3 at max irg =  228  r =   1.35272
+
+Rotation coefficients for orbital     1  grp =    1 T2    1
+     1 -0.0000000000    2  0.7071067812    3 -0.7071067812
+
+Rotation coefficients for orbital     2  grp =    1 T2    2
+     1 -0.0000000000    2  0.7071067812    3  0.7071067812
+
+Rotation coefficients for orbital     3  grp =    1 T2    3
+     1  1.0000000000    2  0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital     4  grp =    2 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     5  grp =    3 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     6  grp =    4 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     7  grp =    5 T2    1
+     1 -0.7071067812    2  0.7071067812    3  0.0000000000
+
+Rotation coefficients for orbital     8  grp =    5 T2    2
+     1 -0.7071067812    2 -0.7071067812    3  0.0000000000
+
+Rotation coefficients for orbital     9  grp =    5 T2    3
+     1 -0.0000000000    2  0.0000000000    3 -1.0000000000
+
+Rotation coefficients for orbital    10  grp =    6 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital    11  grp =    7 T2    1
+     1  0.7071067812    2  0.7071067812    3 -0.0000000000
+
+Rotation coefficients for orbital    12  grp =    7 T2    2
+     1  0.7071067812    2 -0.7071067812    3 -0.0000000000
+
+Rotation coefficients for orbital    13  grp =    7 T2    3
+     1  0.0000000000    2 -0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital    14  grp =    8 E     1
+     1 -0.0000000000    2  1.0000000000
+
+Rotation coefficients for orbital    15  grp =    8 E     2
+     1 -1.0000000000    2 -0.0000000000
+
+Rotation coefficients for orbital    16  grp =    9 T2    1
+     1  0.0000000000    2  0.7071067812    3  0.7071067812
+
+Rotation coefficients for orbital    17  grp =    9 T2    2
+     1  0.0000000000    2  0.7071067812    3 -0.7071067812
+
+Rotation coefficients for orbital    18  grp =    9 T2    3
+     1  1.0000000000    2 -0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital    19  grp =   10 T1    1
+     1  0.7071067812    2  0.7071067812    3  0.0000000000
+
+Rotation coefficients for orbital    20  grp =   10 T1    2
+     1  0.7071067812    2 -0.7071067812    3  0.0000000000
+
+Rotation coefficients for orbital    21  grp =   10 T1    3
+     1  0.0000000000    2  0.0000000000    3 -1.0000000000
+Number of orbital groups and degeneracis are        10
+  3  1  1  1  3  1  3  2  3  3
+Number of orbital groups and number of electrons when fully occupied
+        10
+  6  2  2  2  6  2  6  4  6  6
+Time Now =      1542.7400  Delta time =         0.1273 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrbOverset - Expansion of Orbitals on Overset Grid
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =   21
+Orbital normalization from CD representation
+Orbital     1  Normalization  1.000000007742476  Error    0.774E-08
+Orbital     2  Normalization  1.000000007742476  Error    0.774E-08
+Orbital     3  Normalization  1.000000007771255  Error    0.777E-08
+Orbital     4  Normalization  1.000000007714141  Error    0.771E-08
+Orbital     5  Normalization  0.999999999998638  Error    0.136E-11
+Orbital     6  Normalization  1.000000000355109  Error    0.355E-09
+Orbital     7  Normalization  1.000000000459359  Error    0.459E-09
+Orbital     8  Normalization  1.000000000459359  Error    0.459E-09
+Orbital     9  Normalization  1.000000000412326  Error    0.412E-09
+Orbital    10  Normalization  1.000000000128310  Error    0.128E-09
+Orbital    11  Normalization  0.999999999953667  Error    0.463E-10
+Orbital    12  Normalization  0.999999999953667  Error    0.463E-10
+Orbital    13  Normalization  1.000000000193781  Error    0.194E-09
+Orbital    14  Normalization  0.999999999974732  Error    0.253E-10
+Orbital    15  Normalization  1.000000000000536  Error    0.536E-12
+Orbital    16  Normalization  1.000000000025026  Error    0.250E-10
+Orbital    17  Normalization  1.000000000025026  Error    0.250E-10
+Orbital    18  Normalization  0.999999999950932  Error    0.491E-10
+Orbital    19  Normalization  0.999999999971922  Error    0.281E-10
+Orbital    20  Normalization  0.999999999971922  Error    0.281E-10
+Orbital    21  Normalization  1.000000000005421  Error    0.542E-11
+Maximum Normalization Error   0.777E-08
+Orbital kinetic energy from CD representation
+Orbital     1  Kinetic Energy 37.228858606224868  0.000000000000000
+Orbital     2  Kinetic Energy 37.228858606224868  0.000000000000000
+Orbital     3  Kinetic Energy 37.228858605934228  0.000000000000000
+Orbital     4  Kinetic Energy 37.227600380222597  0.000000000000000
+Orbital     5  Kinetic Energy 16.025615588688236  0.000000000000000
+Orbital     6  Kinetic Energy  3.232267867845476  0.000000000000000
+Orbital     7  Kinetic Energy  3.849888943877397  0.000000000000000
+Orbital     8  Kinetic Energy  3.849888943877396  0.000000000000000
+Orbital     9  Kinetic Energy  3.849888941574556  0.000000000000000
+Orbital    10  Kinetic Energy  3.245689731883744  0.000000000000000
+Orbital    11  Kinetic Energy  2.773531319024701  0.000000000000000
+Orbital    12  Kinetic Energy  2.773531319024701  0.000000000000000
+Orbital    13  Kinetic Energy  2.773531319492490  0.000000000000000
+Orbital    14  Kinetic Energy  3.089170224151621  0.000000000000000
+Orbital    15  Kinetic Energy  3.089170229359198  0.000000000000000
+Orbital    16  Kinetic Energy  3.294325376305917  0.000000000000000
+Orbital    17  Kinetic Energy  3.294325376305917  0.000000000000000
+Orbital    18  Kinetic Energy  3.294325372529507  0.000000000000000
+Orbital    19  Kinetic Energy  3.506484605719929  0.000000000000000
+Orbital    20  Kinetic Energy  3.506484605719930  0.000000000000000
+Orbital    21  Kinetic Energy  3.506484609624278  0.000000000000000
+Orbital normalization from CD representation
+Orbital     1  Normalization  1.000000000000000  Error    0.222E-15
+Orbital     2  Normalization  1.000000000000000  Error    0.222E-15
+Orbital     3  Normalization  1.000000000000000  Error    0.222E-15
+Orbital     4  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     5  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     6  Normalization  1.000000000000000  Error    0.111E-15
+Orbital     7  Normalization  1.000000000000001  Error    0.666E-15
+Orbital     8  Normalization  1.000000000000000  Error    0.444E-15
+Orbital     9  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    10  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    11  Normalization  1.000000000000000  Error    0.111E-15
+Orbital    12  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    13  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    14  Normalization  1.000000000000000  Error    0.222E-15
+Orbital    15  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    16  Normalization  1.000000000000000  Error    0.111E-15
+Orbital    17  Normalization  1.000000000000000  Error    0.111E-15
+Orbital    18  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    19  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    20  Normalization  1.000000000000000  Error    0.000E+00
+Orbital    21  Normalization  1.000000000000000  Error    0.444E-15
+Max Error After Renormalization   0.666E-15
+Orbital kinetic energy from CD representation
+Orbital     1  Kinetic Energy 37.228858317981327  0.000000000000000
+Orbital     2  Kinetic Energy 37.228858317981334  0.000000000000000
+Orbital     3  Kinetic Energy 37.228858316619274  0.000000000000000
+Orbital     4  Kinetic Energy 37.227600093043627  0.000000000000000
+Orbital     5  Kinetic Energy 16.025615588710078  0.000000000000000
+Orbital     6  Kinetic Energy  3.232267866697669  0.000000000000000
+Orbital     7  Kinetic Energy  3.849888942108914  0.000000000000000
+Orbital     8  Kinetic Energy  3.849888942108914  0.000000000000000
+Orbital     9  Kinetic Energy  3.849888939987148  0.000000000000000
+Orbital    10  Kinetic Energy  3.245689731467290  0.000000000000000
+Orbital    11  Kinetic Energy  2.773531319153207  0.000000000000000
+Orbital    12  Kinetic Energy  2.773531319153208  0.000000000000000
+Orbital    13  Kinetic Energy  2.773531318955032  0.000000000000000
+Orbital    14  Kinetic Energy  3.089170224229679  0.000000000000000
+Orbital    15  Kinetic Energy  3.089170229357542  0.000000000000000
+Orbital    16  Kinetic Energy  3.294325376223471  0.000000000000000
+Orbital    17  Kinetic Energy  3.294325376223471  0.000000000000000
+Orbital    18  Kinetic Energy  3.294325372691153  0.000000000000000
+Orbital    19  Kinetic Energy  3.506484605818386  0.000000000000000
+Orbital    20  Kinetic Energy  3.506484605818385  0.000000000000000
+Orbital    21  Kinetic Energy  3.506484609605270  0.000000000000000
+Partial wave normalization
+Time Now =      1544.7658  Delta time =         2.0257 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+StPot_overset - calculate static potential on Overset Grid
+----------------------------------------------------------------------
+
+OrbDegn    3    1    1    1    3    1    3    2    3    3
+NCoefKInt, CoefKInt   21    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2    2
+NCoefKInt, CoefKInt    2    2
+CoefKInt(ij)%SymL    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
+CoefKInt(ij)%SymL    1
+CoefKInt(ij)%SymR    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1    1
+CoefKInt(ij)%SymR    1
+CoefKInt(ij)%OrbG    1    1    1    2    3    4    5    5    5    6    7    7    7    8    8    9    9    9   10   10
+CoefKInt(ij)%OrbG   10
+CoefKInt(ij)%OrbCL    1    2    3    1    1    1    1    2    3    1    1    2    3    1    2    1    2    3    1    2
+CoefKInt(ij)%OrbCL    3
+CoefKInt(ij)%OrbCR    1    2    3    1    1    1    1    2    3    1    1    2    3    1    2    1    2    3    1    2
+CoefKInt(ij)%OrbCR    3
+CoefKInt(ij)%Coef  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000  -1.00000
+CoefKInt(ij)%Coef  -1.00000
+
+      Initializing LIBINT
+
+
+      Checking WF Norm with LIBINT
+
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+1.00000000 0.21905884 0.18426110 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000013
+0.21905884 1.00000000 0.81227323 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.01070343
+0.18426110 0.81227323 1.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.03591571
+0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.01405389
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.56975429 0.01405389
+0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.00000000 0.04166714
+0.00000000 0.00000000 0.00000000 0.00000000 0.00000000 0.56975429 0.00000000 0.00000000 1.00000000 0.04166714
+0.00000013 0.01070343 0.03591571 0.01405389 0.01405389 0.01405389 0.04166714 0.04166714 0.04166714 1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+
+      Checking WF Kinetic Energy with LIBINT
+
+K. E. Integrals 
+16.20756777 -1.24756871  0.08995050  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000 -0.00000729
+-1.24756871  0.93224558  0.30671846  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000 -0.01867496
+ 0.08995050  0.30671846  0.25307172  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.00565942
+ 0.00000000  0.00000000  0.00000000  2.17833218  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000 -0.01079157
+ 0.00000000  0.00000000  0.00000000  0.00000000  2.17833218  0.00000000  0.00000000  0.37667340  0.00000000 -0.01079157
+ 0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  2.17833218  0.00000000  0.00000000  0.37667340 -0.01079157
+ 0.00000000  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000  0.42178620  0.00000000  0.00000000  0.02040542
+ 0.00000000  0.00000000  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000  0.42178620  0.00000000  0.02040542
+ 0.00000000  0.00000000  0.00000000  0.00000000  0.00000000  0.37667340  0.00000000  0.00000000  0.42178620  0.02040542
+-0.00000729 -0.01867496  0.00565942 -0.01079157 -0.01079157 -0.01079157  0.02040542  0.02040542  0.02040542 37.69070358
+WFNORM KINETIC ENERGY CHECK COMPLETE 435.73755594
+Processor 13 has finished its portion of the static potential 
+Processor 15 has finished its portion of the static potential 
+Processor 14 has finished its portion of the static potential 
+Processor 12 has finished its portion of the static potential 
+Processor 11 has finished its portion of the static potential 
+Processor  7 has finished its portion of the static potential 
+Processor  6 has finished its portion of the static potential 
+Processor 10 has finished its portion of the static potential 
+Processor  5 has finished its portion of the static potential 
+Processor  8 has finished its portion of the static potential 
+Processor  9 has finished its portion of the static potential 
+Processor  4 has finished its portion of the static potential 
+Processor  1 has finished its portion of the static potential 
+Processor  0 has finished its portion of the static potential 
+Processor  3 has finished its portion of the static potential 
+Processor  2 has finished its portion of the static potential 
+
+      Finalizing LIBINT
+
+
+      Determine the extent of the overlap
+
+There are      43008 UG pts and     162624 SG pts on proc.          0
+There are      36864 UG pts and     162624 SG pts on proc.          1
+There are      92928 UG pts and     162624 SG pts on proc.          2
+There are      46464 UG pts and     162624 SG pts on proc.          3
+There are      46464 UG pts and          0 SG pts on proc.          4
+There are      46464 UG pts and          0 SG pts on proc.          5
+There are      46464 UG pts and          0 SG pts on proc.          6
+There are      46464 UG pts and          0 SG pts on proc.          7
+There are      46464 UG pts and          0 SG pts on proc.          8
+There are      46464 UG pts and          0 SG pts on proc.          9
+There are      46464 UG pts and          0 SG pts on proc.         10
+There are      46464 UG pts and          0 SG pts on proc.         11
+There are      46464 UG pts and          0 SG pts on proc.         12
+There are       6144 UG pts and          0 SG pts on proc.         13
+There are      36864 UG pts and          0 SG pts on proc.         14
+There are      30720 UG pts and          0 SG pts on proc.         15
+There are     711168 total UG pts and     650496 total SG pts 
+   1361664 total points should take      20.78 MB per grid function
+There are      54362 overlapping UG pts and          0 overlapping SG(   1) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.          0
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.          1
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.          1
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.          1
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.          1
+There are          0 overlapping UG pts and        839 overlapping SG(   1) pts on proc.          2
+There are          0 overlapping UG pts and        839 overlapping SG(   2) pts on proc.          2
+There are          0 overlapping UG pts and        839 overlapping SG(   3) pts on proc.          2
+There are          0 overlapping UG pts and        839 overlapping SG(   4) pts on proc.          2
+There are          0 overlapping UG pts and       2063 overlapping SG(   1) pts on proc.          3
+There are          0 overlapping UG pts and       2063 overlapping SG(   2) pts on proc.          3
+There are          0 overlapping UG pts and       2063 overlapping SG(   3) pts on proc.          3
+There are          0 overlapping UG pts and       2063 overlapping SG(   4) pts on proc.          3
+There are          0 overlapping UG pts and       4720 overlapping SG(   1) pts on proc.          4
+There are          0 overlapping UG pts and       4720 overlapping SG(   2) pts on proc.          4
+There are          0 overlapping UG pts and       4720 overlapping SG(   3) pts on proc.          4
+There are          0 overlapping UG pts and       4720 overlapping SG(   4) pts on proc.          4
+There are          0 overlapping UG pts and      11010 overlapping SG(   1) pts on proc.          5
+There are          0 overlapping UG pts and      11010 overlapping SG(   2) pts on proc.          5
+There are          0 overlapping UG pts and      11010 overlapping SG(   3) pts on proc.          5
+There are          0 overlapping UG pts and      11010 overlapping SG(   4) pts on proc.          5
+There are          0 overlapping UG pts and     108275 overlapping SG(   1) pts on proc.          6
+There are          0 overlapping UG pts and     108275 overlapping SG(   2) pts on proc.          6
+There are          0 overlapping UG pts and     108275 overlapping SG(   3) pts on proc.          6
+There are          0 overlapping UG pts and     108275 overlapping SG(   4) pts on proc.          6
+There are          0 overlapping UG pts and      19045 overlapping SG(   1) pts on proc.          7
+There are          0 overlapping UG pts and      19045 overlapping SG(   2) pts on proc.          7
+There are          0 overlapping UG pts and      19045 overlapping SG(   3) pts on proc.          7
+There are          0 overlapping UG pts and      19045 overlapping SG(   4) pts on proc.          7
+There are          0 overlapping UG pts and       8081 overlapping SG(   1) pts on proc.          8
+There are          0 overlapping UG pts and       8081 overlapping SG(   2) pts on proc.          8
+There are          0 overlapping UG pts and       8081 overlapping SG(   3) pts on proc.          8
+There are          0 overlapping UG pts and       8081 overlapping SG(   4) pts on proc.          8
+There are          0 overlapping UG pts and       5264 overlapping SG(   1) pts on proc.          9
+There are          0 overlapping UG pts and       5264 overlapping SG(   2) pts on proc.          9
+There are          0 overlapping UG pts and       5264 overlapping SG(   3) pts on proc.          9
+There are          0 overlapping UG pts and       5264 overlapping SG(   4) pts on proc.          9
+There are          0 overlapping UG pts and       2758 overlapping SG(   1) pts on proc.         10
+There are          0 overlapping UG pts and       2758 overlapping SG(   2) pts on proc.         10
+There are          0 overlapping UG pts and       2758 overlapping SG(   3) pts on proc.         10
+There are          0 overlapping UG pts and       2758 overlapping SG(   4) pts on proc.         10
+There are          0 overlapping UG pts and        569 overlapping SG(   1) pts on proc.         11
+There are          0 overlapping UG pts and        569 overlapping SG(   2) pts on proc.         11
+There are          0 overlapping UG pts and        569 overlapping SG(   3) pts on proc.         11
+There are          0 overlapping UG pts and        569 overlapping SG(   4) pts on proc.         11
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         12
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         13
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         14
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.         15
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.         15
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.         15
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.         15
+Time Now =      1640.7094  Delta time =        95.9436 End StPot_overset
+
++ Command FileName
++ 'MatrixElements' 'tmatrix_cf4_c2v.dat' 'APPEND'
+Opening file tmatrix_cf4_c2v.dat at position APPEND
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+PrepareScatCK - Complex Kohn Scattering preparations
+----------------------------------------------------------------------
+
+Build interpolating matrices for A1    1
+       Building interpolation matrix --  full symmetry group
+       Allocating UG interp.  matrices,      1         0
+       Allocating SG interp.  matrices,      1     54362
+Build subgroup interpolating matrices and RGOff for B2    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      3         0
+       Allocating SG interp.  matrices,      3     54362
+Build subgroup interpolating matrices and RGOff for B3    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      4         0
+       Allocating SG interp.  matrices,      4     54362
+Build subgroup interpolating matrices and RGOff for B1    1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      2         0
+       Allocating SG interp.  matrices,      2     54362
+Build subgroup interpolating matrices and RGOff for A     1
+       Building interpolation matrix --     abelian subgroup
+       Allocating UG interp.  matrices,      1         0
+       Allocating SG interp.  matrices,      1     54362
+Time Now =      1775.7043  Delta time =       134.9949 End PrepareScatCK
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =   10
+Set    1  has degeneracy     3
+Orbital     1  is num     1  type =   8  name - T2    1
+Orbital     2  is num     2  type =   9  name - T2    2
+Orbital     3  is num     3  type =  10  name - T2    3
+Set    2  has degeneracy     1
+Orbital     1  is num     4  type =   1  name - A1    1
+Set    3  has degeneracy     1
+Orbital     1  is num     5  type =   1  name - A1    1
+Set    4  has degeneracy     1
+Orbital     1  is num     6  type =   1  name - A1    1
+Set    5  has degeneracy     3
+Orbital     1  is num     7  type =   8  name - T2    1
+Orbital     2  is num     8  type =   9  name - T2    2
+Orbital     3  is num     9  type =  10  name - T2    3
+Set    6  has degeneracy     1
+Orbital     1  is num    10  type =   1  name - A1    1
+Set    7  has degeneracy     3
+Orbital     1  is num    11  type =   8  name - T2    1
+Orbital     2  is num    12  type =   9  name - T2    2
+Orbital     3  is num    13  type =  10  name - T2    3
+Set    8  has degeneracy     2
+Orbital     1  is num    14  type =   3  name - E     1
+Orbital     2  is num    15  type =   4  name - E     2
+Set    9  has degeneracy     3
+Orbital     1  is num    16  type =   8  name - T2    1
+Orbital     2  is num    17  type =   9  name - T2    2
+Orbital     3  is num    18  type =  10  name - T2    3
+Set   10  has degeneracy     3
+Orbital     1  is num    19  type =   5  name - T1    1
+Orbital     2  is num    20  type =   6  name - T1    2
+Orbital     3  is num    21  type =   7  name - T1    3
+Orbital occupations by degenerate group
+    1  T2       occ = 6
+    2  A1       occ = 2
+    3  A1       occ = 2
+    4  A1       occ = 2
+    5  T2       occ = 6
+    6  A1       occ = 2
+    7  T2       occ = 6
+    8  E        occ = 4
+    9  T2       occ = 6
+   10  T1       occ = 6
+The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+Symmetry of the continuum orbital is A1   
+Symmetry of the total state is A1   
+Spin degeneracy of the total state is =    2
+Symmetry of the target state is A1   
+Spin degeneracy of the target state is =    1
+Closed shell target
+Open shell symmetry types
+    1  A1     iele =    1
+Use only configuration of type A1   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+
+ representation A1     component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:   1.00000   0.00000    1
+Closed shell target
+Direct product basis set
+Direct product basis function
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+                             11   12   13   14   15   16   17   18   19   20
+                             21   22   23   24   25   26   27   28   29   30
+                             31   32   33   34   35   36   37   38   39   40
+                             41   42   43
+Time Now =      1775.7091  Delta time =         0.0047 End SymProd
+
+----------------------------------------------------------------------
+ScatStab_overset - Complex Kohn Scattering program on an overset grid (rev. 03/30/2016)
+----------------------------------------------------------------------
+
+  ntypes info: itype, ntype, ntypes, symtps, symtpa(itype)    1   10    1  A1    1A1    1
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    1
+Maximum number of iterations (itmax) =   25
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Using variational dipole expressions) =    F
+Number of partial waves (np) =    24
+Number of asymptotic solutions on the right (NAsymR) =     1
+Number of asymptotic solutions on the left (NAsymL) =     1
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     1
+Maximum in the asymptotic region (lpasym) =    6
+Number of partial waves in the asymptotic region (npasym) =    4
+Time Now =      1788.7073  Delta time =        12.9982 Built h+(kr>) off the subgrids
+Time Now =      1789.5632  Delta time =         0.8559 Built outgoing function
+Time Now =      1856.1016  Delta time =        66.5384 Built J and JV
+
+Compute solution for E =   11.5000000000 eV
+MaxEleIter =  23 c.s. =      3.53333998 angs^2  rmsk=     0.00000000
+iL =    1 iR =    1 E =     11.50000000 c.s. =       3.53333998
+Time Now =      3396.8770  Delta time =      1540.7754 Finished matrix element
+      Final T matrix
+     ROW  1
+  (-0.12702448E+00, 0.91244593E+00)
+E =     11.50000000 Total c.s. =       3.53333998
+MaxIter =  23 c.s. =      3.53333998 angs^2
+Time Now =      3396.8801  Delta time =         0.0031 End ScatStab
+
++ Command TotalCrossSection
++ 
+Using LMaxK     1
+Continuum Symmetry A1 - 
+        E (eV)      XS(angs^2)    EPS(radians)
+      11.500000       3.533340      -1.385571
+Largest value of LMaxK found    0
+
+ Total Cross Sections
+
+ Energy      Total Cross Section
+  11.50000     3.53334
++ Command Exit
+Time Now =      3396.8863  Delta time =         0.0061 Finalize

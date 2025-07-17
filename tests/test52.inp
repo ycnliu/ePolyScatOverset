@@ -1,0 +1,94 @@
+#
+# input file for test52
+#
+# electron scattering from N2 molden SCF, DCS calculation
+#
+cKohn
+LMax 20
+LMaxA 14
+NccZeta 3
+EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 1         # charge, formula type
+   6
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  nrFEM 12
+  NLambda 8
+  N_rpnts_SG 30
+  HFacGauss 16.
+  GridFac 1
+  RMax 20.
+  
+
+  LMaxK    4     # Maximum l in the K matirx 
+  ScatEng 3.0 4.0 5.0 6.0
+Convert '$pe/tests/test52.molden2012' 'molden2012'
+GetBlms
+ExpOrb
+GetPot
+
+IterMax 25
+CnvgKMat 1.0e-8
+OrbOcc  2  2  2  2  2  4
+SpinDeg 2
+TargSym 'SG'
+TargSpinDeg 1
+
+  ScatSym 'SG'
+  ScatContSym 'SG'  # Scattering symmetry
+Scat
+  ScatSym 'SU'
+  ScatContSym 'SU'  # Scattering symmetry
+Scat
+  ScatSym 'PG'
+  ScatContSym 'PG'  # Scattering symmetry
+Scat
+  ScatSym 'PU'
+  ScatContSym 'PU'  # Scattering symmetry
+Scat
+  ScatSym 'DG'
+  ScatContSym 'DG'  # Scattering symmetry
+Scat
+  ScatSym 'DU'
+  ScatContSym 'DU'  # Scattering symmetry
+Scat
+  ScatSym 'FG'
+  ScatContSym 'FG'  # Scattering symmetry
+Scat
+  ScatSym 'FU'
+  ScatContSym 'FU'  # Scattering symmetry
+Scat
+  ScatSym 'GG'
+  ScatContSym 'GG'  # Scattering symmetry
+Scat
+  ScatSym 'GU'
+  ScatContSym 'GU'  # Scattering symmetry
+Scat
+  ScatSym 'A2G'
+  ScatContSym 'A2G' # Scattering symmetry
+Scat
+  ScatSym 'A2U'
+  ScatContSym 'A2U' # Scattering symmetry
+Scat
+  ScatSym 'B1G'
+  ScatContSym 'B1G' # Scattering symmetry
+Scat
+  ScatSym 'B1U'
+  ScatContSym 'B1U' # Scattering symmetry
+Scat
+  ScatSym 'B2G'
+  ScatContSym 'B2G' # Scattering symmetry
+Scat
+  ScatSym 'B2U'
+  ScatContSym 'B2U' # Scattering symmetry
+Scat
+TotalCrossSection
+Exit

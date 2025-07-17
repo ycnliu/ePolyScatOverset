@@ -1,0 +1,94 @@
+#
+# input file for test38
+#
+# N2 molden SCF, (3-sigma-g)^-1 photoionization, with computed time delays
+#
+  TestOut
+  LMax   22     # maximum l to be used for wave functions
+  LMaxI  120
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+
+  ScatEngN 0.5 0.5 45   # list of scattering energies
+
+ InitSym 'SG'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 2 2 2 4  # Orbital occupation of initial state
+ OrbOcc     2 2 2 2 1 4  # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'SG'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 15.581    # ionization potentail
+
+EpsAsym 3 52.91772083
+Convert '$pt/test38.g03' 'gaussian'
+GetBlms
+ExpOrb
+
+ ScatSym     'SU'  # Scattering symmetry of total final state
+ ScatContSym 'SU'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' '$po/test38SU.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+ ScatSym     'PU'  # Scattering symmetry of total final state
+ ScatContSym 'PU'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' '$po/test38PU.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+GetCro '$po/test38SU.idy'
+   '$po/test38PU.idy'
+#
+FileName 'PlotData' '$po/test38Data.dat'
+FileName 'PlotData2D' '$po/test382DData.dat'
+MFTimeDelayAngles
+   1 0    # iLVGet, 1 for length, Mu0, 0 forlinearly polarized
+   37  0. 180.  # angles for Theta Electron
+   1  0. 0.    # angles for Phi Electron
+   1  0. 0.    # angles for Theta Field
+   1  0. 0.    # angles for Phi Field
+MFTimeDelay  '$po/test38SU.idy'
+   '$po/test38PU.idy'
+#
+FileName 'PlotData' '$po/test38DataFull.dat'
+FileName 'PlotData2D' ''
+MFTimeDelayAngles
+   1 0    # iLVGet, 1 for length, Mu0, 0 forlinearly polarized
+   37 0. 180.  # angles for Theta Electron
+   73  0. 360.    # angles for Phi Electron
+   37  0. 180.    # angles for Theta Field
+   1  0. 0.    # angles for Phi Field
+MFTimeDelay  '$po/test38SU.idy'
+   '$po/test38PU.idy'
+#
+FileName 'PlotData' '$po/LFtest381DFull.dat'
+FileName 'PlotData2D' '$po/LFtest382DFull.dat'
+LFTimeDelayAngles
+   1 0    # iLVGet, 1 for length, Mu0, 0 forlinearly polarized
+   37  0. 180.    # angles for LF Theta Electron
+   73  0. 360.    # angles for alpha
+   37  0. 180.    # angles for beta
+   73  0. 360.    # angles for gamma
+LFTimeDelay  '$po/test38SU.idy'
+   '$po/test38PU.idy'
+#
+FileName 'PlotData' '$po/LFtest381DFW25.dat'
+FileName 'PlotData2D' '$po/LFtest382DFW25.dat'
+LFTimeDelayAngles
+   1 0    # iLVGet, 1 for length, Mu0, 0 forlinearly polarized
+   37  0. 25.    # angles for LF Theta Electron
+   73  0. 360.    # angles for alpha
+   37  0. 180.    # angles for beta
+   73  0. 360.    # angles for gamma
+LFTimeDelay  '$po/test38SU.idy'
+   '$po/test38PU.idy'
+#

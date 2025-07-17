@@ -1,0 +1,52 @@
+#
+# input file for test03
+#
+# electron scattering from N2 molden SCF, DCS calculation
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'SG'  # Scattering symmetry
+  LMaxK    4     # Maximum l in the K matirx 
+  ScatEng 3.0 4.0 5.0 6.0
+Convert '$pt/test03.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+GrnType 1
+  ScatContSym 'SG'  # Scattering symmetry
+Scat
+  ScatContSym 'SU'  # Scattering symmetry
+Scat
+  ScatContSym 'PG'  # Scattering symmetry
+Scat
+  ScatContSym 'PU'  # Scattering symmetry
+Scat
+  ScatContSym 'DG'  # Scattering symmetry
+Scat
+  ScatContSym 'DU'  # Scattering symmetry
+Scat
+  ScatContSym 'FG'  # Scattering symmetry
+Scat
+  ScatContSym 'FU'  # Scattering symmetry
+Scat
+  ScatContSym 'GG'  # Scattering symmetry
+Scat
+  ScatContSym 'GU'  # Scattering symmetry
+Scat
+  ScatContSym 'A2G' # Scattering symmetry
+Scat
+  ScatContSym 'A2U' # Scattering symmetry
+Scat
+  ScatContSym 'B1G' # Scattering symmetry
+Scat
+  ScatContSym 'B1U' # Scattering symmetry
+Scat
+  ScatContSym 'B2G' # Scattering symmetry
+Scat
+  ScatContSym 'B2U' # Scattering symmetry
+Scat
+TotalCrossSection
+EDCS

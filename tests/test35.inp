@@ -1,0 +1,27 @@
+#
+# input file for test35
+#
+# Electron scattering from CN-
+#
+LMax   60     # maximum l to be used for wave functions
+EMax  50.0    # EMax, maximum asymptotic energy in eV
+FegeEng 5.0   # Energy correction (in eV) used in the fege potential
+LMaxK    8     # Maximum l in the K matirx
+
+Convert '$pt/test35.molden2012' 'molden'
+OrbOcc 2 2 2 2 4 2
+
+TargSym 'S'
+TargSpinDeg 1
+
+ScatContSym 'S'  # Scattering symmetry
+ScatSym 'S'
+SpinDeg 2
+
+GetBlms
+ExpOrb
+GenFormScat
+GrnType 1
+GetPot
+ScatN 1.5 0.5 12 
+TotalCrossSection

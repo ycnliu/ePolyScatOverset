@@ -1,0 +1,34 @@
+#
+# input file for test06
+#
+# electron scattering from N2 molden SCF, polarization potential, low energy
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+  AsyPol
+ 0.15  # SwitchD, distance where switching function is down to 0.1
+ 1     # nterm, number of terms needed to define asymptotic potential
+ 0     # center for polarization term 1 is for C atom
+ 0.0 0.0 0.0   # use molecular center for polarization term
+ 2     # ittyp type of polarization term, = 1 for spherically symmetric
+       # = 2 for reading in the full tensor
+ 8.664 8.664 17.904 0.0 0.0 0.0 # axx, ayy, azz, axy, axz, ayz
+ 3     # icrtyp, flag to determine where r match is, 3 for second crossing
+       # or at nearest approach
+ 0     # ilntyp, flag to determine what matching line is used, 0 - use 
+       # l = 0 radial function as matching function
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'SG'  # Scattering symmetry
+  LMaxK    8     # Maximum l in the K matirx 
+
+Convert '$pt/test06.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+Scat 0.001 0.01 0.02
+TotalCrossSection
+

@@ -1,0 +1,4149 @@
+Execution on node265
+
+----------------------------------------------------------------------
+ePolyScat cKohn Version
+----------------------------------------------------------------------
+
+cKohn version being developed by C. W. McCurdy and R. R. Lucchese
+Single center Schwinger verions developed by:
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+http://www.chem.tamu.edu/rgroup/lucchese/ePolyScat.E3.manual/manual.html
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2015-05-20  22:26:15.029 (GMT -0500)
+Using    16 processors
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test15
+#
+# CH4,  T2^-1 photoionization
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatEng  0.1 5.8 15.8 25.8    # list of scattering energies
+
+ InitSym 'A1'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 6  # Orbital occupation of initial state
+
+ OrbOcc  2 2 5     # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'T2'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 14.2         # ionization potentail
+
+Convert '/g/home/rrl581a/Applications/ePolyScatToDVR/tests/test15.g03' 'g03'
+GetBlms
+ExpOrb
+
+ FileName 'MatrixElements' 'test15T2T1.idy' 'REWIND'
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'T1'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro 'test15T2T1.idy'
+#
+
+ FileName 'MatrixElements' 'test15T2T2.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'T2'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1
+PhIonN 5.8 10.0 3
+GetCro 'test15T2T2.idy'
+#
+
+ FileName 'MatrixElements' 'test15T2E.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'E'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1 5.8 15.8 25.8
+GetCro 'test15T2E.idy'
+#
+ FileName 'MatrixElements' 'test15T2A1.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'A1'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1 5.8 15.8 25.8
+GetCro 'test15T2A1.idy'
+#
+#
+GetCro 'test15T2A1.idy' 'test15T2E.idy' 'test15T2T2.idy'  'test15T2T1.idy'
+#
++ End of input reached
++ Data Record LMax - 15
++ Data Record EMax - 50.0
++ Data Record FegeEng - 13.0
++ Data Record ScatEng - 0.1 5.8 15.8 25.8
++ Data Record InitSym - 'A1'
++ Data Record InitSpinDeg - 1
++ Data Record OrbOccInit - 2 2 6
++ Data Record OrbOcc - 2 2 5
++ Data Record SpinDeg - 1
++ Data Record TargSym - 'T2'
++ Data Record TargSpinDeg - 2
++ Data Record IPot - 14.2
+
++ Command Convert
++ '/g/home/rrl581a/Applications/ePolyScatToDVR/tests/test15.g03' 'g03'
+
+----------------------------------------------------------------------
+g03cnv - read input from G03 output
+----------------------------------------------------------------------
+
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Command line = # HF/AUG-CC-PVQZ SCF=TIGHT 6D 10F GFINPUT PUNCH=MO
+CardFlag =    T
+Normal Mode flag =    F
+Selecting orbitals
+from     1  to     5  number already selected     0
+Number of orbitals selected is     5
+Highest orbital read in is =    5
+Time Now =         0.2754  Delta time =         0.2754 End g03cnv
+
+Atoms found    5  Coordinates in Angstroms
+Z =  6 ZS =  6 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  1 ZS =  1 r =   0.6254700000   0.6254700000   0.6254700000
+Z =  1 ZS =  1 r =  -0.6254700000  -0.6254700000   0.6254700000
+Z =  1 ZS =  1 r =   0.6254700000  -0.6254700000  -0.6254700000
+Z =  1 ZS =  1 r =  -0.6254700000   0.6254700000  -0.6254700000
+Maximum distance from expansion center is    1.0833458186
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  Td   
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup D2   
+List of groups of equivalent atoms in full group
+Group   1
+   2   5   4   3
+List of groups of equivalent atoms in abelian subgroup
+Group   1
+   2   3   4   5
+Time Now =         0.4152  Delta time =         0.1398 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000
+  2  0.57735  0.57735  0.57735   1  1.08335
+  3 -0.57735 -0.57735  0.57735   1  1.08335
+  4  0.57735 -0.57735 -0.57735   1  1.08335
+  5 -0.57735  0.57735 -0.57735   1  1.08335
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  0.81650 -0.40825 -0.40825
+  3  0.81650 -0.40825  0.40825
+  4  0.81650  0.40825  0.40825
+  5  0.81650  0.40825 -0.40825
+Value of NccZeta used    3
+Maximum L used LMax   15
+Computed default value of LMaxA   13
+Determining angular grid in GetAxMax  LMax =   15  LMaxA =   13  LMaxAb =   30
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  -1  -1
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     4  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     5  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is Td
+LMax = =   15
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     8    11    14
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         15       1  1  1
+ A2        1         2          7       1  1  1
+ E         1         3         20       1  1  1
+ E         2         4         20       1  1  1
+ T1        1         5         27      -1 -1  1
+ T1        2         6         27      -1  1 -1
+ T1        3         7         27       1 -1 -1
+ T2        1         8         36      -1 -1  1
+ T2        2         9         36      -1  1 -1
+ T2        3        10         36       1 -1 -1
+Time Now =         0.9535  Delta time =         0.5384 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   1)    2(   1)    3(   2)    4(   3)    5(   3)    6(   4)    7(   5)    8(   6)    9(   7)
+          10(   8)   11(   9)   12(  11)   13(  12)
+A2    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   1)    7(   1)    8(   1)    9(   2)
+          10(   3)   11(   3)   12(   4)   13(   5)
+E     1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)    7(   5)    8(   7)    9(   8)
+          10(  10)   11(  12)   12(  14)   13(  16)
+E     2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   3)    6(   4)    7(   5)    8(   7)    9(   8)
+          10(  10)   11(  12)   12(  14)   13(  16)
+T1    1    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  15)   12(  18)   13(  21)
+T1    2    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  15)   12(  18)   13(  21)
+T1    3    0(   0)    1(   0)    2(   0)    3(   1)    4(   2)    5(   3)    6(   4)    7(   6)    8(   8)    9(  10)
+          10(  12)   11(  15)   12(  18)   13(  21)
+T2    1    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)    7(  10)    8(  12)    9(  15)
+          10(  18)   11(  21)   12(  24)   13(  28)
+T2    2    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)    7(  10)    8(  12)    9(  15)
+          10(  18)   11(  21)   12(  24)   13(  28)
+T2    3    0(   0)    1(   1)    2(   2)    3(   3)    4(   4)    5(   6)    6(   8)    7(  10)    8(  12)    9(  15)
+          10(  18)   11(  21)   12(  24)   13(  28)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is D2
+LMax = =   30
+ The dimension of each irreducable representation is
+    A     (  1)    B1    (  1)    B2    (  1)    B3    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+  3       1.000000       0.000000       0.000000 ang =  1  2 type = 2 axis = 1
+  4       0.000000       1.000000       0.000000 ang =  1  2 type = 2 axis = 2
+irep =    1  sym =A     1  eigs =   1   1   1   1
+irep =    2  sym =B1    1  eigs =   1   1  -1  -1
+irep =    3  sym =B2    1  eigs =   1  -1  -1   1
+irep =    4  sym =B3    1  eigs =   1  -1   1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A         1         1        241       1  1  1
+ B1        1         2        240       1 -1 -1
+ B2        1         3        240      -1 -1  1
+ B3        1         4        240      -1  1 -1
+Time Now =         1.0346  Delta time =         0.0811 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =   12.5498886861 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+Maximum R in the grid (RMax) =    12.54989 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMax) =  50.00000 eV
+Maximum step size (MaxStep) =  12.54989 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.33980E+05
+    2  Center at =     1.08335 Angs  Alpha Max = 0.30000E+03
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.28707E-03     0.00230
+    2    8    16    0.30604E-03     0.00474
+    3    8    24    0.37726E-03     0.00776
+    4    8    32    0.57239E-03     0.01234
+    5    8    40    0.91002E-03     0.01962
+    6    8    48    0.14468E-02     0.03120
+    7    8    56    0.23002E-02     0.04960
+    8    8    64    0.36571E-02     0.07886
+    9    8    72    0.58142E-02     0.12537
+   10    8    80    0.92438E-02     0.19932
+   11    8    88    0.11380E-01     0.29036
+   12    8    96    0.12337E-01     0.38905
+   13    8   104    0.11857E-01     0.48391
+   14    8   112    0.11284E-01     0.57418
+   15    8   120    0.11908E-01     0.66944
+   16    8   128    0.13884E-01     0.78051
+   17    8   136    0.13776E-01     0.89072
+   18    8   144    0.87733E-02     0.96090
+   19    8   152    0.55766E-02     1.00552
+   20    8   160    0.38388E-02     1.03623
+   21    8   168    0.32048E-02     1.06187
+   22    8   176    0.26851E-02     1.08335
+   23    8   184    0.30552E-02     1.10779
+   24    8   192    0.32571E-02     1.13384
+   25    8   200    0.40150E-02     1.16596
+   26    8   208    0.60918E-02     1.21470
+   27    8   216    0.96851E-02     1.29218
+   28    8   224    0.15398E-01     1.41536
+   29    8   232    0.24481E-01     1.61121
+   30    8   240    0.33415E-01     1.87853
+   31    8   248    0.38959E-01     2.19021
+   32    8   256    0.46359E-01     2.56107
+   33    8   264    0.58081E-01     3.02572
+   34    8   272    0.61727E-01     3.51954
+   35    8   280    0.64635E-01     4.03662
+   36    8   288    0.66998E-01     4.57261
+   37    8   296    0.68947E-01     5.12418
+   38    8   304    0.70575E-01     5.68878
+   39    8   312    0.71953E-01     6.26441
+   40    8   320    0.73130E-01     6.84945
+   41    8   328    0.74146E-01     7.44262
+   42    8   336    0.75030E-01     8.04286
+   43    8   344    0.75805E-01     8.64930
+   44    8   352    0.76489E-01     9.26121
+   45    8   360    0.77097E-01     9.87799
+   46    8   368    0.77640E-01    10.49911
+   47    8   376    0.78128E-01    11.12414
+   48    8   384    0.78569E-01    11.75269
+   49    8   392    0.78969E-01    12.38444
+   50    8   400    0.20681E-01    12.54989
+Time Now =         1.0788  Delta time =         0.0441 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   15
+Maximum scattering m (mmaxs) =   15
+Maximum numerical integration l (lmaxi) =   30
+Maximum numerical integration m (mmaxi) =   30
+Maximum l to include in the asymptotic region (lmasym) =   13
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   13
+ Actual value of lmasym found =     13
+Number of regions of the same l expansion (NAngReg) =   12
+Angular regions
+    1 L    2  from (    1 )         0.00029  to (    7 )         0.00201
+    2 L    4  from (    8 )         0.00230  to (   15 )         0.00444
+    3 L    5  from (   16 )         0.00474  to (   31 )         0.01177
+    4 L    6  from (   32 )         0.01234  to (   47 )         0.02975
+    5 L    7  from (   48 )         0.03120  to (   55 )         0.04730
+    6 L    8  from (   56 )         0.04960  to (   63 )         0.07520
+    7 L    9  from (   64 )         0.07886  to (   71 )         0.11955
+    8 L   11  from (   72 )         0.12537  to (   79 )         0.19008
+    9 L   12  from (   80 )         0.19932  to (   87 )         0.27898
+   10 L   13  from (   88 )         0.29036  to (  119 )         0.65753
+   11 L   15  from (  120 )         0.66944  to (  240 )         1.87853
+   12 L   13  from (  241 )         1.91749  to (  400 )        12.54989
+
+There are     2 angular regions for computing spherical harmonics
+    1 lval =   13
+    2 lval =   15
+Last grid points by processor WorkExp      1.500
+Proc id     0  First grid point       1  Last grid point       80
+Proc id     1  First grid point      80  Last grid point      104
+Proc id     2  First grid point     104  Last grid point      128
+Proc id     3  First grid point     128  Last grid point      144
+Proc id     4  First grid point     144  Last grid point      168
+Proc id     5  First grid point     168  Last grid point      184
+Proc id     6  First grid point     184  Last grid point      200
+Proc id     7  First grid point     200  Last grid point      224
+Proc id     8  First grid point     224  Last grid point      240
+Proc id     9  First grid point     240  Last grid point      264
+Proc id    10  First grid point     264  Last grid point      288
+Proc id    11  First grid point     288  Last grid point      312
+Proc id    12  First grid point     312  Last grid point      336
+Proc id    13  First grid point     336  Last grid point      360
+Proc id    14  First grid point     360  Last grid point      384
+Proc id    15  First grid point     384  Last grid point      400
+Time Now =         1.0896  Delta time =         0.0109 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -11.203038  A1    1 at max irg =   64  r =   0.07886
+     2  Orig    2  Eng =   -0.945017  A1    1 at max irg =  128  r =   0.78051
+     3  Orig    3  Eng =   -0.546411  T2    1 at max irg =  152  r =   1.00552
+     4  Orig    4  Eng =   -0.546411  T2    2 at max irg =  152  r =   1.00552
+     5  Orig    5  Eng =   -0.546411  T2    3 at max irg =  152  r =   1.00552
+
+Rotation coefficients for orbital     1  grp =    1 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     3  grp =    3 T2    1
+     1  0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     4  grp =    3 T2    2
+     1  1.0000000000    2 -0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital     5  grp =    3 T2    3
+     1  0.0000000000    2 -0.0000000000    3  1.0000000000
+Number of orbital groups and degeneracis are         3
+  1  1  3
+Number of orbital groups and number of electrons when fully occupied
+         3
+  2  2  6
+Time Now =         1.1867  Delta time =         0.0971 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    3
+Orbital     1 of  A1    1 symmetry normalization integral =  0.99999999
+Orbital     2 of  A1    1 symmetry normalization integral =  0.99997860
+Orbital     3 of  T2    1 symmetry normalization integral =  0.99997267
+Time Now =         1.8248  Delta time =         0.6380 End ExpOrb
+
++ Command FileName
++ 'MatrixElements' 'test15T2T1.idy' 'REWIND'
+Opening file test15T2T1.idy at position REWIND
++ Data Record ScatSym - 'T2'
++ Data Record ScatContSym - 'T1'
+
++ Command GenFormPhIon
++ 
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =    3
+Set    1  has degeneracy     1
+Orbital     1  is num     1  type =   1  name - A1    1
+Set    2  has degeneracy     1
+Orbital     1  is num     2  type =   1  name - A1    1
+Set    3  has degeneracy     3
+Orbital     1  is num     3  type =   8  name - T2    1
+Orbital     2  is num     4  type =   9  name - T2    2
+Orbital     3  is num     5  type =  10  name - T2    3
+Orbital occupations by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 5
+The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+Symmetry of the continuum orbital is T1   
+Symmetry of the total state is T2   
+Spin degeneracy of the total state is =    1
+Symmetry of the target state is T2   
+Spin degeneracy of the target state is =    2
+Symmetry of the initial state is A1   
+Spin degeneracy of the initial state is =    1
+Orbital occupations of initial state by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 6
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Open shell symmetry types
+    1  T2     iele =    5
+    2  T1     iele =    1
+Use only configuration of type T2   
+ Each irreducable representation is present the number of times indicated
+    A2    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.50000   0.00000    1    2    3    4    5   11
+    2:   0.50000   0.00000    1    2    3    4    6   12
+    3:   0.50000   0.00000    1    2    4    5    6    8
+    4:  -0.50000   0.00000    1    3    4    5    6    9
+
+ representation T2     component     2  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.50000   0.00000    1    2    3    4    5   10
+    2:   0.50000   0.00000    1    2    3    5    6   12
+    3:   0.50000   0.00000    1    2    4    5    6    7
+    4:  -0.50000   0.00000    2    3    4    5    6    9
+
+ representation T2     component     3  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.50000   0.00000    1    2    3    4    6   10
+    2:   0.50000   0.00000    1    2    3    5    6   11
+    3:   0.50000   0.00000    1    3    4    5    6    7
+    4:  -0.50000   0.00000    2    3    4    5    6    8
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Direct product basis set
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   14
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   15
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   16
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   13
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   15
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   12
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   16
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   13
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   15
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   12
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   16
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   13
+Closed shell target
+Time Now =         1.8402  Delta time =         0.0155 End SymProd
+
+----------------------------------------------------------------------
+MatEle - Program to compute Matrix Elements over Determinants
+----------------------------------------------------------------------
+
+Configuration     1
+    1:  -0.50000   0.00000    1    2    3    4    5    6    7    8    9   15
+    2:   0.50000   0.00000    1    2    3    4    5    6    7    8   10   16
+    3:   0.50000   0.00000    1    2    3    4    5    6    8    9   10   12
+    4:  -0.50000   0.00000    1    2    3    4    5    7    8    9   10   13
+Configuration     2
+    1:  -0.50000   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.50000   0.00000    1    2    3    4    5    6    7    9   10   16
+    3:   0.50000   0.00000    1    2    3    4    5    6    8    9   10   11
+    4:  -0.50000   0.00000    1    2    3    4    6    7    8    9   10   13
+Configuration     3
+    1:  -0.50000   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:   0.50000   0.00000    1    2    3    4    5    6    7    9   10   15
+    3:   0.50000   0.00000    1    2    3    4    5    7    8    9   10   11
+    4:  -0.50000   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product Configuration Cont sym =    1  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   14
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   15
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product Configuration Cont sym =    3  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   16
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   13
+Direct product Configuration Cont sym =    1  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   15
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   12
+Direct product Configuration Cont sym =    3  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   16
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   13
+Direct product Configuration Cont sym =    1  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   15
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   12
+Direct product Configuration Cont sym =    3  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   16
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   13
+Overlap of Direct Product expansion and Symmeterized states
+Symmetry of Continuum =    4
+Symmetry of target =    5
+Symmetry of total states =    5
+
+Total symmetry component =    1
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   2   0.00000000E+00  0.00000000E+00  0.70710678E+00
+   3   0.00000000E+00  0.70710678E+00  0.00000000E+00
+
+Total symmetry component =    2
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.70710678E+00
+   2   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   3  -0.70710678E+00  0.00000000E+00  0.00000000E+00
+
+Total symmetry component =    3
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00 -0.70710678E+00  0.00000000E+00
+   2  -0.70710678E+00  0.00000000E+00  0.00000000E+00
+   3   0.00000000E+00  0.00000000E+00  0.00000000E+00
+Initial State Configuration
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+One electron matrix elements between initial and final states
+    1:   -1.000000000    0.000000000  <    6|   13>
+    2:   -1.000000000    0.000000000  <    7|   12>
+
+Reduced formula list
+    3    3    2 -0.1000000000E+01
+    2    3    3 -0.1000000000E+01
+Time Now =         1.8433  Delta time =         0.0031 End MatEle
+
++ Command DipoleOp
++ 
+
+----------------------------------------------------------------------
+DipoleOp - Dipole Operator Program
+----------------------------------------------------------------------
+
+Number of orbitals in formula for the dipole operator (NOrbSel) =    2
+Symmetry of the continuum orbital (iContSym) =     4 or T1   
+Symmetry of total final state (iTotalSym) =     5 or T2   
+Symmetry of the initial state (iInitSym) =     1 or A1   
+Symmetry of the ionized target state (iTargSym) =     5 or T2   
+List of unique symmetry types
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Unique dipole matrix type     1 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =A1   
+In the product of the symmetry types T2    A2   
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+In the product of the symmetry types T2    E    
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     2 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =E    
+In the product of the symmetry types T2    T1   
+ Each irreducable representation is present the number of times indicated
+    A2    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     3 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T1   
+In the product of the symmetry types T2    T2   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     4 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T2   
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Irreducible representation containing the dipole operator is T2   
+Number of different dipole operators in this representation is     1
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Vector of the total symmetry
+ie =    1  ij =    1
+    1 (  0.10000000E+01,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    2  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.10000000E+01,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    3  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.10000000E+01,  0.00000000E+00)
+Component Dipole Op Sym =  1 goes to Total Sym component   1 phase = 1.0
+Component Dipole Op Sym =  2 goes to Total Sym component   2 phase = 1.0
+Component Dipole Op Sym =  3 goes to Total Sym component   3 phase = 1.0
+
+Dipole operator types by symmetry components (x=1, y=2, z=3)
+sym comp =  1
+  coefficients =  0.00000000  1.00000000  0.00000000
+sym comp =  2
+  coefficients =  1.00000000  0.00000000  0.00000000
+sym comp =  3
+  coefficients =  0.00000000  0.00000000  1.00000000
+
+Formula for dipole operator
+
+Dipole operator sym comp 1  index =    1
+  1  Cont comp  3  Orb  4  Coef =  -1.0000000000
+  2  Cont comp  2  Orb  5  Coef =  -1.0000000000
+Symmetry type to write out (SymTyp) =T1   
+Time Now =        23.6854  Delta time =        21.8422 End DipoleOp
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =      9.00000000
+Time Now =        23.6933  Delta time =         0.0078 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.90000000E+01 facnorm =  0.10000000E+01
+Time Now =        23.7123  Delta time =         0.0191 Electronic part
+Time Now =        23.7139  Delta time =         0.0015 End StPot
+
++ Command PhIon
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.10000000E+00 eV (  0.36749326E-02 AU)
+Time Now =        23.7268  Delta time =         0.0130 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    27
+Number of asymptotic solutions on the right (NAsymR) =    15
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   21
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   21
+Time Now =        23.7352  Delta time =         0.0084 Energy independent setup
+
+Compute solution for E =    0.1000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19311023E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19248747E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19190813E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19139254E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =      75
+Final point in integration =   0.11284440E+04 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        45.8675  Delta time =        22.1323 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.30057480E+00,-0.15823263E-01) ( 0.40207404E-02,-0.47626068E-02)
+  ( 0.32150247E-03, 0.53909492E-05) ( 0.80992256E-05, 0.24965688E-05)
+  (-0.55973629E-06, 0.84834424E-08) (-0.45591272E-06, 0.69468032E-07)
+  ( 0.41608288E-08, 0.34961598E-08) (-0.39168116E-08,-0.74599664E-08)
+  (-0.89937702E-10,-0.47605966E-10) ( 0.90521014E-09,-0.56028387E-10)
+  ( 0.99742311E-11, 0.47341422E-12) ( 0.69686502E-11,-0.85547693E-11)
+  ( 0.61667730E-13,-0.10120859E-14) ( 0.37886226E-13, 0.27648495E-14)
+  (-0.18827821E-13,-0.12467068E-12)
+     ROW  2
+  ( 0.13901346E+00,-0.73166070E-02) ( 0.17622755E-02,-0.22014356E-02)
+  ( 0.14734442E-03, 0.90810645E-06) (-0.51870085E-05, 0.12053564E-05)
+  (-0.74268434E-07, 0.97104344E-08) (-0.32884718E-07,-0.68896696E-07)
+  (-0.85039950E-09, 0.51511466E-09) (-0.12020015E-08,-0.72191662E-09)
+  (-0.42147875E-10,-0.13576827E-10) ( 0.22470678E-09, 0.17778028E-11)
+  ( 0.28345906E-11, 0.29509702E-12) ( 0.22050124E-11,-0.21163390E-11)
+  ( 0.18678044E-13, 0.14064320E-14) ( 0.96915889E-14, 0.34541126E-14)
+  (-0.32923380E-15,-0.35762476E-13)
+MaxIter =   5 c.s. =      0.11002079 rmsk=     0.00000000
+Time Now =        53.1750  Delta time =         7.3075 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.58000000E+01 eV (  0.21314609E+00 AU)
+Time Now =        53.1877  Delta time =         0.0127 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    27
+Number of asymptotic solutions on the right (NAsymR) =    15
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   21
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   21
+Time Now =        53.1954  Delta time =         0.0077 Energy independent setup
+
+Compute solution for E =    5.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12703921E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12561194E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12428368E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12310160E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =     193
+Final point in integration =   0.40135444E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       102.3092  Delta time =        49.1138 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.53801392E+00,-0.56413573E-01) ( 0.62934940E-01,-0.30351050E-01)
+  ( 0.14348173E-02, 0.13706759E-02) (-0.94828206E-03, 0.69437199E-03)
+  (-0.40249736E-04,-0.26835867E-04) ( 0.22223615E-04,-0.85349126E-04)
+  (-0.10584147E-05,-0.12000184E-05) ( 0.56191918E-06, 0.11508682E-05)
+  (-0.49172822E-06,-0.88734091E-07) ( 0.30105042E-05, 0.48378460E-06)
+  ( 0.19384943E-06, 0.14688212E-07) ( 0.31653110E-06,-0.12189278E-07)
+  ( 0.56234812E-08, 0.50021994E-09) (-0.62455219E-08, 0.21469458E-08)
+  ( 0.12703949E-07,-0.31813783E-08)
+     ROW  2
+  ( 0.33819797E+00,-0.35517154E-01) ( 0.40570867E-01,-0.19095869E-01)
+  ( 0.10162300E-02, 0.89522332E-03) (-0.10397987E-02, 0.44657483E-03)
+  ( 0.17113363E-04,-0.17285755E-04) ( 0.73185799E-04,-0.64375628E-04)
+  (-0.51326890E-06,-0.14514031E-05) (-0.16701802E-05, 0.19151087E-05)
+  (-0.12866976E-06,-0.92339890E-07) ( 0.58233778E-06, 0.42067774E-06)
+  ( 0.48515653E-07, 0.15838079E-07) ( 0.92227527E-07, 0.24073281E-07)
+  ( 0.14555371E-08, 0.43530922E-09) (-0.23387990E-08, 0.36905134E-09)
+  ( 0.47995069E-08,-0.10228588E-10)
+MaxIter =   5 c.s. =      0.41518189 rmsk=     0.00000000
+Time Now =       109.7840  Delta time =         7.4748 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.15800000E+02 eV (  0.58063935E+00 AU)
+Time Now =       109.7972  Delta time =         0.0132 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    27
+Number of asymptotic solutions on the right (NAsymR) =    15
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   21
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   21
+Time Now =       109.8050  Delta time =         0.0077 Energy independent setup
+
+Compute solution for E =   15.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.95701769E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.93941040E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.92302215E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.90843555E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =     244
+Final point in integration =   0.31112956E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       170.9270  Delta time =        61.1221 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.46429548E+00,-0.97638640E-01) ( 0.90542233E-01,-0.41727537E-01)
+  ( 0.22270469E-02, 0.19230023E-02) (-0.69739124E-02, 0.27908345E-02)
+  ( 0.10162349E-03,-0.16197982E-03) ( 0.91111874E-03,-0.59002154E-03)
+  (-0.22360361E-05,-0.22136801E-04) (-0.43355742E-04, 0.27885825E-04)
+  (-0.56738638E-05,-0.23339768E-05) ( 0.27430173E-04, 0.96347829E-05)
+  ( 0.35952948E-05, 0.54435830E-06) ( 0.61112076E-05, 0.86549892E-06)
+  ( 0.17468640E-06, 0.23044166E-07) (-0.27072638E-06, 0.23315908E-07)
+  ( 0.49681263E-06,-0.81833199E-08)
+     ROW  2
+  ( 0.43604083E+00,-0.92078303E-01) ( 0.89685876E-01,-0.39390477E-01)
+  ( 0.22220685E-02, 0.19981410E-02) (-0.69823591E-02, 0.26527321E-02)
+  ( 0.31873945E-03,-0.15368335E-03) ( 0.95113715E-03,-0.57449324E-03)
+  ( 0.24236121E-05,-0.20338830E-04) (-0.41295430E-04, 0.32482695E-04)
+  (-0.95194353E-06,-0.20897618E-05) ( 0.17531079E-05, 0.96601040E-05)
+  ( 0.80727493E-06, 0.56230666E-06) ( 0.20762330E-05, 0.12876298E-05)
+  ( 0.42893723E-07, 0.21115055E-07) (-0.11512234E-06,-0.77346211E-08)
+  ( 0.24989770E-06, 0.51760740E-07)
+MaxIter =   5 c.s. =      0.44338025 rmsk=     0.00000000
+Time Now =       186.0085  Delta time =        15.0814 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.25800000E+02 eV (  0.94813261E+00 AU)
+Time Now =       186.0218  Delta time =         0.0133 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    27
+Number of asymptotic solutions on the right (NAsymR) =    15
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   21
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   21
+Time Now =       186.0295  Delta time =         0.0077 Energy independent setup
+
+Compute solution for E =   25.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.48462452E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47792408E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47179572E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.46643038E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =     274
+Final point in integration =   0.27519774E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       254.6496  Delta time =        68.6201 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.33060064E+00,-0.95996479E-01) ( 0.85170329E-01,-0.40212907E-01)
+  ( 0.26325599E-02, 0.18841200E-02) (-0.12228648E-01, 0.42658656E-02)
+  ( 0.53049566E-03,-0.29231380E-03) ( 0.20294399E-02,-0.11317166E-02)
+  (-0.16288852E-04,-0.47795936E-04) (-0.99781527E-04, 0.76483018E-04)
+  (-0.15595099E-04,-0.59643335E-05) ( 0.64715156E-04, 0.29144423E-04)
+  ( 0.11244990E-04, 0.20420563E-05) ( 0.25947505E-04, 0.38853811E-05)
+  ( 0.64089424E-06, 0.12522688E-06) (-0.16354345E-05, 0.14359293E-06)
+  ( 0.32222201E-05, 0.56673484E-07)
+     ROW  2
+  ( 0.40686706E+00,-0.11882406E+00) ( 0.11151478E+00,-0.50002589E-01)
+  ( 0.29297304E-02, 0.26293303E-02) (-0.14761737E-01, 0.52935988E-02)
+  ( 0.10361577E-02,-0.35855391E-03) ( 0.26719102E-02,-0.14165740E-02)
+  ( 0.20525692E-04,-0.60294180E-04) (-0.14762798E-03, 0.10683539E-03)
+  ( 0.16709577E-05,-0.76854826E-05) (-0.22755675E-04, 0.36817686E-04)
+  ( 0.33485969E-06, 0.26264715E-05) ( 0.61388855E-05, 0.68961735E-05)
+  ( 0.49007719E-07, 0.12017467E-06) (-0.57826299E-06,-0.10068805E-06)
+  ( 0.14433091E-05, 0.42898674E-06)
+MaxIter =   5 c.s. =      0.32243476 rmsk=     0.00000000
+Time Now =       262.3026  Delta time =         7.6529 End ScatStab
+
++ Command GetCro
++ 'test15T2T1.idy'
+Taking dipole matrix from file test15T2T1.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       262.3076  Delta time =         0.0051 End CnvIdy
+Found     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+List of matrix element types found   Number =    1
+    1  Cont Sym T1     Targ Sym T2     Total Sym T2   
+Keeping     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+Time Now =       262.3081  Delta time =         0.0005 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     14.2000 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    14.3000  0.24461698E+00
+    20.0000  0.11230932E+01
+    30.0000  0.13312122E+01
+    40.0000  0.96306536E+00
+
+     Sigma MIXED    at all energies
+      Eng  
+    14.3000  0.21527872E+00
+    20.0000  0.96088494E+00
+    30.0000  0.11364089E+01
+    40.0000  0.80965339E+00
+
+     Sigma VELOCITY at all energies
+      Eng  
+    14.3000  0.18945924E+00
+    20.0000  0.82211293E+00
+    30.0000  0.97021095E+00
+    40.0000  0.68082842E+00
+
+     Beta LENGTH   at all energies
+      Eng  
+    14.3000  0.49999921E+00
+    20.0000  0.49999125E+00
+    30.0000  0.49997762E+00
+    40.0000  0.49994791E+00
+
+     Beta MIXED    at all energies
+      Eng  
+    14.3000  0.49999922E+00
+    20.0000  0.49999035E+00
+    30.0000  0.49997422E+00
+    40.0000  0.49994472E+00
+
+     Beta VELOCITY at all energies
+      Eng  
+    14.3000  0.49999922E+00
+    20.0000  0.49998933E+00
+    30.0000  0.49997030E+00
+    40.0000  0.49994101E+00
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     14.3000     0.2446     0.2153     0.1895     0.5000     0.5000     0.5000
+EPhi     20.0000     1.1231     0.9609     0.8221     0.5000     0.5000     0.5000
+EPhi     30.0000     1.3312     1.1364     0.9702     0.5000     0.5000     0.5000
+EPhi     40.0000     0.9631     0.8097     0.6808     0.4999     0.4999     0.4999
+Time Now =       262.3716  Delta time =         0.0635 End CrossSection
+
++ Command FileName
++ 'MatrixElements' 'test15T2T2.idy' 'REWIND'
+Opening file test15T2T2.idy at position REWIND
++ Data Record ScatSym - 'T2'
++ Data Record ScatContSym - 'T2'
+
++ Command GenFormPhIon
++ 
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =    3
+Set    1  has degeneracy     1
+Orbital     1  is num     1  type =   1  name - A1    1
+Set    2  has degeneracy     1
+Orbital     1  is num     2  type =   1  name - A1    1
+Set    3  has degeneracy     3
+Orbital     1  is num     3  type =   8  name - T2    1
+Orbital     2  is num     4  type =   9  name - T2    2
+Orbital     3  is num     5  type =  10  name - T2    3
+Orbital occupations by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 5
+The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+Symmetry of the continuum orbital is T2   
+Symmetry of the total state is T2   
+Spin degeneracy of the total state is =    1
+Symmetry of the target state is T2   
+Spin degeneracy of the target state is =    2
+Symmetry of the initial state is A1   
+Spin degeneracy of the initial state is =    1
+Orbital occupations of initial state by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 6
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Open shell symmetry types
+    1  T2     iele =    5
+    2  T2     iele =    1
+Use only configuration of type T2   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.50000   0.00000    1    2    3    4    5   11
+    2:   0.50000   0.00000    1    2    3    4    6   12
+    3:   0.50000   0.00000    1    2    4    5    6    8
+    4:  -0.50000   0.00000    1    3    4    5    6    9
+
+ representation T2     component     2  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.50000   0.00000    1    2    3    4    5   10
+    2:  -0.50000   0.00000    1    2    3    5    6   12
+    3:   0.50000   0.00000    1    2    4    5    6    7
+    4:   0.50000   0.00000    2    3    4    5    6    9
+
+ representation T2     component     3  fun    1
+Symmeterized Function from AddNewShell
+    1:   0.50000   0.00000    1    2    3    4    6   10
+    2:  -0.50000   0.00000    1    2    3    5    6   11
+    3:  -0.50000   0.00000    1    3    4    5    6    7
+    4:   0.50000   0.00000    2    3    4    5    6    8
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Direct product basis set
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   14
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   15
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   16
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   13
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   15
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   12
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   16
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   13
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   15
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   12
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   16
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   13
+Closed shell target
+Time Now =       262.3823  Delta time =         0.0107 End SymProd
+
+----------------------------------------------------------------------
+MatEle - Program to compute Matrix Elements over Determinants
+----------------------------------------------------------------------
+
+Configuration     1
+    1:  -0.50000   0.00000    1    2    3    4    5    6    7    8    9   15
+    2:   0.50000   0.00000    1    2    3    4    5    6    7    8   10   16
+    3:   0.50000   0.00000    1    2    3    4    5    6    8    9   10   12
+    4:  -0.50000   0.00000    1    2    3    4    5    7    8    9   10   13
+Configuration     2
+    1:  -0.50000   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:  -0.50000   0.00000    1    2    3    4    5    6    7    9   10   16
+    3:   0.50000   0.00000    1    2    3    4    5    6    8    9   10   11
+    4:   0.50000   0.00000    1    2    3    4    6    7    8    9   10   13
+Configuration     3
+    1:   0.50000   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.50000   0.00000    1    2    3    4    5    6    7    9   10   15
+    3:  -0.50000   0.00000    1    2    3    4    5    7    8    9   10   11
+    4:   0.50000   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product Configuration Cont sym =    1  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   14
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   15
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product Configuration Cont sym =    3  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   16
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   13
+Direct product Configuration Cont sym =    1  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   15
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   12
+Direct product Configuration Cont sym =    3  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   16
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   13
+Direct product Configuration Cont sym =    1  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   15
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   12
+Direct product Configuration Cont sym =    3  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   16
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   13
+Overlap of Direct Product expansion and Symmeterized states
+Symmetry of Continuum =    5
+Symmetry of target =    5
+Symmetry of total states =    5
+
+Total symmetry component =    1
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   2   0.00000000E+00  0.00000000E+00  0.70710678E+00
+   3   0.00000000E+00  0.70710678E+00  0.00000000E+00
+
+Total symmetry component =    2
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.70710678E+00
+   2   0.00000000E+00  0.00000000E+00  0.00000000E+00
+   3   0.70710678E+00  0.00000000E+00  0.00000000E+00
+
+Total symmetry component =    3
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.70710678E+00  0.00000000E+00
+   2   0.70710678E+00  0.00000000E+00  0.00000000E+00
+   3   0.00000000E+00  0.00000000E+00  0.00000000E+00
+Initial State Configuration
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+One electron matrix elements between initial and final states
+    1:   -1.000000000    0.000000000  <    6|   13>
+    2:   -1.000000000    0.000000000  <    7|   12>
+
+Reduced formula list
+    3    3    2 -0.1000000000E+01
+    2    3    3 -0.1000000000E+01
+Time Now =       262.3854  Delta time =         0.0031 End MatEle
+
++ Command DipoleOp
++ 
+
+----------------------------------------------------------------------
+DipoleOp - Dipole Operator Program
+----------------------------------------------------------------------
+
+Number of orbitals in formula for the dipole operator (NOrbSel) =    2
+Symmetry of the continuum orbital (iContSym) =     5 or T2   
+Symmetry of total final state (iTotalSym) =     5 or T2   
+Symmetry of the initial state (iInitSym) =     1 or A1   
+Symmetry of the ionized target state (iTargSym) =     5 or T2   
+List of unique symmetry types
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Unique dipole matrix type     1 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =A1   
+In the product of the symmetry types T2    A2   
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+In the product of the symmetry types T2    E    
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     2 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =E    
+In the product of the symmetry types T2    T1   
+ Each irreducable representation is present the number of times indicated
+    A2    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     3 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T1   
+In the product of the symmetry types T2    T2   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     4 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T2   
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Irreducible representation containing the dipole operator is T2   
+Number of different dipole operators in this representation is     1
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Vector of the total symmetry
+ie =    1  ij =    1
+    1 (  0.10000000E+01,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    2  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.10000000E+01,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    3  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.10000000E+01,  0.00000000E+00)
+Component Dipole Op Sym =  1 goes to Total Sym component   1 phase = 1.0
+Component Dipole Op Sym =  2 goes to Total Sym component   2 phase = 1.0
+Component Dipole Op Sym =  3 goes to Total Sym component   3 phase = 1.0
+
+Dipole operator types by symmetry components (x=1, y=2, z=3)
+sym comp =  1
+  coefficients =  0.00000000  1.00000000  0.00000000
+sym comp =  2
+  coefficients =  1.00000000  0.00000000  0.00000000
+sym comp =  3
+  coefficients =  0.00000000  0.00000000  1.00000000
+
+Formula for dipole operator
+
+Dipole operator sym comp 1  index =    1
+  1  Cont comp  3  Orb  4  Coef =  -1.0000000000
+  2  Cont comp  2  Orb  5  Coef =  -1.0000000000
+Symmetry type to write out (SymTyp) =T2   
+Time Now =       286.3327  Delta time =        23.9473 End DipoleOp
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =      9.00000000
+Time Now =       286.3388  Delta time =         0.0061 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.90000000E+01 facnorm =  0.10000000E+01
+Time Now =       286.3556  Delta time =         0.0168 Electronic part
+Time Now =       286.3571  Delta time =         0.0015 End StPot
+
++ Command PhIon
++ 0.1
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.10000000E+00 eV (  0.36749326E-02 AU)
+Time Now =       286.3696  Delta time =         0.0125 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T2    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    36
+Number of asymptotic solutions on the right (NAsymR) =    21
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   28
+Number of orthogonality constraints (NOrthUse) =    1
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   28
+Time Now =       286.3773  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =    0.1000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19311023E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19248747E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19190813E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19139254E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =      75
+Final point in integration =   0.11284440E+04 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       316.2782  Delta time =        29.9008 End SolveHomo
+      Final k matrix
+     ROW  1
+  (-0.12874055E+01,-0.41234724E+00) (-0.33816414E+01, 0.15290901E+01)
+  (-0.24365224E-01, 0.11137111E+00) (-0.60800899E-02,-0.31893724E-02)
+  (-0.52425792E-03, 0.12902519E-03) (-0.74985172E-03, 0.35572472E-04)
+  (-0.13987125E-04,-0.12446125E-04) ( 0.17506765E-04,-0.67388763E-06)
+  (-0.85256251E-06,-0.12287013E-06) (-0.37397793E-06, 0.35507145E-06)
+  ( 0.52388986E-08,-0.23769144E-08) (-0.96832436E-08, 0.12338876E-07)
+  (-0.17233747E-09, 0.62525677E-10) (-0.28703117E-09, 0.14157819E-09)
+  (-0.16886250E-09, 0.13766089E-09) ( 0.31762809E-11,-0.35196821E-11)
+  (-0.42325579E-11,-0.98820146E-12) ( 0.16616357E-11,-0.44027826E-12)
+  (-0.27578994E-13,-0.33790588E-13) (-0.80646548E-13,-0.13259526E-13)
+  (-0.68251720E-14, 0.19494609E-13)
+     ROW  2
+  (-0.59811831E+00,-0.23013285E+00) (-0.15110914E+01, 0.69790303E+00)
+  (-0.93310171E-02, 0.50089615E-01) (-0.21404477E-02,-0.15110838E-02)
+  (-0.21393863E-03, 0.55778824E-04) (-0.37998442E-03, 0.25365027E-04)
+  ( 0.13570637E-06,-0.61240143E-05) ( 0.95044148E-05,-0.70947535E-06)
+  (-0.23819049E-06,-0.97604898E-07) (-0.12480041E-06, 0.12774192E-06)
+  ( 0.31655537E-08,-0.87058798E-09) (-0.18009451E-09, 0.34929309E-08)
+  (-0.39108905E-10, 0.86029454E-12) (-0.75680132E-10, 0.11872819E-10)
+  ( 0.34886029E-11, 0.46637183E-10) ( 0.14383168E-11,-0.35253373E-12)
+  (-0.94025175E-12,-0.50501792E-12) ( 0.13918926E-12,-0.22839340E-12)
+  (-0.72551325E-15,-0.35325361E-14) (-0.18212517E-13,-0.23788259E-14)
+  ( 0.13345322E-14, 0.12187769E-13)
+MaxIter =   7 c.s. =     18.79787926 rmsk=     0.00000000
+Time Now =       328.6079  Delta time =        12.3297 End ScatStab
+
++ Command PhIonN
++ 5.8 10.0 3
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.58000000E+01 eV (  0.21314609E+00 AU)
+Time Now =       328.6313  Delta time =         0.0234 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T2    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    36
+Number of asymptotic solutions on the right (NAsymR) =    21
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   28
+Number of orthogonality constraints (NOrthUse) =    1
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   28
+Time Now =       328.6391  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =    5.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12703921E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12561194E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12428368E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12310160E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =     193
+Final point in integration =   0.40135444E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       395.3504  Delta time =        66.7113 End SolveHomo
+      Final k matrix
+     ROW  1
+  (-0.59124940E+00, 0.12159136E+00) (-0.17518403E+01, 0.17535884E+01)
+  (-0.53727927E-01, 0.36950954E+00) (-0.36331621E-01,-0.51401689E-01)
+  (-0.47734477E-02, 0.92090206E-03) (-0.37361830E-02, 0.92600766E-02)
+  (-0.43803606E-03,-0.92824623E-03) ( 0.29308334E-03,-0.30049935E-03)
+  (-0.13313931E-03,-0.44022360E-04) (-0.75746429E-04,-0.16512168E-04)
+  ( 0.55894560E-05,-0.92592753E-06) (-0.14669882E-04,-0.17458319E-05)
+  (-0.12501025E-05, 0.45880310E-07) (-0.25856924E-05, 0.16410975E-06)
+  (-0.79080504E-06, 0.11950329E-06) ( 0.27573519E-06,-0.46087501E-07)
+  ( 0.26038706E-08,-0.20550551E-07) ( 0.15223113E-07,-0.63936801E-08)
+  ( 0.85355006E-08,-0.19592124E-08) (-0.53733969E-09,-0.50017670E-09)
+  (-0.13079160E-07, 0.68414947E-08)
+     ROW  2
+  (-0.35593868E+00, 0.41172910E-01) (-0.10366644E+01, 0.10468829E+01)
+  (-0.24085314E-01, 0.22009719E+00) (-0.20494116E-01,-0.30964418E-01)
+  (-0.27503162E-02, 0.47936322E-03) (-0.29681802E-02, 0.55607438E-02)
+  ( 0.17813740E-03,-0.56716469E-03) ( 0.32215783E-03,-0.19170507E-03)
+  (-0.23976421E-04,-0.33857409E-04) (-0.26257384E-04,-0.15408090E-04)
+  ( 0.30956535E-05,-0.21288263E-06) ( 0.19749157E-06,-0.32346969E-05)
+  (-0.24188860E-06,-0.10746119E-06) (-0.55171734E-06,-0.19315110E-06)
+  ( 0.15109946E-06,-0.94354368E-07) ( 0.80562336E-07, 0.56435423E-08)
+  ( 0.62706220E-08,-0.45915140E-08) (-0.80497600E-08, 0.77437642E-09)
+  ( 0.29781731E-08, 0.29480580E-10) ( 0.26217241E-09,-0.26387678E-10)
+  (-0.27354822E-08, 0.10982659E-08)
+MaxIter =   7 c.s. =      9.00136202 rmsk=     0.00000000
+Time Now =       407.9611  Delta time =        12.6106 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.15800000E+02 eV (  0.58063935E+00 AU)
+Time Now =       407.9843  Delta time =         0.0233 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T2    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    36
+Number of asymptotic solutions on the right (NAsymR) =    21
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   28
+Number of orthogonality constraints (NOrthUse) =    1
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   28
+Time Now =       407.9921  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =   15.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.95701769E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.93941040E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.92302215E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.90843555E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =     244
+Final point in integration =   0.31112956E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       500.5909  Delta time =        92.5988 End SolveHomo
+      Final k matrix
+     ROW  1
+  (-0.22470023E+00, 0.16324004E+00) (-0.56043704E+00, 0.65761037E+00)
+  ( 0.23934804E-01, 0.18270811E+00) (-0.73740708E-01,-0.41187597E-01)
+  (-0.15716319E-01,-0.31938511E-03) (-0.13991980E-01, 0.93217497E-02)
+  ( 0.24152943E-02,-0.15118859E-02) ( 0.23733018E-02,-0.50644018E-03)
+  (-0.30844253E-03,-0.14892535E-03) (-0.47561145E-03,-0.97116030E-04)
+  ( 0.12066824E-03,-0.57840587E-05) ( 0.98786049E-05,-0.27559211E-04)
+  (-0.29403844E-05,-0.17470804E-05) (-0.17300254E-04,-0.22622791E-05)
+  ( 0.63687131E-05,-0.11765667E-05) ( 0.51786515E-05,-0.12532005E-06)
+  ( 0.15515650E-05,-0.28961312E-06) (-0.53898131E-06, 0.68060245E-08)
+  ( 0.41506497E-06,-0.33903091E-07) ( 0.19868038E-06,-0.34648700E-07)
+  (-0.38877142E-06, 0.88162831E-07)
+     ROW  2
+  (-0.18633964E+00, 0.13630982E+00) (-0.46847204E+00, 0.54558277E+00)
+  ( 0.30113977E-01, 0.15098172E+00) (-0.65588880E-01,-0.33551142E-01)
+  (-0.13770205E-01,-0.27086580E-03) (-0.13042860E-01, 0.74672389E-02)
+  ( 0.32165196E-02,-0.12347257E-02) ( 0.26220012E-02,-0.43957724E-03)
+  ( 0.39753629E-04,-0.14230048E-03) (-0.28380045E-03,-0.84935238E-04)
+  ( 0.81562178E-04,-0.44183386E-05) ( 0.93965732E-04,-0.35041276E-04)
+  ( 0.42146758E-05,-0.28230972E-05) ( 0.23212084E-05,-0.46774704E-05)
+  ( 0.14319741E-04,-0.30971510E-05) ( 0.14754133E-05, 0.43859462E-06)
+  ( 0.87216832E-06,-0.14453543E-06) (-0.79088648E-06, 0.12281430E-06)
+  ( 0.16148739E-06, 0.40417080E-08) ( 0.10113187E-06,-0.24544722E-07)
+  (-0.30498384E-07,-0.23419270E-07)
+MaxIter =   6 c.s. =      1.46530595 rmsk=     0.00000000
+Time Now =       511.0014  Delta time =        10.4104 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.25800000E+02 eV (  0.94813261E+00 AU)
+Time Now =       511.0214  Delta time =         0.0200 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = T2    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    36
+Number of asymptotic solutions on the right (NAsymR) =    21
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   28
+Number of orthogonality constraints (NOrthUse) =    1
+Number of different asymptotic potentials =   10
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   28
+Time Now =       511.0293  Delta time =         0.0079 Energy independent setup
+
+Compute solution for E =   25.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.48462452E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47792408E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47179572E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.46643038E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote = -0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.60051563E-04
+ i =  3  lval =   3  stpote =  0.34670786E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote = -0.74737092E-01
+ i =  2  lval =   3  stpote = -0.26650850E-20
+ i =  3  lval =   3  stpote = -0.69341572E-04
+ i =  4  lval =   4  stpote = -0.67273229E-05
+For potential    10
+ i =  1  lval =   2  stpote = -0.10455010E-02
+ i =  2  lval =   3  stpote = -0.11169353E-03
+ i =  3  lval =   4  stpote = -0.25000191E-05
+ i =  4  lval =   4  stpote = -0.32275107E-05
+Number of asymptotic regions =     274
+Final point in integration =   0.27519774E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =       604.1711  Delta time =        93.1418 End SolveHomo
+      Final k matrix
+     ROW  1
+  (-0.10838748E+00, 0.14454058E+00) (-0.30257651E+00, 0.25417427E+00)
+  ( 0.25227376E-01, 0.72131089E-01) (-0.75855147E-01,-0.78483370E-02)
+  (-0.22105358E-01, 0.21212353E-02) (-0.22859075E-01, 0.30201414E-02)
+  ( 0.71356558E-02,-0.11969319E-02) ( 0.48463827E-02,-0.40975067E-03)
+  (-0.33884934E-04,-0.97162280E-04) (-0.99880638E-03, 0.10235138E-03)
+  ( 0.34882855E-03,-0.55594192E-04) ( 0.15524480E-03,-0.42688935E-04)
+  ( 0.11877847E-04,-0.98629132E-05) (-0.22713159E-04,-0.98834759E-05)
+  ( 0.40469942E-04,-0.57899499E-05) ( 0.17251800E-04, 0.22290301E-06)
+  ( 0.10084164E-04,-0.18650025E-05) (-0.36022227E-05, 0.27132097E-06)
+  ( 0.21548242E-05,-0.15436634E-06) ( 0.14640196E-05,-0.27457454E-06)
+  (-0.22413745E-05, 0.31172043E-06)
+     ROW  2
+  (-0.11649864E+00, 0.17623802E+00) (-0.33359462E+00, 0.26761542E+00)
+  ( 0.41709200E-01, 0.73079319E-01) (-0.91050463E-01,-0.39142964E-02)
+  (-0.25694156E-01, 0.28392219E-02) (-0.26866382E-01, 0.20743176E-02)
+  ( 0.93249235E-02,-0.11782099E-02) ( 0.66004533E-02,-0.43531188E-03)
+  ( 0.54754930E-03,-0.10840063E-03) (-0.74204540E-03, 0.15982243E-03)
+  ( 0.30817203E-03,-0.67523672E-04) ( 0.47745775E-03,-0.70305176E-04)
+  ( 0.39380660E-04,-0.15677729E-04) ( 0.47026867E-04,-0.19672114E-04)
+  ( 0.82947537E-04,-0.13534725E-04) ( 0.19313014E-05, 0.24976101E-05)
+  ( 0.58145984E-05,-0.16396881E-05) (-0.54090519E-05, 0.83193566E-06)
+  ( 0.83589269E-06,-0.13280139E-07) ( 0.86874215E-06,-0.29825090E-06)
+  ( 0.39595977E-06,-0.27710860E-06)
+MaxIter =   6 c.s. =      0.44600242 rmsk=     0.00000000
+Time Now =       614.8007  Delta time =        10.6296 End ScatStab
+
++ Command GetCro
++ 'test15T2T2.idy'
+Taking dipole matrix from file test15T2T2.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       614.8118  Delta time =         0.0112 End CnvIdy
+Found     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+List of matrix element types found   Number =    1
+    1  Cont Sym T2     Targ Sym T2     Total Sym T2   
+Keeping     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+Time Now =       614.8121  Delta time =         0.0003 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     14.2000 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    14.3000  0.42141494E+02
+    20.0000  0.25109135E+02
+    30.0000  0.48994891E+01
+    40.0000  0.15216258E+01
+
+     Sigma MIXED    at all energies
+      Eng  
+    14.3000  0.36196373E+02
+    20.0000  0.20298510E+02
+    30.0000  0.37001402E+01
+    40.0000  0.11381723E+01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    14.3000  0.31114618E+02
+    20.0000  0.16417186E+02
+    30.0000  0.27950122E+01
+    40.0000  0.85405457E+00
+
+     Beta LENGTH   at all energies
+      Eng  
+    14.3000  0.64477839E+00
+    20.0000  0.60008761E+00
+    30.0000  0.52026361E+00
+    40.0000  0.51378684E+00
+
+     Beta MIXED    at all energies
+      Eng  
+    14.3000  0.64118523E+00
+    20.0000  0.60075111E+00
+    30.0000  0.52184564E+00
+    40.0000  0.51287075E+00
+
+     Beta VELOCITY at all energies
+      Eng  
+    14.3000  0.63729783E+00
+    20.0000  0.60138574E+00
+    30.0000  0.52326974E+00
+    40.0000  0.51022937E+00
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     14.3000    42.1415    36.1964    31.1146     0.6448     0.6412     0.6373
+EPhi     20.0000    25.1091    20.2985    16.4172     0.6001     0.6008     0.6014
+EPhi     30.0000     4.8995     3.7001     2.7950     0.5203     0.5218     0.5233
+EPhi     40.0000     1.5216     1.1382     0.8541     0.5138     0.5129     0.5102
+Time Now =       614.8754  Delta time =         0.0633 End CrossSection
+
++ Command FileName
++ 'MatrixElements' 'test15T2E.idy' 'REWIND'
+Opening file test15T2E.idy at position REWIND
++ Data Record ScatSym - 'T2'
++ Data Record ScatContSym - 'E'
+
++ Command GenFormPhIon
++ 
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =    3
+Set    1  has degeneracy     1
+Orbital     1  is num     1  type =   1  name - A1    1
+Set    2  has degeneracy     1
+Orbital     1  is num     2  type =   1  name - A1    1
+Set    3  has degeneracy     3
+Orbital     1  is num     3  type =   8  name - T2    1
+Orbital     2  is num     4  type =   9  name - T2    2
+Orbital     3  is num     5  type =  10  name - T2    3
+Orbital occupations by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 5
+The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+Symmetry of the continuum orbital is E    
+Symmetry of the total state is T2   
+Spin degeneracy of the total state is =    1
+Symmetry of the target state is T2   
+Spin degeneracy of the target state is =    2
+Symmetry of the initial state is A1   
+Spin degeneracy of the initial state is =    1
+Orbital occupations of initial state by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 6
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Open shell symmetry types
+    1  T2     iele =    5
+    2  E      iele =    1
+Use only configuration of type T2   
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.35355   0.00000    1    2    3    5    6    9
+    2:  -0.61237   0.00000    1    2    3    5    6   10
+    3:   0.35355   0.00000    2    3    4    5    6    7
+    4:   0.61237   0.00000    2    3    4    5    6    8
+
+ representation T2     component     2  fun    1
+Symmeterized Function from AddNewShell
+    1:   0.35355   0.00000    1    2    3    4    6    9
+    2:  -0.61237   0.00000    1    2    3    4    6   10
+    3:  -0.35355   0.00000    1    3    4    5    6    7
+    4:   0.61237   0.00000    1    3    4    5    6    8
+
+ representation T2     component     3  fun    1
+Symmeterized Function from AddNewShell
+    1:   0.70711   0.00000    1    2    3    4    5    9
+    2:  -0.70711   0.00000    1    2    4    5    6    7
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Direct product basis set
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   13
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   14
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   13
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   12
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   13
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   12
+Closed shell target
+Time Now =       614.8848  Delta time =         0.0094 End SymProd
+
+----------------------------------------------------------------------
+MatEle - Program to compute Matrix Elements over Determinants
+----------------------------------------------------------------------
+
+Configuration     1
+    1:  -0.35355   0.00000    1    2    3    4    5    6    7    9   10   13
+    2:  -0.61237   0.00000    1    2    3    4    5    6    7    9   10   14
+    3:   0.35355   0.00000    1    2    3    4    6    7    8    9   10   11
+    4:   0.61237   0.00000    1    2    3    4    6    7    8    9   10   12
+Configuration     2
+    1:   0.35355   0.00000    1    2    3    4    5    6    7    8   10   13
+    2:  -0.61237   0.00000    1    2    3    4    5    6    7    8   10   14
+    3:  -0.35355   0.00000    1    2    3    4    5    7    8    9   10   11
+    4:   0.61237   0.00000    1    2    3    4    5    7    8    9   10   12
+Configuration     3
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8    9   13
+    2:  -0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product Configuration Cont sym =    1  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   13
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   14
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   12
+Direct product Configuration Cont sym =    1  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   13
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   14
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   12
+Direct product Configuration Cont sym =    1  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   13
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product Configuration Cont sym =    2  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   14
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   12
+Overlap of Direct Product expansion and Symmeterized states
+Symmetry of Continuum =    3
+Symmetry of target =    5
+Symmetry of total states =    5
+
+Total symmetry component =    1
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.50000000E+00  0.00000000E+00  0.00000000E+00
+   2   0.86602540E+00  0.00000000E+00  0.00000000E+00
+
+Total symmetry component =    2
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.50000000E+00  0.00000000E+00
+   2   0.00000000E+00 -0.86602540E+00  0.00000000E+00
+
+Total symmetry component =    3
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00 -0.10000000E+01
+   2   0.00000000E+00  0.00000000E+00  0.00000000E+00
+Initial State Configuration
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+One electron matrix elements between initial and final states
+    1:   -0.707106781    0.000000000  <    5|   11>
+    2:   -1.224744871    0.000000000  <    5|   12>
+
+Reduced formula list
+    1    3    1 -0.7071067812E+00
+    2    3    1 -0.1224744871E+01
+Time Now =       614.8874  Delta time =         0.0026 End MatEle
+
++ Command DipoleOp
++ 
+
+----------------------------------------------------------------------
+DipoleOp - Dipole Operator Program
+----------------------------------------------------------------------
+
+Number of orbitals in formula for the dipole operator (NOrbSel) =    2
+Symmetry of the continuum orbital (iContSym) =     3 or E    
+Symmetry of total final state (iTotalSym) =     5 or T2   
+Symmetry of the initial state (iInitSym) =     1 or A1   
+Symmetry of the ionized target state (iTargSym) =     5 or T2   
+List of unique symmetry types
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Unique dipole matrix type     1 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =A1   
+In the product of the symmetry types T2    A2   
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+In the product of the symmetry types T2    E    
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     2 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =E    
+In the product of the symmetry types T2    T1   
+ Each irreducable representation is present the number of times indicated
+    A2    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     3 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T1   
+In the product of the symmetry types T2    T2   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     4 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T2   
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Irreducible representation containing the dipole operator is T2   
+Number of different dipole operators in this representation is     1
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Vector of the total symmetry
+ie =    1  ij =    1
+    1 (  0.10000000E+01,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    2  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.10000000E+01,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    3  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.10000000E+01,  0.00000000E+00)
+Component Dipole Op Sym =  1 goes to Total Sym component   1 phase = 1.0
+Component Dipole Op Sym =  2 goes to Total Sym component   2 phase = 1.0
+Component Dipole Op Sym =  3 goes to Total Sym component   3 phase = 1.0
+
+Dipole operator types by symmetry components (x=1, y=2, z=3)
+sym comp =  1
+  coefficients =  0.00000000  1.00000000  0.00000000
+sym comp =  2
+  coefficients =  1.00000000  0.00000000  0.00000000
+sym comp =  3
+  coefficients =  0.00000000  0.00000000  1.00000000
+
+Formula for dipole operator
+
+Dipole operator sym comp 1  index =    1
+  1  Cont comp  1  Orb  3  Coef =  -0.7071067812
+  2  Cont comp  2  Orb  3  Coef =  -1.2247448710
+Symmetry type to write out (SymTyp) =E    
+Time Now =       638.8274  Delta time =        23.9400 End DipoleOp
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =      9.00000000
+Time Now =       638.8336  Delta time =         0.0062 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.90000000E+01 facnorm =  0.10000000E+01
+Time Now =       638.8504  Delta time =         0.0168 Electronic part
+Time Now =       638.8519  Delta time =         0.0015 End StPot
+
++ Command PhIon
++ 0.1 5.8 15.8 25.8
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.10000000E+00 eV (  0.36749326E-02 AU)
+Time Now =       638.8644  Delta time =         0.0125 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = E     1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    20
+Number of asymptotic solutions on the right (NAsymR) =    12
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   16
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    9
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   16
+Time Now =       638.8722  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =    0.1000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19311023E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19248747E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19190813E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19139254E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.12456182E-01
+ i =  2  lval =   3  stpote = -0.10008594E-04
+ i =  3  lval =   3  stpote = -0.57784644E-05
+ i =  4  lval =   4  stpote =  0.11212205E-05
+For potential     5
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     6
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.11210564E+00
+ i =  2  lval =   3  stpote =  0.90077345E-04
+ i =  3  lval =   3  stpote =  0.52006179E-04
+ i =  4  lval =   4  stpote = -0.10090984E-04
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =      83
+Final point in integration =   0.12635146E+04 Angstroms
+Time Now =       654.4235  Delta time =        15.5513 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.23547357E+01,-0.32587058E+00) ( 0.18502468E-01,-0.67500933E-02)
+  ( 0.90691194E-03,-0.18455066E-03) (-0.39308391E-05, 0.70227096E-06)
+  ( 0.17492868E-06,-0.10252904E-06) ( 0.12855651E-08,-0.10676420E-09)
+  ( 0.17237998E-07, 0.17059625E-08) ( 0.37304230E-09,-0.20947875E-12)
+  ( 0.61784845E-11, 0.60241719E-12) (-0.11123751E-11, 0.22688082E-12)
+  ( 0.55275982E-13, 0.82773065E-14) ( 0.14971094E-12,-0.63624097E-14)
+     ROW  2
+  ( 0.11223889E+01,-0.15532476E+00) ( 0.81198058E-02,-0.32204616E-02)
+  ( 0.43303964E-03,-0.87207466E-04) (-0.44108517E-05, 0.33505721E-06)
+  ( 0.17823038E-06,-0.47770899E-07) (-0.63693856E-09,-0.11214415E-09)
+  ( 0.57589672E-09, 0.78977455E-09) ( 0.51607753E-10, 0.42511988E-11)
+  ( 0.15455640E-11, 0.11465114E-12) (-0.66443845E-13, 0.19634841E-13)
+  ( 0.15473426E-13, 0.12965124E-14) ( 0.37810820E-13,-0.13945934E-14)
+MaxIter =   6 c.s. =      6.93531960 rmsk=     0.00000000
+Time Now =       661.6865  Delta time =         7.2630 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.58000000E+01 eV (  0.21314609E+00 AU)
+Time Now =       661.6990  Delta time =         0.0125 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = E     1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    20
+Number of asymptotic solutions on the right (NAsymR) =    12
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   16
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    9
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   16
+Time Now =       661.7068  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =    5.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12703921E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12561194E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12428368E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12310160E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.12456182E-01
+ i =  2  lval =   3  stpote = -0.10008594E-04
+ i =  3  lval =   3  stpote = -0.57784644E-05
+ i =  4  lval =   4  stpote =  0.11212205E-05
+For potential     5
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     6
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.11210564E+00
+ i =  2  lval =   3  stpote =  0.90077345E-04
+ i =  3  lval =   3  stpote =  0.52006179E-04
+ i =  4  lval =   4  stpote = -0.10090984E-04
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =     213
+Final point in integration =   0.44400679E+03 Angstroms
+Time Now =       695.5010  Delta time =        33.7943 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.18705966E+01,-0.49648028E+00) ( 0.60707510E-01,-0.28011928E-01)
+  ( 0.12863268E-01,-0.64415915E-02) (-0.50188712E-03, 0.44179317E-03)
+  ( 0.71500006E-04,-0.43703798E-04) (-0.96906227E-06, 0.80569707E-06)
+  ( 0.37446713E-06, 0.86160600E-05) ( 0.44075362E-06, 0.48901978E-06)
+  ( 0.59839069E-07, 0.23701476E-07) (-0.63938636E-08,-0.59901170E-08)
+  ( 0.30241767E-08, 0.76485983E-09) ( 0.10874541E-07, 0.20882150E-08)
+     ROW  2
+  ( 0.12073258E+01,-0.32040040E+00) ( 0.36610418E-01,-0.18083426E-01)
+  ( 0.80656007E-02,-0.41434355E-02) (-0.44687870E-03, 0.28210000E-03)
+  ( 0.49305177E-04,-0.27257139E-04) (-0.75704543E-06, 0.37963465E-06)
+  (-0.50324631E-05, 0.54259770E-05) (-0.23850691E-06, 0.33759720E-06)
+  ( 0.24569684E-07, 0.12142546E-07) ( 0.10064276E-07,-0.58085967E-08)
+  ( 0.16508371E-08, 0.25180276E-09) ( 0.30874391E-08, 0.17112437E-08)
+MaxIter =   6 c.s. =      5.31234343 rmsk=     0.00000000
+Time Now =       702.8508  Delta time =         7.3498 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.15800000E+02 eV (  0.58063935E+00 AU)
+Time Now =       702.8643  Delta time =         0.0135 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = E     1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    20
+Number of asymptotic solutions on the right (NAsymR) =    12
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   16
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    9
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   16
+Time Now =       702.8721  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =   15.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.95701769E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.93941040E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.92302215E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.90843555E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.12456182E-01
+ i =  2  lval =   3  stpote = -0.10008594E-04
+ i =  3  lval =   3  stpote = -0.57784644E-05
+ i =  4  lval =   4  stpote =  0.11212205E-05
+For potential     5
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     6
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.11210564E+00
+ i =  2  lval =   3  stpote =  0.90077345E-04
+ i =  3  lval =   3  stpote =  0.52006179E-04
+ i =  4  lval =   4  stpote = -0.10090984E-04
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =     271
+Final point in integration =   0.34564308E+03 Angstroms
+Time Now =       745.1303  Delta time =        42.2583 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.97032681E+00,-0.36823076E+00) ( 0.58258831E-01,-0.32387770E-01)
+  ( 0.30299508E-01,-0.10207064E-01) (-0.30861840E-02, 0.96481347E-03)
+  ( 0.68262294E-03,-0.17253396E-03) (-0.23975318E-04, 0.43922703E-05)
+  (-0.14354311E-03, 0.54716502E-04) (-0.14740208E-04, 0.59029696E-05)
+  ( 0.87991644E-06, 0.40130633E-06) ( 0.88937442E-06,-0.18954924E-06)
+  ( 0.13458607E-06, 0.12534400E-07) ( 0.10476780E-06, 0.10243930E-06)
+     ROW  2
+  ( 0.92188300E+00,-0.34973763E+00) ( 0.52689046E-01,-0.30675716E-01)
+  ( 0.26039027E-01,-0.96107084E-02) (-0.30785309E-02, 0.88840212E-03)
+  ( 0.43388592E-03,-0.16223105E-03) (-0.98048891E-05, 0.35120546E-05)
+  (-0.12932564E-03, 0.48584194E-04) (-0.14917659E-04, 0.52442055E-05)
+  ( 0.81283698E-06, 0.28818835E-06) ( 0.84184930E-06,-0.17753750E-06)
+  ( 0.11478538E-06, 0.46389425E-08) ( 0.58432650E-07, 0.88159600E-07)
+MaxIter =   5 c.s. =      2.05928699 rmsk=     0.00000000
+Time Now =       751.8876  Delta time =         6.7572 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.25800000E+02 eV (  0.94813261E+00 AU)
+Time Now =       751.9012  Delta time =         0.0136 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = E     1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    20
+Number of asymptotic solutions on the right (NAsymR) =    12
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   16
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    9
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   16
+Time Now =       751.9089  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =   25.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.48462452E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47792408E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47179572E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.46643038E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote =  0.12456182E-01
+ i =  2  lval =   3  stpote = -0.10008594E-04
+ i =  3  lval =   3  stpote = -0.57784644E-05
+ i =  4  lval =   4  stpote =  0.11212205E-05
+For potential     5
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     6
+ i =  1  lval =   4  stpote = -0.64724220E-01
+ i =  2  lval =   3  stpote =  0.52006179E-04
+ i =  3  lval =   3  stpote =  0.30025782E-04
+ i =  4  lval =   4  stpote = -0.58260325E-05
+For potential     7
+ i =  1  lval =   4  stpote = -0.11210564E+00
+ i =  2  lval =   3  stpote =  0.90077345E-04
+ i =  3  lval =   3  stpote =  0.52006179E-04
+ i =  4  lval =   4  stpote = -0.10090984E-04
+For potential     8
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     9
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =     304
+Final point in integration =   0.30511210E+03 Angstroms
+Time Now =       799.0550  Delta time =        47.1460 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.54483842E+00,-0.22877164E+00) ( 0.50392022E-01,-0.22900085E-01)
+  ( 0.40090214E-01,-0.76551747E-02) (-0.62436030E-02, 0.87402948E-03)
+  ( 0.13749864E-02,-0.24840913E-03) (-0.48971383E-04, 0.68089724E-05)
+  (-0.49821389E-03, 0.10623234E-03) (-0.77488162E-04, 0.16814225E-04)
+  ( 0.56767029E-05, 0.11610019E-05) ( 0.60805125E-05,-0.84712194E-06)
+  ( 0.10560543E-05, 0.11797467E-07) ( 0.38273624E-06, 0.50569789E-06)
+     ROW  2
+  ( 0.68567420E+00,-0.28770975E+00) ( 0.59228240E-01,-0.28442836E-01)
+  ( 0.44658766E-01,-0.92977955E-02) (-0.76573587E-02, 0.99610915E-03)
+  ( 0.11728790E-02,-0.29762298E-03) (-0.28177737E-04, 0.67740751E-05)
+  (-0.56305161E-03, 0.11787382E-03) (-0.87550882E-04, 0.18662204E-04)
+  ( 0.36991290E-05, 0.10592819E-05) ( 0.58482906E-05,-0.96768412E-06)
+  ( 0.78970126E-06,-0.85842624E-08) (-0.16323318E-06, 0.55603499E-06)
+MaxIter =   5 c.s. =      0.91334220 rmsk=     0.00000000
+Time Now =       805.5962  Delta time =         6.5412 End ScatStab
+
++ Command GetCro
++ 'test15T2E.idy'
+Taking dipole matrix from file test15T2E.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       805.5986  Delta time =         0.0024 End CnvIdy
+Found     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+List of matrix element types found   Number =    1
+    1  Cont Sym E      Targ Sym T2     Total Sym T2   
+Keeping     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+Time Now =       805.5989  Delta time =         0.0003 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     14.2000 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    14.3000  0.15252670E+02
+    20.0000  0.14156406E+02
+    30.0000  0.61298214E+01
+    40.0000  0.26721894E+01
+
+     Sigma MIXED    at all energies
+      Eng  
+    14.3000  0.13834373E+02
+    20.0000  0.12430424E+02
+    30.0000  0.52809956E+01
+    40.0000  0.22851691E+01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    14.3000  0.12547963E+02
+    20.0000  0.10914924E+02
+    30.0000  0.45497791E+01
+    40.0000  0.19543804E+01
+
+     Beta LENGTH   at all energies
+      Eng  
+    14.3000  0.56562946E+00
+    20.0000  0.59735280E+00
+    30.0000  0.62653016E+00
+    40.0000  0.64761739E+00
+
+     Beta MIXED    at all energies
+      Eng  
+    14.3000  0.56590951E+00
+    20.0000  0.59694228E+00
+    30.0000  0.62581174E+00
+    40.0000  0.64616006E+00
+
+     Beta VELOCITY at all energies
+      Eng  
+    14.3000  0.56618926E+00
+    20.0000  0.59652836E+00
+    30.0000  0.62508503E+00
+    40.0000  0.64465522E+00
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     14.3000    15.2527    13.8344    12.5480     0.5656     0.5659     0.5662
+EPhi     20.0000    14.1564    12.4304    10.9149     0.5974     0.5969     0.5965
+EPhi     30.0000     6.1298     5.2810     4.5498     0.6265     0.6258     0.6251
+EPhi     40.0000     2.6722     2.2852     1.9544     0.6476     0.6462     0.6447
+Time Now =       805.6621  Delta time =         0.0633 End CrossSection
+
++ Command FileName
++ 'MatrixElements' 'test15T2A1.idy' 'REWIND'
+Opening file test15T2A1.idy at position REWIND
++ Data Record ScatSym - 'T2'
++ Data Record ScatContSym - 'A1'
+
++ Command GenFormPhIon
++ 
+
+----------------------------------------------------------------------
+SymProd - Construct products of symmetry types
+----------------------------------------------------------------------
+
+Number of sets of degenerate orbitals =    3
+Set    1  has degeneracy     1
+Orbital     1  is num     1  type =   1  name - A1    1
+Set    2  has degeneracy     1
+Orbital     1  is num     2  type =   1  name - A1    1
+Set    3  has degeneracy     3
+Orbital     1  is num     3  type =   8  name - T2    1
+Orbital     2  is num     4  type =   9  name - T2    2
+Orbital     3  is num     5  type =  10  name - T2    3
+Orbital occupations by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 5
+The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    E     (  2)    T1    (  3)    T2    (  3)
+Symmetry of the continuum orbital is A1   
+Symmetry of the total state is T2   
+Spin degeneracy of the total state is =    1
+Symmetry of the target state is T2   
+Spin degeneracy of the target state is =    2
+Symmetry of the initial state is A1   
+Spin degeneracy of the initial state is =    1
+Orbital occupations of initial state by degenerate group
+    1  A1       occ = 2
+    2  A1       occ = 2
+    3  T2       occ = 6
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Open shell symmetry types
+    1  T2     iele =    5
+    2  A1     iele =    1
+Use only configuration of type T2   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.70711   0.00000    1    2    3    5    6    8
+    2:   0.70711   0.00000    2    3    4    5    6    7
+
+ representation T2     component     2  fun    1
+Symmeterized Function from AddNewShell
+    1:   0.70711   0.00000    1    2    3    4    6    8
+    2:  -0.70711   0.00000    1    3    4    5    6    7
+
+ representation T2     component     3  fun    1
+Symmeterized Function from AddNewShell
+    1:  -0.70711   0.00000    1    2    3    4    5    8
+    2:   0.70711   0.00000    1    2    4    5    6    7
+Open shell symmetry types
+    1  T2     iele =    5
+Use only configuration of type T2   
+MS2 =    1  SDGN =    2
+NumAlpha =    3
+List of determinants found
+    1:   1.00000   0.00000    1    2    3    4    5
+    2:   1.00000   0.00000    1    2    3    4    6
+    3:   1.00000   0.00000    1    2    3    5    6
+Spin adapted configurations
+Configuration    1
+    1:   1.00000   0.00000    1    2    3    4    5
+Configuration    2
+    1:   1.00000   0.00000    1    2    3    4    6
+Configuration    3
+    1:   1.00000   0.00000    1    2    3    5    6
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+
+ representation T2     component     1  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    5    6
+
+ representation T2     component     2  fun    1
+Symmeterized Function
+    1:  -1.00000   0.00000    1    2    3    4    6
+
+ representation T2     component     3  fun    1
+Symmeterized Function
+    1:   1.00000   0.00000    1    2    3    4    5
+Direct product basis set
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   12
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product basis function
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   12
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product basis function
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   12
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Closed shell target
+Time Now =       805.6696  Delta time =         0.0075 End SymProd
+
+----------------------------------------------------------------------
+MatEle - Program to compute Matrix Elements over Determinants
+----------------------------------------------------------------------
+
+Configuration     1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   12
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Configuration     2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   12
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Configuration     3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   12
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Direct product Configuration Cont sym =    1  Targ sym =    1
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    9   10   12
+    2:   0.70711   0.00000    1    2    3    4    6    7    8    9   10   11
+Direct product Configuration Cont sym =    1  Targ sym =    2
+    1:   0.70711   0.00000    1    2    3    4    5    6    7    8   10   12
+    2:  -0.70711   0.00000    1    2    3    4    5    7    8    9   10   11
+Direct product Configuration Cont sym =    1  Targ sym =    3
+    1:  -0.70711   0.00000    1    2    3    4    5    6    7    8    9   12
+    2:   0.70711   0.00000    1    2    3    4    5    6    8    9   10   11
+Overlap of Direct Product expansion and Symmeterized states
+Symmetry of Continuum =    1
+Symmetry of target =    5
+Symmetry of total states =    5
+
+Total symmetry component =    1
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.10000000E+01  0.00000000E+00  0.00000000E+00
+
+Total symmetry component =    2
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.10000000E+01  0.00000000E+00
+
+Total symmetry component =    3
+
+Cont      Target Component
+Comp        1               2               3
+   1   0.00000000E+00  0.00000000E+00  0.10000000E+01
+Initial State Configuration
+    1:   1.00000   0.00000    1    2    3    4    5    6    7    8    9   10
+One electron matrix elements between initial and final states
+    1:   -1.414213562    0.000000000  <    5|   11>
+
+Reduced formula list
+    1    3    1 -0.1414213562E+01
+Time Now =       805.6715  Delta time =         0.0019 End MatEle
+
++ Command DipoleOp
++ 
+
+----------------------------------------------------------------------
+DipoleOp - Dipole Operator Program
+----------------------------------------------------------------------
+
+Number of orbitals in formula for the dipole operator (NOrbSel) =    1
+Symmetry of the continuum orbital (iContSym) =     1 or A1   
+Symmetry of total final state (iTotalSym) =     5 or T2   
+Symmetry of the initial state (iInitSym) =     1 or A1   
+Symmetry of the ionized target state (iTargSym) =     5 or T2   
+List of unique symmetry types
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Unique dipole matrix type     1 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =A1   
+In the product of the symmetry types T2    A2   
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+In the product of the symmetry types T2    E    
+ Each irreducable representation is present the number of times indicated
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     2 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =E    
+In the product of the symmetry types T2    T1   
+ Each irreducable representation is present the number of times indicated
+    A2    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     3 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T1   
+In the product of the symmetry types T2    T2   
+ Each irreducable representation is present the number of times indicated
+    A1    (  1)
+    E     (  1)
+    T1    (  1)
+    T2    (  1)
+Unique dipole matrix type     4 Dipole symmetry type =T2   
+     Final state symmetry type = T2     Target sym =T2   
+     Continuum type =T2   
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Irreducible representation containing the dipole operator is T2   
+Number of different dipole operators in this representation is     1
+In the product of the symmetry types T2    A1   
+ Each irreducable representation is present the number of times indicated
+    T2    (  1)
+Vector of the total symmetry
+ie =    1  ij =    1
+    1 (  0.10000000E+01,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    2  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.10000000E+01,  0.00000000E+00)
+    3 (  0.00000000E+00,  0.00000000E+00)
+Vector of the total symmetry
+ie =    3  ij =    1
+    1 (  0.00000000E+00,  0.00000000E+00)
+    2 (  0.00000000E+00,  0.00000000E+00)
+    3 (  0.10000000E+01,  0.00000000E+00)
+Component Dipole Op Sym =  1 goes to Total Sym component   1 phase = 1.0
+Component Dipole Op Sym =  2 goes to Total Sym component   2 phase = 1.0
+Component Dipole Op Sym =  3 goes to Total Sym component   3 phase = 1.0
+
+Dipole operator types by symmetry components (x=1, y=2, z=3)
+sym comp =  1
+  coefficients =  0.00000000  1.00000000  0.00000000
+sym comp =  2
+  coefficients =  1.00000000  0.00000000  0.00000000
+sym comp =  3
+  coefficients =  0.00000000  0.00000000  1.00000000
+
+Formula for dipole operator
+
+Dipole operator sym comp 1  index =    1
+  1  Cont comp  1  Orb  3  Coef =  -1.4142135620
+Symmetry type to write out (SymTyp) =A1   
+Time Now =       817.6412  Delta time =        11.9697 End DipoleOp
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =      9.00000000
+Time Now =       817.6473  Delta time =         0.0061 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.90000000E+01 facnorm =  0.10000000E+01
+Time Now =       817.6641  Delta time =         0.0168 Electronic part
+Time Now =       817.6655  Delta time =         0.0015 End StPot
+
++ Command PhIon
++ 0.1 5.8 15.8 25.8
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.10000000E+00 eV (  0.36749326E-02 AU)
+Time Now =       817.6781  Delta time =         0.0126 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    15
+Number of asymptotic solutions on the right (NAsymR) =     9
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   12
+Number of orthogonality constraints (NOrthUse) =    2
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   12
+Time Now =       817.6858  Delta time =         0.0077 Energy independent setup
+
+Compute solution for E =    0.1000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19311023E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19248747E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19190813E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.19139254E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote = -0.99649456E-01
+ i =  2  lval =   3  stpote =  0.80068751E-04
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote = -0.89697638E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =      80
+Final point in integration =   0.12184304E+04 Angstroms
+Time Now =       824.4566  Delta time =         6.7708 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.14207751E+01,-0.17497577E+00) (-0.23793421E+00, 0.83963810E-01)
+  ( 0.14365549E-01,-0.66194385E-02) (-0.14569191E-05,-0.59765348E-05)
+  (-0.60192763E-06,-0.11482296E-06) ( 0.81662989E-08, 0.15458244E-09)
+  (-0.78637126E-09, 0.25311546E-11) ( 0.17588837E-10,-0.57172796E-12)
+  ( 0.13372646E-12,-0.70619510E-14)
+     ROW  2
+  ( 0.70083138E+00,-0.86047959E-01) (-0.11259935E+00, 0.41298639E-01)
+  ( 0.67515452E-02,-0.32240736E-02) ( 0.70052826E-05,-0.29048362E-05)
+  ( 0.57577556E-07,-0.58213849E-07) ( 0.52444912E-09, 0.10093961E-09)
+  (-0.16158421E-09,-0.44954424E-11) ( 0.41658773E-11,-0.62650422E-13)
+  ( 0.36538563E-13,-0.13792573E-14)
+MaxIter =   6 c.s. =      2.62614030 rmsk=     0.00000000
+Time Now =       831.0319  Delta time =         6.5753 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.58000000E+01 eV (  0.21314609E+00 AU)
+Time Now =       831.0444  Delta time =         0.0125 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    15
+Number of asymptotic solutions on the right (NAsymR) =     9
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   12
+Number of orthogonality constraints (NOrthUse) =    2
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   12
+Time Now =       831.0521  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =    5.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12703921E-16
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12561194E-16
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12428368E-16
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.12310160E-16
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote = -0.99649456E-01
+ i =  2  lval =   3  stpote =  0.80068751E-04
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote = -0.89697638E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =     207
+Final point in integration =   0.43182643E+03 Angstroms
+Time Now =       846.0774  Delta time =        15.0253 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.84116333E+00,-0.13256609E+00) (-0.38627600E+00, 0.27555711E+00)
+  ( 0.55906020E-01,-0.47989260E-01) ( 0.47068178E-03,-0.11105991E-02)
+  (-0.23308966E-04,-0.11598475E-03) ( 0.20310502E-05, 0.34017828E-05)
+  (-0.29900578E-05,-0.58578976E-06) ( 0.36306767E-06, 0.40326795E-07)
+  ( 0.15511937E-07, 0.90744883E-09)
+     ROW  2
+  ( 0.57507989E+00,-0.86373619E-01) (-0.24512852E+00, 0.18399512E+00)
+  ( 0.35863441E-01,-0.31790022E-01) ( 0.66974492E-03,-0.72699525E-03)
+  ( 0.49277266E-04,-0.76470655E-04) (-0.84840484E-06, 0.22593860E-05)
+  (-0.53302236E-06,-0.45815205E-06) ( 0.88051181E-07, 0.38047493E-07)
+  ( 0.48328264E-08, 0.11435813E-08)
+MaxIter =   6 c.s. =      1.39011756 rmsk=     0.00000000
+Time Now =       852.8153  Delta time =         6.7379 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.15800000E+02 eV (  0.58063935E+00 AU)
+Time Now =       852.8287  Delta time =         0.0134 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    15
+Number of asymptotic solutions on the right (NAsymR) =     9
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   12
+Number of orthogonality constraints (NOrthUse) =    2
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   12
+Time Now =       852.8364  Delta time =         0.0078 Energy independent setup
+
+Compute solution for E =   15.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.95701769E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.93941040E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.92302215E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.90843555E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote = -0.99649456E-01
+ i =  2  lval =   3  stpote =  0.80068751E-04
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote = -0.89697638E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =     262
+Final point in integration =   0.33455005E+03 Angstroms
+Time Now =       871.2876  Delta time =        18.4512 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.30832864E+00,-0.60913475E-01) (-0.95865940E-01, 0.25431770E+00)
+  ( 0.23818213E-01,-0.59098868E-01) ( 0.19840820E-02,-0.30118118E-02)
+  ( 0.21675240E-03,-0.47045042E-03) (-0.17621524E-04, 0.21250172E-04)
+  (-0.37882326E-04,-0.67305098E-05) ( 0.79989762E-05, 0.84877632E-06)
+  ( 0.60194367E-06, 0.41857760E-07)
+     ROW  2
+  ( 0.31737192E+00,-0.55300516E-01) (-0.85793327E-01, 0.25032148E+00)
+  ( 0.21571184E-01,-0.57889791E-01) ( 0.22504409E-02,-0.29208017E-02)
+  ( 0.34848773E-03,-0.45582597E-03) (-0.12913094E-04, 0.20695200E-04)
+  (-0.58474102E-05,-0.67587963E-05) ( 0.22383919E-05, 0.92526445E-06)
+  ( 0.24923188E-06, 0.46788999E-07)
+MaxIter =   6 c.s. =      0.35435292 rmsk=     0.00000000
+Time Now =       877.3764  Delta time =         6.0888 End ScatStab
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.25800000E+02 eV (  0.94813261E+00 AU)
+Time Now =       877.3893  Delta time =         0.0129 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =    -1
+Flag for dipole operator (DipoleFlag) =      T
+Maximum l for computed scattering solutions (LMaxK) =   11
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    50
+Number of partial waves (np) =    15
+Number of asymptotic solutions on the right (NAsymR) =     9
+Number of asymptotic solutions on the left (NAsymL) =     2
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     2
+Maximum in the asymptotic region (lpasym) =   13
+Number of partial waves in the asymptotic region (npasym) =   12
+Number of orthogonality constraints (NOrthUse) =    2
+Number of different asymptotic potentials =    6
+Maximum number of asymptotic partial waves =  183
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =   11
+Highest l used at large r (lpasym) =   13
+Higest l used in the asymptotic potential (lpzb) =   26
+Maximum L used in the homogeneous solution (LMaxHomo) =   13
+Number of partial waves in the homogeneous solution (npHomo) =   12
+Time Now =       877.3970  Delta time =         0.0077 Energy independent setup
+
+Compute solution for E =   25.8000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  1.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   4  stpote = -0.19428903E-15
+ i =  2  lval =   3  stpote =  0.81697244E-19
+ i =  3  lval =   3  stpote =  0.44077655E-18
+ i =  4  lval =   4  stpote = -0.29206878E-04
+For potential     2
+ i =  1  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.48462452E-17
+ i =  2  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47792408E-17
+ i =  3  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.47179572E-17
+ i =  4  exps = -0.94863410E+02 -0.20000000E+01  stpote = -0.46643038E-17
+For potential     3
+For potential     4
+ i =  1  lval =   4  stpote = -0.99649456E-01
+ i =  2  lval =   3  stpote =  0.80068751E-04
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote = -0.89697638E-05
+For potential     5
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.40034376E-04
+ i =  3  lval =   3  stpote = -0.23113857E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+For potential     6
+ i =  1  lval =   4  stpote =  0.49824728E-01
+ i =  2  lval =   3  stpote =  0.17767234E-20
+ i =  3  lval =   3  stpote =  0.46227715E-04
+ i =  4  lval =   4  stpote =  0.44848819E-05
+Number of asymptotic regions =     294
+Final point in integration =   0.29546264E+03 Angstroms
+Time Now =       897.8207  Delta time =        20.4236 End SolveHomo
+      Final k matrix
+     ROW  1
+  ( 0.13479880E+00, 0.59524753E-02) (-0.44453387E-02, 0.10195292E+00)
+  ( 0.12458626E-01,-0.28084523E-01) ( 0.45283874E-02,-0.20865110E-02)
+  ( 0.87964103E-03,-0.43019600E-03) (-0.67297352E-04, 0.24927154E-04)
+  (-0.10482143E-03,-0.12581710E-04) ( 0.32134082E-04, 0.20952604E-05)
+  ( 0.34944097E-05, 0.13031872E-06)
+     ROW  2
+  ( 0.19086530E+00, 0.13415014E-01) (-0.48171589E-03, 0.13548093E+00)
+  ( 0.12209972E-01,-0.36997075E-01) ( 0.52821261E-02,-0.26781244E-02)
+  ( 0.12565607E-02,-0.53959847E-03) (-0.68448271E-04, 0.31469960E-04)
+  ( 0.74904109E-05,-0.15734389E-04) ( 0.54760659E-05, 0.29843468E-05)
+  ( 0.12741746E-05, 0.20294904E-06)
+MaxIter =   6 c.s. =      0.08610976 rmsk=     0.00000000
+Time Now =       904.5371  Delta time =         6.7164 End ScatStab
+
++ Command GetCro
++ 'test15T2A1.idy'
+Taking dipole matrix from file test15T2A1.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       904.5388  Delta time =         0.0017 End CnvIdy
+Found     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+List of matrix element types found   Number =    1
+    1  Cont Sym A1     Targ Sym T2     Total Sym T2   
+Keeping     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+Time Now =       904.5390  Delta time =         0.0003 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     14.2000 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    14.3000  0.57032097E+01
+    20.0000  0.36075183E+01
+    30.0000  0.10005964E+01
+    40.0000  0.22338977E+00
+
+     Sigma MIXED    at all energies
+      Eng  
+    14.3000  0.53471674E+01
+    20.0000  0.33079969E+01
+    30.0000  0.90933209E+00
+    40.0000  0.20977194E+00
+
+     Sigma VELOCITY at all energies
+      Eng  
+    14.3000  0.50135697E+01
+    20.0000  0.30355343E+01
+    30.0000  0.82749445E+00
+    40.0000  0.19746839E+00
+
+     Beta LENGTH   at all energies
+      Eng  
+    14.3000 -0.86260970E-21
+    20.0000 -0.32202886E-19
+    30.0000 -0.10074245E-18
+    40.0000 -0.51459035E-18
+
+     Beta MIXED    at all energies
+      Eng  
+    14.3000  0.23514406E-22
+    20.0000  0.10587437E-19
+    30.0000 -0.27216503E-18
+    40.0000 -0.41759851E-19
+
+     Beta VELOCITY at all energies
+      Eng  
+    14.3000  0.14818759E-21
+    20.0000  0.27266797E-18
+    30.0000  0.91632351E-18
+    40.0000  0.18721700E-19
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     14.3000     5.7032     5.3472     5.0136    -0.0000     0.0000     0.0000
+EPhi     20.0000     3.6075     3.3080     3.0355    -0.0000     0.0000     0.0000
+EPhi     30.0000     1.0006     0.9093     0.8275    -0.0000    -0.0000     0.0000
+EPhi     40.0000     0.2234     0.2098     0.1975    -0.0000    -0.0000     0.0000
+Time Now =       904.6023  Delta time =         0.0633 End CrossSection
+
++ Command GetCro
++ 'test15T2A1.idy' 'test15T2E.idy' 'test15T2T2.idy'  'test15T2T1.idy'
+Taking dipole matrix from file test15T2A1.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       904.6038  Delta time =         0.0015 End CnvIdy
+Taking dipole matrix from file test15T2E.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       904.6454  Delta time =         0.0416 End CnvIdy
+Taking dipole matrix from file test15T2T2.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       904.6486  Delta time =         0.0032 End CnvIdy
+Taking dipole matrix from file test15T2T1.idy
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       904.7113  Delta time =         0.0627 End CnvIdy
+Found     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+List of matrix element types found   Number =    4
+    1  Cont Sym A1     Targ Sym T2     Total Sym T2   
+    2  Cont Sym E      Targ Sym T2     Total Sym T2   
+    3  Cont Sym T2     Targ Sym T2     Total Sym T2   
+    4  Cont Sym T1     Targ Sym T2     Total Sym T2   
+Keeping     4 energies :
+     0.10000     5.80000    15.80000    25.80000
+Time Now =       904.7117  Delta time =         0.0004 End SelIdy
+
+----------------------------------------------------------------------
+CrossSection - compute photoionization cross section
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     14.2000 eV
+Label -
+Cross section by partial wave      F
+Cross Sections for 
+
+     Sigma LENGTH   at all energies
+      Eng  
+    14.3000  0.63341990E+02
+    20.0000  0.43996153E+02
+    30.0000  0.13361119E+02
+    40.0000  0.53802704E+01
+
+     Sigma MIXED    at all energies
+      Eng  
+    14.3000  0.55593191E+02
+    20.0000  0.36997816E+02
+    30.0000  0.11026877E+02
+    40.0000  0.44427668E+01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    14.3000  0.48865610E+02
+    20.0000  0.31189758E+02
+    30.0000  0.91424967E+01
+    40.0000  0.36867318E+01
+
+     Beta LENGTH   at all energies
+      Eng  
+    14.3000  0.18856790E+00
+    20.0000  0.99641288E+00
+    30.0000  0.10956076E+01
+    40.0000  0.11164777E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    14.3000  0.16063476E+00
+    20.0000  0.10008454E+01
+    30.0000  0.11151810E+01
+    40.0000  0.11403698E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    14.3000  0.13316363E+00
+    20.0000  0.10026700E+01
+    30.0000  0.11295080E+01
+    40.0000  0.11579946E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     14.3000    63.3420    55.5932    48.8656     0.1886     0.1606     0.1332
+EPhi     20.0000    43.9962    36.9978    31.1898     0.9964     1.0008     1.0027
+EPhi     30.0000    13.3611    11.0269     9.1425     1.0956     1.1152     1.1295
+EPhi     40.0000     5.3803     4.4428     3.6867     1.1165     1.1404     1.1580
+Time Now =       904.7753  Delta time =         0.0636 End CrossSection
+Time Now =       904.7755  Delta time =         0.0002 Finalize

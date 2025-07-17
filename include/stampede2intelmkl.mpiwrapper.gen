@@ -1,0 +1,121 @@
+#!/bin/bash
+
+if [ $# -eq 0 ] ; then
+    echo "No path for binaries specified"
+    echo "Usage: ${0##*/} bin_path"
+    exit 0
+fi
+
+base_dir=`pwd`
+
+if [ ! -d "$base_dir/$1" ] ; then
+    echo "The specified path does not exist: $base_dir/$1"
+    exit 0
+fi
+
+cat << eowrap > $base_dir/$1/ePolyScat
+#!/bin/bash
+#
+#  Master script for parallel execution of ePolyScat
+#
+#  Raffaele Montuoro, June 2006
+#
+exec="$base_dir/$1/ePolyScat.exe"
+help_msg="Usage: \${0##*/}[-X OPTIONS (direct passed)] [-o OUTFILE] [INPUTFILE]"
+opt=
+ncpus=4
+while test \$# ; do
+case "\$1" in
+	-o)
+	    outfile=\$2
+	    if [ "\${2/#\/}" == "\$2" ] ; then
+		outfile="\`pwd\`/\$2"
+	    else
+		outfile="\$2"
+	    fi
+	    shift 
+	    shift
+	    ;;
+	-nodes)
+	    ncpus=\$2
+	    shift 
+	    shift 
+	    ;;
+	-X)
+	    opt="\$opt \$2"
+	    shift 
+	    shift 
+	    ;;
+	-*)
+	    echo "\$help_msg"
+	    exit 0
+            ;;
+	*)
+	    break
+	    ;;
+esac
+done
+
+# temp=\$TMPDIR/temp\$\$
+# mkdir \$temp
+temp=.
+if [ "\$1" != "" ] ; then
+# read input from indicated file
+    if [ "\${1/#\/}" == "\$1" ] ; then
+	inpfile="\`pwd\`/\$1"
+    else
+	inpfile="\$1"
+    fi
+    eval "\$(echo -e "cat >\$temp/inp.dat <<eoi \n\$(cat \$inpfile)\neoi")"
+else
+# read from the standard input
+    rm -f \$temp/inp.dat
+    while read NLINE;
+      do
+      echo "\$NLINE" >> \$temp/inp.dat ;
+    done
+fi
+if [ ! -f \$temp/inp.dat ]; then
+    echo "No INPUTFILE specified"
+    echo "\$help_msg"
+else
+
+    export OMP_NUM_THREADS=1
+    export MPI_MEMMAP_OFF=1 #??
+    export MPI_DSM_DISTRIBUTE=1 #??
+
+    if [ -z \$SLURM_JOB_ID ]; then
+       if [ "\$outfile" != "" ]; then
+	   export temp ncpus opt exec outfile
+           echo Execution on \$(hostname) >\$outfile
+	   (cd \$temp ; eval "mpirun i-n \$ncpus \$opt \$exec < /dev/null >> \$outfile")
+       else
+	   export temp ncpus opt exec
+           echo Execution on \$(hostname)
+	   (cd \$temp ; eval "mpirun -n \$ncpus  \$opt \$exec < /dev/null " )
+       fi
+    else
+       if [ "\$outfile" != "" ]; then
+	   export temp ncpus opt exec outfile
+           echo Execution on \$(hostname) >\$outfile
+	   (cd \$temp ; eval "mpirun \$opt \$exec >> \$outfile")
+       else
+	   export temp ncpus opt exec
+           echo Execution on \$(hostname)
+	   (cd \$temp ; eval "mpirun \$opt \$exec " )
+       fi
+    fi
+ 
+fi
+
+rm inp.dat
+
+# rm -rf \$temp
+
+exit 0
+
+eowrap
+
+chmod +x $base_dir/$1/ePolyScat
+exit 0
+

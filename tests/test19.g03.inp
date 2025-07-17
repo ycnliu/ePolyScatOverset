@@ -1,0 +1,23 @@
+g03 <<eoi
+#HF/D95 6D 10F scf=tight Gfinput PUNCH=MO
+
+ C2H6
+
+ 0 1
+ C1
+ C2                   C1   RCC
+ H3                   C1   RCH      C2   ACCH
+ H4                   C1   RCH      C2   ACCH     H3    120.     0
+ H5                   C1   RCH      C2   ACCH     H3   -120.     0
+ H6                   C2   RCH      C1   ACCH     H3    180.     0
+ H7                   C2   RCH      C1   ACCH     H6    120.     0
+ H8                   C2   RCH      C1   ACCH     H6   -120.     0
+       Variables:
+  RCH                   1.107                    
+  RCC                   1.536                    
+  ACCH                111.2                      
+
+
+eoi
+#
+cat fort.7

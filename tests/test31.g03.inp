@@ -1,0 +1,10 @@
+g03 <<eoi
+#HF/6-311G SCF=tight 6D 10F Gfinput PUNCH=MO 
+
+Argon Atom, 6-311G basis
+
+0 1
+Ar 0.0 0.0 0.0
+
+eoi
+cat fort.7 

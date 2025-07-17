@@ -1,0 +1,19 @@
+#
+# input file for test21
+#
+# electron scattering from C60
+#
+LMax   25
+EMax   50.0
+EngForm
+  0 0
+FegeEng 7.6      # IP
+VCorr 'PZ'
+LMaxK   6
+ScatContSym 'AG'
+#
+Convert '$pt/test21.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+Scat 1.0

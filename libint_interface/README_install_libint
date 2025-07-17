@@ -1,0 +1,140 @@
+# Using libint-2.1.0-beta2.tgz from Loren Greenman
+# Contents of compiler.config give the parameters to pass to ./config
+
+topdir=/scratch/user/r-lucchese  (or some other appropriate top directory for the libit installation)
+cd $topdir 
+mkdir libint
+cp ~/Applications/libint-2.1.0-beta2.tgz libint
+cd libint
+tar xf libint-2.1.0-beta2.tgz
+cd libint-2.1.0-beta2
+# in compiler.config
+# '--prefix=/scratch/user/r-lucchese' '--enable-fma' '--with-cxx=icpc' '--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost' '--with-cxxgen=icpc' '--with-cxxgen-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11'
+# 1) ./configure
+#    Most often you will need to specify command-line options to configure.
+#    To obtain a list of configure options run 'configure --help'.
+#
+######################################### terra #############################################
+# on terra
+# in .bashrc
+    module load intel/2016b
+    module load Boost/1.61.0-iimpi-2016b
+    module load Eigen/3.2.9-intel-2016b
+#
+
+./configure "--prefix=$topdir/libint" "--enable-fma" "--with-cxx=icpc" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-cxxgen=icpc" "--with-cxxgen-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11"
+
+######################################### ada   #############################################
+# on ada
+# in .bashrc
+   module load Eigen/3.3.1-GCCcore-6.3.0
+   module load Boost/1.61.0-iimpi-2017A-Python-2.7.12-bare
+   module load imkl/2017.1.132-iimpi-2017A
+
+./configure "--prefix=$topdir/libint" "--enable-fma" "--with-cxx=icpc" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-cxxgen=icpc" "--with-cxxgen-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11"
+
+######################################### vici  #############################################
+# on vici
+
+# Currently Loaded Modulefiles:
+#  1) molpro/molprop_2012_1_8     2) intel/intel-compilers-v15   3) intel/intel-openmpi_ib      4) intel/intel-mkl-v15       5) gcc/4.9.3
+
+topdir=/home/r-lucchese/Applications
+cd $topdir
+
+# Download Eigen3 from http://bitbucket.org/eigen/eigen/get/3.3.3.tar.gz to $topdir
+
+gunzip eigen-eigen-b9cd8366d4e8.tar.gz
+tar xf eigen-eigen-b9cd8366d4e8.tar
+
+# Install Boost from www.boost.org
+
+tar xf boost_1_63_0.tar.gz
+cd boost_1_63_0
+mkdir ../boost
+# ./bootstrap.sh --prefix=$topdir/boost --with-toolset=intel-linux
+./bootstrap.sh --prefix=$topdir/boost
+./b2 install
+
+# Add .bashrc
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/r-lucchese/Applications/boost/lib
+export LIBRARY_PATH=/home/r-lucchese/Applications/boost/lib
+export CPATH=/home/r-lucchese/Applications/boost/include:/home/r-lucchese/Applications/eigen-eigen-b9cd8366d4e8
+
+#
+cd libint/libint-2.1.0-beta2
+# ./configure "--prefix=$topdir/libint" "--with-cxx=icpc" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-incdirs=-I/home/r-lucchese/Applications/eigen-eigen-b9cd8366d4e8"
+# ./configure "--prefix=$topdir/libint" "--with-cxx=icpc" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-incdirs=-I/home/r-lucchese/Applications/eigen-eigen-b9cd8366d4e8 -I/home/r-lucchese/Applications/boost/include"
+
+./configure "--prefix=$topdir/libint" "--with-cxx=g++" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-incdirs=-I/home/r-lucchese/Applications/eigen-eigen-b9cd8366d4e8 -I/home/r-lucchese/Applications/boost/include"
+
+######################################### Mac OSX ###########################################
+# on Mac OSX
+
+# to update port software
+xcode-select --install
+sudo port selfupdate
+sudo port upgrade outdated
+
+# On Mac OSX - install boost and eigen3 using macports
+# Install MacPorts from macports.org
+sudo port install boost
+sudo port install eigen3
+
+./configure "--prefix=$topdir/libint"  "--with-cxx=clang++" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-incdirs=-I/opt/local/include/eigen3"
+
+In OSX 10.14 
+
+./configure "--prefix=$topdir/libint"  "--with-cxx=clang++" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-incdirs=-I/opt/local/include/eigen3"
+
+In OSX 10.15
+
+./configure "--prefix=$topdir/libint"  "--with-cxx=clang++" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-incdirs=-I/opt/local/include/eigen3"
+
+# Link in ePolyScat with
+#    CXX := clang++
+#    CXXFLAGS := -O2 -DHAVE_CONFIG_H -std=c++11 -Wno-deprecated-declarations
+#    CPPLIBFLAGS := -v -lm -lc++
+
+######################################### edison ############################################
+# on NERSC edison
+
+# in .bashrc.ext
+   module load boost
+   module load eigen
+
+./configure "--prefix=$topdir/libint" "--enable-fma" "--with-cxx=icpc" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-cxxgen=icpc" "--with-cxxgen-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11"
+
+######################################### cori   ############################################
+# on NERSC cori
+# using topdir=/global/homes/l/lucchese/Applications/cori
+# in .bashrc.ext
+   module load boost
+   module load eigen3
+
+./configure "--prefix=$topdir/libint" "--enable-fma" "--with-cxx=icpc" "--with-cxx-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11" "--with-cxxgen=icpc" "--with-cxxgen-optflags=-no-ipo -O3 -no-prec-div -xHost -std=c++11"
+
+######################################### lrc    ############################################
+# on the Lawrencium cluster at the lrc
+
+# in .bashrc
+   module load intel
+   module load mkl
+   module load openmpi
+   module load boost
+   module load eigen
+
+./configure "--prefix=$topdir/libint" "--with-cxx=icpc" "--with-cxx-optflags=-I$BOOST_DIR/include -I$EIGEN_DIR/include/eigen3 -no-ipo -O3 -no-prec-div -xHost -std=c++11" 
+#############################################################################################
+
+
+# 2) make
+make
+
+# 3) optional: make check
+make check
+
+# 4) make install
+make install
+

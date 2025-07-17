@@ -1,0 +1,57 @@
+# Emacs should use -*- Makefile -*- mode.
+
+# this is usually overridden
+TARGET_TO_MAKE = $(shell basename `pwd`)
+
+ifndef SRCDIR
+  SRCDIR = .
+endif
+SRCTOPDIR = $(SRCDIR)/$(TOPDIR)
+
+host = x86_64-apple-darwin21.6.0
+host_cpu = x86_64
+host_vendor = apple
+host_os = darwin21.6.0
+
+target = x86_64-apple-darwin21.6.0
+target_cpu = x86_64
+target_vendor = apple
+target_os = darwin21.6.0
+
+LIBINT_VERSION = 2.8.0
+LIBINT_SO_VERSION = 2:3:0
+BUILDID = 
+LIBINT_MAJOR_VERSION = 2
+
+DOXYGEN = 
+PDFLATEX  = /Library/TeX/texbin/pdflatex
+PSLATEX  = /Library/TeX/texbin/pslatex
+DVIPS  = /Library/TeX/texbin/dvips
+LATEX  = /Library/TeX/texbin/latex
+LATEX2HTML  = 
+BIBTEX = /Library/TeX/texbin/bibtex
+# The document suffix (pdf or ps)
+# Preferentially make pdf manuals, only revert to ps if necessary
+ifdef BIBTEX
+ ifdef PSLATEX
+  DOCSUF = ps
+  LATEX = $(PSLATEX)
+ endif
+ ifdef PDFLATEX
+  DOCSUF = pdf
+  LATEX = $(PDFLATEX)
+ endif
+endif
+TEXINPUTS = :$(SRCDIR):$(SRCDIR)/..:
+BIBINPUTS = $(TEXINPUTS)
+TEXGARBAGE = *.bbl *.blg *.aux *.log *.out
+
+INSTALL = /usr/bin/install -c
+INSTALLDIROPT = -d -m 0755
+INSTALLDOCOPT = -m 0644
+
+prefix=/usr/local/libint/2.8.0
+exec_prefix=${prefix}
+docdir=$(prefix)/doc
+includedir=${prefix}/include
+

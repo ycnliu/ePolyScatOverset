@@ -1,0 +1,55 @@
+#
+# input file for test30
+#
+# N2 molden SCF, (3-sigma-g)^-1 resonance with CalcInt test
+#
+  LMax   22     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+
+  ScatEng  10.0   # list of scattering energies
+
+ InitSym 'SG'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 2 2 2 4  # Orbital occupation of initial state
+ OrbOcc     2 2 2 2 1 4  # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'SG'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 15.581    # ionization potentail
+
+Convert '$pt/test30.molden2012' 'molden'
+GetBlms
+ExpOrb
+
+ ScatSym     'SU'  # Scattering symmetry of total final state
+ ScatContSym 'SU'  # Scattering symmetry of continuum electron
+
+  DPotEng  15.  # Energy (in eV) for the local exchange potential
+  ResSearchEng
+  1                   # nengrb - number of energy step regions 
+  1. 0.5     # first energy and step (in eV)
+   20.0          # final ending point, engrb(nengrb+1)
+   10.                 # eendzi, largest imaginary part
+   2.                # estpzi, imaginary energy step
+
+GenFormPhIon
+DipoleOp
+GetPot
+GetDPot
+ResSearch
+# ResWvFun 1
+ResWvFun 1   0.1024307311204628E+02  -0.2705143870004660E+01 
+CalcInt 'ExpOrb' 3 'ExpOrb' 3
+CalcInt 'ExpOrb' 3 'ExpOrb' 5
+CalcInt 'ExpOrb' 5 'ExpOrb' 5
+CalcInt 'DipoleOp' 1 'ExpOrb' 4
+CalcInt 'DipoleOp' 2 'ExpOrb' 4
+CalcInt 'DipoleOp' 1 'ResWvFun' 1
+CalcInt 'DipoleOp' 2 'ResWvFun' 1
+CalcInt 'ExpOrb' 4 'ResWvFun' 1
+PlaneWvCharge 1
+ScatEng 10.
+CalcInt 'DipoleOp' 1 'PlaneWv' 9
+#
+#

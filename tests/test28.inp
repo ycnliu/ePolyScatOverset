@@ -1,0 +1,30 @@
+#
+# input file for test28
+#
+# positron scattering from C2H2 in Sigma-g symmetry
+#
+LMax   15     # maximum l to be used for wave functions
+LMaxK 6
+
+EMax  50.0    # EMax, maximum asymptotic energy in eV
+EngForm 0 0   # no charge on the molecule and all orbitals are doubly occupied
+VCorr    'POS-FIT'    # Polarization potential
+PosFitL  25
+PosFile  '$pt/test28.dat'
+PosGridTol 1.E-06
+PosPlot
+   2
+   0.0 0.0
+  90.0 0.0
+
+EngForm  0 0
+
+Convert '$pt/test28.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+
+ScatContSym 'SG'  # Scattering symmetry 
+ScatPos 0.1 0.5 1.0
+TotalCrossSection
+

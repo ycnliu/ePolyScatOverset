@@ -1,0 +1,524 @@
+Execution on LuccheseiMac.dhcp.lbl.gov
+
+----------------------------------------------------------------------
+ePolyScat cKohn Version
+----------------------------------------------------------------------
+
+cKohn version being developed by L. Greenman, C. W. McCurdy, and R. R. Lucchese
+Single center Schwinger verions developed by:
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, J. Lopez-Dominguez,  and F. A. Gianturco
+http://www.chem.tamu.edu/rgroup/lucchese/ePolyScat.E3.manual/manual.html
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2017-10-13  10:56:06.317 (GMT -0700)
+Using     4 processors
+Current git commit sha-1 560c3be586ee5e6de8cb1f4e9448caa0282f850e
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test61
+#
+# electron scattering from CH4 static potential only in all symmetries
+# test the SaveBlms and ReadBlms commands
+# test61Blms.dat is created in test58 and is the same as test58Blms.dat which is created there
+#
+  EMax  100.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 1         # charge, formula type
+   3           # number of terms in the formulas
+   2.0 -0.0    # orbital occupation and coefficient for the K operators
+   2.0 -0.0
+   2.0 -0.0
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  LMaxK   8     # Maximum l in the K matrix -- commenting this out means code figures it out
+  nrFEM 4
+  NLambda 15
+
+ReadBlms '/Users/lucchese/Applications/complexkohn/tests/test61Blms.dat'
+
+ExpOrb
+GetPot
+IterMax 30
+CnvgKMat 0.5e-4
+
+  ScatEng 5.0
+  ScatContSym 'A1'
+Scat
+TotalCrossSection
++ End of input reached
++ Data Record EMax - 100.0
++ Data Record EngForm
++ 0 1 / 3 / 2.0 -0.0 / 2.0 -0.0 / 2.0 -0.0
++ Data Record FegeEng - 13.0
++ Data Record FegeScale - 0.0
++ Data Record LMaxK - 8
++ Data Record nrFEM - 4
++ Data Record NLambda - 15
+
++ Command ReadBlms
++ '/Users/lucchese/Applications/complexkohn/tests/test61Blms.dat'
+
+----------------------------------------------------------------------
+ReadGeom - Read in geometry information
+----------------------------------------------------------------------
+
+
+Atoms found    5  in Bohr
+Z =  6 ZS =  6 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  1 ZS =  1 r =   1.6715540404   0.0000000000   1.1819671970
+Z =  1 ZS =  1 r =  -1.6715540404   0.0000000000   1.1819671970
+Z =  1 ZS =  1 r =   0.0000000000  -1.6715540404  -1.1819671970
+Z =  1 ZS =  1 r =   0.0000000000   1.6715540404  -1.1819671970
+
+Atoms found    5  in Angstroms
+Z =  6 ZS =  6 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  1 ZS =  1 r =   0.8845483050   0.0000000000   0.6254701047
+Z =  1 ZS =  1 r =  -0.8845483050   0.0000000000   0.6254701047
+Z =  1 ZS =  1 r =   0.0000000000  -0.8845483050  -0.6254701047
+Z =  1 ZS =  1 r =   0.0000000000   0.8845483050  -0.6254701047
+Found Point Group =Td (C2v)
+Finshed reading point group information
+Reading Blms
+Read symmetry types:
+  A1    1  A2    1  E     1  E     2  T1    1
+  T1    2  T1    3  T2    1  T2    2  T2    3
+Finished reading Blms
+Maximum L for the subgrids
+Maximum L at the origin    5
+Maximum L for the subgrids based on the full symmetry
+Subgrid    1  LMax    4
+Maximum L for the subgrids based on the abelian subgroup symmetry
+Subgrid    1  LMax    4
+Subgrid    2  LMax    4
+From ReadBlms  LMax is   25  LMaxA is   17
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =    6.1318617146 Angs
+RMax used    6.13186
+nrFEM (order of the Gauss quadrature used in finite elements) used    4
+NLambda (used pick stepsize based on local wavelength) used  15.00000
+N_rpnts_SG (used pick stepsize based on subgrid size) used  15.00000
+HFacGauss     3.00000 Def val    3.00000
+GridFac       1       Def Val    1
+MinExpFac   300.00000 Def val  300.00000
+FirstPoint    0.00000 Def val    0.00000
+nrFEM         4       Def Val   16
+NrfemFac      1.00000 Def val    1.00000
+NLambda      15.00000 Def val  100.00000
+N_rpnts_SG   15.00000 Def val   15.00000
+Subgrid Radii
+Group   1  Radius   0.24622 Angs  Atoms    2    5    4    3
+Grid information for group    0 of equivalent nuclei
+Number of grid points       168
+FEMDef nr         4
+FEMDef ni        42
+Grid information for group    1 of equivalent nuclei
+Number of grid points        36
+FEMDef nr         4
+FEMDef ni         9
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   25
+Maximum scattering m (mmaxs) =   25
+Maximum numerical integration l (lmaxi) =   50
+Maximum numerical integration m (mmaxi) =   50
+Maximum l to include in the asymptotic region (lmasym) =   17
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au Def val  0.10000000E-07
+Maximum E used to determine grid (in eV) =      100.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   17
+ Actual value of lmasym found =     17
+Number of regions of the same l expansion (NAngReg) =    8
+Angular regions
+    1 L    3  from (    1 )         0.00000  to (    4 )         0.00679
+    2 L    5  from (    5 )         0.00679  to (   12 )         0.02955
+    3 L    6  from (   13 )         0.02955  to (   16 )         0.05860
+    4 L    8  from (   17 )         0.05860  to (   20 )         0.11620
+    5 L    9  from (   21 )         0.11620  to (   24 )         0.18186
+    6 L   17  from (   25 )         0.18186  to (   52 )         0.64146
+    7 L   25  from (   53 )         0.64146  to (  116 )         1.95337
+    8 L   17  from (  117 )         1.95337  to (  168 )         6.13186
+    9 L    4  Group     1
+There are     3 angular regions for computing spherical harmonics
+    1 lval =   17
+    2 lval =   25
+    3 lval =    4
+Last grid points by processor WorkExp      1.500
+Proc id     0  First grid point       1  Last grid point       64
+Proc id     1  First grid point      65  Last grid point       92
+Proc id     2  First grid point      93  Last grid point      120
+Proc id     3  First grid point     121  Last grid point      168
+Time Now =         0.0984  Delta time =         0.0984 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -11.029700  A1    1 at max irg =   20  r =   0.11620
+     2  Orig    2  Eng =   -0.911900  A1    1 at max irg =   60  r =   0.77278
+     3  Orig    3  Eng =   -0.520400  T2    1 at max irg =   72  r =   0.96975
+     4  Orig    4  Eng =   -0.520400  T2    2 at max irg =   72  r =   0.96975
+     5  Orig    5  Eng =   -0.520400  T2    3 at max irg =   72  r =   0.96975
+
+Rotation coefficients for orbital     1  grp =    1 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     3  grp =    3 T2    1
+     1  0.0000000000    2  0.0000000000    3  1.0000000000
+
+Rotation coefficients for orbital     4  grp =    3 T2    2
+     1 -0.0000000000    2  1.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital     5  grp =    3 T2    3
+     1  1.0000000000    2  0.0000000000    3 -0.0000000000
+Number of orbital groups and degeneracis are         3
+  1  1  3
+Number of orbital groups and number of electrons when fully occupied
+         3
+  2  2  6
+Time Now =         0.1669  Delta time =         0.0685 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrbOverset - Expansion of Orbitals on Overset Grid
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    5
+Orbital normalization from CD representation
+Orbital     1  Normalization  1.000015026745058  Error    0.150E-04
+Orbital     2  Normalization  1.000000795026088  Error    0.795E-06
+Orbital     3  Normalization  1.000000320122854  Error    0.320E-06
+Orbital     4  Normalization  1.000000320122842  Error    0.320E-06
+Orbital     5  Normalization  1.000000320077084  Error    0.320E-06
+Maximum Normalization Error   0.150E-04
+Orbital normalization from CD representation
+Orbital     1  Normalization  1.000000000000002  Error    0.155E-14
+Orbital     2  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     3  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     4  Normalization  1.000000000000000  Error    0.000E+00
+Orbital     5  Normalization  1.000000000000000  Error    0.222E-15
+Max Error After Renormalization   0.155E-14
+Partial wave normalization
+Time Now =         0.2628  Delta time =         0.0959 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+StPot_overset - calculate static potential on Overset Grid
+----------------------------------------------------------------------
+
+
+      Initializing LIBINT
+
+
+      Checking WF Norm with LIBINT
+
+Overlap Integrals 
+        1  0.248362         0         0         0 0.0632506 0.0632506 0.0632506 0.0632506
+ 0.248362         1         0         0         0  0.494589  0.494589  0.494589  0.494589
+        0         0         1         0         0  0.383385 -0.383385         0         0
+        0         0         0         1         0         0         0 -0.383385  0.383385
+        0         0         0         0         1  0.271094  0.271094 -0.271094 -0.271094
+0.0632506  0.494589  0.383385         0  0.271094         1  0.172132  0.172132  0.172132
+0.0632506  0.494589 -0.383385         0  0.271094  0.172132         1  0.172132  0.172132
+0.0632506  0.494589         0 -0.383385 -0.271094  0.172132  0.172132         1  0.172132
+0.0632506  0.494589         0  0.383385 -0.271094  0.172132  0.172132  0.172132         1
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+ 1.00000000  0.24836239  0.00000000  0.00000000  0.00000000  0.06325057  0.06325057  0.06325057  0.06325057
+ 0.24836239  1.00000000  0.00000000  0.00000000  0.00000000  0.49458925  0.49458925  0.49458925  0.49458925
+ 0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.38338526 -0.38338526  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.00000000 -0.38338526  0.38338526
+ 0.00000000  0.00000000  0.00000000  0.00000000  1.00000000  0.27109432  0.27109432 -0.27109432 -0.27109432
+ 0.06325057  0.49458925  0.38338526  0.00000000  0.27109432  1.00000000  0.17213241  0.17213241  0.17213241
+ 0.06325057  0.49458925 -0.38338526  0.00000000  0.27109432  0.17213241  1.00000000  0.17213241  0.17213241
+ 0.06325057  0.49458925  0.00000000 -0.38338526 -0.27109432  0.17213241  0.17213241  1.00000000  0.17213241
+ 0.06325057  0.49458925  0.00000000  0.38338526 -0.27109432  0.17213241  0.17213241  0.17213241  1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+ 1.00000000  0.24836239  0.00000000  0.00000000  0.00000000  0.06325057  0.06325057  0.06325057  0.06325057
+ 0.24836239  1.00000000  0.00000000  0.00000000  0.00000000  0.49458925  0.49458925  0.49458925  0.49458925
+ 0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.38338526 -0.38338526  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.00000000 -0.38338526  0.38338526
+ 0.00000000  0.00000000  0.00000000  0.00000000  1.00000000  0.27109432  0.27109432 -0.27109432 -0.27109432
+ 0.06325057  0.49458925  0.38338526  0.00000000  0.27109432  1.00000000  0.17213241  0.17213241  0.17213241
+ 0.06325057  0.49458925 -0.38338526  0.00000000  0.27109432  0.17213241  1.00000000  0.17213241  0.17213241
+ 0.06325057  0.49458925  0.00000000 -0.38338526 -0.27109432  0.17213241  0.17213241  1.00000000  0.17213241
+ 0.06325057  0.49458925  0.00000000  0.38338526 -0.27109432  0.17213241  0.17213241  0.17213241  1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+ 1.00000000  0.24836239  0.00000000  0.00000000  0.00000000  0.06325057  0.06325057  0.06325057  0.06325057
+ 0.24836239  1.00000000  0.00000000  0.00000000  0.00000000  0.49458925  0.49458925  0.49458925  0.49458925
+ 0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.38338526 -0.38338526  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.00000000 -0.38338526  0.38338526
+ 0.00000000  0.00000000  0.00000000  0.00000000  1.00000000  0.27109432  0.27109432 -0.27109432 -0.27109432
+ 0.06325057  0.49458925  0.38338526  0.00000000  0.27109432  1.00000000  0.17213241  0.17213241  0.17213241
+ 0.06325057  0.49458925 -0.38338526  0.00000000  0.27109432  0.17213241  1.00000000  0.17213241  0.17213241
+ 0.06325057  0.49458925  0.00000000 -0.38338526 -0.27109432  0.17213241  0.17213241  1.00000000  0.17213241
+ 0.06325057  0.49458925  0.00000000  0.38338526 -0.27109432  0.17213241  0.17213241  0.17213241  1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+Overlap Integrals 
+ 1.00000000  0.24836239  0.00000000  0.00000000  0.00000000  0.06325057  0.06325057  0.06325057  0.06325057
+ 0.24836239  1.00000000  0.00000000  0.00000000  0.00000000  0.49458925  0.49458925  0.49458925  0.49458925
+ 0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.38338526 -0.38338526  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  1.00000000  0.00000000  0.00000000  0.00000000 -0.38338526  0.38338526
+ 0.00000000  0.00000000  0.00000000  0.00000000  1.00000000  0.27109432  0.27109432 -0.27109432 -0.27109432
+ 0.06325057  0.49458925  0.38338526  0.00000000  0.27109432  1.00000000  0.17213241  0.17213241  0.17213241
+ 0.06325057  0.49458925 -0.38338526  0.00000000  0.27109432  0.17213241  1.00000000  0.17213241  0.17213241
+ 0.06325057  0.49458925  0.00000000 -0.38338526 -0.27109432  0.17213241  0.17213241  1.00000000  0.17213241
+ 0.06325057  0.49458925  0.00000000  0.38338526 -0.27109432  0.17213241  0.17213241  0.17213241  1.00000000
+WFNORM CHECK COMPLETE 1.00000000
+
+      Checking WF Kinetic Energy with LIBINT
+
+K. E. Integrals 
+15.89112169 -0.08589001  0.00000000  0.00000000  0.00000000 -0.01028226 -0.01028226 -0.01028226 -0.01028226
+-0.08589001  0.47224997  0.00000000  0.00000000  0.00000000  0.10904632  0.10904632  0.10904632  0.10904632
+ 0.00000000  0.00000000  1.47772808  0.00000000  0.00000000  0.21660506 -0.21660506  0.00000000  0.00000000
+ 0.00000000  0.00000000  0.00000000  1.47772808  0.00000000  0.00000000  0.00000000 -0.21660506  0.21660506
+ 0.00000000  0.00000000  0.00000000  0.00000000  1.47772808  0.15316291  0.15316291 -0.15316291 -0.15316291
+-0.01028226  0.10904632  0.21660506  0.00000000  0.15316291  0.76003188 -0.00522018 -0.00522018 -0.00522018
+-0.01028226  0.10904632 -0.21660506  0.00000000  0.15316291 -0.00522018  0.76003188 -0.00522018 -0.00522018
+-0.01028226  0.10904632  0.00000000 -0.21660506 -0.15316291 -0.00522018 -0.00522018  0.76003188 -0.00522018
+-0.01028226  0.10904632  0.00000000  0.21660506 -0.15316291 -0.00522018 -0.00522018 -0.00522018  0.76003188
+WFNORM KINETIC ENERGY CHECK COMPLETE 39.46452490
+Processor  3 has finished its portion of the static potential 
+Processor  2 has finished its portion of the static potential 
+Processor  1 has finished its portion of the static potential 
+Processor  0 has finished its portion of the static potential 
+
+      Finalizing LIBINT
+
+
+      Determine the extent of the overlap
+
+There are     199680 UG pts and      41472 SG pts on proc.          0
+There are     151424 UG pts and      41472 SG pts on proc.          1
+There are     140160 UG pts and      41472 SG pts on proc.          2
+There are     124416 UG pts and      41472 SG pts on proc.          3
+There are     615680 total UG pts and     165888 total SG pts 
+    781568 total points should take      11.93 MB per grid function
+There are      18816 overlapping UG pts and       2314 overlapping SG(   1) pts on proc.          0
+There are      18816 overlapping UG pts and       2314 overlapping SG(   2) pts on proc.          0
+There are          0 overlapping UG pts and       2314 overlapping SG(   3) pts on proc.          0
+There are          0 overlapping UG pts and       2314 overlapping SG(   4) pts on proc.          0
+There are          0 overlapping UG pts and      33004 overlapping SG(   1) pts on proc.          1
+There are          0 overlapping UG pts and      33004 overlapping SG(   2) pts on proc.          1
+There are          0 overlapping UG pts and      33004 overlapping SG(   3) pts on proc.          1
+There are          0 overlapping UG pts and      33004 overlapping SG(   4) pts on proc.          1
+There are          0 overlapping UG pts and       6154 overlapping SG(   1) pts on proc.          2
+There are          0 overlapping UG pts and       6154 overlapping SG(   2) pts on proc.          2
+There are          0 overlapping UG pts and       6154 overlapping SG(   3) pts on proc.          2
+There are          0 overlapping UG pts and       6154 overlapping SG(   4) pts on proc.          2
+There are          0 overlapping UG pts and          0 overlapping SG(   1) pts on proc.          3
+There are          0 overlapping UG pts and          0 overlapping SG(   2) pts on proc.          3
+There are          0 overlapping UG pts and          0 overlapping SG(   3) pts on proc.          3
+There are          0 overlapping UG pts and          0 overlapping SG(   4) pts on proc.          3
+Time Now =         9.1873  Delta time =         8.9245 End StPot_overset
++ Data Record IterMax - 30
++ Data Record CnvgKMat - 0.5e-4
++ Data Record ScatEng - 5.0
++ Data Record ScatContSym - 'A1'
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+PrepareScatCK - Complex Kohn Scattering preparations
+----------------------------------------------------------------------
+
+Build interpolating matrices for A1    1
+Time Now =         9.6185  Delta time =         0.4312 End PrepareScatCK
+
+----------------------------------------------------------------------
+ScatStab_overset - Complex Kohn Scattering program on an overset grid (rev. 03/30/2016)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    8
+Maximum number of iterations (itmax) =   30
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.50000000E-04
+General print flag (iprnfg) =    0
+Number of partial waves (np) =    26
+Number of asymptotic solutions on the right (NAsymR) =     6
+Number of asymptotic solutions on the left (NAsymL) =     6
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     6
+Maximum in the asymptotic region (lpasym) =   17
+Number of partial waves in the asymptotic region (npasym) =   18
+Time Now =        17.0936  Delta time =         7.4751 Built h+(kr>) off the subgrids
+Time Now =        17.3223  Delta time =         0.2286 Built outgoing function
+Time Now =        17.7113  Delta time =         0.3891 Built J and JV
+
+Compute solution for E =    5.0000000000 eV
+MaxEleIter =   6 c.s. =      9.36747911 angs^2  rmsk=     0.00000877
+iL =    1 iR =    1 E =      5.00000000 c.s. =       9.36747911
+Time Now =        19.4627  Delta time =         1.7514 Finished matrix element
+MaxEleIter =   6 c.s. =      0.00012162 angs^2  rmsk=     0.00000281
+iL =    2 iR =    1 E =      5.00000000 c.s. =       0.00012162
+Time Now =        21.4383  Delta time =         1.9756 Finished matrix element
+MaxEleIter =   6 c.s. =      0.00012163 angs^2  rmsk=     0.00000274
+iL =    1 iR =    2 E =      5.00000000 c.s. =       0.00012163
+Time Now =        21.4626  Delta time =         0.0243 Finished matrix element
+MaxEleIter =   6 c.s. =      0.00032489 angs^2  rmsk=     0.00000288
+iL =    2 iR =    2 E =      5.00000000 c.s. =       0.00032489
+Time Now =        21.4864  Delta time =         0.0238 Finished matrix element
+MaxEleIter =   5 c.s. =      0.00000001 angs^2  rmsk=     0.00002706
+iL =    3 iR =    1 E =      5.00000000 c.s. =       0.00000001
+Time Now =        23.3080  Delta time =         1.8216 Finished matrix element
+MaxEleIter =   5 c.s. =      0.00000001 angs^2  rmsk=     0.00002702
+iL =    1 iR =    3 E =      5.00000000 c.s. =       0.00000001
+Time Now =        23.3283  Delta time =         0.0203 Finished matrix element
+MaxEleIter =   5 c.s. =      0.00018529 angs^2  rmsk=     0.00000830
+iL =    3 iR =    2 E =      5.00000000 c.s. =       0.00018529
+Time Now =        23.3487  Delta time =         0.0204 Finished matrix element
+MaxEleIter =   5 c.s. =      0.00018529 angs^2  rmsk=     0.00000830
+iL =    2 iR =    3 E =      5.00000000 c.s. =       0.00018529
+Time Now =        23.3691  Delta time =         0.0204 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000101 angs^2  rmsk=     0.00002233
+iL =    3 iR =    3 E =      5.00000000 c.s. =       0.00000101
+Time Now =        23.3792  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   4 c.s. =      0.00000000 angs^2  rmsk=     0.00002037
+iL =    4 iR =    1 E =      5.00000000 c.s. =       0.00000000
+Time Now =        24.9505  Delta time =         1.5713 Finished matrix element
+MaxEleIter =   4 c.s. =      0.00000000 angs^2  rmsk=     0.00002037
+iL =    1 iR =    4 E =      5.00000000 c.s. =       0.00000000
+Time Now =        24.9675  Delta time =         0.0170 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000516 angs^2  rmsk=     0.00000350
+iL =    4 iR =    2 E =      5.00000000 c.s. =       0.00000516
+Time Now =        24.9777  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000516 angs^2  rmsk=     0.00000350
+iL =    2 iR =    4 E =      5.00000000 c.s. =       0.00000516
+Time Now =        24.9879  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000032 angs^2  rmsk=     0.00000042
+iL =    4 iR =    3 E =      5.00000000 c.s. =       0.00000032
+Time Now =        24.9981  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000032 angs^2  rmsk=     0.00000042
+iL =    3 iR =    4 E =      5.00000000 c.s. =       0.00000032
+Time Now =        25.0083  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000002 angs^2  rmsk=     0.00000001
+iL =    4 iR =    4 E =      5.00000000 c.s. =       0.00000002
+Time Now =        25.0185  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000753
+iL =    5 iR =    1 E =      5.00000000 c.s. =       0.00000000
+Time Now =        25.8343  Delta time =         0.8158 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000753
+iL =    1 iR =    5 E =      5.00000000 c.s. =       0.00000000
+Time Now =        25.8445  Delta time =         0.0103 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000003 angs^2  rmsk=     0.00000032
+iL =    5 iR =    2 E =      5.00000000 c.s. =       0.00000003
+Time Now =        25.8548  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000003 angs^2  rmsk=     0.00000032
+iL =    2 iR =    5 E =      5.00000000 c.s. =       0.00000003
+Time Now =        25.8650  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000074 angs^2  rmsk=     0.00000004
+iL =    5 iR =    3 E =      5.00000000 c.s. =       0.00000074
+Time Now =        25.8751  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000074 angs^2  rmsk=     0.00000004
+iL =    3 iR =    5 E =      5.00000000 c.s. =       0.00000074
+Time Now =        25.8853  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000022 angs^2  rmsk=     0.00000000
+iL =    5 iR =    4 E =      5.00000000 c.s. =       0.00000022
+Time Now =        25.8955  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000022 angs^2  rmsk=     0.00000000
+iL =    4 iR =    5 E =      5.00000000 c.s. =       0.00000022
+Time Now =        25.9057  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000000
+iL =    5 iR =    5 E =      5.00000000 c.s. =       0.00000000
+Time Now =        25.9159  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000022
+iL =    6 iR =    1 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.7602  Delta time =         0.8443 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000022
+iL =    1 iR =    6 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.7704  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000001
+iL =    6 iR =    2 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.7806  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000001
+iL =    2 iR =    6 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.7907  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000001 angs^2  rmsk=     0.00000000
+iL =    6 iR =    3 E =      5.00000000 c.s. =       0.00000001
+Time Now =        26.8010  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000001 angs^2  rmsk=     0.00000000
+iL =    3 iR =    6 E =      5.00000000 c.s. =       0.00000001
+Time Now =        26.8112  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000000
+iL =    6 iR =    4 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.8214  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000000
+iL =    4 iR =    6 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.8319  Delta time =         0.0106 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000001 angs^2  rmsk=     0.00000000
+iL =    6 iR =    5 E =      5.00000000 c.s. =       0.00000001
+Time Now =        26.8422  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000001 angs^2  rmsk=     0.00000000
+iL =    5 iR =    6 E =      5.00000000 c.s. =       0.00000001
+Time Now =        26.8524  Delta time =         0.0102 Finished matrix element
+MaxEleIter =   2 c.s. =      0.00000000 angs^2  rmsk=     0.00000000
+iL =    6 iR =    6 E =      5.00000000 c.s. =       0.00000000
+Time Now =        26.8626  Delta time =         0.0102 Finished matrix element
+      Final T matrix
+     ROW  1
+  ( 0.14570622E+00, 0.97828549E+00) ( 0.50438503E-03, 0.35280901E-02)
+  ( 0.12121525E-04,-0.26086797E-04) (-0.42049988E-05,-0.23561222E-05)
+  (-0.45126291E-05,-0.48137500E-05) ( 0.15842731E-06, 0.13526573E-06)
+     ROW  2
+  ( 0.50436933E-03, 0.35280345E-02) ( 0.58245195E-02, 0.66527724E-04)
+  (-0.43987865E-02,-0.24701400E-04) ( 0.73390437E-03, 0.71959294E-05)
+  (-0.59265037E-04,-0.18414723E-05) ( 0.45977662E-06, 0.11423964E-06)
+     ROW  3
+  ( 0.12124555E-04,-0.26086163E-04) (-0.43987861E-02,-0.24701383E-04)
+  (-0.32244396E-03, 0.33795696E-04) (-0.18189733E-03,-0.34101381E-05)
+  ( 0.27832358E-03, 0.21676528E-06) (-0.24852360E-04,-0.14309194E-08)
+     ROW  4
+  (-0.42049361E-05,-0.23546194E-05) ( 0.73390438E-03, 0.71959292E-05)
+  (-0.18189733E-03,-0.34101381E-05) ( 0.48994697E-04, 0.59994839E-06)
+  (-0.15058949E-03,-0.10187568E-06) (-0.54950405E-05, 0.89587770E-08)
+     ROW  5
+  (-0.45126219E-05,-0.48137144E-05) (-0.59265038E-04,-0.18414723E-05)
+  ( 0.27832358E-03, 0.21676530E-06) (-0.15058949E-03,-0.10187568E-06)
+  ( 0.19204546E-05, 0.10454856E-06) (-0.29213120E-04,-0.61083458E-08)
+     ROW  6
+  ( 0.15842741E-06, 0.13526541E-06) ( 0.45977669E-06, 0.11423964E-06)
+  (-0.24852360E-04,-0.14309200E-08) (-0.54950405E-05, 0.89587770E-08)
+  (-0.29213120E-04,-0.61083458E-08) (-0.21317157E-05, 0.15094319E-08)
+E =      5.00000000 Total c.s. =       9.36843183
+MaxIter =   6 c.s. =      9.36843183 angs^2
+Time Now =        26.8627  Delta time =         0.0001 End ScatStab
+
++ Command TotalCrossSection
++ 
+Using LMaxK     8
+Continuum Symmetry A1 - 
+        E (eV)      XS(angs^2)    EPS(radians)
+       5.000000       9.368432       1.428492
+Largest value of LMaxK found    8
+
+ Total Cross Sections
+
+ Energy      Total Cross Section
+   5.00000     9.36843
+Time Now =        26.8667  Delta time =         0.0040 Finalize

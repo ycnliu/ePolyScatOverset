@@ -1,0 +1,67 @@
+#
+# input file for test60
+#
+# electron scattering from CF4
+#
+  cKohn
+  
+  LMax 15
+  LMaxA 15
+  NccZeta 5
+  EMax  150.0    # EMax, maximum asymptotic energy in eV
+  EngForm        # Energy formulas
+   0 1           # charge, formula type
+   10             # number of terms in the formulas
+   2.0 -1.0      # orbital occupation and coefficient for the K operators
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  LMaxK   3     # Maximum l in the K matrix -- commenting this out means code figures it out
+
+  nrFEM 12
+  NLambda 8
+  N_rpnts_SG 30
+  HFacGauss 16.
+  GridFac 1
+  NrfemFac 1.0
+  RMax 20.
+  
+Comment '--------------------------- Expansion at the CF4 - Td ----------------------------'
+RotateForm 1 3 45.
+   0. 0. 0.
+Convert '$pe/tests/test60.molden2015' 'molden2015'
+GetBlms
+
+ExpOrb
+GetPot
+IterMax 25
+CnvgKMat 1e-8
+FileName 'MatrixElements' 'tmatrix_cf4.dat' 'APPEND'
+
+ScatEng 1.0
+  OrbOcc  6  2  2  2  6  2  6  4  6  6
+
+  SpinDeg 2
+  TargSym 'A1'
+  TargSpinDeg 1
+
+  ScatSym 'A1'
+  ScatContSym 'A1'
+Scat
+  ScatSym 'A2'
+  ScatContSym 'A2'
+Scat
+TotalCrossSection
+
+Exit
+
+

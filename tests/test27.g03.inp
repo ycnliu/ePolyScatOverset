@@ -1,0 +1,18 @@
+g03 <<eoi
+# HF/STO-3G SCF=tight 6D 10F Gfinput PUNCH=MO
+
+CH4, very small BASIS
+
+0 1
+C
+H 1 R
+H 1 R 2 T
+H 1 R 2 T 3 T  1
+H 1 R 2 T 3 T -1
+
+R 1.083346
+T 109.47122
+
+eoi
+#
+cat fort.7

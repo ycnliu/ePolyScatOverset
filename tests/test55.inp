@@ -1,0 +1,58 @@
+#
+# input file for test55
+#
+# Photodetachment from F2-
+#
+cKohn
+EMax 100.
+PrintFlag 0   # no extra printing
+FegeEng 5.   # Energy correction used in the fege potential (9.89 eV from CRC)
+LMaxK   12     # Maximum l in the K matirx 
+OrbOccInit
+ 2 2 2 2 4 4 2 1
+OrbOcc        # occupation of the orbital groups of target
+ 2 2 2 2 4 4 2 0
+SpinDeg 2         # Spin degeneracy of the total scattering state (=1 singlet)
+TargSym 'SG'      # Symmetry of the target state
+TargSpinDeg 1     # Target spin degeneracy
+InitSym 'SU'      # Initial state symmetry
+InitSpinDeg 2     # Initial state spin degeneracy
+IPot 3.1    # IPot, ionization potential, Koopmans
+
+Convert '$pe/tests/test55.molden2012' 'molden2012'
+GetBlms
+#
+ScatEng 1. 40.
+ExpOrb
+Exit
+
+ScatSym     'SG' # Scattering symmetry of total final state
+ScatContSym 'SG' # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+FileName 'MatrixElements' 'test55SG.dat' 'REWIND'
+PhIon
+GetCro
+CalcInt 'DipoleOp' 1 'PlaneWv' 12
+FileName 'MatrixElements' 'test55PWSG.dat' 'REWIND'
+PhIonPlaneWv
+GetCro
+
+ScatSym     'PG' # Scattering symmetry of total final state
+ScatContSym 'PG' # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+FileName 'MatrixElements' 'test55PG.dat' 'REWIND'
+PhIon
+GetCro
+CalcInt 'DipoleOp' 1 'PlaneWv' 12
+FileName 'MatrixElements' 'test55PWPG.dat' 'REWIND'
+PhIonPlaneWv
+GetCro
+GetCro 'test55SG.dat' 'test55PG.dat'
+GetCro 'test55PWSG.dat' 'test55PWPG.dat'
+

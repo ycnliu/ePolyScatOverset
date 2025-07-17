@@ -1,0 +1,22 @@
+***,SF6 gs
+
+R = 1.5602262 ANG
+T = 90.0 DEGREES
+
+cartesian
+
+geometry={
+S1;
+F1, S1, R;
+F2, S1, R, F1, T;
+F3, S1, R, F1, T, F2, T,  1;
+F4, S1, R, F1, T, F2, T, -1;
+F5, S1, R, F1, T, F3, T,  1;
+F6, S1, R, F2, T, F3, T, -1;
+}
+
+basis=avtz
+{rhf;
+wf,70,1,0;}
+put,molden,sf6.molden;
+

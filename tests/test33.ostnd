@@ -1,0 +1,3038 @@
+Execution on n0180.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  20:27:12.261 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test33
+#
+# BF3 Three dimensional vibrational average with non-linear fit
+#
+
+IPot 21.5    # IPot, ionization potential
+VibAveNInp
+  3  2 # DimModes number of modes, VibType = 1 for harmonic, = 2 for Morse expansion
+  11 11 11  # NumXV - number of points in each dimension used to define the geometries of the photoionization calcs
+
+  -0.18 -0.14 -.10 -.06 -.02 0. .02 .06 .10 0.14 0.18  # XV - computed matrix elements are defined
+  -0.18 -0.14 -.10 -.06 -.02 0. .02 .06 .10 0.14 0.18  # on a direct product grid of the points given
+  -0.18 -0.14 -.10 -.06 -.02 0. .02 .06 .10 0.14 0.18  # This is the "X" coordinate system
+
+  -9.728536137257   16.8503188729994  13.3540794094839 # XtoQDef - transformation from the "X"
+  19.457072274514    0.0000000000000  13.3540794094839
+  -9.728536137257  -16.8503188729994  13.3540794094839
+
+  1558.0  1558.0  949.4  # OmegaQDef, frequencies used in the calculation of the "Q" coordinates
+
+  0.0 0.0 0.0     # XEIni, position of the minimum for the initial states in the "X" coordinate system
+  1463. 1463. 888.0  # OmegaIni, cm-1, frequency of initial state vibrations, or of the harmonic basis in the Morse
+                     # potential calculation
+
+2.153587085E-02   2.153587085E-02  2.153587085E-02 # XEIon, displacement to get ion normal modes in the "X" coordinates
+  2040.6 2040.6 806.6 # OmegaIon, cm-1, frequency of ion normal modes
+
+  7  7  7  # VMax_Ini, number of harmonic oscillator functions in each "Q" mode used in the initial state
+  7  7  7  # VMax_Ion, number of basis functions in the ion state.
+   1  8    # Nv_Ini_Out, Nv_Ion_Out, number of vibrational state, ordered by eigen value to compute the
+           # matrix elements over for the initial and ion states
+
+   20 # number of terms in the initial state potential
+
+      2.710681030E+00    2.710681030E+00    2.710681030E+00  # beta
+     -5.982498928E-03   -5.982498928E-03   -5.982498928E-03  # x0
+
+      2.535000732E+01       0       0       0
+     -1.048578508E+03       1       0       0
+     -1.048578508E+03       0       1       0
+     -1.048578508E+03       0       0       1
+      4.954999915E+04       2       0       0
+      4.954999915E+04       0       2       0
+      4.954999915E+04       0       0       2
+     -4.378422603E+02       3       0       0
+     -4.378422603E+02       0       3       0
+     -4.378422603E+02       0       0       3
+     -1.714647099E+04       1       1       0
+     -1.714647099E+04       0       1       1
+     -1.714647099E+04       1       0       1
+     -3.834751155E+04       1       1       1
+      1.053988196E+04       2       1       0
+      1.053988196E+04       2       0       1
+      1.053988196E+04       1       2       0
+      1.053988196E+04       0       2       1
+      1.053988196E+04       1       0       2
+      1.053988196E+04       0       1       2
+
+
+   20   # number of terms in the ion potential
+    3.068549333E+00    3.068549333E+00    3.068549333E+00  # beta
+    1.233176510E-01    1.233176510E-01    1.233176510E-01    # x0
+
+      5.029058022E+03       0       0       0
+      9.543881011E+03       1       0       0
+      9.543881011E+03       0       1       0
+      9.543881011E+03       0       0       1
+      3.971616237E+04       2       0       0
+      3.971616237E+04       0       2       0
+      3.971616237E+04       0       0       2
+     -1.297849938E+03       3       0       0
+     -1.297849938E+03       0       3       0
+     -1.297849938E+03       0       0       3
+     -2.506928176E+04       1       1       0
+     -2.506928176E+04       0       1       1
+     -2.506928176E+04       1       0       1
+     -5.223755821E+04       1       1       1
+      1.083725651E+04       2       1       0
+      1.083725651E+04       2       0       1
+      1.083725651E+04       1       2       0
+      1.083725651E+04       0       2       1
+      1.083725651E+04       1       0       2
+      1.083725651E+04       0       1       2
+
+   64  -.2 .4  # grid for vibrational integration
+   64  -.2 .4
+   64  -.2 .4
+     80.       # parameter for cutoff function
+
+   55          # NumXVTotal, number of geometries considered
+    1  6  6
+    2  6  6
+    3  6  6
+    4  6  6
+    5  6  6
+    7  6  6
+    8  6  6
+    9  6  6
+   10  6  6
+   11  6  6
+
+    6  1  6
+    6  2  6
+    6  3  6
+    6  4  6
+    6  5  6
+    6  7  6
+    6  8  6
+    6  9  6
+    6 10  6
+    6 11  6
+
+    6  6  1
+    6  6  2
+    6  6  3
+    6  6  4
+    6  6  5
+    6  6  7
+    6  6  8
+    6  6  9
+    6  6 10
+    6  6 11
+
+    3  3  3
+    4  4  4
+    5  5  5
+    6  6  6
+    7  7  7
+    8  8  8
+    9  9  9
+
+    3  3  9
+    4  4  8
+    5  5  7
+    7  7  5
+    8  8  4
+    9  9  3
+
+    3  9  3
+    4  8  4
+    5  7  5
+    7  5  7
+    8  4  8
+    9  3  9
+
+    9  3  3
+    8  4  4
+    7  5  5
+    5  7  7
+    4  8  8
+    3  9  9
+
+   1 # X_nType = 1 for Gaussian quadrature
+   16 -.15 .15
+   16 -.15 .15
+   16 -.15 .15
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy' -1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy' -1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy' -1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy' -1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy'  1.0 2 2 270. 3 150.
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy' -1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy' -1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy' -1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy' -1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy'  1.0 2 2 270. 3  30.
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy' -1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy' -1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy' -1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy' -1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy'  1.0 2 2 270. 3 270.
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d10.idy'  1.0 0
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d06.idy'  1.0 0
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d02.idy'  1.0 0
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d00.idy'  1.0 2 1 180. 3 180.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d02.idy'  1.0 2 1 180. 3 180.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d06.idy'  1.0 2 1 180. 3 180.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d10.idy'  1.0 2 1 180. 3 180.
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy'  1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy' -1.0 2 2 270. 3 270.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy' -1.0 2 2 270. 3 270.
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy'  1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy' -1.0 2 2 270. 3  30.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy' -1.0 2 2 270. 3  30.
+
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy'  1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy' -1.0 2 2 270. 3 150.
+  '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy' -1.0 2 2 270. 3 150.
+
+   1 30 0 6 0  # NFitStep, NLIterMax, WeightsNLFlag, WeightsIdyFlag, WeightsEnergy
+
+   7 1000000.   # only use matrix element 7, 101, 4, 97, 2, 94 to optimize
+ 101 1000000.
+   4 1000000.
+  97 1000000.
+   2 1000000.
+  94 1000000.
+
+
+ 2
+  10  4
+ 1 1  1.0           0 0 0 0 1
+ 1 1  1.0           0 1 0 0 1
+ 1 1  1.0           0 0 1 0 1
+ 1 1  1.0           0 0 0 1 1
+ 1 1  1.0           0 2 0 0 1
+ 1 1  1.0           0 0 2 0 1
+ 1 1  1.0           0 0 0 2 1
+ 1 1  1.0           0 1 1 0 1
+ 1 1  1.0           0 1 0 1 1
+ 1 1  1.0           0 0 1 1 1
+ 1 1  1.0           1 0 0 0 0
+ 1 1  1.0           0 0 0 0 1
+ 3 1  1.0           0 1 0 0  1.0           0 0 1 0   1.0           0 0 0 1 1
+ 6 -1 2.0  0 2 0 0   2.0 0 0 2 0   2.0  0 0 0 2 -2.0 0 1 1 0 -2.0 0 1 0 1 -2.0 0 0 1 1   1
+  10   4
+ 1 1  1.0           0 0 0 0 1
+ 1 1  1.0           0 1 0 0 1
+ 1 1  1.0           0 0 1 0 1
+ 1 1  1.0           0 0 0 1 1
+ 1 1  1.0           0 2 0 0 1
+ 1 1  1.0           0 0 2 0 1
+ 1 1  1.0           0 0 0 2 1
+ 1 1  1.0           0 1 1 0 1
+ 1 1  1.0           0 1 0 1 1
+ 1 1  1.0           0 0 1 1 1
+ 1 1  1.0           1 0 0 0 0
+ 1 1  1.0           0 0 0 0 -1 1 2
+ 3 1  1.0           0 1 0 0  1.0           0 0 1 0   1.0           0 0 0 1   -1 1 3
+ 6 -1 2.0  0 2 0 0   2.0 0 0 2 0   2.0  0 0 0 2 -2.0 0 1 1 0 -2.0 0 1 0 1 -2.0 0 0 1 1   -1 -1 4
+
+    0.1000000000E+01   0.0000000000E+00
+   -0.8041253604E+01  -0.2524387281E+01
+    0.1134731500E+02   0.1510723883E+01
+   -0.1364901543E+02  -0.2546985586E+01
+    0.1000000000E+01   0.0000000000E+00
+   -0.8041253604E+01  -0.2524387281E+01
+    0.1134731500E+02   0.1510723883E+01
+    0.1364901543E+02   0.2546985586E+01
+
+  # reference parameters
+
+    0.1000000000E+01   0.0000000000E+00
+   -0.8041253604E+01  -0.2524387281E+01
+    0.1134731500E+02   0.1510723883E+01
+   -0.1364901543E+02  -0.2546985586E+01
+    0.1000000000E+01   0.0000000000E+00
+   -0.8041253604E+01  -0.2524387281E+01
+    0.1134731500E+02   0.1510723883E+01
+    0.1364901543E+02   0.2546985586E+01
+
+ 16  -4
+ 1 1 1.0  1 1 1 # 1
+ 1 1 1.0  2 1 1 # 2
+ 1 1 1.0  1 2 1 # 3
+ 1 1 1.0  1 1 2 # 4
+ 1 1 1.0  3 1 1 # 5
+ 1 1 1.0  1 3 1 # 6
+ 1 1 1.0  1 1 3 # 7
+ 1 1 1.0  2 2 1 # 8
+ 1 1 1.0  2 1 2 # 9
+ 1 1 1.0  1 2 2 # 10
+ 1 1 1.0  4 1 1 # 11
+ 1 1 1.0  1 4 1 # 12
+ 1 1 1.0  1 1 4 # 13
+ 2 1 1.0  3 2 1  1.0  1 2 3 # 14
+ 2 1 1.0  3 1 2  1.0  1 3 2 # 15
+ 2 1 1.0  2 1 3  1.0  2 3 1 # 16
+
+ 0.006  0.04   #  EpsNLFit, Gamma
+
+  3 1. 28.5   # do all energies  # usually 301
+
+  4  10  1000. 3.0  # interp type (Spline), OrderX EpsNLFit, WeightsMax for last interpolation
+ 1 1 1.0  1 1 1
+ 1 1 1.0  2 1 1
+ 1 1 1.0  1 2 1
+ 1 1 1.0  1 1 2
+ 1 1 1.0  3 1 1
+ 1 1 1.0  1 3 1
+ 1 1 1.0  1 1 3
+ 1 1 1.0  2 2 1
+ 1 1 1.0  2 1 2
+ 1 1 1.0  1 2 2
+   7 0.1  # number of rays, cut off for smallest spline sample
+  1.0  1.0  1.0
+  1.0  0.0  0.0
+  0.0  1.0  0.0
+  0.0  0.0  1.0
+ -1.0  1.0  1.0
+  1.0 -1.0  1.0
+  1.0  1.0 -1.0
+
+VibAveN
++ End of input reached
++ Data Record IPot - 21.5
++ Data Record VibAveNInp
++ 3  2 / 11 11 11 / -0.18 -0.14 -.10 -.06 -.02 0. .02 .06 .10 0.14 0.18
++ -0.18 -0.14 -.10 -.06 -.02 0. .02 .06 .10 0.14 0.18 / -0.18 -0.14 -.10 -.06 -.02 0. .02 .06 .10 0.14 0.18
++ -9.728536137257   16.8503188729994  13.3540794094839 / 19.457072274514    0.0000000000000  13.3540794094839
++ -9.728536137257  -16.8503188729994  13.3540794094839 / 1558.0  1558.0  949.4 / 0.0 0.0 0.0 / 1463. 1463. 888.0
++ 2.153587085E-02   2.153587085E-02  2.153587085E-02 / 2040.6 2040.6 806.6 / 7  7  7 / 7  7  7 / 1  8 / 20
++ 2.710681030E+00    2.710681030E+00    2.710681030E+00 / -5.982498928E-03   -5.982498928E-03   -5.982498928E-03
++ 2.535000732E+01       0       0       0 / -1.048578508E+03       1       0       0
++ -1.048578508E+03       0       1       0 / -1.048578508E+03       0       0       1
++ 4.954999915E+04       2       0       0 / 4.954999915E+04       0       2       0
++ 4.954999915E+04       0       0       2 / -4.378422603E+02       3       0       0
++ -4.378422603E+02       0       3       0 / -4.378422603E+02       0       0       3
++ -1.714647099E+04       1       1       0 / -1.714647099E+04       0       1       1
++ -1.714647099E+04       1       0       1 / -3.834751155E+04       1       1       1
++ 1.053988196E+04       2       1       0 / 1.053988196E+04       2       0       1
++ 1.053988196E+04       1       2       0 / 1.053988196E+04       0       2       1
++ 1.053988196E+04       1       0       2 / 1.053988196E+04       0       1       2 / 20
++ 3.068549333E+00    3.068549333E+00    3.068549333E+00 / 1.233176510E-01    1.233176510E-01    1.233176510E-01
++ 5.029058022E+03       0       0       0 / 9.543881011E+03       1       0       0
++ 9.543881011E+03       0       1       0 / 9.543881011E+03       0       0       1
++ 3.971616237E+04       2       0       0 / 3.971616237E+04       0       2       0
++ 3.971616237E+04       0       0       2 / -1.297849938E+03       3       0       0
++ -1.297849938E+03       0       3       0 / -1.297849938E+03       0       0       3
++ -2.506928176E+04       1       1       0 / -2.506928176E+04       0       1       1
++ -2.506928176E+04       1       0       1 / -5.223755821E+04       1       1       1
++ 1.083725651E+04       2       1       0 / 1.083725651E+04       2       0       1
++ 1.083725651E+04       1       2       0 / 1.083725651E+04       0       2       1
++ 1.083725651E+04       1       0       2 / 1.083725651E+04       0       1       2 / 64  -.2 .4 / 64  -.2 .4
++ 64  -.2 .4 / 80. / 55 / 1  6  6 / 2  6  6 / 3  6  6 / 4  6  6 / 5  6  6 / 7  6  6 / 8  6  6 / 9  6  6 / 10  6  6
++ 11  6  6 / 6  1  6 / 6  2  6 / 6  3  6 / 6  4  6 / 6  5  6 / 6  7  6 / 6  8  6 / 6  9  6 / 6 10  6 / 6 11  6 / 6  6  1
++ 6  6  2 / 6  6  3 / 6  6  4 / 6  6  5 / 6  6  7 / 6  6  8 / 6  6  9 / 6  6 10 / 6  6 11 / 3  3  3 / 4  4  4 / 5  5  5
++ 6  6  6 / 7  7  7 / 8  8  8 / 9  9  9 / 3  3  9 / 4  4  8 / 5  5  7 / 7  7  5 / 8  8  4 / 9  9  3 / 3  9  3 / 4  8  4
++ 5  7  5 / 7  5  7 / 8  4  8 / 9  3  9 / 9  3  3 / 8  4  4 / 7  5  5 / 5  7  7 / 4  8  8 / 3  9  9 / 1 / 16 -.15 .15
++ 16 -.15 .15 / 16 -.15 .15
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy' -1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy' -1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy' -1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy' -1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy' -1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy' -1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy' -1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy' -1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy' -1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy' -1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy' -1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy' -1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d10.idy'  1.0 0
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d06.idy'  1.0 0
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d02.idy'  1.0 0
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d00.idy'  1.0 2 1 180. 3 180.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d02.idy'  1.0 2 1 180. 3 180.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d06.idy'  1.0 2 1 180. 3 180.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d10.idy'  1.0 2 1 180. 3 180.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy'  1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy' -1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy' -1.0 2 2 270. 3 270.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy'  1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy' -1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy' -1.0 2 2 270. 3  30.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy'  1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy' -1.0 2 2 270. 3 150.
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy' -1.0 2 2 270. 3 150. / 1 30 0 6 0
++ 7 1000000. / 101 1000000. / 4 1000000. / 97 1000000. / 2 1000000. / 94 1000000. / 2 / 10  4
++ 1 1  1.0           0 0 0 0 1 / 1 1  1.0           0 1 0 0 1 / 1 1  1.0           0 0 1 0 1
++ 1 1  1.0           0 0 0 1 1 / 1 1  1.0           0 2 0 0 1 / 1 1  1.0           0 0 2 0 1
++ 1 1  1.0           0 0 0 2 1 / 1 1  1.0           0 1 1 0 1 / 1 1  1.0           0 1 0 1 1
++ 1 1  1.0           0 0 1 1 1 / 1 1  1.0           1 0 0 0 0 / 1 1  1.0           0 0 0 0 1
++ 3 1  1.0           0 1 0 0  1.0           0 0 1 0   1.0           0 0 0 1 1
++ 6 -1 2.0  0 2 0 0   2.0 0 0 2 0   2.0  0 0 0 2 -2.0 0 1 1 0 -2.0 0 1 0 1 -2.0 0 0 1 1   1 / 10   4
++ 1 1  1.0           0 0 0 0 1 / 1 1  1.0           0 1 0 0 1 / 1 1  1.0           0 0 1 0 1
++ 1 1  1.0           0 0 0 1 1 / 1 1  1.0           0 2 0 0 1 / 1 1  1.0           0 0 2 0 1
++ 1 1  1.0           0 0 0 2 1 / 1 1  1.0           0 1 1 0 1 / 1 1  1.0           0 1 0 1 1
++ 1 1  1.0           0 0 1 1 1 / 1 1  1.0           1 0 0 0 0 / 1 1  1.0           0 0 0 0 -1 1 2
++ 3 1  1.0           0 1 0 0  1.0           0 0 1 0   1.0           0 0 0 1   -1 1 3
++ 6 -1 2.0  0 2 0 0   2.0 0 0 2 0   2.0  0 0 0 2 -2.0 0 1 1 0 -2.0 0 1 0 1 -2.0 0 0 1 1   -1 -1 4
++ 0.1000000000E+01   0.0000000000E+00 / -0.8041253604E+01  -0.2524387281E+01 / 0.1134731500E+02   0.1510723883E+01
++ -0.1364901543E+02  -0.2546985586E+01 / 0.1000000000E+01   0.0000000000E+00 / -0.8041253604E+01  -0.2524387281E+01
++ 0.1134731500E+02   0.1510723883E+01 / 0.1364901543E+02   0.2546985586E+01 / 0.1000000000E+01   0.0000000000E+00
++ -0.8041253604E+01  -0.2524387281E+01 / 0.1134731500E+02   0.1510723883E+01 / -0.1364901543E+02  -0.2546985586E+01
++ 0.1000000000E+01   0.0000000000E+00 / -0.8041253604E+01  -0.2524387281E+01 / 0.1134731500E+02   0.1510723883E+01
++ 0.1364901543E+02   0.2546985586E+01 / 16  -4 / 1 1 1.0  1 1 1 / 1 1 1.0  2 1 1 / 1 1 1.0  1 2 1 / 1 1 1.0  1 1 2
++ 1 1 1.0  3 1 1 / 1 1 1.0  1 3 1 / 1 1 1.0  1 1 3 / 1 1 1.0  2 2 1 / 1 1 1.0  2 1 2 / 1 1 1.0  1 2 2 / 1 1 1.0  4 1 1
++ 1 1 1.0  1 4 1 / 1 1 1.0  1 1 4 / 2 1 1.0  3 2 1  1.0  1 2 3 / 2 1 1.0  3 1 2  1.0  1 3 2 / 2 1 1.0  2 1 3  1.0  2 3 1
++ 0.006  0.04 / 3 1. 28.5 / 4  10  1000. 3.0 / 1 1 1.0  1 1 1 / 1 1 1.0  2 1 1 / 1 1 1.0  1 2 1 / 1 1 1.0  1 1 2
++ 1 1 1.0  3 1 1 / 1 1 1.0  1 3 1 / 1 1 1.0  1 1 3 / 1 1 1.0  2 2 1 / 1 1 1.0  2 1 2 / 1 1 1.0  1 2 2 / 7 0.1
++ 1.0  1.0  1.0 / 1.0  0.0  0.0 / 0.0  1.0  0.0 / 0.0  0.0  1.0 / -1.0  1.0  1.0 / 1.0 -1.0  1.0 / 1.0  1.0 -1.0
+
++ Command VibAveN
++ 
+
+----------------------------------------------------------------------
+VibAveN - compute photoionization cross section with vibrational averaging with N modes
+----------------------------------------------------------------------
+
+Ionization potential (IPot) =     21.5000 eV
+Use all asympotic partial waves in continuum (LMaxK) =   -1
+Number modes and generalized coordinates (DimModes) =    3
+Treatement of vibrational modes (VibType) (1 for harmonic, 2 for morse expansion) =    2
+Number of values of the generalized coordinate   1 =    11
+Number of values of the generalized coordinate   2 =    11
+Number of values of the generalized coordinate   3 =    11
+Coord     1  Values of X:
+ -0.18000 -0.14000 -0.10000 -0.06000 -0.02000  0.00000  0.02000  0.06000
+  0.10000  0.14000  0.18000
+Coord     2  Values of X:
+ -0.18000 -0.14000 -0.10000 -0.06000 -0.02000  0.00000  0.02000  0.06000
+  0.10000  0.14000  0.18000
+Coord     3  Values of X:
+ -0.18000 -0.14000 -0.10000 -0.06000 -0.02000  0.00000  0.02000  0.06000
+  0.10000  0.14000  0.18000
+Transformation from input coordinates to reference normal modes (Q(Def) = T*(X-Xe))
+Normal Mode     1 -0.97285361E+01  0.19457072E+02 -0.97285361E+01
+Normal Mode     2  0.16850319E+02  0.00000000E+00 -0.16850319E+02
+Normal Mode     3  0.13354079E+02  0.13354079E+02  0.13354079E+02
+Oscillator frequency in the used to define Q(Def) coordinates for mode     1 =  0.15580000E+04 cm-1
+Oscillator frequency in the used to define Q(Def) coordinates for mode     2 =  0.15580000E+04 cm-1
+Oscillator frequency in the used to define Q(Def) coordinates for mode     3 =  0.94940000E+03 cm-1
+Minimum of the initial state in the X( 1) coordintae =  0.00000000E+00 Angs
+Minimum of the initial state in the X( 2) coordintae =  0.00000000E+00 Angs
+Minimum of the initial state in the X( 3) coordintae =  0.00000000E+00 Angs
+Oscillator frequency in the initial state for mode     1 =  0.14630000E+04 cm-1
+Oscillator frequency in the initial state for mode     2 =  0.14630000E+04 cm-1
+Oscillator frequency in the initial state for mode     3 =  0.88800000E+03 cm-1
+Minimum of the ion state in the X( 1) coordintae =  0.21535871E-01 Angs
+Minimum of the ion state in the X( 2) coordintae =  0.21535871E-01 Angs
+Minimum of the ion state in the X( 3) coordintae =  0.21535871E-01 Angs
+Oscillator frequency in the ion state for mode     1 =  0.20406000E+04 cm-1
+Oscillator frequency in the ion state for mode     2 =  0.20406000E+04 cm-1
+Oscillator frequency in the ion state for mode     3 =  0.80660000E+03 cm-1
+Transformation from input coordinates to initial state normal  modes (Q(Ini) = T*(X-Xe))
+Normal Mode     1 -0.94272697E+01  0.18854539E+02 -0.94272697E+01
+Normal Mode     2  0.16328510E+02  0.00000000E+00 -0.16328510E+02
+Normal Mode     3  0.12915042E+02  0.12915042E+02  0.12915042E+02
+Transformation from input coordinates to ion state normal modes (Q(Ion) = T*(X-Xe))
+Normal Mode     1 -0.11133782E+02  0.22267564E+02 -0.11133782E+02
+Normal Mode     2  0.19284276E+02  0.00000000E+00 -0.19284276E+02
+Normal Mode     3  0.12308878E+02  0.12308878E+02  0.12308878E+02
+Maximum vibrational quantum number in each normal mode for the initial state =    7    7    7
+Maximum vibrational quantum number in each normal mode for the ion state =    7    7    7
+Number of the initial states (Nv_Ini_Out) =    1  and of ion states (Nv_Ion_Out) =    8
+Number of terms in the initial state potential =   20
+Initial state morse potential exponents
+  0.27106810E+01  0.27106810E+01  0.27106810E+01
+Initial state morse potential expansion point
+ -0.59824989E-02 -0.59824989E-02 -0.59824989E-02
+Initial state potential definition
+  0.25350007E+02    0    0    0
+ -0.10485785E+04    1    0    0
+ -0.10485785E+04    0    1    0
+ -0.10485785E+04    0    0    1
+  0.49549999E+05    2    0    0
+  0.49549999E+05    0    2    0
+  0.49549999E+05    0    0    2
+ -0.43784226E+03    3    0    0
+ -0.43784226E+03    0    3    0
+ -0.43784226E+03    0    0    3
+ -0.17146471E+05    1    1    0
+ -0.17146471E+05    0    1    1
+ -0.17146471E+05    1    0    1
+ -0.38347512E+05    1    1    1
+  0.10539882E+05    2    1    0
+  0.10539882E+05    2    0    1
+  0.10539882E+05    1    2    0
+  0.10539882E+05    0    2    1
+  0.10539882E+05    1    0    2
+  0.10539882E+05    0    1    2
+Number of terms in the ion state potential =   20
+Ion state morse potential exponents
+  0.30685493E+01  0.30685493E+01  0.30685493E+01
+Ion state morse potential expansion point
+  0.12331765E+00  0.12331765E+00  0.12331765E+00
+Iontial state potential definition
+  0.50290580E+04    0    0    0
+  0.95438810E+04    1    0    0
+  0.95438810E+04    0    1    0
+  0.95438810E+04    0    0    1
+  0.39716162E+05    2    0    0
+  0.39716162E+05    0    2    0
+  0.39716162E+05    0    0    2
+ -0.12978499E+04    3    0    0
+ -0.12978499E+04    0    3    0
+ -0.12978499E+04    0    0    3
+ -0.25069282E+05    1    1    0
+ -0.25069282E+05    0    1    1
+ -0.25069282E+05    1    0    1
+ -0.52237558E+05    1    1    1
+  0.10837257E+05    2    1    0
+  0.10837257E+05    2    0    1
+  0.10837257E+05    1    2    0
+  0.10837257E+05    0    2    1
+  0.10837257E+05    1    0    2
+  0.10837257E+05    0    1    2
+Use Gaussian quadrature grid in the computation of the vibrational states
+For mode   1  Number of Points =   64  First point = -0.20000000E+00  Last Point =  0.40000000E+00
+For mode   2  Number of Points =   64  First point = -0.20000000E+00  Last Point =  0.40000000E+00
+For mode   3  Number of Points =   64  First point = -0.20000000E+00  Last Point =  0.40000000E+00
+Exponetial parameter for cutoff functions used on the harmonic oscillator functions  (alpha) =  0.80000000E+02
+Number of different geometries at which the cross sections have been computed (NumXVTotal) =   55
+If NumXVTotal == 0) then only do vibrational part of the problem
+If NumXVTotal == -1) then use direct product grid
+Coordinates for each geometry
+geometry     1  indices =  1  6  6
+geometry     2  indices =  2  6  6
+geometry     3  indices =  3  6  6
+geometry     4  indices =  4  6  6
+geometry     5  indices =  5  6  6
+geometry     6  indices =  7  6  6
+geometry     7  indices =  8  6  6
+geometry     8  indices =  9  6  6
+geometry     9  indices = 10  6  6
+geometry    10  indices = 11  6  6
+geometry    11  indices =  6  1  6
+geometry    12  indices =  6  2  6
+geometry    13  indices =  6  3  6
+geometry    14  indices =  6  4  6
+geometry    15  indices =  6  5  6
+geometry    16  indices =  6  7  6
+geometry    17  indices =  6  8  6
+geometry    18  indices =  6  9  6
+geometry    19  indices =  6 10  6
+geometry    20  indices =  6 11  6
+geometry    21  indices =  6  6  1
+geometry    22  indices =  6  6  2
+geometry    23  indices =  6  6  3
+geometry    24  indices =  6  6  4
+geometry    25  indices =  6  6  5
+geometry    26  indices =  6  6  7
+geometry    27  indices =  6  6  8
+geometry    28  indices =  6  6  9
+geometry    29  indices =  6  6 10
+geometry    30  indices =  6  6 11
+geometry    31  indices =  3  3  3
+geometry    32  indices =  4  4  4
+geometry    33  indices =  5  5  5
+geometry    34  indices =  6  6  6
+geometry    35  indices =  7  7  7
+geometry    36  indices =  8  8  8
+geometry    37  indices =  9  9  9
+geometry    38  indices =  3  3  9
+geometry    39  indices =  4  4  8
+geometry    40  indices =  5  5  7
+geometry    41  indices =  7  7  5
+geometry    42  indices =  8  8  4
+geometry    43  indices =  9  9  3
+geometry    44  indices =  3  9  3
+geometry    45  indices =  4  8  4
+geometry    46  indices =  5  7  5
+geometry    47  indices =  7  5  7
+geometry    48  indices =  8  4  8
+geometry    49  indices =  9  3  9
+geometry    50  indices =  9  3  3
+geometry    51  indices =  8  4  4
+geometry    52  indices =  7  5  5
+geometry    53  indices =  5  7  7
+geometry    54  indices =  4  8  8
+geometry    55  indices =  3  9  9
+X_nType =    1  use Gauss quadrature
+For mode   1  Number of Points =   16  First point = -0.15000000E+00  Last Point =  0.15000000E+00
+For mode   2  Number of Points =   16  First point = -0.15000000E+00  Last Point =  0.15000000E+00
+For mode   3  Number of Points =   16  First point = -0.15000000E+00  Last Point =  0.15000000E+00
+Geom     1  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy
+XV = -0.18000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     2  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy
+XV = -0.14000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     3  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy
+XV = -0.10000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     4  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy
+XV = -0.60000000E-01  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     5  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy
+XV = -0.20000000E-01  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     6  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy
+XV =  0.20000000E-01  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     7  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy
+XV =  0.60000000E-01  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     8  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy
+XV =  0.10000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom     9  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy
+XV =  0.14000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    10  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy
+XV =  0.18000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    11  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy
+XV =  0.00000000E+00 -0.18000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    12  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy
+XV =  0.00000000E+00 -0.14000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    13  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy
+XV =  0.00000000E+00 -0.10000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    14  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy
+XV =  0.00000000E+00 -0.60000000E-01  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    15  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy
+XV =  0.00000000E+00 -0.20000000E-01  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    16  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy
+XV =  0.00000000E+00  0.20000000E-01  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    17  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy
+XV =  0.00000000E+00  0.60000000E-01  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    18  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy
+XV =  0.00000000E+00  0.10000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    19  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy
+XV =  0.00000000E+00  0.14000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    20  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy
+XV =  0.00000000E+00  0.18000000E+00  0.00000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    21  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy
+XV =  0.00000000E+00  0.00000000E+00 -0.18000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    22  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy
+XV =  0.00000000E+00  0.00000000E+00 -0.14000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    23  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy
+XV =  0.00000000E+00  0.00000000E+00 -0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    24  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy
+XV =  0.00000000E+00  0.00000000E+00 -0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    25  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy
+XV =  0.00000000E+00  0.00000000E+00 -0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    26  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy
+XV =  0.00000000E+00  0.00000000E+00  0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    27  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy
+XV =  0.00000000E+00  0.00000000E+00  0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    28  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy
+XV =  0.00000000E+00  0.00000000E+00  0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    29  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy
+XV =  0.00000000E+00  0.00000000E+00  0.14000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    30  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy
+XV =  0.00000000E+00  0.00000000E+00  0.18000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    31  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d10.idy
+XV = -0.10000000E+00 -0.10000000E+00 -0.10000000E+00
+Perform no rotations
+Geom    32  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d06.idy
+XV = -0.60000000E-01 -0.60000000E-01 -0.60000000E-01
+Perform no rotations
+Geom    33  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d02.idy
+XV = -0.20000000E-01 -0.20000000E-01 -0.20000000E-01
+Perform no rotations
+Geom    34  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d00.idy
+XV =  0.00000000E+00  0.00000000E+00  0.00000000E+00
+Perform     2 rotations
+    1 180.00000
+    3 180.00000
+Geom    35  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d02.idy
+XV =  0.20000000E-01  0.20000000E-01  0.20000000E-01
+Perform     2 rotations
+    1 180.00000
+    3 180.00000
+Geom    36  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d06.idy
+XV =  0.60000000E-01  0.60000000E-01  0.60000000E-01
+Perform     2 rotations
+    1 180.00000
+    3 180.00000
+Geom    37  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d10.idy
+XV =  0.10000000E+00  0.10000000E+00  0.10000000E+00
+Perform     2 rotations
+    1 180.00000
+    3 180.00000
+Geom    38  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy
+XV = -0.10000000E+00 -0.10000000E+00  0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    39  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy
+XV = -0.60000000E-01 -0.60000000E-01  0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    40  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy
+XV = -0.20000000E-01 -0.20000000E-01  0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    41  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy
+XV =  0.20000000E-01  0.20000000E-01 -0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    42  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy
+XV =  0.60000000E-01  0.60000000E-01 -0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    43  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy
+XV =  0.10000000E+00  0.10000000E+00 -0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 270.00000
+Geom    44  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy
+XV = -0.10000000E+00  0.10000000E+00 -0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    45  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy
+XV = -0.60000000E-01  0.60000000E-01 -0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    46  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy
+XV = -0.20000000E-01  0.20000000E-01 -0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    47  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy
+XV =  0.20000000E-01 -0.20000000E-01  0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    48  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy
+XV =  0.60000000E-01 -0.60000000E-01  0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    49  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy
+XV =  0.10000000E+00 -0.10000000E+00  0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3  30.00000
+Geom    50  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy
+XV =  0.10000000E+00 -0.10000000E+00 -0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    51  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy
+XV =  0.60000000E-01 -0.60000000E-01 -0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    52  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy
+XV =  0.20000000E-01 -0.20000000E-01 -0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    53  Phase Fix =   1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy
+XV = -0.20000000E-01  0.20000000E-01  0.20000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    54  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy
+XV = -0.60000000E-01  0.60000000E-01  0.60000000E-01
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Geom    55  Phase Fix =  -1.000  File is = /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy
+XV = -0.10000000E+00  0.10000000E+00  0.10000000E+00
+Perform     2 rotations
+    2 270.00000
+    3 150.00000
+Number of steps in the fitting procedure =    1
+Maximum number of iterations in the non-linear optimization =      30
+Flag to indicate that differnt weights for different points are needed =    0
+Flag to indicate the number of matrix elements that get weights other than 1.0 =    6
+Flag to indicate number of energies that get weights other than 1.0 =    0
+Weights in non-linear fitting different than 1.0 by matrixelement
+    7  0.10000000E+07  101  0.10000000E+07    4  0.10000000E+07   97  0.10000000E+07
+    2  0.10000000E+07   94  0.10000000E+07
+Number of terms in the global fitting function at each step =    2
+Term     1
+Number of factors in the numerator =   10
+Number of factors in the denominator =    4
+Term     1 Numerator Factor     1 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  0
+Term     1 Numerator Factor     2 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  0  0
+Term     1 Numerator Factor     3 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  1  0
+Term     1 Numerator Factor     4 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  1
+Term     1 Numerator Factor     5 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  2  0  0
+Term     1 Numerator Factor     6 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  2  0
+Term     1 Numerator Factor     7 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  2
+Term     1 Numerator Factor     8 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  1  0
+Term     1 Numerator Factor     9 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  0  1
+Term     1 Numerator Factor    10 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  1  1
+Term     1 Denominator Factor     1 vary step =  0 n =    1  pow =    1
+ Value =  0.10000000E+01  0.00000000E+00  Reference Value =  0.10000000E+01  0.00000000E+00
+   1  Coef =   1.00000 exp for E =  1  exp for modes =  0  0  0
+Term     1 Denominator Factor     2 vary step =  1 n =    1  pow =    1
+ Value = -0.80412536E+01 -0.25243873E+01  Reference Value = -0.80412536E+01 -0.25243873E+01
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  0
+Term     1 Denominator Factor     3 vary step =  1 n =    3  pow =    1
+ Value =  0.11347315E+02  0.15107239E+01  Reference Value =  0.11347315E+02  0.15107239E+01
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  0  0
+   2  Coef =   1.00000 exp for E =  0  exp for modes =  0  1  0
+   3  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  1
+Term     1 Denominator Factor     4 vary step =  1 n =    6  pow =   -1
+ Value = -0.13649015E+02 -0.25469856E+01  Reference Value = -0.13649015E+02 -0.25469856E+01
+   1  Coef =   2.00000 exp for E =  0  exp for modes =  2  0  0
+   2  Coef =   2.00000 exp for E =  0  exp for modes =  0  2  0
+   3  Coef =   2.00000 exp for E =  0  exp for modes =  0  0  2
+   4  Coef =  -2.00000 exp for E =  0  exp for modes =  1  1  0
+   5  Coef =  -2.00000 exp for E =  0  exp for modes =  1  0  1
+   6  Coef =  -2.00000 exp for E =  0  exp for modes =  0  1  1
+Term     2
+Number of factors in the numerator =   10
+Number of factors in the denominator =    4
+Term     2 Numerator Factor     1 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  0
+Term     2 Numerator Factor     2 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  0  0
+Term     2 Numerator Factor     3 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  1  0
+Term     2 Numerator Factor     4 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  1
+Term     2 Numerator Factor     5 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  2  0  0
+Term     2 Numerator Factor     6 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  2  0
+Term     2 Numerator Factor     7 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  2
+Term     2 Numerator Factor     8 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  1  0
+Term     2 Numerator Factor     9 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  0  1
+Term     2 Numerator Factor    10 vary step =  1 n =    1  pow =    1
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  1  1
+Term     2 Denominator Factor     1 vary step =  0 n =    1  pow =    1
+ Value =  0.10000000E+01  0.00000000E+00  Reference Value =  0.10000000E+01  0.00000000E+00
+   1  Coef =   1.00000 exp for E =  1  exp for modes =  0  0  0
+Term     2 Denominator Factor     2 vary step = -1 n =    1  pow =    1
+This parameter is the same as that found in FitExpr(  1)%d(  2)
+ Value = -0.80412536E+01 -0.25243873E+01  Reference Value = -0.80412536E+01 -0.25243873E+01
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  0
+Term     2 Denominator Factor     3 vary step = -1 n =    3  pow =    1
+This parameter is the same as that found in FitExpr(  1)%d(  3)
+ Value =  0.11347315E+02  0.15107239E+01  Reference Value =  0.11347315E+02  0.15107239E+01
+   1  Coef =   1.00000 exp for E =  0  exp for modes =  1  0  0
+   2  Coef =   1.00000 exp for E =  0  exp for modes =  0  1  0
+   3  Coef =   1.00000 exp for E =  0  exp for modes =  0  0  1
+Term     2 Denominator Factor     4 vary step = -1 n =    6  pow =   -1
+This parameter is the same as that found in FitExpr( -1)%d(  4)
+ Value =  0.13649015E+02  0.25469856E+01  Reference Value =  0.13649015E+02  0.25469856E+01
+   1  Coef =   2.00000 exp for E =  0  exp for modes =  2  0  0
+   2  Coef =   2.00000 exp for E =  0  exp for modes =  0  2  0
+   3  Coef =   2.00000 exp for E =  0  exp for modes =  0  0  2
+   4  Coef =  -2.00000 exp for E =  0  exp for modes =  1  1  0
+   5  Coef =  -2.00000 exp for E =  0  exp for modes =  1  0  1
+   6  Coef =  -2.00000 exp for E =  0  exp for modes =  0  1  1
+Number of linear fitting functions for the global fit in each direction X(Total), EeV   16   -4
+In the fitting functions for the energy First =    0  Skip =   -1  Shift =  0.21500000E+02 eV
+For X corrdinate   1 orthog linear funcs pow =    1
+   1.0000000000    1    1    1
+For X corrdinate   2 orthog linear funcs pow =    1
+   1.0000000000    2    1    1
+For X corrdinate   3 orthog linear funcs pow =    1
+   1.0000000000    1    2    1
+For X corrdinate   4 orthog linear funcs pow =    1
+   1.0000000000    1    1    2
+For X corrdinate   5 orthog linear funcs pow =    1
+   1.0000000000    3    1    1
+For X corrdinate   6 orthog linear funcs pow =    1
+   1.0000000000    1    3    1
+For X corrdinate   7 orthog linear funcs pow =    1
+   1.0000000000    1    1    3
+For X corrdinate   8 orthog linear funcs pow =    1
+   1.0000000000    2    2    1
+For X corrdinate   9 orthog linear funcs pow =    1
+   1.0000000000    2    1    2
+For X corrdinate  10 orthog linear funcs pow =    1
+   1.0000000000    1    2    2
+For X corrdinate  11 orthog linear funcs pow =    1
+   1.0000000000    4    1    1
+For X corrdinate  12 orthog linear funcs pow =    1
+   1.0000000000    1    4    1
+For X corrdinate  13 orthog linear funcs pow =    1
+   1.0000000000    1    1    4
+For X corrdinate  14 orthog linear funcs pow =    1
+   1.0000000000    3    2    1
+   1.0000000000    1    2    3
+For X corrdinate  15 orthog linear funcs pow =    1
+   1.0000000000    3    1    2
+   1.0000000000    1    3    2
+For X corrdinate  16 orthog linear funcs pow =    1
+   1.0000000000    2    1    3
+   1.0000000000    2    3    1
+Eps used for convergence of non-linear fits (EpsNLFit) =  0.60000000E-02
+Regularization parameter (Gamma) =  0.40000000E-01
+Number of energies to write out     3  Starting with         1.00000 going to        28.50000
+Type of interpolation (0 - none, (1, 2) - (poly, spline) no ray, (3,4) - (poly,spline) using geometry rays), 5 - spline on direct product grid
+InterpType  =    4
+Order used in the final MLS interpolation X =   10
+Maximum relative weight for the final MLS interpolations =  0.10000000E+04
+Power applied to the sum of squares in computing the weight function =    3.0000
+Finding initial state eigenvalues
+Minimum diagonal overlap =  0.37523770E-01
+Vibrational Eigenvalues
+    1  0.19581181E+04  0.00000000E+00
+    2  0.28569989E+04  0.89888071E+03
+    3  0.34444966E+04  0.14863784E+04
+    4  0.34444967E+04  0.14863786E+04
+    5  0.37525858E+04  0.17944677E+04
+    6  0.43356483E+04  0.23775301E+04
+    7  0.43356492E+04  0.23775311E+04
+    8  0.46449650E+04  0.26868469E+04
+    9  0.49005674E+04  0.29424492E+04
+   10  0.49264419E+04  0.29683238E+04
+Finding ion state eigenvalues
+Minimum diagonal overlap =  0.41522542E+00
+Vibrational Eigenvalues
+    1  0.24732190E+04  0.00000000E+00
+    2  0.33011919E+04  0.82797293E+03
+    3  0.41252281E+04  0.16520091E+04
+    4  0.44942382E+04  0.20210192E+04
+    5  0.44942392E+04  0.20210202E+04
+    6  0.49454268E+04  0.24722078E+04
+    7  0.53109764E+04  0.28377574E+04
+    8  0.53109793E+04  0.28377603E+04
+    9  0.57642412E+04  0.32910222E+04
+   10  0.61237776E+04  0.36505586E+04
+   11  0.61237838E+04  0.36505648E+04
+   12  0.64467558E+04  0.39735368E+04
+   13  0.65133041E+04  0.40400851E+04
+MatrixWrite - Normalization of the initial states
+              1
+       1    0.9999883644E+00
+MatrixWrite - Normalization of the ion states
+              1                 2                 3                 4                 5
+              6                 7                 8
+       1    0.9999441277E+00 -0.1808634313E-03  0.3777251202E-03 -0.1144917494E-15 -0.1541352125E-06
+            0.5489757750E-03  0.1110223025E-14  0.7952881827E-07
+       2   -0.1808634313E-03  0.9993797553E+00  0.1335425367E-02 -0.9436895709E-15 -0.9895729743E-07
+            0.2188284871E-02 -0.2359223927E-15  0.4068407248E-06
+       3    0.3777251202E-03  0.1335425367E-02  0.9967983580E+00  0.1047772979E-14  0.1931828078E-06
+           -0.5800670204E-02 -0.6383782392E-15 -0.2912748291E-06
+       4   -0.1769417945E-15 -0.9575673587E-15  0.1054711873E-14  0.9992233385E+00  0.2858824288E-14
+            0.1033895192E-14  0.2055884825E-02  0.4333866599E-11
+       5   -0.1541352126E-06 -0.9895729743E-07  0.1931828078E-06  0.2851885395E-14  0.9992247542E+00
+            0.8476412056E-07 -0.4338862603E-11  0.2053662239E-02
+       6    0.5489757750E-03  0.2188284871E-02 -0.5800670204E-02  0.1026956298E-14  0.8476412056E-07
+            0.9888635676E+00 -0.5204170428E-16  0.1421820085E-05
+       7    0.1151856388E-14 -0.2289834988E-15 -0.6626643678E-15  0.2055884825E-02 -0.4338862603E-11
+           -0.3469446952E-16  0.9939123479E+00  0.2463307336E-15
+       8    0.7952881825E-07  0.4068407247E-06 -0.2912748291E-06  0.4333873538E-11  0.2053662239E-02
+            0.1421820085E-05  0.2567390744E-15  0.9939146924E+00
+MatrixWrite - Franck-Condon overlap (Initial, Ion)
+              1                 2                 3                 4                 5
+              6                 7                 8
+       1   -0.8188828999E+00  0.4944873718E+00  0.2143619044E+00 -0.1686151219E-14 -0.1915915821E-06
+           -0.7618170461E-01 -0.2192690474E-14 -0.1178682748E-06
+MatrixWrite - After Normalization of the initial states
+              1
+       1    0.1000000000E+01
+MatrixWrite - After Normalization of the ion states
+              1                 2                 3                 4                 5
+              6                 7                 8
+       1    0.1000000000E+01 -0.1809246017E-03  0.3783418159E-03 -0.7285838599E-16 -0.1541993013E-06
+            0.5520737846E-03  0.1131039706E-14  0.7977413536E-07
+       2   -0.1809246017E-03  0.1000000000E+01  0.1337983294E-02 -0.9089951014E-15 -0.9902639302E-07
+            0.2201255204E-02 -0.1387778781E-15  0.4082108936E-06
+       3    0.3783418159E-03  0.1337983294E-02  0.1000000000E+01  0.9853229344E-15  0.1935678493E-06
+           -0.5842602351E-02 -0.6938893904E-15 -0.2926339732E-06
+       4   -0.1006139616E-15 -0.9228728892E-15  0.9853229344E-15  0.1000000000E+01  0.2827599266E-14
+            0.1002670169E-14  0.2062972569E-02  0.4348646443E-11
+       5   -0.1541993013E-06 -0.9902639302E-07  0.1935678493E-06  0.2841477054E-14  0.1000000000E+01
+            0.8527314481E-07 -0.4353954697E-11  0.2060738430E-02
+       6    0.5520737846E-03  0.2201255204E-02 -0.5842602351E-02  0.9922618283E-15  0.8527314480E-07
+            0.1000000000E+01  0.1769417945E-15  0.1434174187E-05
+       7    0.1131039706E-14 -0.1110223025E-15 -0.6869504965E-15  0.2062972569E-02 -0.4353947758E-11
+            0.1908195824E-15  0.1000000000E+01  0.2081668171E-15
+       8    0.7977413536E-07  0.4082108936E-06 -0.2926339732E-06  0.4348646443E-11  0.2060738430E-02
+            0.1434174187E-05  0.2081668171E-15  0.1000000000E+01
+MatrixWrite - After Normalization Franck-Condon overlap (Initial, Ion)
+              1                 2                 3                 4                 5
+              6                 7                 8
+       1   -0.8189105415E+00  0.4946436725E+00  0.2147071348E+00 -0.1748601264E-14 -0.1916670055E-06
+           -0.7660992274E-01 -0.2151057110E-14 -0.1182292402E-06
+Powers used in the final X interpolation
+Interpolation function     1  orthog linear funcs pow =    1
+   1.0000000000    1    1    1
+Interpolation function     2  orthog linear funcs pow =    1
+   1.0000000000    2    1    1
+Interpolation function     3  orthog linear funcs pow =    1
+   1.0000000000    1    2    1
+Interpolation function     4  orthog linear funcs pow =    1
+   1.0000000000    1    1    2
+Interpolation function     5  orthog linear funcs pow =    1
+   1.0000000000    3    1    1
+Interpolation function     6  orthog linear funcs pow =    1
+   1.0000000000    1    3    1
+Interpolation function     7  orthog linear funcs pow =    1
+   1.0000000000    1    1    3
+Interpolation function     8  orthog linear funcs pow =    1
+   1.0000000000    2    2    1
+Interpolation function     9  orthog linear funcs pow =    1
+   1.0000000000    2    1    2
+Interpolation function    10  orthog linear funcs pow =    1
+   1.0000000000    1    2    2
+Number of geometry rays (NSpRay) =    7
+cut off for smallest spline sample (RayCut) =  0.10000000E+00
+Directions for ray interpolation
+    1 -   1.0000  1.0000  1.0000
+    2 -   1.0000  0.0000  0.0000
+    3 -   0.0000  1.0000  0.0000
+    4 -   0.0000  0.0000  1.0000
+    5 -  -1.0000  1.0000  1.0000
+    6 -   1.0000 -1.0000  1.0000
+    7 -   1.0000  1.0000 -1.0000
+Interpolation ray     1
+    1 x =    -0.1732  Point = -0.1000 -0.1000 -0.1000
+    2 x =    -0.1039  Point = -0.0600 -0.0600 -0.0600
+    3 x =    -0.0346  Point = -0.0200 -0.0200 -0.0200
+    4 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    5 x =     0.0346  Point =  0.0200  0.0200  0.0200
+    6 x =     0.1039  Point =  0.0600  0.0600  0.0600
+    7 x =     0.1732  Point =  0.1000  0.1000  0.1000
+Interpolation ray     2
+    1 x =    -0.1800  Point = -0.1800  0.0000  0.0000
+    2 x =    -0.1400  Point = -0.1400  0.0000  0.0000
+    3 x =    -0.1000  Point = -0.1000  0.0000  0.0000
+    4 x =    -0.0600  Point = -0.0600  0.0000  0.0000
+    5 x =    -0.0200  Point = -0.0200  0.0000  0.0000
+    6 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    7 x =     0.0200  Point =  0.0200  0.0000  0.0000
+    8 x =     0.0600  Point =  0.0600  0.0000  0.0000
+    9 x =     0.1000  Point =  0.1000  0.0000  0.0000
+   10 x =     0.1400  Point =  0.1400  0.0000  0.0000
+   11 x =     0.1800  Point =  0.1800  0.0000  0.0000
+Interpolation ray     3
+    1 x =    -0.1800  Point =  0.0000 -0.1800  0.0000
+    2 x =    -0.1400  Point =  0.0000 -0.1400  0.0000
+    3 x =    -0.1000  Point =  0.0000 -0.1000  0.0000
+    4 x =    -0.0600  Point =  0.0000 -0.0600  0.0000
+    5 x =    -0.0200  Point =  0.0000 -0.0200  0.0000
+    6 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    7 x =     0.0200  Point =  0.0000  0.0200  0.0000
+    8 x =     0.0600  Point =  0.0000  0.0600  0.0000
+    9 x =     0.1000  Point =  0.0000  0.1000  0.0000
+   10 x =     0.1400  Point =  0.0000  0.1400  0.0000
+   11 x =     0.1800  Point =  0.0000  0.1800  0.0000
+Interpolation ray     4
+    1 x =    -0.1800  Point =  0.0000  0.0000 -0.1800
+    2 x =    -0.1400  Point =  0.0000  0.0000 -0.1400
+    3 x =    -0.1000  Point =  0.0000  0.0000 -0.1000
+    4 x =    -0.0600  Point =  0.0000  0.0000 -0.0600
+    5 x =    -0.0200  Point =  0.0000  0.0000 -0.0200
+    6 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    7 x =     0.0200  Point =  0.0000  0.0000  0.0200
+    8 x =     0.0600  Point =  0.0000  0.0000  0.0600
+    9 x =     0.1000  Point =  0.0000  0.0000  0.1000
+   10 x =     0.1400  Point =  0.0000  0.0000  0.1400
+   11 x =     0.1800  Point =  0.0000  0.0000  0.1800
+Interpolation ray     5
+    1 x =    -0.1732  Point =  0.1000 -0.1000 -0.1000
+    2 x =    -0.1039  Point =  0.0600 -0.0600 -0.0600
+    3 x =    -0.0346  Point =  0.0200 -0.0200 -0.0200
+    4 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    5 x =     0.0346  Point = -0.0200  0.0200  0.0200
+    6 x =     0.1039  Point = -0.0600  0.0600  0.0600
+    7 x =     0.1732  Point = -0.1000  0.1000  0.1000
+Interpolation ray     6
+    1 x =    -0.1732  Point = -0.1000  0.1000 -0.1000
+    2 x =    -0.1039  Point = -0.0600  0.0600 -0.0600
+    3 x =    -0.0346  Point = -0.0200  0.0200 -0.0200
+    4 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    5 x =     0.0346  Point =  0.0200 -0.0200  0.0200
+    6 x =     0.1039  Point =  0.0600 -0.0600  0.0600
+    7 x =     0.1732  Point =  0.1000 -0.1000  0.1000
+Interpolation ray     7
+    1 x =    -0.1732  Point = -0.1000 -0.1000  0.1000
+    2 x =    -0.1039  Point = -0.0600 -0.0600  0.0600
+    3 x =    -0.0346  Point = -0.0200 -0.0200  0.0200
+    4 x =     0.0000  Point =  0.0000  0.0000  0.0000
+    5 x =     0.0346  Point =  0.0200  0.0200 -0.0200
+    6 x =     0.1039  Point =  0.0600  0.0600 -0.0600
+    7 x =     0.1732  Point =  0.1000  0.1000 -0.1000
+For geometry     1  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy
+Geom is       -0.180000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        30.0420  Delta time =        30.0420 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        30.0422  Delta time =         0.0002 End SelIdy
+For geometry     2  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy
+Geom is       -0.140000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        31.5545  Delta time =         1.5123 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        31.5547  Delta time =         0.0001 End SelIdy
+For geometry     3  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy
+Geom is       -0.100000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        33.2506  Delta time =         1.6959 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        33.2507  Delta time =         0.0002 End SelIdy
+For geometry     4  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy
+Geom is       -0.060000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        34.8337  Delta time =         1.5830 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        34.8339  Delta time =         0.0001 End SelIdy
+For geometry     5  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy
+Geom is       -0.020000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        36.3542  Delta time =         1.5203 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        36.3544  Delta time =         0.0002 End SelIdy
+For geometry     6  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy
+Geom is        0.020000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        37.8485  Delta time =         1.4941 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        37.8486  Delta time =         0.0002 End SelIdy
+For geometry     7  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy
+Geom is        0.060000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        39.3238  Delta time =         1.4751 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        39.3239  Delta time =         0.0001 End SelIdy
+For geometry     8  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy
+Geom is        0.100000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        40.8153  Delta time =         1.4914 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        40.8154  Delta time =         0.0001 End SelIdy
+For geometry     9  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy
+Geom is        0.140000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        42.3467  Delta time =         1.5313 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        42.3468  Delta time =         0.0001 End SelIdy
+For geometry    10  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy
+Geom is        0.180000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        43.8535  Delta time =         1.5066 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        43.8536  Delta time =         0.0001 End SelIdy
+For geometry    11  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy
+Geom is        0.000000      -0.180000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        45.3121  Delta time =         1.4585 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        45.3122  Delta time =         0.0001 End SelIdy
+For geometry    12  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy
+Geom is        0.000000      -0.140000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        46.7780  Delta time =         1.4658 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        46.7782  Delta time =         0.0001 End SelIdy
+For geometry    13  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy
+Geom is        0.000000      -0.100000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        48.2465  Delta time =         1.4684 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        48.2467  Delta time =         0.0001 End SelIdy
+For geometry    14  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy
+Geom is        0.000000      -0.060000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        49.7152  Delta time =         1.4685 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        49.7153  Delta time =         0.0001 End SelIdy
+For geometry    15  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy
+Geom is        0.000000      -0.020000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        51.4186  Delta time =         1.7033 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        51.4187  Delta time =         0.0001 End SelIdy
+For geometry    16  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy
+Geom is        0.000000       0.020000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        52.8773  Delta time =         1.4586 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        52.8774  Delta time =         0.0001 End SelIdy
+For geometry    17  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy
+Geom is        0.000000       0.060000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        54.3414  Delta time =         1.4640 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        54.3415  Delta time =         0.0001 End SelIdy
+For geometry    18  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy
+Geom is        0.000000       0.100000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        55.8101  Delta time =         1.4686 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        55.8102  Delta time =         0.0001 End SelIdy
+For geometry    19  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy
+Geom is        0.000000       0.140000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        57.2799  Delta time =         1.4697 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        57.2800  Delta time =         0.0001 End SelIdy
+For geometry    20  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy
+Geom is        0.000000       0.180000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        58.7477  Delta time =         1.4677 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        58.7478  Delta time =         0.0001 End SelIdy
+For geometry    21  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d18.idy
+Geom is        0.000000       0.000000      -0.180000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        60.2166  Delta time =         1.4688 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        60.2167  Delta time =         0.0001 End SelIdy
+For geometry    22  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d14.idy
+Geom is        0.000000       0.000000      -0.140000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        61.6848  Delta time =         1.4681 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        61.6849  Delta time =         0.0001 End SelIdy
+For geometry    23  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d10.idy
+Geom is        0.000000       0.000000      -0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        63.1545  Delta time =         1.4696 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        63.1547  Delta time =         0.0001 End SelIdy
+For geometry    24  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d06.idy
+Geom is        0.000000       0.000000      -0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        64.6238  Delta time =         1.4691 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        64.6239  Delta time =         0.0001 End SelIdy
+For geometry    25  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMm0d02.idy
+Geom is        0.000000       0.000000      -0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        66.0917  Delta time =         1.4678 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        66.0918  Delta time =         0.0001 End SelIdy
+For geometry    26  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d02.idy
+Geom is        0.000000       0.000000       0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        67.5625  Delta time =         1.4707 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        67.5627  Delta time =         0.0001 End SelIdy
+For geometry    27  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d06.idy
+Geom is        0.000000       0.000000       0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        69.0322  Delta time =         1.4696 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        69.0324  Delta time =         0.0001 End SelIdy
+For geometry    28  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d10.idy
+Geom is        0.000000       0.000000       0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        70.5006  Delta time =         1.4682 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        70.5007  Delta time =         0.0001 End SelIdy
+For geometry    29  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d14.idy
+Geom is        0.000000       0.000000       0.140000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        71.9705  Delta time =         1.4697 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        71.9706  Delta time =         0.0001 End SelIdy
+For geometry    30  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiNMp0d18.idy
+Geom is        0.000000       0.000000       0.180000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        73.4406  Delta time =         1.4700 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        73.4407  Delta time =         0.0001 End SelIdy
+For geometry    31  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d10.idy
+Geom is       -0.100000      -0.100000      -0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        74.9732  Delta time =         1.5325 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        74.9733  Delta time =         0.0001 End SelIdy
+For geometry    32  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d06.idy
+Geom is       -0.060000      -0.060000      -0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        75.0248  Delta time =         0.0515 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        75.0249  Delta time =         0.0001 End SelIdy
+For geometry    33  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMm0d02.idy
+Geom is       -0.020000      -0.020000      -0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        75.0798  Delta time =         0.0549 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        75.0800  Delta time =         0.0001 End SelIdy
+For geometry    34  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d00.idy
+Geom is        0.000000       0.000000       0.000000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        75.1574  Delta time =         0.0774 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        75.1575  Delta time =         0.0001 End SelIdy
+For geometry    35  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d02.idy
+Geom is        0.020000       0.020000       0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        76.6443  Delta time =         1.4868 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        76.6444  Delta time =         0.0001 End SelIdy
+For geometry    36  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d06.idy
+Geom is        0.060000       0.060000       0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        78.1182  Delta time =         1.4737 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        78.1183  Delta time =         0.0001 End SelIdy
+For geometry    37  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiSMp0d10.idy
+Geom is        0.100000       0.100000       0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        79.6071  Delta time =         1.4888 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    15.00000000    20.00000000    25.00000000    30.00000000
+    13.00000000    14.00000000    17.50000000    22.50000000    27.50000000
+List of matrix element types found   Number =    2
+    1  Cont Sym A2PP   Targ Sym A1P    Total Sym A2PP 
+    2  Cont Sym EP     Targ Sym A1P    Total Sym EP   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        79.6073  Delta time =         0.0001 End SelIdy
+For geometry    38  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy
+Geom is       -0.100000      -0.100000       0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        81.1494  Delta time =         1.5422 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        81.1496  Delta time =         0.0001 End SelIdy
+For geometry    39  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy
+Geom is       -0.060000      -0.060000       0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        82.6480  Delta time =         1.4984 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        82.6481  Delta time =         0.0001 End SelIdy
+For geometry    40  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy
+Geom is       -0.020000      -0.020000       0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        84.1396  Delta time =         1.4915 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        84.1398  Delta time =         0.0001 End SelIdy
+For geometry    41  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy
+Geom is        0.020000       0.020000      -0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        85.6188  Delta time =         1.4791 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        85.6189  Delta time =         0.0001 End SelIdy
+For geometry    42  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy
+Geom is        0.060000       0.060000      -0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        87.1156  Delta time =         1.4967 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        87.1157  Delta time =         0.0001 End SelIdy
+For geometry    43  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy
+Geom is        0.100000       0.100000      -0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        88.6271  Delta time =         1.5114 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        88.6272  Delta time =         0.0001 End SelIdy
+For geometry    44  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy
+Geom is       -0.100000       0.100000      -0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        90.0864  Delta time =         1.4592 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        90.0866  Delta time =         0.0001 End SelIdy
+For geometry    45  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy
+Geom is       -0.060000       0.060000      -0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        91.5504  Delta time =         1.4638 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        91.5505  Delta time =         0.0001 End SelIdy
+For geometry    46  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy
+Geom is       -0.020000       0.020000      -0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        93.0189  Delta time =         1.4684 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        93.0190  Delta time =         0.0001 End SelIdy
+For geometry    47  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy
+Geom is        0.020000      -0.020000       0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        94.4874  Delta time =         1.4683 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        94.4875  Delta time =         0.0001 End SelIdy
+For geometry    48  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy
+Geom is        0.060000      -0.060000       0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        95.9570  Delta time =         1.4695 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        95.9571  Delta time =         0.0001 End SelIdy
+For geometry    49  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy
+Geom is        0.100000      -0.100000       0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        97.4249  Delta time =         1.4678 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        97.4250  Delta time =         0.0001 End SelIdy
+For geometry    50  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d10.idy
+Geom is        0.100000      -0.100000      -0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =        98.8937  Delta time =         1.4687 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =        98.8938  Delta time =         0.0001 End SelIdy
+For geometry    51  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d06.idy
+Geom is        0.060000      -0.060000      -0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       100.3623  Delta time =         1.4684 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =       100.3624  Delta time =         0.0001 End SelIdy
+For geometry    52  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMm0d02.idy
+Geom is        0.020000      -0.020000      -0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       101.8311  Delta time =         1.4687 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =       101.8312  Delta time =         0.0001 End SelIdy
+For geometry    53  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d02.idy
+Geom is       -0.020000       0.020000       0.020000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       103.2998  Delta time =         1.4686 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =       103.2999  Delta time =         0.0001 End SelIdy
+For geometry    54  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d06.idy
+Geom is       -0.060000       0.060000       0.060000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       104.7709  Delta time =         1.4710 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =       104.7710  Delta time =         0.0001 End SelIdy
+For geometry    55  taking dipole matrix from file /global/home/users/rlucchese/Applications/ePolyScat/tests/test33.d/phiTMp0d10.idy
+Geom is       -0.100000       0.100000       0.100000
+
+----------------------------------------------------------------------
+CnvIdy - read in and convert dynamical matrix elements and convert to raw form
+----------------------------------------------------------------------
+
+Time Now =       106.2379  Delta time =         1.4668 End CnvIdy
+Found    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+List of matrix element types found   Number =    3
+    1  Cont Sym A1     Targ Sym A1     Total Sym A1   
+    2  Cont Sym B1     Targ Sym A1     Total Sym B1   
+    3  Cont Sym B2     Targ Sym A1     Total Sym B2   
+Keeping    21 energies :
+     1.00000000     2.00000000     3.00000000     4.00000000     5.00000000     6.00000000     7.00000000     8.00000000
+     9.00000000    10.00000000    11.00000000    12.00000000    13.00000000    14.00000000    15.00000000    17.50000000
+    20.00000000    22.50000000    25.00000000    27.50000000    30.00000000
+Time Now =       106.2380  Delta time =         0.0001 End SelIdy
+Energies to be used in VibAve are:
+  0.10000000E+01  0.20000000E+01  0.30000000E+01  0.40000000E+01  0.50000000E+01
+  0.60000000E+01  0.70000000E+01  0.80000000E+01  0.90000000E+01  0.10000000E+02
+  0.11000000E+02  0.12000000E+02  0.13000000E+02  0.14000000E+02  0.15000000E+02
+  0.17500000E+02  0.20000000E+02  0.22500000E+02  0.25000000E+02  0.27500000E+02
+  0.30000000E+02
+LMaxIdy =   12  nrdimTarg =    1  NumXVTotal =    55  NEngUse =   21
+Size of RawIdyMu =   2252250
+Found   520 non-zero raw matrix elements that need to be interpolated
+Number of points    X, EeV =      55      21
+Number of functions X, EeV =      16       4
+FitStepNow =  1  nparmDenom =    6  nparmNumer =   20
+Linear Dependence     2 is =  0.10000000E+01
+Orthonormality
+ 0.0000000000 1.0000000000
+Linear Dependence     3 is =  0.69860905E+00
+Orthonormality
+ 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     4 is =  0.65019404E+00
+Orthonormality
+-0.0000000000 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     5 is =  0.72922614E+00
+Orthonormality
+ 0.0000000000-0.0000000000 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     2 is =  0.10000000E+01
+Orthonormality
+ 0.0000000000 1.0000000000
+Linear Dependence     3 is =  0.69860905E+00
+Orthonormality
+ 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     4 is =  0.65019404E+00
+Orthonormality
+-0.0000000000 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     5 is =  0.72922614E+00
+Orthonormality
+ 0.0000000000-0.0000000000 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     2 is =  0.10000000E+01
+Orthonormality
+ 0.0000000000 1.0000000000
+Linear Dependence     3 is =  0.69860905E+00
+Orthonormality
+ 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     4 is =  0.65019404E+00
+Orthonormality
+-0.0000000000 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     5 is =  0.72922614E+00
+Orthonormality
+ 0.0000000000-0.0000000000 0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     2 is =  0.22536254E+00
+Orthonormality
+-0.0000000000 1.0000000000
+Linear Dependence     3 is =  0.21503782E+00
+Orthonormality
+-0.0000000000 0.0000000000 1.0000000000
+Linear Dependence     4 is =  0.18993253E+00
+Orthonormality
+-0.0000000000-0.0000000000-0.0000000000 1.0000000000
+Orthogonalization transformation of linear interpolation functions
+NormMax =  0.14553102E+02
+Function     1 UPoly is
+        4.91935
+Function     2 UPoly is
+        0.00000        8.09067
+Function     3 UPoly is
+        0.00000       -0.00000        8.09067
+Function     4 UPoly is
+        0.00000       -0.00000        0.00000        8.09067
+Function     5 UPoly is
+        5.10956        0.00000       -0.00000       -0.00000        7.91510
+Function     6 UPoly is
+        5.43062       -0.00000        0.00000       -0.00000        0.48264
+        7.92981
+Function     7 UPoly is
+        5.79475       -0.00000       -0.00000        0.00000        0.51500
+        0.51500        7.94651
+Function     8 UPoly is
+       -0.00000        0.00000        0.00000       -0.00000        0.00000
+       -0.00000       -0.00000       14.55310
+Function     9 UPoly is
+        0.00000        0.00000        0.00000        0.00000        0.00000
+       -0.00000       -0.00000        0.00000       14.55310
+Function    10 UPoly is
+        0.00000       -0.00000        0.00000        0.00000       -0.00000
+        0.00000        0.00000        0.00000       -0.00000       14.55310
+Function    11 UPoly is
+        0.00000        5.32420       -0.00000        0.00000       -0.00000
+        0.00000        0.00000        0.00000        0.00000       -0.00000
+        7.39304
+Function    12 UPoly is
+       -0.00000       -0.00000        5.32420        0.00000       -0.00000
+       -0.00000       -0.00000        0.00000       -0.00000        0.00000
+       -0.00000        7.39304
+Function    13 UPoly is
+       -0.00000       -0.00000       -0.00000        5.32420       -0.00000
+       -0.00000       -0.00000       -0.00000        0.00000        0.00000
+       -0.00000       -0.00000        7.39304
+Function    14 UPoly is
+       -0.00000       -0.00000       21.09934        0.00000       -0.00000
+       -0.00000       -0.00000        0.00000       -0.00000        0.00000
+       -0.00000        4.80286        0.00000       12.46435
+Function    15 UPoly is
+       -0.00000       -0.00000        0.00000       21.09934       -0.00000
+       -0.00000        0.00000       -0.00000        0.00000        0.00000
+       -0.00000       -0.00000        4.80286        0.00000       12.46435
+Function    16 UPoly is
+       -0.00000       21.09934       -0.00000        0.00000        0.00000
+       -0.00000       -0.00000        0.00000        0.00000       -0.00000
+        4.80286       -0.00000        0.00000       -0.00000        0.00000
+       12.46435
+Energies to write out (in eV)     3
+       1.000000      14.750000      28.500000
+Num_IdyStand =     520 X_nTotal =    4096
+Linear fit RMS =  0.23048123E-01  RMSRel =  0.78371404E-01
+Initial Parameters
+    0.1000000000E+01   0.0000000000E+00
+   -0.8041253604E+01  -0.2524387281E+01
+    0.1134731500E+02   0.1510723883E+01
+   -0.1364901543E+02  -0.2546985586E+01
+    0.1000000000E+01   0.0000000000E+00
+   -0.8041253604E+01  -0.2524387281E+01
+    0.1134731500E+02   0.1510723883E+01
+    0.1364901543E+02   0.2546985586E+01
+ numfe =       1
+ aval =   0.1952830088E+08
+ grad =
+    0.9835132713E+05  -0.2195552631E+06   0.4513750993E+05   0.4565978977E+05
+   -0.3969018046E+05  -0.7376726646E+05
+ precision error in aval =   0.6459817132E-03
+numfe =       2 rclsx =   0.3000000000E+02  atrcl = 1
+ estimated 0.0_XR at rzero =   0.3428648045E+03
+ value of sum of squares at rzero =   0.1945334745E+08
+ sval,eval,aval =   0.1952830088E+08   0.1951497082E+08   0.1951480113E+08
+ grad =
+    0.7219486192E+05  -0.2147667678E+06   0.3891185430E+05   0.4299307109E+05
+   -0.3238340373E+05  -0.6923593105E+05
+ precision error in aval =   0.6451811373E-03
+ xn =
+   -0.8044627788E+01  -0.2515719592E+01   0.1127598063E+02   0.1437515526E+01
+   -0.1361958702E+02  -0.2490669851E+01
+ maximum relative change in parameters (xdx) =   0.4845912478E-01
+ ratioa =   0.1012729179E+01
+numfe =       3 rclsx =   0.6000000000E+02  atrcl = 1
+ estimated 0.0_XR at rzero =   0.3214400527E+03
+ value of sum of squares at rzero =   0.1945005688E+08
+ sval,eval,aval =   0.1951480113E+08   0.1949197114E+08   0.1949127620E+08
+ grad =
+    0.3196580036E+05  -0.1982563894E+06   0.2777354652E+05   0.3742622835E+05
+   -0.2047223370E+05  -0.6043376938E+05
+ precision error in aval =   0.6435563797E-03
+ xn =
+   -0.8049380201E+01  -0.2496150684E+01   0.1114483403E+02   0.1288288923E+01
+   -0.1356860583E+02  -0.2374759997E+01
+ maximum relative change in parameters (xdx) =   0.1038086892E+00
+ ratioa =   0.1030439578E+01
+numfe =       4 rclsx =   0.1200000000E+03  atrcl = 1
+ estimated 0.0_XR at rzero =   0.2770953330E+03
+ value of sum of squares at rzero =   0.1944426342E+08
+ sval,eval,aval =   0.1949127620E+08   0.1945894901E+08   0.1945627446E+08
+ grad =
+   -0.5143390958E+04  -0.1381117105E+06   0.1103053096E+05   0.2568581899E+05
+   -0.6368482815E+04  -0.4347797785E+05
+ precision error in aval =   0.6406895382E-03
+ xn =
+   -0.8051772973E+01  -0.2448690570E+01   0.1093948557E+02   0.9938371077E+00
+   -0.1349510769E+02  -0.2130920718E+01
+ maximum relative change in parameters (xdx) =   0.2285603876E+00
+ ratioa =   0.1082733769E+01
+numfe =       5 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.1839037645E+03
+ value of sum of squares at rzero =   0.1943563910E+08
+ sval,eval,aval =   0.1945627446E+08   0.1943563910E+08   0.1943077131E+08
+ grad =
+    0.1377584253E+04   0.5589643682E+04  -0.1094822791E+03   0.9888180791E+04
+   -0.4120684915E+03  -0.1412286854E+05
+ precision error in aval =   0.6377193241E-03
+ xn =
+   -0.8045490609E+01  -0.2361923194E+01   0.1081356199E+02   0.6394715127E+00
+   -0.1342752446E+02  -0.1709253287E+01
+ maximum relative change in parameters (xdx) =   0.3565630547E+00
+ ratioa =   0.1235895354E+01
+numfe =       6 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.3964736091E+02
+ value of sum of squares at rzero =   0.1942947349E+08
+ sval,eval,aval =   0.1943077131E+08   0.1942947349E+08   0.1942906669E+08
+ grad =
+    0.3017909649E+04   0.8772303786E+04   0.6097001434E+03   0.3235724844E+04
+   -0.7605231909E+03  -0.4806898916E+04
+ precision error in aval =   0.6367191038E-03
+ xn =
+   -0.8046417107E+01  -0.2353683978E+01   0.1082601130E+02   0.5145368607E+00
+   -0.1341805502E+02  -0.1610139414E+01
+ maximum relative change in parameters (xdx) =   0.1953717242E+00
+ ratioa =   0.1313451840E+01
+numfe =       7 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.1188374482E+02
+ value of sum of squares at rzero =   0.1942892825E+08
+ sval,eval,aval =   0.1942906669E+08   0.1942892825E+08   0.1942888055E+08
+ grad =
+    0.5979515331E+03   0.4395662416E+04   0.2400094497E+03   0.1150729842E+04
+   -0.4910553161E+02  -0.1678240192E+04
+ precision error in aval =   0.6363670503E-03
+ xn =
+   -0.8047124952E+01  -0.2353274481E+01   0.1082259613E+02   0.4734196480E+00
+   -0.1341212224E+02  -0.1581284385E+01
+ maximum relative change in parameters (xdx) =   0.7991111191E-01
+ ratioa =   0.1344535332E+01
+numfe =       8 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.3969096622E+01
+ value of sum of squares at rzero =   0.1942886356E+08
+ sval,eval,aval =   0.1942888055E+08   0.1942886356E+08   0.1942885751E+08
+ grad =
+    0.3558749867E+03   0.1775857229E+04   0.1211898100E+03   0.4024153932E+03
+   -0.1571927930E+02  -0.5933148224E+03
+ precision error in aval =   0.6362433911E-03
+ xn =
+   -0.8047358439E+01  -0.2353587296E+01   0.1082104687E+02   0.4590036390E+00
+   -0.1341135319E+02  -0.1572065036E+01
+ maximum relative change in parameters (xdx) =   0.3045080423E-01
+ ratioa =   0.1356073989E+01
+numfe =       9 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.1392433054E+01
+ value of sum of squares at rzero =   0.1942885533E+08
+ sval,eval,aval =   0.1942885751E+08   0.1942885533E+08   0.1942885454E+08
+ grad =
+    0.1063913523E+03   0.6828743258E+03   0.4680088818E+02   0.1457194836E+03
+    0.6100657540E+01  -0.2108844723E+03
+ precision error in aval =   0.6361991601E-03
+ xn =
+   -0.8047487877E+01  -0.2353771481E+01   0.1082004616E+02   0.4539598281E+00
+   -0.1341119660E+02  -0.1568968803E+01
+ maximum relative change in parameters (xdx) =   0.1098860762E-01
+ ratioa =   0.1360456587E+01
+numfe =      10 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.4975094463E+00
+ value of sum of squares at rzero =   0.1942885425E+08
+ sval,eval,aval =   0.1942885454E+08   0.1942885425E+08   0.1942885415E+08
+ grad =
+    0.4467875708E+02   0.2536881524E+03   0.1868044790E+02   0.5247682877E+02
+    0.2654071223E+01  -0.7542742625E+02
+ precision error in aval =   0.6361833374E-03
+ xn =
+   -0.8047534588E+01  -0.2353854043E+01   0.1081964103E+02   0.4521435721E+00
+   -0.1341121387E+02  -0.1567904127E+01
+ maximum relative change in parameters (xdx) =   0.4000917853E-02
+ ratioa =   0.1362077064E+01
+numfe =      11 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.1794751289E+00
+ value of sum of squares at rzero =   0.1942885411E+08
+ sval,eval,aval =   0.1942885415E+08   0.1942885411E+08   0.1942885410E+08
+ grad =
+    0.1530992183E+02   0.9341457748E+02   0.6946339157E+01   0.1909199716E+02
+    0.1522053402E+01  -0.2707774218E+02
+ precision error in aval =   0.6361776325E-03
+ xn =
+   -0.8047553720E+01  -0.2353886608E+01   0.1081947161E+02   0.4514895616E+00
+   -0.1341122796E+02  -0.1567530767E+01
+ maximum relative change in parameters (xdx) =   0.1446466638E-02
+ ratioa =   0.1362670255E+01
+numfe =      12 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.6494576234E-01
+ value of sum of squares at rzero =   0.1942885410E+08
+ sval,eval,aval =   0.1942885410E+08   0.1942885410E+08   0.1942885409E+08
+ grad =
+    0.5831971814E+01   0.3410377871E+02   0.2603084003E+01   0.6926509516E+01
+    0.5828662838E+00  -0.9755033392E+01
+ precision error in aval =   0.6361755739E-03
+ xn =
+   -0.8047560709E+01  -0.2353899056E+01   0.1081940762E+02   0.4512520489E+00
+   -0.1341123666E+02  -0.1567398456E+01
+ maximum relative change in parameters (xdx) =   0.5260646226E-03
+ ratioa =   0.1362890501E+01
+numfe =      13 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.2354925548E-01
+ value of sum of squares at rzero =   0.1942885409E+08
+ sval,eval,aval =   0.1942885409E+08   0.1942885409E+08   0.1942885409E+08
+ grad =
+    0.2082416568E+01   0.1242644641E+02   0.9541634258E+00   0.2519454503E+01
+    0.2380222376E+00  -0.3522069325E+01
+ precision error in aval =   0.6361748289E-03
+ xn =
+   -0.8047563352E+01  -0.2353903682E+01   0.1081938330E+02   0.4511658779E+00
+   -0.1341124023E+02  -0.1567351160E+01
+ maximum relative change in parameters (xdx) =   0.1909597135E-03
+ ratioa =   0.1363120339E+01
+numfe =      14 rclsx =   0.2400000000E+03  atrcl = 0
+ estimated 0.0_XR at rzero =   0.8543532173E-02
+ value of sum of squares at rzero =   0.1942885409E+08
+ sval,eval,aval =   0.1942885409E+08   0.1942885409E+08   0.1942885409E+08
+ grad =
+    0.7686253679E+00   0.4517302828E+01   0.3503706556E+00   0.9151846526E+00
+    0.8832610964E-01  -0.1273945039E+01
+ precision error in aval =   0.6361745590E-03
+ xn =
+   -0.8047564317E+01  -0.2353905389E+01   0.1081937433E+02   0.4511345505E+00
+   -0.1341124171E+02  -0.1567334171E+01
+ maximum relative change in parameters (xdx) =   0.6943645324E-04
+ convergence because estimated lowering  is less than avaiable precision
+Parameters at FitStepNow =    1
+    0.1000000000E+01   0.0000000000E+00
+   -0.8047564317E+01  -0.2353905389E+01
+    0.1081937433E+02   0.4511345505E+00
+   -0.1341124171E+02  -0.1567334171E+01
+    0.1000000000E+01   0.0000000000E+00
+   -0.8047564317E+01  -0.2353905389E+01
+    0.1081937433E+02   0.4511345505E+00
+    0.1341124171E+02   0.1567334171E+01
+FitStepNow =    1  Fit RMS =  0.50762478E+01  EPS =  0.60000000E-02
+After non-linear fit FitStepNow =    1
+Optimum Parameters
+    0.1000000000E+01   0.0000000000E+00
+   -0.8047564317E+01  -0.2353905389E+01
+    0.1081937433E+02   0.4511345505E+00
+   -0.1341124171E+02  -0.1567334171E+01
+    0.1000000000E+01   0.0000000000E+00
+   -0.8047564317E+01  -0.2353905389E+01
+    0.1081937433E+02   0.4511345505E+00
+    0.1341124171E+02   0.1567334171E+01
+Cross Sections for v_Ini =   1        0.00 v_Ion =   1        0.00
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.68302460E+00
+    36.2500  0.21680251E+01
+    50.0000  0.23666768E+01
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.58543908E+00
+    36.2500  0.19054388E+01
+    50.0000  0.20277375E+01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.50433285E+00
+    36.2500  0.16791760E+01
+    50.0000  0.17417234E+01
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000  0.14673329E+01
+    36.2500  0.72790285E+00
+    50.0000  0.10645929E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000  0.14705095E+01
+    36.2500  0.74109937E+00
+    50.0000  0.10647237E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000  0.14758052E+01
+    36.2500  0.75336740E+00
+    50.0000  0.10636613E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.6830     0.5854     0.5043     1.4673     1.4705     1.4758
+EPhi     36.2500     2.1680     1.9054     1.6792     0.7279     0.7411     0.7534
+EPhi     50.0000     2.3667     2.0277     1.7417     1.0646     1.0647     1.0637
+Cross Sections for v_Ini =   1        0.00 v_Ion =   2      827.97
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.27851815E+00
+    36.2500  0.73984498E+00
+    50.0000  0.85184930E+00
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.24107851E+00
+    36.2500  0.65562187E+00
+    50.0000  0.73499239E+00
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.20931194E+00
+    36.2500  0.58255024E+00
+    50.0000  0.63559571E+00
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000  0.15040913E+01
+    36.2500  0.69304179E+00
+    50.0000  0.10822904E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000  0.15088056E+01
+    36.2500  0.70352493E+00
+    50.0000  0.10814234E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000  0.15146709E+01
+    36.2500  0.71339672E+00
+    50.0000  0.10794582E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.2785     0.2411     0.2093     1.5041     1.5088     1.5147
+EPhi     36.2500     0.7398     0.6556     0.5826     0.6930     0.7035     0.7134
+EPhi     50.0000     0.8518     0.7350     0.6356     1.0823     1.0814     1.0795
+Cross Sections for v_Ini =   1        0.00 v_Ion =   3     1652.01
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.60552259E-01
+    36.2500  0.13421971E+00
+    50.0000  0.15946541E+00
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.52777038E-01
+    36.2500  0.11955467E+00
+    50.0000  0.13831770E+00
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.46111797E-01
+    36.2500  0.10678068E+00
+    50.0000  0.12022017E+00
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000  0.14995129E+01
+    36.2500  0.64352788E+00
+    50.0000  0.10987597E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000  0.15033403E+01
+    36.2500  0.65075397E+00
+    50.0000  0.10967161E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000  0.15081080E+01
+    36.2500  0.65774951E+00
+    50.0000  0.10936516E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.0606     0.0528     0.0461     1.4995     1.5033     1.5081
+EPhi     36.2500     0.1342     0.1196     0.1068     0.6435     0.6508     0.6577
+EPhi     50.0000     0.1595     0.1383     0.1202     1.0988     1.0967     1.0937
+Cross Sections for v_Ini =   1        0.00 v_Ion =   4     2021.02
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.73779975E-01
+    36.2500  0.17784787E+00
+    50.0000  0.99075542E-01
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.67836472E-01
+    36.2500  0.16076662E+00
+    50.0000  0.86911902E-01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.62693266E-01
+    36.2500  0.14555362E+00
+    50.0000  0.76498647E-01
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000 -0.64369390E+00
+    36.2500  0.87200538E+00
+    50.0000  0.11208014E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000 -0.62516561E+00
+    36.2500  0.86331755E+00
+    50.0000  0.11137625E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000 -0.59578064E+00
+    36.2500  0.85402666E+00
+    50.0000  0.11052906E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.0738     0.0678     0.0627    -0.6437    -0.6252    -0.5958
+EPhi     36.2500     0.1778     0.1608     0.1456     0.8720     0.8633     0.8540
+EPhi     50.0000     0.0991     0.0869     0.0765     1.1208     1.1138     1.1053
+Cross Sections for v_Ini =   1        0.00 v_Ion =   5     2021.02
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.73779769E-01
+    36.2500  0.17784744E+00
+    50.0000  0.99075304E-01
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.67836287E-01
+    36.2500  0.16076623E+00
+    50.0000  0.86911697E-01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.62693098E-01
+    36.2500  0.14555328E+00
+    50.0000  0.76498470E-01
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000 -0.64369409E+00
+    36.2500  0.87200529E+00
+    50.0000  0.11208013E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000 -0.62516583E+00
+    36.2500  0.86331745E+00
+    50.0000  0.11137624E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000 -0.59578089E+00
+    36.2500  0.85402654E+00
+    50.0000  0.11052905E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.0738     0.0678     0.0627    -0.6437    -0.6252    -0.5958
+EPhi     36.2500     0.1778     0.1608     0.1456     0.8720     0.8633     0.8540
+EPhi     50.0000     0.0991     0.0869     0.0765     1.1208     1.1138     1.1053
+Cross Sections for v_Ini =   1        0.00 v_Ion =   6     2472.21
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.92435497E-02
+    36.2500  0.17745754E-01
+    50.0000  0.20664903E-01
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.80544749E-02
+    36.2500  0.15778928E-01
+    50.0000  0.17950300E-01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.70413965E-02
+    36.2500  0.14067304E-01
+    50.0000  0.15621962E-01
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000  0.14221602E+01
+    36.2500  0.54916657E+00
+    50.0000  0.11123527E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000  0.14187910E+01
+    36.2500  0.55303847E+00
+    50.0000  0.11085072E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000  0.14169530E+01
+    36.2500  0.55702686E+00
+    50.0000  0.11036915E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.0092     0.0081     0.0070     1.4222     1.4188     1.4170
+EPhi     36.2500     0.0177     0.0158     0.0141     0.5492     0.5530     0.5570
+EPhi     50.0000     0.0207     0.0180     0.0156     1.1124     1.1085     1.1037
+Cross Sections for v_Ini =   1        0.00 v_Ion =   7     2837.76
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.45011432E-01
+    36.2500  0.11711720E+00
+    50.0000  0.64354661E-01
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.41298433E-01
+    36.2500  0.10580388E+00
+    50.0000  0.56433080E-01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.38129812E-01
+    36.2500  0.95740449E-01
+    50.0000  0.49658367E-01
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000 -0.58412524E+00
+    36.2500  0.81977945E+00
+    50.0000  0.11490789E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000 -0.56512191E+00
+    36.2500  0.81106308E+00
+    50.0000  0.11407502E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000 -0.53297416E+00
+    36.2500  0.80193922E+00
+    50.0000  0.11309342E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.0450     0.0413     0.0381    -0.5841    -0.5651    -0.5330
+EPhi     36.2500     0.1171     0.1058     0.0957     0.8198     0.8111     0.8019
+EPhi     50.0000     0.0644     0.0564     0.0497     1.1491     1.1408     1.1309
+Cross Sections for v_Ini =   1        0.00 v_Ion =   8     2837.76
+
+     Sigma LENGTH   at all energies
+      Eng  
+    22.5000  0.45011076E-01
+    36.2500  0.11711642E+00
+    50.0000  0.64354237E-01
+
+     Sigma MIXED    at all energies
+      Eng  
+    22.5000  0.41298108E-01
+    36.2500  0.10580319E+00
+    50.0000  0.56432711E-01
+
+     Sigma VELOCITY at all energies
+      Eng  
+    22.5000  0.38129514E-01
+    36.2500  0.95739826E-01
+    50.0000  0.49658045E-01
+
+     Beta LENGTH   at all energies
+      Eng  
+    22.5000 -0.58412541E+00
+    36.2500  0.81977906E+00
+    50.0000  0.11490789E+01
+
+     Beta MIXED    at all energies
+      Eng  
+    22.5000 -0.56512213E+00
+    36.2500  0.81106266E+00
+    50.0000  0.11407502E+01
+
+     Beta VELOCITY at all energies
+      Eng  
+    22.5000 -0.53297445E+00
+    36.2500  0.80193876E+00
+    50.0000  0.11309341E+01
+
+          COMPOSITE CROSS SECTIONS AT ALL ENERGIES
+         Energy  SIGMA LEN  SIGMA MIX  SIGMA VEL   BETA LEN   BETA MIX   BETA VEL
+EPhi     22.5000     0.0450     0.0413     0.0381    -0.5841    -0.5651    -0.5330
+EPhi     36.2500     0.1171     0.1058     0.0957     0.8198     0.8111     0.8019
+EPhi     50.0000     0.0644     0.0564     0.0497     1.1491     1.1408     1.1309
+Time Now =       283.0897  Delta time =       176.8517 Finalize

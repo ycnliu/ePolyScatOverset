@@ -1,0 +1,993 @@
+Execution on n0149.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  17:34:41.639 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test25
+#
+# electron scattering from H2O in A1 symmetry
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'A1'  # Scattering symmetry
+  LMaxK   3     # Maximum l in the K matirx
+  ScatEng 20.0      # list of scattering energies (in eV)
+  PCutRd 1.0e-8
+  GrnType 1
+
+   # do the scattering with the center of mass at the origin
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test25.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+Scat
+   # do the scattering with the O at the origin
+  NECenter 2
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test25.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+Scat
+Exit
++ End of input reached
++ Data Record LMax - 15
++ Data Record EMax - 50.0
++ Data Record EngForm - 0 0
++ Data Record VCorr - 'PZ'
++ Data Record FegeEng - 13.0
++ Data Record ScatContSym - 'A1'
++ Data Record LMaxK - 3
++ Data Record ScatEng - 20.0
++ Data Record PCutRd - 1.0e-8
++ Data Record GrnType - 1
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test25.g03' 'gaussian'
+
+----------------------------------------------------------------------
+GaussianCnv - read input from Gaussian output
+----------------------------------------------------------------------
+
+Conversion using g03
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772083000000
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Command line = # RHF/AUG-CC-PVTZ 6D 10F SCF=TIGHT GFINPUT PUNCH=MO
+CardFlag =    T
+Normal Mode flag =    F
+Selecting orbitals
+from     1  to     5  number already selected     0
+Number of orbitals selected is     5
+Highest orbital read in is =    5
+Time Now =         0.0122  Delta time =         0.0122 End GaussianCnv
+
+Atoms found    3  Coordinates in Angstroms
+Z =  1 ZS =  1 r =   0.0000000000   0.7594600000  -0.4645210000
+Z =  8 ZS =  8 r =   0.0000000000   0.0000000000   0.1161300000
+Z =  1 ZS =  1 r =   0.0000000000  -0.7594600000  -0.4645210000
+Maximum distance from expansion center is    0.8902579688
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  C2v  
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup C2v  
+Time Now =         0.0755  Delta time =         0.0632 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000   8  0.11613
+  2  0.00000  0.85308 -0.52178   1  0.89026
+  3  0.00000 -0.85308 -0.52178   1  0.89026
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  1.00000  0.00000  0.00000
+  3  1.00000  0.00000  0.00000
+Computed default value of LMaxA =   12
+Determining angular grid in GetAxMax  LMax =   15  LMaxA =   12  LMaxAb =   30
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12   3   3   3
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   2
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   2
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C2v
+LMax    15
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  3       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  4       0.000000       0.000000      -1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1  -1   1  -1
+irep =    4  sym =B2    1  eigs =   1   1  -1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         66       1  1  1
+ A2        1         2         47      -1 -1  1
+ B1        1         3         56      -1  1 -1
+ B2        1         4         59       1 -1 -1
+Time Now =         0.1078  Delta time =         0.0323 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   2)    2(   4)    3(   6)    4(   9)    5(  12)    6(  16)    7(  20)    8(  25)    9(  30)
+          10(  36)   11(  42)   12(  49)
+A2    1    0(   0)    1(   0)    2(   1)    3(   2)    4(   4)    5(   6)    6(   9)    7(  12)    8(  16)    9(  20)
+          10(  25)   11(  30)   12(  36)
+B1    1    0(   0)    1(   1)    2(   2)    3(   4)    4(   6)    5(   9)    6(  12)    7(  16)    8(  20)    9(  25)
+          10(  30)   11(  36)   12(  42)
+B2    1    0(   0)    1(   1)    2(   2)    3(   4)    4(   6)    5(   9)    6(  12)    7(  16)    8(  20)    9(  25)
+          10(  30)   11(  36)   12(  42)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C2v
+LMax    30
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  3       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  4       0.000000       0.000000      -1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1  -1   1  -1
+irep =    4  sym =B2    1  eigs =   1   1  -1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1        256       1  1  1
+ A2        1         2        225      -1 -1  1
+ B1        1         3        240      -1  1 -1
+ B2        1         4        240       1 -1 -1
+Time Now =         0.1118  Delta time =         0.0040 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =   12.0049934697 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+HFacGauss    10.00000
+HFacWave     10.00000
+GridFac       1
+MinExpFac   300.00000
+Maximum R in the grid (RMax) =    12.00499 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMAx) =  50.00000 eV
+Maximum step size (MaxStep) =  12.00499 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.10000E+01
+    2  Center at =     0.11613 Angs  Alpha Max = 0.19200E+05
+    3  Center at =     0.89026 Angs  Alpha Max = 0.30000E+03
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.41063E-03     0.00329
+    2    8    16    0.58001E-03     0.00793
+    3    8    24    0.93206E-03     0.01538
+    4    8    32    0.12452E-02     0.02534
+    5    8    40    0.14460E-02     0.03691
+    6    8    48    0.14579E-02     0.04857
+    7    8    56    0.13371E-02     0.05927
+    8    8    64    0.13008E-02     0.06968
+    9    8    72    0.14451E-02     0.08124
+   10    8    80    0.15789E-02     0.09387
+   11    8    88    0.10139E-02     0.10198
+   12    8    96    0.64446E-03     0.10714
+   13    8   104    0.46007E-03     0.11082
+   14    8   112    0.39392E-03     0.11397
+   15    8   120    0.27029E-03     0.11613
+   16    8   128    0.38190E-03     0.11919
+   17    8   136    0.40714E-03     0.12244
+   18    8   144    0.50188E-03     0.12646
+   19    8   152    0.76147E-03     0.13255
+   20    8   160    0.12106E-02     0.14223
+   21    8   168    0.19247E-02     0.15763
+   22    8   176    0.30601E-02     0.18211
+   23    8   184    0.37769E-02     0.21233
+   24    8   192    0.44035E-02     0.24756
+   25    8   200    0.63618E-02     0.29845
+   26    8   208    0.97955E-02     0.37681
+   27    8   216    0.92953E-02     0.45118
+   28    8   224    0.93571E-02     0.52603
+   29    8   232    0.10910E-01     0.61331
+   30    8   240    0.12720E-01     0.71507
+   31    8   248    0.79791E-02     0.77890
+   32    8   256    0.50718E-02     0.81947
+   33    8   264    0.36511E-02     0.84868
+   34    8   272    0.31419E-02     0.87382
+   35    8   280    0.20549E-02     0.89026
+   36    8   288    0.30552E-02     0.91470
+   37    8   296    0.32571E-02     0.94076
+   38    8   304    0.40150E-02     0.97288
+   39    8   312    0.60918E-02     1.02161
+   40    8   320    0.96851E-02     1.09909
+   41    8   328    0.15398E-01     1.22227
+   42    8   336    0.24481E-01     1.41812
+   43    8   344    0.29411E-01     1.65341
+   44    8   352    0.34290E-01     1.92773
+   45    8   360    0.45134E-01     2.28880
+   46    8   368    0.58373E-01     2.75579
+   47    8   376    0.61891E-01     3.25091
+   48    8   384    0.64724E-01     3.76871
+   49    8   392    0.67043E-01     4.30505
+   50    8   400    0.68966E-01     4.85678
+   51    8   408    0.70580E-01     5.42142
+   52    8   416    0.71948E-01     5.99700
+   53    8   424    0.73120E-01     6.58197
+   54    8   432    0.74133E-01     7.17503
+   55    8   440    0.75016E-01     7.77516
+   56    8   448    0.75790E-01     8.38148
+   57    8   456    0.76474E-01     8.99327
+   58    8   464    0.77082E-01     9.60993
+   59    8   472    0.77626E-01    10.23094
+   60    8   480    0.78115E-01    10.85586
+   61    8   488    0.78556E-01    11.48430
+   62    8   496    0.65086E-01    12.00499
+Time Now =         0.1259  Delta time =         0.0141 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   15
+Maximum scattering m (mmaxs) =   15
+Maximum numerical integration l (lmaxi) =   30
+Maximum numerical integration m (mmaxi) =   30
+Maximum l to include in the asymptotic region (lmasym) =   12
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   12
+ Actual value of lmasym found =     12
+Number of regions of the same l expansion (NAngReg) =   11
+Angular regions
+    1 L =    2  from (    1)         0.00041  to (    7)         0.00287
+    2 L =    3  from (    8)         0.00329  to (   23)         0.01445
+    3 L =    4  from (   24)         0.01538  to (   31)         0.02410
+    4 L =    6  from (   32)         0.02534  to (   39)         0.03546
+    5 L =    7  from (   40)         0.03691  to (   47)         0.04712
+    6 L =    9  from (   48)         0.04857  to (   55)         0.05793
+    7 L =   12  from (   56)         0.05927  to (   63)         0.06838
+    8 L =   15  from (   64)         0.06968  to (  192)         0.24756
+    9 L =   12  from (  193)         0.25392  to (  223)         0.51668
+   10 L =   15  from (  224)         0.52603  to (  344)         1.65341
+   11 L =   12  from (  345)         1.68770  to (  496)        12.00499
+There are     2 angular regions for computing spherical harmonics
+    1 lval =   12
+    2 lval =   15
+Maximum number of processors is       61
+Last grid points by processor WorkExp =     1.500
+Proc id =   -1  Last grid point =       1
+Proc id =    0  Last grid point =      72
+Proc id =    1  Last grid point =      88
+Proc id =    2  Last grid point =     112
+Proc id =    3  Last grid point =     128
+Proc id =    4  Last grid point =     152
+Proc id =    5  Last grid point =     168
+Proc id =    6  Last grid point =     192
+Proc id =    7  Last grid point =     216
+Proc id =    8  Last grid point =     240
+Proc id =    9  Last grid point =     256
+Proc id =   10  Last grid point =     280
+Proc id =   11  Last grid point =     296
+Proc id =   12  Last grid point =     320
+Proc id =   13  Last grid point =     336
+Proc id =   14  Last grid point =     360
+Proc id =   15  Last grid point =     392
+Proc id =   16  Last grid point =     416
+Proc id =   17  Last grid point =     448
+Proc id =   18  Last grid point =     472
+Proc id =   19  Last grid point =     496
+Time Now =         0.1350  Delta time =         0.0091 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -20.564625  A1    1 at max irg =  144  r =   0.12646
+     2  Orig    2  Eng =   -1.353376  A1    1 at max irg =  224  r =   0.52603
+     3  Orig    3  Eng =   -0.719656  B2    1 at max irg =  232  r =   0.61331
+     4  Orig    4  Eng =   -0.583692  A1    1 at max irg =  224  r =   0.52603
+     5  Orig    5  Eng =   -0.510201  B1    1 at max irg =  216  r =   0.45118
+
+Rotation coefficients for orbital     1  grp =    1 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     3  grp =    3 B2    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     4  grp =    4 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     5  grp =    5 B1    1
+     1  1.0000000000
+Number of orbital groups and degeneracis are         5
+  1  1  1  1  1
+Number of orbital groups and number of electrons when fully occupied
+         5
+  2  2  2  2  2
+Time Now =         0.1626  Delta time =         0.0276 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    5
+Orbital     1 of  A1    1 symmetry normalization integral =  0.99998473
+Orbital     2 of  A1    1 symmetry normalization integral =  0.99999607
+Orbital     3 of  B2    1 symmetry normalization integral =  0.99999105
+Orbital     4 of  A1    1 symmetry normalization integral =  0.99999675
+Orbital     5 of  B1    1 symmetry normalization integral =  1.00000007
+Time Now =         0.3564  Delta time =         0.1938 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =     10.00000000
+Time Now =         0.3604  Delta time =         0.0041 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.10000000E+02 facnorm =  0.10000000E+01
+Time Now =         0.3791  Delta time =         0.0187 Electronic part
+Time Now =         0.3806  Delta time =         0.0014 End StPot
+
+----------------------------------------------------------------------
+vcppol - VCP polarization potential program
+----------------------------------------------------------------------
+
+Time Now =         0.3896  Delta time =         0.0090 End VcpPol
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.20000000E+02 eV (  0.73498652E+00 AU)
+Time Now =         0.3963  Delta time =         0.0067 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    62
+Number of partial waves (np) =    66
+Number of asymptotic solutions on the right (NAsymR) =     6
+Number of asymptotic solutions on the left (NAsymL) =     6
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     6
+Maximum in the asymptotic region (lpasym) =   12
+Number of partial waves in the asymptotic region (npasym) =   49
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  169
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    3
+Highest l used at large r (lpasym) =   12
+Higest l used in the asymptotic potential (lpzb) =   24
+Maximum L used in the homogeneous solution (LMaxHomo) =   12
+Number of partial waves in the homogeneous solution (npHomo) =   49
+Time Now =         0.4026  Delta time =         0.0063 Energy independent setup
+
+Compute solution for E =   20.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.83266727E-16 Asymp Coef   =  -0.47061940E-10 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.30715190E-02 Asymp Moment =  -0.19970426E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.29170170E-03 Asymp Moment =  -0.37947551E+00 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) =  0.38044045E-04 Asymp Moment =  -0.49491599E-01 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.90744600E+02 -0.20000000E+01  stpote = -0.12536341E-16
+ i =  2  exps = -0.90744600E+02 -0.20000000E+01  stpote = -0.12554991E-16
+ i =  3  exps = -0.90744600E+02 -0.20000000E+01  stpote = -0.12591898E-16
+ i =  4  exps = -0.90744600E+02 -0.20000000E+01  stpote = -0.12646251E-16
+For potential     3
+ i =  1  exps = -0.73269919E+00 -0.17372104E-01  stpote = -0.15270390E-05
+ i =  2  exps = -0.73268405E+00 -0.17371795E-01  stpote = -0.15272993E-05
+ i =  3  exps = -0.73265439E+00 -0.17371192E-01  stpote = -0.15278097E-05
+ i =  4  exps = -0.73261139E+00 -0.17370319E-01  stpote = -0.15285505E-05
+Number of asymptotic regions =     135
+Final point in integration =   0.15884106E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =         9.4254  Delta time =         9.0227 End SolveHomo
+      Final T matrix
+     ROW  1
+  (-0.14966812E+00, 0.66994627E+00) ( 0.37826913E-01, 0.27915544E+00)
+  (-0.31512303E+00, 0.14998513E-01) ( 0.55159195E-01, 0.19439019E-01)
+  ( 0.98469563E-01, 0.15602416E-01) ( 0.77545391E-01,-0.49289085E-02)
+     ROW  2
+  ( 0.37826922E-01, 0.27915549E+00) (-0.27467970E+00, 0.47692790E+00)
+  ( 0.13104956E-01, 0.10835482E+00) (-0.27657499E+00, 0.44587868E-01)
+  (-0.46362402E-01,-0.21105252E-01) (-0.36662681E-01, 0.71748856E-02)
+     ROW  3
+  (-0.31512305E+00, 0.14998518E-01) ( 0.13104948E-01, 0.10835481E+00)
+  ( 0.26693968E+00, 0.60256594E+00) ( 0.36676023E-01, 0.14577148E+00)
+  (-0.19289715E-01,-0.14816302E+00) ( 0.14193608E-01,-0.10267501E+00)
+     ROW  4
+  ( 0.55159204E-01, 0.19439029E-01) (-0.27657498E+00, 0.44587867E-01)
+  ( 0.36676027E-01, 0.14577148E+00) ( 0.33276891E+00, 0.32726103E+00)
+  ( 0.11016891E-01,-0.48297029E-02) (-0.52814506E-01,-0.40318172E-01)
+     ROW  5
+  ( 0.98469571E-01, 0.15602418E-01) (-0.46362400E-01,-0.21105247E-01)
+  (-0.19289715E-01,-0.14816302E+00) ( 0.11016892E-01,-0.48297011E-02)
+  ( 0.16577317E+00, 0.83409674E-01) ( 0.56148308E-01, 0.51016137E-01)
+     ROW  6
+  ( 0.77545397E-01,-0.49289080E-02) (-0.36662679E-01, 0.71748892E-02)
+  ( 0.14193609E-01,-0.10267501E+00) (-0.52814505E-01,-0.40318171E-01)
+  ( 0.56148308E-01, 0.51016137E-01) ( 0.15315468E+00, 0.63993345E-01)
+ eigenphases
+ -0.1261444E+01 -0.5374831E+00  0.9706655E-01  0.2369853E+00  0.5557760E+00
+  0.9885424E+00
+ eigenphase sum 0.794433E-01  scattering length=  -0.06566
+ eps+pi 0.322104E+01  eps+2*pi 0.636263E+01
+
+MaxIter =   7 c.s. =      5.27993818 rmsk=     0.00000001  Abs eps    0.10000000E-05  Rel eps    0.15697545E-08
+Time Now =        27.5704  Delta time =        18.1451 End ScatStab
++ Data Record NECenter - 2
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test25.g03' 'gaussian'
+
+----------------------------------------------------------------------
+GaussianCnv - read input from Gaussian output
+----------------------------------------------------------------------
+
+Conversion using g03
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772083000000
+Expansion center is at nucleus     2
+Command line = # RHF/AUG-CC-PVTZ 6D 10F SCF=TIGHT GFINPUT PUNCH=MO
+CardFlag =    T
+Normal Mode flag =    F
+Selecting orbitals
+from     1  to     5  number already selected     0
+Number of orbitals selected is     5
+Highest orbital read in is =    5
+Time Now =        27.5718  Delta time =         0.0014 End GaussianCnv
+
+Atoms found    3  Coordinates in Angstroms
+Z =  1 ZS =  1 r =   0.0000000000   0.7594600000  -0.5806510000
+Z =  8 ZS =  8 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  1 ZS =  1 r =   0.0000000000  -0.7594600000  -0.5806510000
+Maximum distance from expansion center is    0.9559995164
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+#############################################################################
+Expansion center is not at the center of charge
+For high symmetry systems, a better expansion point may be
+    0.0000000000    0.0000000000   -0.1161302000
+#############################################################################
+Found point group  C2v  
+Reduce angular grid using nthd =  1  nphid =  4
+Found point group for abelian subgroup C2v  
+Time Now =        27.5721  Delta time =         0.0002 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000
+  2  0.00000  0.79441 -0.60738   1  0.95600
+  3  0.00000 -0.79441 -0.60738   1  0.95600
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  1.00000  0.00000  0.00000
+  3  1.00000  0.00000  0.00000
+Computed default value of LMaxA =   12
+Determining angular grid in GetAxMax  LMax =   15  LMaxA =   12  LMaxAb =   30
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  -1  -1  -1
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   2
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3   3   2
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C2v
+LMax    15
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2      -1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  3       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  4       0.000000       0.000000      -1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1  -1   1  -1
+irep =    4  sym =B2    1  eigs =   1   1  -1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1         60       1  1  1
+ A2        1         2         44      -1 -1  1
+ B1        1         3         50      -1  1 -1
+ B2        1         4         53       1 -1 -1
+Time Now =        27.5994  Delta time =         0.0273 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1    1    0(   1)    1(   2)    2(   4)    3(   6)    4(   9)    5(  12)    6(  16)    7(  20)    8(  25)    9(  30)
+          10(  36)   11(  42)   12(  49)
+A2    1    0(   0)    1(   0)    2(   1)    3(   2)    4(   4)    5(   6)    6(   9)    7(  12)    8(  16)    9(  20)
+          10(  25)   11(  30)   12(  36)
+B1    1    0(   0)    1(   1)    2(   2)    3(   4)    4(   6)    5(   9)    6(  12)    7(  16)    8(  20)    9(  25)
+          10(  30)   11(  36)   12(  42)
+B2    1    0(   0)    1(   1)    2(   2)    3(   4)    4(   6)    5(   9)    6(  12)    7(  16)    8(  20)    9(  25)
+          10(  30)   11(  36)   12(  42)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is C2v
+LMax    30
+ The dimension of each irreducable representation is
+    A1    (  1)    A2    (  1)    B1    (  1)    B2    (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2      -1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  3       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  4       0.000000       0.000000      -1.000000 ang =  1  2 type = 2 axis = 3
+irep =    1  sym =A1    1  eigs =   1   1   1   1
+irep =    2  sym =A2    1  eigs =   1  -1  -1   1
+irep =    3  sym =B1    1  eigs =   1  -1   1  -1
+irep =    4  sym =B2    1  eigs =   1   1  -1  -1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    3
+ The operations are -
+     2     3     4
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1        1         1        256       1  1  1
+ A2        1         2        225      -1 -1  1
+ B1        1         3        240      -1  1 -1
+ B2        1         4        240       1 -1 -1
+Time Now =        27.6030  Delta time =         0.0036 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =   12.0841518541 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+HFacGauss    10.00000
+HFacWave     10.00000
+GridFac       1
+MinExpFac   300.00000
+Maximum R in the grid (RMax) =    12.08415 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMAx) =  50.00000 eV
+Maximum step size (MaxStep) =  12.08415 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.19200E+05
+    2  Center at =     0.95600 Angs  Alpha Max = 0.30000E+03
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.38190E-03     0.00306
+    2    8    16    0.40714E-03     0.00631
+    3    8    24    0.50188E-03     0.01033
+    4    8    32    0.76147E-03     0.01642
+    5    8    40    0.12106E-02     0.02610
+    6    8    48    0.19247E-02     0.04150
+    7    8    56    0.30601E-02     0.06598
+    8    8    64    0.48651E-02     0.10490
+    9    8    72    0.77349E-02     0.16678
+   10    8    80    0.98829E-02     0.24585
+   11    8    88    0.10826E-01     0.33245
+   12    8    96    0.10549E-01     0.41685
+   13    8   104    0.99588E-02     0.49652
+   14    8   112    0.10297E-01     0.57890
+   15    8   120    0.12006E-01     0.67494
+   16    8   128    0.12761E-01     0.77703
+   17    8   136    0.81511E-02     0.84224
+   18    8   144    0.51812E-02     0.88369
+   19    8   152    0.36896E-02     0.91321
+   20    8   160    0.31543E-02     0.93844
+   21    8   168    0.21947E-02     0.95600
+   22    8   176    0.30552E-02     0.98044
+   23    8   184    0.32571E-02     1.00650
+   24    8   192    0.40150E-02     1.03862
+   25    8   200    0.60918E-02     1.08735
+   26    8   208    0.96851E-02     1.16483
+   27    8   216    0.15398E-01     1.28802
+   28    8   224    0.24481E-01     1.48386
+   29    8   232    0.30774E-01     1.73006
+   30    8   240    0.35880E-01     2.01710
+   31    8   248    0.45506E-01     2.38115
+   32    8   256    0.59423E-01     2.85653
+   33    8   264    0.62783E-01     3.35879
+   34    8   272    0.65477E-01     3.88261
+   35    8   280    0.67680E-01     4.42405
+   36    8   288    0.69507E-01     4.98010
+   37    8   296    0.71042E-01     5.54844
+   38    8   304    0.72347E-01     6.12722
+   39    8   312    0.73466E-01     6.71495
+   40    8   320    0.74436E-01     7.31043
+   41    8   328    0.75282E-01     7.91269
+   42    8   336    0.76025E-01     8.52089
+   43    8   344    0.76684E-01     9.13436
+   44    8   352    0.77270E-01     9.75252
+   45    8   360    0.77795E-01    10.37488
+   46    8   368    0.78267E-01    11.00101
+   47    8   376    0.78694E-01    11.63057
+   48    8   384    0.56698E-01    12.08415
+Time Now =        27.6137  Delta time =         0.0107 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   15
+Maximum scattering m (mmaxs) =   15
+Maximum numerical integration l (lmaxi) =   30
+Maximum numerical integration m (mmaxi) =   30
+Maximum l to include in the asymptotic region (lmasym) =   12
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   12
+ Actual value of lmasym found =     12
+Number of regions of the same l expansion (NAngReg) =   10
+Angular regions
+    1 L =    2  from (    1)         0.00038  to (    7)         0.00267
+    2 L =    5  from (    8)         0.00306  to (   23)         0.00983
+    3 L =    6  from (   24)         0.01033  to (   31)         0.01566
+    4 L =    7  from (   32)         0.01642  to (   47)         0.03958
+    5 L =    8  from (   48)         0.04150  to (   55)         0.06292
+    6 L =   10  from (   56)         0.06598  to (   63)         0.10004
+    7 L =   11  from (   64)         0.10490  to (   71)         0.15905
+    8 L =   12  from (   72)         0.16678  to (  111)         0.56860
+    9 L =   15  from (  112)         0.57890  to (  232)         1.73006
+   10 L =   12  from (  233)         1.76594  to (  384)        12.08415
+There are     2 angular regions for computing spherical harmonics
+    1 lval =   12
+    2 lval =   15
+Maximum number of processors is       47
+Last grid points by processor WorkExp =     1.500
+Proc id =   -1  Last grid point =       1
+Proc id =    0  Last grid point =      64
+Proc id =    1  Last grid point =      80
+Proc id =    2  Last grid point =     104
+Proc id =    3  Last grid point =     120
+Proc id =    4  Last grid point =     136
+Proc id =    5  Last grid point =     152
+Proc id =    6  Last grid point =     160
+Proc id =    7  Last grid point =     176
+Proc id =    8  Last grid point =     192
+Proc id =    9  Last grid point =     208
+Proc id =   10  Last grid point =     216
+Proc id =   11  Last grid point =     232
+Proc id =   12  Last grid point =     248
+Proc id =   13  Last grid point =     272
+Proc id =   14  Last grid point =     288
+Proc id =   15  Last grid point =     312
+Proc id =   16  Last grid point =     328
+Proc id =   17  Last grid point =     352
+Proc id =   18  Last grid point =     368
+Proc id =   19  Last grid point =     384
+Time Now =        27.6181  Delta time =         0.0044 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =  -20.564625  A1    1 at max irg =   56  r =   0.06598
+     2  Orig    2  Eng =   -1.353376  A1    1 at max irg =  104  r =   0.49652
+     3  Orig    3  Eng =   -0.719656  B2    1 at max irg =  112  r =   0.57890
+     4  Orig    4  Eng =   -0.583692  A1    1 at max irg =  104  r =   0.49652
+     5  Orig    5  Eng =   -0.510201  B1    1 at max irg =  104  r =   0.49652
+
+Rotation coefficients for orbital     1  grp =    1 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     2  grp =    2 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     3  grp =    3 B2    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     4  grp =    4 A1    1
+     1  1.0000000000
+
+Rotation coefficients for orbital     5  grp =    5 B1    1
+     1  1.0000000000
+Number of orbital groups and degeneracis are         5
+  1  1  1  1  1
+Number of orbital groups and number of electrons when fully occupied
+         5
+  2  2  2  2  2
+Time Now =        27.6399  Delta time =         0.0218 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    5
+Orbital     1 of  A1    1 symmetry normalization integral =  1.00000000
+Orbital     2 of  A1    1 symmetry normalization integral =  0.99999533
+Orbital     3 of  B2    1 symmetry normalization integral =  0.99998793
+Orbital     4 of  A1    1 symmetry normalization integral =  0.99999558
+Orbital     5 of  B1    1 symmetry normalization integral =  1.00000007
+Time Now =        27.8028  Delta time =         0.1629 End ExpOrb
+
++ Command GetPot
++ 
+
+----------------------------------------------------------------------
+Den - Electron density construction program
+----------------------------------------------------------------------
+
+Total density =     10.00000000
+Time Now =        27.8061  Delta time =         0.0033 End Den
+
+----------------------------------------------------------------------
+StPot - Compute the static potential from the density
+----------------------------------------------------------------------
+
+ vasymp =  0.10000000E+02 facnorm =  0.10000000E+01
+Time Now =        27.8202  Delta time =         0.0142 Electronic part
+Time Now =        27.8207  Delta time =         0.0005 End StPot
+
+----------------------------------------------------------------------
+vcppol - VCP polarization potential program
+----------------------------------------------------------------------
+
+Time Now =        27.8271  Delta time =         0.0064 End VcpPol
+
++ Command Scat
++ 
+
+----------------------------------------------------------------------
+Fege - FEGE exchange potential construction program
+----------------------------------------------------------------------
+
+ Off set energy for computing fege eta (ecor) =  0.13000000E+02  eV
+ Do E =  0.20000000E+02 eV (  0.73498652E+00 AU)
+Time Now =        27.8325  Delta time =         0.0054 End Fege
+
+----------------------------------------------------------------------
+ScatStab - Iterative exchange scattering program (rev. 04/25/2005)
+----------------------------------------------------------------------
+
+Unit for output of final k matrices (iukmat) =    60
+Symmetry type of scattering solution (symtps) = A1    1
+Form of the Green's operator used (iGrnType) =     1
+Flag for dipole operator (DipoleFlag) =      F
+Maximum l for computed scattering solutions (LMaxK) =    3
+Maximum number of iterations (itmax) =   15
+Convergence criterion on change in rmsq k matrix (cutkdf) =  0.10000000E-05
+Maximum l to include in potential (lpotct) =   -1
+No exchange flag =   F
+Runge Kutta factor  used (RungeKuttaFac) =    4
+Error estimate for integrals used in convergence test (EpsIntError) =  0.10000000E-07
+General print flag (iprnfg) =    0
+Number of integration regions (NIntRegionR) =   40
+Factor for number of points in asymptotic region (HFacWaveAsym) =  10.0
+Asymptotic cutoff (EpsAsym) =  0.10000000E-06
+Asymptotic cutoff type (iAsymCond) =    1
+Number of integration regions used =    48
+Number of partial waves (np) =    60
+Number of asymptotic solutions on the right (NAsymR) =     6
+Number of asymptotic solutions on the left (NAsymL) =     6
+First solution on left to compute is (NAsymLF) =     1
+Last solution on left to compute is (NAsymLL) =     6
+Maximum in the asymptotic region (lpasym) =   12
+Number of partial waves in the asymptotic region (npasym) =   49
+Number of orthogonality constraints (NOrthUse) =    0
+Number of different asymptotic potentials =    3
+Maximum number of asymptotic partial waves =  169
+Found polarization potential
+Maximum l used in usual function (lmax) =   15
+Maximum m used in usual function (LMax) =   15
+Maxamum l used in expanding static potential (lpotct) =   30
+Maximum l used in exapnding the exchange potential (lmaxab) =   30
+Higest l included in the expansion of the wave function (lnp) =   15
+Higest l included in the K matrix (lna) =    3
+Highest l used at large r (lpasym) =   12
+Higest l used in the asymptotic potential (lpzb) =   24
+Maximum L used in the homogeneous solution (LMaxHomo) =   12
+Number of partial waves in the homogeneous solution (npHomo) =   49
+Time Now =        27.8368  Delta time =         0.0043 Energy independent setup
+
+Compute solution for E =   20.0000000000 eV
+Found fege potential
+Charge on the molecule (zz) =  0.0
+Assumed asymptotic polarization is  0.00000000E+00 au
+ stpote at the end of the grid
+For potential     1
+ i =  1  lval =   0  1/r^n n =   4  StPot(RMax) = -0.55511151E-16 Asymp Coef   =  -0.32210358E-10 (eV Angs^(n)) 
+ i =  2  lval =   1  1/r^n n =   2  StPot(RMax) =  0.30314729E-02 Asymp Moment =  -0.19970839E+00 (e Angs^(n-1)) 
+ i =  3  lval =   2  1/r^n n =   3  StPot(RMax) =  0.28600948E-03 Asymp Moment =  -0.37947919E+00 (e Angs^(n-1)) 
+ i =  4  lval =   2  1/r^n n =   3  StPot(RMax) = -0.78309640E-05 Asymp Moment =   0.10390173E-01 (e Angs^(n-1)) 
+For potential     2
+ i =  1  exps = -0.91342950E+02 -0.20000000E+01  stpote = -0.18445366E-16
+ i =  2  exps = -0.91342950E+02 -0.20000000E+01  stpote = -0.18460834E-16
+ i =  3  exps = -0.91342950E+02 -0.20000000E+01  stpote = -0.18491432E-16
+ i =  4  exps = -0.91342950E+02 -0.20000000E+01  stpote = -0.18536455E-16
+For potential     3
+ i =  1  exps = -0.73029457E+00 -0.17370432E-01  stpote = -0.16063164E-05
+ i =  2  exps = -0.73027934E+00 -0.17370125E-01  stpote = -0.16065938E-05
+ i =  3  exps = -0.73024948E+00 -0.17369524E-01  stpote = -0.16071377E-05
+ i =  4  exps = -0.73020620E+00 -0.17368654E-01  stpote = -0.16079271E-05
+Number of asymptotic regions =     131
+Final point in integration =   0.15423578E+03 Angstroms
+Last asymptotic region is special region for dipole potential
+Time Now =        36.0924  Delta time =         8.2556 End SolveHomo
+      Final T matrix
+     ROW  1
+  (-0.14277548E+00, 0.74874552E+00) ( 0.16322882E-01, 0.23801390E+00)
+  (-0.29885505E+00, 0.33341952E-01) ( 0.24345918E-01,-0.11803814E-01)
+  ( 0.11925416E+00, 0.83022863E-02) ( 0.65985398E-01,-0.56882416E-02)
+     ROW  2
+  ( 0.16322882E-01, 0.23801390E+00) (-0.34907496E+00, 0.40641705E+00)
+  ( 0.59590307E-01, 0.11945501E+00) (-0.19390774E+00, 0.26977839E-01)
+  (-0.63394097E-01,-0.33929338E-01) (-0.23191284E-01,-0.35492064E-02)
+     ROW  3
+  (-0.29885506E+00, 0.33341952E-01) ( 0.59590307E-01, 0.11945501E+00)
+  ( 0.26212240E+00, 0.56724954E+00) ( 0.35065109E-01, 0.11469672E+00)
+  (-0.31723657E-01,-0.19468418E+00) ( 0.12887738E-01,-0.11242804E+00)
+     ROW  4
+  ( 0.24345918E-01,-0.11803813E-01) (-0.19390774E+00, 0.26977839E-01)
+  ( 0.35065109E-01, 0.11469672E+00) ( 0.38049401E+00, 0.30213060E+00)
+  ( 0.20371515E-01,-0.81382607E-02) (-0.78170548E-01,-0.73614579E-01)
+     ROW  5
+  ( 0.11925416E+00, 0.83022862E-02) (-0.63394097E-01,-0.33929338E-01)
+  (-0.31723657E-01,-0.19468418E+00) ( 0.20371515E-01,-0.81382608E-02)
+  ( 0.15134318E+00, 0.11012575E+00) ( 0.50914619E-01, 0.58477130E-01)
+     ROW  6
+  ( 0.65985399E-01,-0.56882412E-02) (-0.23191284E-01,-0.35492066E-02)
+  ( 0.12887738E-01,-0.11242804E+00) (-0.78170548E-01,-0.73614579E-01)
+  ( 0.50914619E-01, 0.58477130E-01) ( 0.14703707E+00, 0.71812781E-01)
+ eigenphases
+ -0.1258705E+01 -0.5371819E+00  0.7779181E-01  0.2126800E+00  0.5543034E+00
+  0.9858890E+00
+ eigenphase sum 0.347776E-01  scattering length=  -0.02870
+ eps+pi 0.317637E+01  eps+2*pi 0.631796E+01
+
+MaxIter =   7 c.s. =      5.22313352 rmsk=     0.00000001  Abs eps    0.10000000E-05  Rel eps    0.15389896E-08
+Time Now =        50.0500  Delta time =        13.9575 End ScatStab
++ Command Exit
+Time Now =        50.0503  Delta time =         0.0003 Finalize

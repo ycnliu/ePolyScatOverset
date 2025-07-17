@@ -1,0 +1,57 @@
+#
+# input file for test51
+#
+# electron scattering from CH4 in A1 symmetry
+#
+  cKohn
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 1         # charge, formula type
+   3           # number of terms in the formulas
+   2.0 -1.0    # orbital occupation and coefficient for the K operators
+   2.0 -1.0
+   2.0 -1.0
+  VCorr 'PZ'
+  AsyPol
+   0.15  # SwitchD, distance where switching function is down to 0.1
+   1     # nterm, number of terms needed to define asymptotic potential
+   1     # center for polarization term 1 is for C atom
+   1     # ittyp type of polarization term, = 1 for spherically symmetric
+         # = 2 for reading in the full tensor
+   17.50 # value of the spherical polarizability
+   3     # icrtyp, flag to determine where r match is, 3 for second crossing
+         # or at nearest approach
+   0     # ilntyp, flag to determine what matching line is used, 0 - use 
+         # l = 0 radial function as matching function
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'A1'  # Scattering symmetry
+  LMaxK   4     # Maximum l in the K matirx 
+#  SymToler 1.0e-4
+
+Comment '--------------------------- Expansion at the C atom using full Td symmetry ---------------------------'
+Convert '$pe/tests/test51Td.molden2012' 'molden2012'
+GetBlms
+ExpOrb
+
+Comment '----------------------- Expansion at the C atom with Td geometry but in no symmetry  -----------------------'
+NoSym
+Convert '$pe/tests/test51Td.molden2012' 'molden2012'
+GetBlms
+ExpOrb
+RmDataRecord 'NoSym'
+
+Comment '--------------------------- Expansion using C2v symmetry ---------------------------'
+Convert '$pe/tests/test51C2v.molden2012' 'molden2012'
+GetBlms
+ExpOrb
+
+Comment '--------------------------- Expansion using C1 geometry ---------------------------'
+Convert '$pe/tests/test51NoSym.molden2012' 'molden2012'
+GetBlms
+ExpOrb
+
+Comment '--------------------------- Expansion using C1 geometry with C at the origin ---------------------------'
+NECenter 1
+Convert '$pe/tests/test51NoSym.molden2012' 'molden2012'
+GetBlms
+ExpOrb

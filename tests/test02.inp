@@ -1,0 +1,26 @@
+#
+# input file for test02
+#
+# electron scattering from CH4 in T2 symmetry, static-exchange with orthogonalization
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+
+  EngForm      # Energy formulas
+   0 2
+   3
+   2.0 -1.0 1
+   2.0 -1.0 1
+   2.0 -1.0 1
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'T2'  # Scattering symmetry
+  LMaxK   4     # Maximum l in the K matirx 
+
+Convert '$pt/test02.g03' 'gaussian'
+GetBlms
+ExpOrb
+GetPot
+Scat 0.5
+TotalCrossSection
+

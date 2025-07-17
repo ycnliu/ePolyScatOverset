@@ -1,0 +1,27 @@
+#
+# input file for test11
+#
+# electron scattering from N2 molden SCF, scattering from N2+ ground state
+#
+  LMax   22     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+
+  OrbOcc     2 2 2 2 1 4  # occupation of the orbital groups of target
+  TargSym 'SG'      # Symmetry of the target state
+  TargSpinDeg 2     # Target spin degeneracy
+
+  SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+  ScatSym     'SU'  # Scattering symmetry of total final state
+  ScatContSym 'SU'  # Scattering symmetry of the continuum orbital
+
+  LMaxK    10     # Maximum l in the K matirx 
+  ScatEng  10.0   # list of scattering energies
+
+Convert '$pt/test11.molden2012' 'molden'
+GetBlms
+ExpOrb
+GenFormScat
+GetPot
+GrnType 1
+Scat

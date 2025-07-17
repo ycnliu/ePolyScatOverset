@@ -1,0 +1,17 @@
+***,N2O
+
+RNN = 1.1282 ANG
+RNO = 1.1842 ANG
+
+geometry={
+N1;
+N2, N1, RNN;
+O1, N2, RNO, N1, 180.
+}
+
+basis=avtz
+{rhf;
+wf,22,1,0;}
+put,molden,test26.molden2012;
+
+

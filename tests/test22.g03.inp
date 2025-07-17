@@ -1,0 +1,18 @@
+g03 <<eoi
+%Mem=800MB
+%NProc=4
+# ROHF/cc-pVTZ SCF=tight 6D 10F Gfinput PUNCH=MO
+
+NO2
+
+0 2
+N
+O N RNO
+O N RNO O AONO
+       Variables:
+RNO 1.19455
+AONO 133.851
+
+eoi
+#
+cat fort.7

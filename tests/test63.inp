@@ -1,0 +1,63 @@
+#
+# input file for test63
+#
+# N2 molden SCF, (3-sigma-g)^-1 photoionization
+#
+cKohn
+LMax 20
+LMaxI 40
+LMaxA 14
+NccZeta 3
+EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  nrFEM 12
+  NLambda 8.
+  N_rpnts_SG 30.
+  HFacGauss 16.
+  GridFac 1
+  RMax 52.91772083
+  
+  ScatEng  10.0   # list of scattering energies
+
+ InitSym 'SG'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 2 2 2 4  # Orbital occupation of initial state
+ OrbOcc     2 2 2 2 1 4  # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'SG'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 15.581    # ionization potentail
+
+
+Convert '$pe/tests/test63.g03' 'g03'
+GetBlms
+ExpOrb
+Orthog 1 1 1 1 1 1
+
+IterMax 25
+CnvgKMat 1.0e-8
+
+ ScatSym     'SU'  # Scattering symmetry of total final state
+ ScatContSym 'SU'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' 'test63SU.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+ ScatSym     'PU'  # Scattering symmetry of total final state
+ ScatContSym 'PU'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' 'test63PU.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+GetCro 'test63PU.idy' 'test63SU.idy'
+
+Exit

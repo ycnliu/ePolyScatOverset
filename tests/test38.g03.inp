@@ -1,0 +1,14 @@
+g03 <<eoi
+#HF/aug-cc-pvtz SCF=tight 6D 10F Gfinput PUNCH=MO 
+
+N2 HF
+
+0 1
+N1
+N2 N1 RNN
+
+RNN = 1.09768
+
+eoi
+cat fort.7 
+#

@@ -1,0 +1,17 @@
+***,N2 gs
+
+RNN = 1.094  ANG
+
+cartesian
+
+geometry={
+N1;
+N2,N1,RNN;
+}
+
+basis=avtz
+{rhf;
+wf,14,1,0;}
+put,molden,test52.molden;
+
+

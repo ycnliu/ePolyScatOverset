@@ -1,0 +1,22 @@
+#
+# input file for test07
+#
+# electron scattering from N2 molden SCF, polarization potential, low energy
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'PG'  # Scattering symmetry
+  LMaxK    6     # Maximum l in the K matirx 
+  ScatEng  3.401425   # list of scattering energies
+
+Convert '$pt/test07.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+Scat
+TotalCrossSection
+

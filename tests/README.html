@@ -1,0 +1,336 @@
+<html>
+<h1>Sample Jobs</h1>
+
+Below is a list of the test scripts that are found in the directory <code>ePolyScatE/tests</code>.  
+Required environment variables are discussed
+<am>SourceePolyScat.f90.html#EnvVar here.
+
+<h2>Test Scripts</h2>
+
+Almost of all of the tests have four files associated with them, the .inp
+file contains the input data,
+the .ostnd file which is the standard output of this
+job run, the output from a standard quantum chemistry
+code which is used as input by the scattering codes (eg .g03 or .molden2012), and the job used
+to run the quantum chemistry code (eg .g03.inp or .molpro.inp) Note that there are a changes
+in the format of the molden files produced by Molpro depending on the version.
+
+Most of the jobs can use 40 or more processors.  However, there a few jobs that will fail if you use more than 16
+processors. So for running the full test suite it is best to use no more than 16 processors.
+ 
+<dl>
+Test 01 - CH4 using Gaussian 03 output, A1, static exchange+model polarization
+         (se+mp) <br />
+  <a> test01.inp    Input Data
+  <a> test01.ostnd  Standard output
+  <a> test01.molden2015    Molden file from Molpro 2015
+  <a> test01.molpro.inp    Molpro input 
+
+Test 02 - CH4 using Gaussian 03 output, T2, static exchange with orthogonalization <br />
+  <a> test02.inp    Input Data
+  <a> test02.ostnd  Standard output
+  <a> test02.g03    Gaussian 03 output 
+  <a> test02.g03.inp    Gaussian 03 input 
+
+Test 03 - N2, using molden output, DCS using D-inf-h symmetry <br />
+  <a> test03.inp    Input Data
+  <a> test03.ostnd  Standard output
+  <a> test03.molden2012    Molden output Molpro 2012
+  <a> test03.molpro.inp    Molpro input
+
+Test 04 - SiH4, Gaussian 03 output, several energies, T-matrix form <br />
+  <a> test04.inp    Input Data
+  <a> test04.ostnd  Standard output
+  <a> test04.g09    Gaussian 09 output
+  <a> test04.g09.inp    Gaussian 09 input 
+
+Test 05 - SF6, Gaussian 03 output, A1G, se+mp <br />
+  <a> test05.inp    Input Data
+  <a> test05.ostnd  Standard output
+  <a> test05.g03    Gaussian 03 output
+  <a> test05.g03.inp    Gaussian 03 input 
+
+Test 06 - N2, using molden output, several very low energies (0.001 eV)
+         SG (sigma-g) symmetry, SECP <br />
+  <a> test06.inp    Input Data
+  <a> test06.ostnd  Standard output
+  <a> test06.molden2012 Molden output from Molpro 2012
+  <a> test06.molpro.inp Molpro input
+
+Test 07 - N2, using molden output, static-exchange at an energy in the region of the pi-g shape resonance<br />
+  <a> test07.inp    Input Data
+  <a> test07.ostnd  Standard output
+  <a> test07.molden2012 Molden output from Molpro 2012
+  <a> test07.molpro.inp Molpro input
+
+Test 08 - F2-, using molden output, static-exchange photo detachment<br />
+  <a> test08.inp    Input Data
+  <a> test08.ostnd  Standard output
+  <a> test08.molden2012 Molden output from Molpro 2012
+  <a> test08.molpro.inp Molpro input
+
+Test 09 - SF6, Gaussian 03 output, expand HOMO and LUMO <br />
+  <a> test09.inp    Input Data
+  <a> test09.ostnd  Standard output
+  <a> test09.g03    Gaussian 03 output
+  <a> test09.g03.inp    Gaussian 03 input 
+
+Test 10 - N2, using molden output, resonance search for the pi-g shape resonance<br />
+  <a> test10.inp    Input Data
+  <a> test10.ostnd  Standard output
+  <a> test10.molden2012 Molden output from Molpro 2012
+  <a> test10.molpro.inp Molpro input
+
+Test 11 - N2, using molden output,(3-sigma-g)^-1 e-ion scattering calculation <br />
+  <a> test11.inp    Input Data
+  <a> test11.ostnd  Standard output
+  <a> test11.molden2012    Molden output from Molpro 2012
+  <a> test11.molpro.inp    Molpro input
+
+Test 12 - N2, using Gaussian 03 output,(3-sigma-g)^-1 photoionization calculation
+    for comparison with test20 in mccin using OpenMolcas <br />
+  <a> test12.inp    Input Data
+  <a> test12.ostnd  Standard output
+  <a> test12.molcas.scf.molden OpenMolcas molden file
+  <a> test12.molcas.inp   OpenMolcas input
+
+Test 13 - N2, using molden output, DCS using D-inf-h symmetry and local approximation for higher l partial waves<br />
+  <a> test13.inp    Input Data
+  <a> test13.ostnd  Standard output
+  <a> test13.molden2012    Molden output from Molpro 2012
+  <a> test13.molpro.inp    Molpro input
+
+Test 14 - SF6, Gaussian 03 output, photoionization out of the S 1s orbital <br />
+  <a> test14.inp    Input Data
+  <a> test14.ostnd  Standard output
+  <a> test14.g03    Gaussian 03 output
+  <a> test14.g03.inp    Gaussian 03 input 
+
+Test 15 - CH4 using Gaussian 03 output, using a large aug-cc-pVQZ basis set, photoionization <br />
+  <a> test15.inp    Input Data
+  <a> test15.ostnd  Standard output
+  <a> test15.g03    Gaussian 03 output 
+  <a> test15.g03.inp    Gaussian 03 input 
+
+Test 16 - CH4 using Gaussian 03 output, using a large aug-cc-pVQZ basis set, 
+      scattering using local potential only <br />
+  <a> test16.inp    Input Data
+  <a> test16.ostnd  Standard output
+  <a> test16.g03    Gaussian 03 output 
+  <a> test16.g03.inp    Gaussian 03 input 
+
+Test 17 - C6H6, A1G, SECP <br />
+  <a> test17.inp    Input Data
+  <a> test17.ostnd  Standard output
+  <a> test17.g03    Gaussian 03 output
+  <a> test17.g03.inp    Gaussian 03 input 
+
+Test 18 - C6F3H3 test single-center expansion in D3h symmetry <br />
+  <a> test18.inp    Input Data
+  <a> test18.ostnd  standard output
+  <a> test18.molden2012    Molden output from Molpro 2012
+  <a> test18.molpro.inp   Molpro input
+
+Test 19 - electron scattering from C2H6 staggered<br />
+  <a> test19.inp    Input Data
+  <a> test19.ostnd  standard output
+  <a> test19.g03    Gaussian 03 output
+  <a> test19.g03.inp    Gaussian 03 input 
+
+Test 20 - photoionization of SiF4 in a D2d distorted geometry <br />
+  <a> test20.inp    Input Data
+  <a> test20.ostnd  standard output
+  <a> test20.g03    Gaussian 03 output
+  <a> test20.g03.inp    Gaussian 03 input 
+
+Test 21 - electron scattering from C60 <br />
+  <a> test21.inp    Input Data
+  <a> test21.ostnd  standard output
+  <a> test21.g03    Gaussian 03 output
+  <a> test21.g03.inp    Gaussian 03 input 
+
+Test 22 - photoionization of the open shell NO2 molecule <br />
+  <a> test22.inp    Input Data
+  <a> test22.ostnd  standard output
+  <a> test22.g03    Gaussian 03 output
+  <a> test22.g03.inp    Gaussian 03 input 
+
+Test 23 - SiF4, normal mode analysis<br />
+  <a> test23.inp    Input Data
+  <a> test23.ostnd  standard output
+  <a> test23.g03    Gaussian 03 output
+  <a> test23.g03.inp    Gaussian 03 input 
+
+Test 24 - SiF6 with orthogonality constraints,compares K and T matrix calculation<br />
+  <a> test24.inp    Input Data
+  <a> test24.ostnd  standard output
+  <a> test24.g03    Gaussian 03 output
+  <a> test24.g03.inp    Gaussian 03 input 
+
+Test 25 - H2O, Gaussian 03 output, electron scattering from H2O <br />
+  <a> test25.inp    Input Data
+  <a> test25.ostnd  Standard output
+  <a> test25.g03    Gaussian 03 output
+  <a> test25.g03.inp    Gaussian 03 input 
+
+Test 26 - N2O, molden output, electron scattering <br />
+  <a> test26.inp    Input Data
+  <a> test26.ostnd  Standard output
+  <a> test26.molden2012    Molden output from Molpro 2012
+  <a> test26.molpro.inp    Molpro input 
+
+Test 27 - positron scattering from CH4 using Gaussian 03 output, A1, static+BN polarization <br />
+  <a> test27.inp    Input Data
+  <a> test27.ostnd  Standard output
+  <a> test27.g03    Gaussian 03 output 
+  <a> test27.g03.inp    Gaussian 03 input 
+
+Test 28 - positron scattering from C2H2 using Gaussian 03 output, A1, static+DPM (from T. Gibson) polarization <br />
+  <a> test28.inp    Input Data
+  <a> test28.ostnd  Standard output
+  <a> test28.g03    Gaussian 03 output
+
+Test 29 - N2, using molden output,(3-sigma-g)^-1 photoionization calculation, resonance search <br />
+  <a> test29.inp    Input Data
+  <a> test29.ostnd  Standard output
+  <a> test29.molden2012    Molden output from Molpro 2012
+  <a> test29.molpro.inp    Molpro input
+
+Test 30 - N2, using molden output,(3-sigma-g)^-1 resonance calculation with CalcInt <br />
+  <a> test30.inp    Input Data
+  <a> test30.ostnd  Standard output
+  <a> test30.molden2012    Molden output from Molpro 2012
+  <a> test30.molpro.inp    Molpro input
+
+Test 31 - Ar, using g03 output,(2p)-1 photoionization calculation <br />
+  <a> test31.inp    Input Data
+  <a> test31.ostnd  Standard output
+  <a> test31.g03    Gaussian 03 output
+  <a> test31.g03.inp Gaussian 03 input
+
+Test 32 - Pt, electron scattering from the Pt atom <br />
+  <a> test32.inp    Input Data
+  <a> test32.ostnd  Standard output
+  <a> test32.molden2012    Molden output from Molpro 2012
+  <a> test32.molpro.inp    Molpro input
+
+Test 33 - BF3 vibrational averaging using VibAveN <br />
+  <a> test33.inp    Input Data
+  <a> test33.ostnd  Standard output
+
+Test 34 - CH4 (1s)-1 compute rotation state specific dipole matrix elements needed for computing
+RFPADs and AA_RFPADs with rotation before fragmentation <br />
+  <a> test34.inp    Input Data
+  <a> test34.ostnd  Standard output
+  <a> test34.dat    Dipole matrix elements used as input
+  <a> test34.g09    Gaussian 09 output used to get geometry
+
+Test 35 - CN-, electron scattering from negative ion using Molden output <br />
+  <a> test35.inp    Input Data
+  <a> test35.ostnd  Standard output
+  <a> test35.molden2012 Molden output from Molpro 2012
+  <a> test35.molpro.inp Molpro input
+
+Test 36 - CH4 using GAMESS output, using a large aug-cc-pVQZ basis set, photoionization <br />
+  <a> test36.inp    Input Data
+  <a> test36.ostnd  Standard output
+  <a> test36.gms.dat    GAMESS output
+  <a> test36.gms.inp    GAMESS input
+
+Test 37 - SF6, using C4v symmetry using the FixCharge data record, Gaussian 03 output, A1G, se+mp  <br />
+  <a> test37.inp     Input Data
+  <a> test37.ostnd  Standard output
+  <a> test37.g03    Gaussian 03 output
+  <a> test37.g03.inp    Gaussian 03 input
+
+Test 38 - N2, using Gaussian 03 output,(3-sigma-g)^-1 photoionization time delay calculation
+    for comparison with test28 in mccin <br />
+  <a> test38.inp    Input Data
+  <a> test38.ostnd  Standard output
+  <a> test38.g03    Gaussian 03 output
+  <a> test38.g03.inp    Gaussian 03 input
+
+Test 51 - CKohn test, CH4 check expansion of orbitals on overset grid <br />
+  <a> test51.inp    Input Data
+  <a> test51.ostnd  Standard output
+  <a> test51C2v.molden2012 molden output with C2v geometry (2012 version)
+  <a> test51NoSym.molden2012 molden output with C1 geometry (2012 version)
+  <a> test51Td.molden2012 molden output with Td geometry (2012 version)
+  <a> test51.molpro.inp MOLPRO input
+
+Test 52 - CKohn test, N2 check expansion of orbitals on overset grid <br />
+  <a> test52.inp    Input Data
+  <a> test52.ostnd  Standard output
+  <a> test52.molden2012 molden output (2012 version)
+  <a> test52.molpro.inp MOLPRO input
+
+Test 53 - CKohn test, SiH4 check expansion of orbitals on overset grid <br />
+  <a> test53.inp    Input Data
+  <a> test53.ostnd  Standard output
+  <a> test53.molden2012 molden output (2012 version)
+  <a> test53.molpro.inp MOLPRO input
+
+Test 54 - CKohn test, SF6 check expansion of orbitals on overset grid <br />
+  <a> test54.inp    Input Data
+  <a> test54.ostnd  Standard output
+  <a> test54.molden2012 molden output (2012 version)
+  <a> test54.molpro.inp MOLPRO input
+
+Test 55 - CKohn test, F2- check expansion of orbitals on overset grid <br />
+  <a> test55.inp    Input Data
+  <a> test55.ostnd  Standard output
+  <a> test55.molden2012 molden output (2012 version)
+  <a> test55.molpro.inp MOLPRO input
+
+Test 56 - CKohn test, C6H6 check expansion of orbitals on overset grid <br />
+  <a> test56.inp    Input Data
+  <a> test56.ostnd  Standard output
+  <a> test56.molden2012 molden output (2012 version)
+  <a> test56.molpro.inp MOLPRO input
+
+Test 57 - CKohn test, C6F3H3 check expansion of orbitals on overset grid <br />
+  <a> test57.inp    Input Data
+  <a> test57.ostnd  Standard output
+  <a> test57.molden2012 molden output (2012 version)
+  <a> test57.molpro.inp MOLPRO input
+
+Test 58 - CKohn test, scattering from CH4 with only static potential <br />
+  <a> test58.inp    Input Data
+  <a> test58.ostnd  Standard output
+  <a> test58.molden2015 molden output (2015 version)
+  <a> test58.molpro.inp MOLPRO input
+
+Test 59 - CKohn test, scattering from CH4 with static-exchange potential <br />
+  <a> test59.inp    Input Data
+  <a> test59.ostnd  Standard output
+  <a> test59.molden2015 molden output (2015 version)
+  <a> test59.molpro.inp MOLPRO input
+
+Test 60 - CKohn test, scattering from CF4 with static-exchange potential <br />
+  <a> test60.inp    Input Data
+  <a> test60.ostnd  Standard output
+  <a> test60.molden2015 molden output (2015 version)
+  <a> test60.molpro.inp MOLPRO input
+
+Test 61 - CKohn test, scattering from CH4 with only static potential test of SaveBlms and ReadBlms<br />
+  <a> test61.inp    Input Data
+  <a> test61.ostnd  Standard output
+  <a> test61Blms.dat Geometry and Blm data
+      generated in test58
+
+Test 62 - CKohn test, slightly larger calculation for scattering from CF4 with static-exchange potential in MOLPRO geometry<br />
+  <a> test62.inp    Input Data
+  <a> test62.ostnd  Standard output
+  <a> test62.molden2015 molden output (2015 version)
+  <a> test62.molpro.inp MOLPRO input
+
+Test 63 - CKohn test, Photoionization of N2, same calculation as test12 <br />
+  <a> test63.inp    Input Data
+  <a> test63.ostnd  Standard output
+  <a> test63.g03 Gaussian-03 output
+  <a> test63.g03.inp Gaussian input
+
+</dl>
+
+</htmln>
+

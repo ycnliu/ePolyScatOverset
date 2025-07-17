@@ -1,0 +1,391 @@
+ Entering Gaussian System, Link 0=g03
+ Initial command:
+ /usr/local/g03_E01/g03/l1.exe /work/r-lucchese/tmp/Gau-26211.inp -scrdir=/work/r-lucchese/tmp/
+ Entering Link 1 = /usr/local/g03_E01/g03/l1.exe PID=     26212.
+  
+ Copyright (c) 1988,1990,1992,1993,1995,1998,2003,2004,2007, Gaussian, Inc.
+                  All Rights Reserved.
+  
+ This is the Gaussian(R) 03 program.  It is based on the
+ the Gaussian(R) 98 system (copyright 1998, Gaussian, Inc.),
+ the Gaussian(R) 94 system (copyright 1995, Gaussian, Inc.),
+ the Gaussian 92(TM) system (copyright 1992, Gaussian, Inc.),
+ the Gaussian 90(TM) system (copyright 1990, Gaussian, Inc.),
+ the Gaussian 88(TM) system (copyright 1988, Gaussian, Inc.),
+ the Gaussian 86(TM) system (copyright 1986, Carnegie Mellon
+ University), and the Gaussian 82(TM) system (copyright 1983,
+ Carnegie Mellon University). Gaussian is a federally registered
+ trademark of Gaussian, Inc.
+  
+ This software contains proprietary and confidential information,
+ including trade secrets, belonging to Gaussian, Inc.
+  
+ This software is provided under written license and may be
+ used, copied, transmitted, or stored only in accord with that
+ written license.
+  
+ The following legend is applicable only to US Government
+ contracts under FAR:
+  
+                    RESTRICTED RIGHTS LEGEND
+  
+ Use, reproduction and disclosure by the US Government is
+ subject to restrictions as set forth in subparagraphs (a)
+ and (c) of the Commercial Computer Software - Restricted
+ Rights clause in FAR 52.227-19.
+  
+ Gaussian, Inc.
+ 340 Quinnipiac St., Bldg. 40, Wallingford CT 06492
+  
+  
+ ---------------------------------------------------------------
+ Warning -- This program may not be used in any manner that
+ competes with the business of Gaussian, Inc. or will provide
+ assistance to any competitor of Gaussian, Inc.  The licensee
+ of this program is prohibited from giving any competitor of
+ Gaussian, Inc. access to this program.  By using this program,
+ the user acknowledges that Gaussian, Inc. is engaged in the
+ business of creating and licensing software in the field of
+ computational chemistry and represents and warrants to the
+ licensee that it is not a competitor of Gaussian, Inc. and that
+ it will not use this program in any manner prohibited above.
+ ---------------------------------------------------------------
+  
+
+ Cite this work as:
+ Gaussian 03, Revision E.01,
+ M. J. Frisch, G. W. Trucks, H. B. Schlegel, G. E. Scuseria, 
+ M. A. Robb, J. R. Cheeseman, J. A. Montgomery, Jr., T. Vreven, 
+ K. N. Kudin, J. C. Burant, J. M. Millam, S. S. Iyengar, J. Tomasi, 
+ V. Barone, B. Mennucci, M. Cossi, G. Scalmani, N. Rega, 
+ G. A. Petersson, H. Nakatsuji, M. Hada, M. Ehara, K. Toyota, 
+ R. Fukuda, J. Hasegawa, M. Ishida, T. Nakajima, Y. Honda, O. Kitao, 
+ H. Nakai, M. Klene, X. Li, J. E. Knox, H. P. Hratchian, J. B. Cross, 
+ V. Bakken, C. Adamo, J. Jaramillo, R. Gomperts, R. E. Stratmann, 
+ O. Yazyev, A. J. Austin, R. Cammi, C. Pomelli, J. W. Ochterski, 
+ P. Y. Ayala, K. Morokuma, G. A. Voth, P. Salvador, J. J. Dannenberg, 
+ V. G. Zakrzewski, S. Dapprich, A. D. Daniels, M. C. Strain, 
+ O. Farkas, D. K. Malick, A. D. Rabuck, K. Raghavachari, 
+ J. B. Foresman, J. V. Ortiz, Q. Cui, A. G. Baboul, S. Clifford, 
+ J. Cioslowski, B. B. Stefanov, G. Liu, A. Liashenko, P. Piskorz, 
+ I. Komaromi, R. L. Martin, D. J. Fox, T. Keith, M. A. Al-Laham, 
+ C. Y. Peng, A. Nanayakkara, M. Challacombe, P. M. W. Gill, 
+ B. Johnson, W. Chen, M. W. Wong, C. Gonzalez, and J. A. Pople, 
+ Gaussian, Inc., Wallingford CT, 2004.
+ 
+ ******************************************
+ Gaussian 03:  IA64L-G03RevE.01 11-Sep-2007
+                16-Mar-2010 
+ ******************************************
+ --------------------------------------------
+ #HF/6-311G SCF=tight 6D 10F Gfinput PUNCH=MO
+ --------------------------------------------
+ 1/38=1/1;
+ 2/17=6,18=5,40=1/2;
+ 3/5=4,6=6,8=22,11=9,16=1,24=10,25=1,30=1/1,2,3;
+ 4//1;
+ 5/5=2,32=2,38=5/2;
+ 6/7=2,8=2,9=2,10=2,28=1/1;
+ 99/5=1,9=1,10=32/99;
+ ------------------------
+ Argon Atom, 6-311G basis
+ ------------------------
+ Symbolic Z-matrix:
+ Charge =  0 Multiplicity = 1
+ Ar                    0.        0.        0. 
+ 
+                          Input orientation:                          
+ ---------------------------------------------------------------------
+ Center     Atomic     Atomic              Coordinates (Angstroms)
+ Number     Number      Type              X           Y           Z
+ ---------------------------------------------------------------------
+    1         18             0        0.000000    0.000000    0.000000
+ ---------------------------------------------------------------------
+ Stoichiometry    Ar
+ Framework group  OH[O(Ar)]
+ Deg. of freedom     0
+ Full point group                 OH
+ Largest Abelian subgroup         D2H     NOp   8
+ Largest concise Abelian subgroup C1      NOp   1
+                         Standard orientation:                         
+ ---------------------------------------------------------------------
+ Center     Atomic     Atomic              Coordinates (Angstroms)
+ Number     Number      Type              X           Y           Z
+ ---------------------------------------------------------------------
+    1         18             0        0.000000    0.000000    0.000000
+ ---------------------------------------------------------------------
+ Standard basis: 6-311G (6D, 10F)
+ AO basis set in the form of general basis input:
+      1 0
+ S   6 1.00       0.000000000000
+      0.1180223800D+06  0.7470001582D-03
+      0.1768354100D+05  0.5790001226D-02
+      0.4027765700D+04  0.2991900634D-01
+      0.1145397700D+04  0.1192060253D+00
+      0.3771637500D+03  0.3690280782D+00
+      0.1381596900D+03  0.5764591221D+00
+ S   3 1.00       0.000000000000
+      0.1381596900D+03  0.1439269749D+00
+      0.5498911700D+02  0.6229378915D+00
+      0.2317066700D+02  0.2839639505D+00
+ S   1 1.00       0.000000000000
+      0.7377860000D+01  0.1000000000D+01
+ S   1 1.00       0.000000000000
+      0.2923688000D+01  0.1000000000D+01
+ S   1 1.00       0.000000000000
+      0.6504050000D+00  0.1000000000D+01
+ S   1 1.00       0.000000000000
+      0.2328250000D+00  0.1000000000D+01
+ P   5 1.00       0.000000000000
+      0.6630620100D+03  0.3081999705D-02
+      0.1570928100D+03  0.2416499769D-01
+      0.5023110000D+02  0.1082229897D+00
+      0.1863534500D+02  0.2941919719D+00
+      0.7446537000D+01  0.6878619342D+00
+ P   2 1.00       0.000000000000
+      0.7446537000D+01 -0.1214482092D+01
+      0.3095698000D+01  0.1632370123D+01
+ P   1 1.00       0.000000000000
+      0.1106463000D+01  0.1000000000D+01
+ P   1 1.00       0.000000000000
+      0.4156010000D+00  0.1000000000D+01
+ P   1 1.00       0.000000000000
+      0.1454490000D+00  0.1000000000D+01
+ ****
+
+ There are     6 symmetry adapted basis functions of AG  symmetry.
+ There are     0 symmetry adapted basis functions of B1G symmetry.
+ There are     0 symmetry adapted basis functions of B2G symmetry.
+ There are     0 symmetry adapted basis functions of B3G symmetry.
+ There are     0 symmetry adapted basis functions of AU  symmetry.
+ There are     5 symmetry adapted basis functions of B1U symmetry.
+ There are     5 symmetry adapted basis functions of B2U symmetry.
+ There are     5 symmetry adapted basis functions of B3U symmetry.
+ Integral buffers will be    131072 words long.
+ Raffenetti 1 integral format.
+ Two-electron integral symmetry is turned on.
+    21 basis functions,    43 primitive gaussians,    21 cartesian basis functions
+     9 alpha electrons        9 beta electrons
+       nuclear repulsion energy         0.0000000000 Hartrees.
+ NAtoms=    1 NActive=    1 NUniq=    1 SFac= 7.50D-01 NAtFMM=   80 NAOKFM=F Big=F
+ One-electron integrals computed using PRISM.
+ NBasis=    21 RedAO= T  NBF=     6     0     0     0     0     5     5     5
+ NBsUse=    21 1.00D-06 NBFU=     6     0     0     0     0     5     5     5
+ Harris functional with IExCor=  205 diagonalized for initial guess.
+ ExpMin= 1.45D-01 ExpMax= 1.18D+05 ExpMxC= 4.03D+03 IAcc=2 IRadAn=         4 AccDes= 0.00D+00
+ HarFok:  IExCor= 205 AccDes= 0.00D+00 IRadAn=         4 IDoV=1
+ ScaDFX=  1.000000  1.000000  1.000000  1.000000
+ Initial guess orbital symmetries:
+       Occupied  (A1G) (A1G) (T1U) (T1U) (T1U) (A1G) (T1U) (T1U)
+                 (T1U)
+       Virtual   (T1U) (T1U) (T1U) (A1G) (T1U) (T1U) (T1U) (A1G)
+                 (T1U) (T1U) (T1U) (A1G)
+ The electronic state of the initial guess is 1-A1G.
+ Requested convergence on RMS density matrix=1.00D-08 within 128 cycles.
+ Requested convergence on MAX density matrix=1.00D-06.
+ Requested convergence on             energy=1.00D-06.
+ No special actions if energy rises.
+ Keep R1 integrals in memory in canonical form, NReq=      851546.
+ SCF Done:  E(RHF) =  -526.806626230     A.U. after    8 cycles
+             Convg  =    0.1650D-09             -V/T =  2.0000
+             S**2   =   0.0000
+
+ **********************************************************************
+
+            Population analysis using the SCF density.
+
+ **********************************************************************
+
+ Orbital symmetries:
+       Occupied  (A1G) (A1G) (T1U) (T1U) (T1U) (A1G) (T1U) (T1U)
+                 (T1U)
+       Virtual   (T1U) (T1U) (T1U) (A1G) (T1U) (T1U) (T1U) (A1G)
+                 (T1U) (T1U) (T1U) (A1G)
+ The electronic state is 1-A1G.
+ Alpha  occ. eigenvalues -- -118.60839 -12.32067  -9.57050  -9.57050  -9.57050
+ Alpha  occ. eigenvalues --   -1.27617  -0.59012  -0.59012  -0.59012
+ Alpha virt. eigenvalues --    0.49882   0.49882   0.49882   0.92675   2.56191
+ Alpha virt. eigenvalues --    2.56191   2.56191  11.10513  13.76183  13.76183
+ Alpha virt. eigenvalues --   13.76183 246.85905
+          Condensed to atoms (all electrons):
+              1
+     1  Ar  18.000000
+ Mulliken atomic charges:
+              1
+     1  Ar   0.000000
+ Sum of Mulliken charges=   0.00000
+ Atomic charges with hydrogens summed into heavy atoms:
+              1
+     1  Ar   0.000000
+ Sum of Mulliken charges=   0.00000
+ Electronic spatial extent (au):  <R**2>=    25.9566
+ Charge=     0.0000 electrons
+ Dipole moment (field-independent basis, Debye):
+    X=     0.0000    Y=     0.0000    Z=     0.0000  Tot=     0.0000
+ Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=   -11.6375   YY=   -11.6375   ZZ=   -11.6375
+   XY=     0.0000   XZ=     0.0000   YZ=     0.0000
+ Traceless Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=     0.0000   YY=     0.0000   ZZ=     0.0000
+   XY=     0.0000   XZ=     0.0000   YZ=     0.0000
+ Octapole moment (field-independent basis, Debye-Ang**2):
+  XXX=     0.0000  YYY=     0.0000  ZZZ=     0.0000  XYY=     0.0000
+  XXY=     0.0000  XXZ=     0.0000  XZZ=     0.0000  YZZ=     0.0000
+  YYZ=     0.0000  XYZ=     0.0000
+ Hexadecapole moment (field-independent basis, Debye-Ang**3):
+ XXXX=   -10.6749 YYYY=   -10.6749 ZZZZ=   -10.6749 XXXY=     0.0000
+ XXXZ=     0.0000 YYYX=     0.0000 YYYZ=     0.0000 ZZZX=     0.0000
+ ZZZY=     0.0000 XXYY=    -3.5583 XXZZ=    -3.5583 YYZZ=    -3.5583
+ XXYZ=     0.0000 YYXZ=     0.0000 ZZXY=     0.0000
+ N-N= 0.000000000000D+00 E-N=-1.255039386613D+03  KE= 5.268003379818D+02
+ Symmetry AG   KE= 3.659762468971D+02
+ Symmetry B1G  KE= 0.000000000000D+00
+ Symmetry B2G  KE= 0.000000000000D+00
+ Symmetry B3G  KE= 0.000000000000D+00
+ Symmetry AU   KE= 0.000000000000D+00
+ Symmetry B1U  KE= 5.360803036159D+01
+ Symmetry B2U  KE= 5.360803036159D+01
+ Symmetry B3U  KE= 5.360803036159D+01
+ 1\1\GINC-MEDUSA\SP\RHF\6-311G\Ar1\R-LUCCHESE\16-Mar-2010\0\\#HF/6-311G
+  SCF=tight 6D 10F Gfinput PUNCH=MO\\Argon Atom, 6-311G basis\\0,1\Ar,0
+ ,0.,0.,0.\\Version=IA64L-G03RevE.01\State=1-A1G\HF=-526.8066262\RMSD=1
+ .650e-10\Thermal=0.\Dipole=0.,0.,0.\PG=OH [O(Ar1)]\\@
+
+
+ KNIGHT- SIRE, I'VE JUST RETURNED FROM THE FRONT
+ KING-   HOW GOES THE BATTLE                    
+ KNIGHT- THE SITUATION IS QUITE FLUID           
+ KING-   WHAT DOES *THAT* MEAN                  
+ KNIGHT- WE'RE UP THE CREEK                     
+                THE WIZARD OF ID                
+ Job cpu time:  0 days  0 hours  0 minutes  0.8 seconds.
+ File lengths (MBytes):  RWF=     13 Int=      0 D2E=      0 Chk=     10 Scr=      1
+ Normal termination of Gaussian 03 at Tue Mar 16 23:13:18 2010.
+(5D15.8)
+    1 Alpha MO OE=-0.11860839D+03
+ 0.41047466D+00 0.65520473D+00 0.12159329D-01-0.12474453D-02 0.28433645D-03
+-0.13437402D-03 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00
+    2 Alpha MO OE=-0.12320674D+02
+-0.12311300D+00-0.33555878D+00 0.53045642D+00 0.58881677D+00 0.40782753D-01
+-0.78326919D-02 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00
+    3 Alpha MO OE=-0.95704982D+01
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.97314662D+00 0.00000000D+00 0.00000000D+00
+ 0.18723245D+00 0.00000000D+00 0.00000000D+00 0.41740676D-01 0.00000000D+00
+ 0.00000000D+00-0.35556198D-02 0.00000000D+00 0.00000000D+00 0.11172670D-02
+ 0.00000000D+00
+    4 Alpha MO OE=-0.95704982D+01
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.97314662D+00 0.00000000D+00 0.00000000D+00 0.18723245D+00
+ 0.00000000D+00 0.00000000D+00 0.41740676D-01 0.00000000D+00 0.00000000D+00
+-0.35556198D-02 0.00000000D+00 0.00000000D+00 0.11172670D-02 0.00000000D+00
+ 0.00000000D+00
+    5 Alpha MO OE=-0.95704982D+01
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.97314662D+00 0.00000000D+00
+ 0.00000000D+00 0.18723245D+00 0.00000000D+00 0.00000000D+00 0.41740676D-01
+ 0.00000000D+00 0.00000000D+00-0.35556198D-02 0.00000000D+00 0.00000000D+00
+ 0.11172670D-02
+    6 Alpha MO OE=-0.12761695D+01
+ 0.38516994D-01 0.11274311D+00-0.23815873D+00-0.41350810D+00 0.65100315D+00
+ 0.56298697D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00
+    7 Alpha MO OE=-0.59012426D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00-0.28491043D+00 0.00000000D+00
+ 0.00000000D+00-0.40903373D-01 0.00000000D+00 0.00000000D+00 0.32246250D+00
+ 0.00000000D+00 0.00000000D+00 0.55268562D+00 0.00000000D+00 0.00000000D+00
+ 0.29002515D+00
+    8 Alpha MO OE=-0.59012426D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00-0.28491043D+00 0.00000000D+00 0.00000000D+00-0.40903373D-01
+ 0.00000000D+00 0.00000000D+00 0.32246250D+00 0.00000000D+00 0.00000000D+00
+ 0.55268562D+00 0.00000000D+00 0.00000000D+00 0.29002515D+00 0.00000000D+00
+ 0.00000000D+00
+    9 Alpha MO OE=-0.59012426D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00-0.28491043D+00 0.00000000D+00 0.00000000D+00
+-0.40903373D-01 0.00000000D+00 0.00000000D+00 0.32246250D+00 0.00000000D+00
+ 0.00000000D+00 0.55268562D+00 0.00000000D+00 0.00000000D+00 0.29002515D+00
+ 0.00000000D+00
+   10 Alpha MO OE= 0.49882372D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.14750743D+00 0.00000000D+00 0.00000000D+00-0.13432045D-01
+ 0.00000000D+00 0.00000000D+00-0.17506484D-01 0.00000000D+00 0.00000000D+00
+-0.11179549D+01 0.00000000D+00 0.00000000D+00 0.14188066D+01 0.00000000D+00
+ 0.00000000D+00
+   11 Alpha MO OE= 0.49882372D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.14750743D+00 0.00000000D+00 0.00000000D+00
+-0.13432045D-01 0.00000000D+00 0.00000000D+00-0.17506484D-01 0.00000000D+00
+ 0.00000000D+00-0.11179549D+01 0.00000000D+00 0.00000000D+00 0.14188066D+01
+ 0.00000000D+00
+   12 Alpha MO OE= 0.49882372D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.14750743D+00 0.00000000D+00
+ 0.00000000D+00-0.13432045D-01 0.00000000D+00 0.00000000D+00-0.17506484D-01
+ 0.00000000D+00 0.00000000D+00-0.11179549D+01 0.00000000D+00 0.00000000D+00
+ 0.14188066D+01
+   13 Alpha MO OE= 0.92675038D+00
+ 0.35312485D-01 0.97575941D-01-0.15617892D+00-0.66928262D+00 0.22988010D+01
+-0.18849079D+01 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00
+   14 Alpha MO OE= 0.25619066D+01
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.55766716D+00 0.00000000D+00 0.00000000D+00 0.22218949D+00
+ 0.00000000D+00 0.00000000D+00-0.20537838D+01 0.00000000D+00 0.00000000D+00
+ 0.21483772D+01 0.00000000D+00 0.00000000D+00-0.79878597D+00 0.00000000D+00
+ 0.00000000D+00
+   15 Alpha MO OE= 0.25619066D+01
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.55766716D+00 0.00000000D+00
+ 0.00000000D+00 0.22218949D+00 0.00000000D+00 0.00000000D+00-0.20537838D+01
+ 0.00000000D+00 0.00000000D+00 0.21483772D+01 0.00000000D+00 0.00000000D+00
+-0.79878597D+00
+   16 Alpha MO OE= 0.25619066D+01
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.55766716D+00 0.00000000D+00 0.00000000D+00
+ 0.22218949D+00 0.00000000D+00 0.00000000D+00-0.20537838D+01 0.00000000D+00
+ 0.00000000D+00 0.21483772D+01 0.00000000D+00 0.00000000D+00-0.79878597D+00
+ 0.00000000D+00
+   17 Alpha MO OE= 0.11105134D+02
+ 0.11491415D+00 0.47807862D+00-0.26818974D+01 0.31313561D+01-0.16266466D+01
+ 0.67433561D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00
+   18 Alpha MO OE= 0.13761825D+02
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00-0.62050785D+00 0.00000000D+00
+ 0.00000000D+00-0.19961624D+01 0.00000000D+00 0.00000000D+00 0.25075681D+01
+ 0.00000000D+00 0.00000000D+00-0.13139483D+01 0.00000000D+00 0.00000000D+00
+ 0.40320691D+00
+   19 Alpha MO OE= 0.13761825D+02
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00-0.62050785D+00 0.00000000D+00 0.00000000D+00-0.19961624D+01
+ 0.00000000D+00 0.00000000D+00 0.25075681D+01 0.00000000D+00 0.00000000D+00
+-0.13139483D+01 0.00000000D+00 0.00000000D+00 0.40320691D+00 0.00000000D+00
+ 0.00000000D+00
+   20 Alpha MO OE= 0.13761825D+02
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00-0.62050785D+00 0.00000000D+00 0.00000000D+00
+-0.19961624D+01 0.00000000D+00 0.00000000D+00 0.25075681D+01 0.00000000D+00
+ 0.00000000D+00-0.13139483D+01 0.00000000D+00 0.00000000D+00 0.40320691D+00
+ 0.00000000D+00
+   21 Alpha MO OE= 0.24685905D+03
+-0.15503226D+01 0.19236698D+01-0.14565676D+01 0.97783315D+00-0.36696352D+00
+ 0.14843013D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00 0.00000000D+00
+ 0.00000000D+00
+Tue Mar 16 23:13:18 CDT 2010

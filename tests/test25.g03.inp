@@ -1,0 +1,15 @@
+g03 <<eoi
+# rhf/aug-cc-pVTZ 6D 10F scf=tight Gfinput PUNCH=MO
+                                                                               
+H2O
+                                                                               
+0 1                                                                            
+H1
+O1 H1 ROH
+H2 O1 ROH H1 AHOH
+                                                                               
+ROH =  0.956
+AHOH =  105.2
+
+eoi
+cat fort.7

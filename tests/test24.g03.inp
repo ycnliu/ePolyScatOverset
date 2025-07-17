@@ -1,0 +1,20 @@
+g03 <<eoi
+# rhf/6-311G(2d,2p) 6D 10F scf=tight Gfinput PUNCH=MO
+
+SF6, Big BASIS.
+
+0 1
+S
+F 1 R
+F 1 R 2 T
+F 1 R 2 T 3 T  1
+F 1 R 2 T 3 T -1
+F 1 R 2 T 4 T  1
+F 1 R 3 T 4 T -1
+
+R 1.5602262
+T 90.0
+
+eoi
+#
+cat fort.7

@@ -1,0 +1,53 @@
+#
+# input file for test58
+#
+# electron scattering from CH4 static potential only in all symmetries
+#
+  cKohn
+  LMax 25
+  EMax  100.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 1         # charge, formula type
+   3           # number of terms in the formulas
+   2.0 -0.0    # orbital occupation and coefficient for the K operators
+   2.0 -0.0
+   2.0 -0.0
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  LMaxK   8     # Maximum l in the K matrix -- commenting this out means code figures it out
+  nrFEM 4
+  NLambda 15
+
+Comment '--------------------------- Expansion at the C atom using full Td symmetry ---------------------------'
+Convert '$pe/tests/test58.molden2015' 'molden2015'
+GetBlms
+SaveBlms 'test58Blms.dat'  # can be used to create test61Blms.dat
+
+ExpOrb
+GetPot
+IterMax 30
+CnvgKMat 0.5e-4
+
+  ScatEngN 1.0 1.0 10
+  OrbOcc 2 2 6
+  SpinDeg 2
+  TargSym 'A1'
+  TargSpinDeg 1
+  
+  ScatSym 'A1'
+  ScatContSym 'A1'
+Scat
+  ScatSym 'T2'
+  ScatContSym 'T2'
+Scat
+  ScatSym 'A2'
+  ScatContSym 'A2'
+Scat
+  ScatSym 'E'
+  ScatContSym 'E'
+Scat
+  ScatSym 'T1'
+  ScatContSym 'T1'
+Scat
+TotalCrossSection
+

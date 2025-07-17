@@ -1,0 +1,37 @@
+#
+# inpute file for test20
+#
+# Photoinization of SiF4 in a D2d geometry
+#
+LMax   25         # maximum l 
+EMax   50.0       # maximum E
+OrbOccInit
+ 2  4  2  2  2  4  2  2  2  4  2  2  4  2  2  2  4  2  4
+OrbOcc
+ 2  4  2  2  2  4  2  2  2  4  2  2  4  2  2  2  4  2  3
+Convert '$pt/test20.g03' 'gaussian'
+ScatSym     'E' # Scattering symmetry of total final state
+ScatContSym 'A1' # Scattering symmetry of continuum electron
+SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+TargSym 'E'      # Symmetry of the target state
+TargSpinDeg 2     # Target spin degeneracy
+InitSym 'A1'      # Initial state symmetry
+InitSpinDeg 1     # Initial state spin degeneracy
+ScatEng 0.8 4.8  # list of scattering energies
+FegeEng 15.2  # Energy correction used in the fege potential
+IPot 15.2    # IPot, ionization potential
+GetBlms
+ExpOrb
+GenFormPhIon
+DipoleOp 
+GetPot
+FileName 'MatrixElements' 'test20.idy' 'REWIND'
+PhIon
+GetCro
+
+GenFormScat
+GrnType 1
+FileName 'MatrixElements' 'test20.tmt' 'REWIND'
+Scat
+TotalCrossSection
+

@@ -1,0 +1,41 @@
+#PBS -N TestMolproSiH4
+#PBS -j oe
+#PBS -l mem=22gb,nodes=1:ppn=8
+#PBS -l walltime=2:00:00
+#
+date
+
+export molpro_root=/g/software/lms/Molpro/Molpro/bin
+export mytmp=/scratch/rrl581a/TestMolpro$$
+module purge
+
+mkdir $mytmp
+cd $mytmp
+unset PBS_NODEFILE
+$molpro_root/molpro -d $mytmp -W $mytmp/wfu -n 8 -m 320M -G 250M <<eoi
+***,SiH4 gs
+
+RSiH = 1.462 ANG
+TANG = 109.471220634491 DEGREES
+
+cartesian
+
+geometry={
+Si1;
+H1,Si1,RSiH;
+H2,Si1,RSiH,H1,TANG;
+H3,Si1,RSiH,H1,TANG,H2,TANG,1;
+H4,Si1,RSiH,H1,TANG,H2,TANG,-1;
+}
+
+basis=avtz
+{rhf;
+wf,18,1,0;}
+put,molden,sih4.molden;
+
+eoi
+cp *.molden /scratch/rrl581a/Projects/Tests
+rm -r $mytmp
+date
+exit
+

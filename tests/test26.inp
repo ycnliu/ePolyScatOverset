@@ -1,0 +1,36 @@
+#
+# input file for test26
+#
+# electron scattering from N2O in C-inf-v symmetry
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+  FegeEng 11.0   # Energy correction (in eV) used in the fege potential
+  LMaxK   5     # Maximum l in the K matirx 
+
+Convert '$pt/test26.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+ScatEng  0.5 1.0
+ScatContSym 'S'  # Scattering symmetry
+Scat
+ScatContSym 'A2'  # Scattering symmetry
+Scat
+ScatContSym 'B1'  # Scattering symmetry
+Scat
+ScatContSym 'B2'  # Scattering symmetry
+Scat
+ScatContSym 'P'  # Scattering symmetry
+Scat
+ScatContSym 'D'  # Scattering symmetry
+Scat
+ScatContSym 'F'  # Scattering symmetry
+Scat
+ScatContSym 'G'  # Scattering symmetry
+Scat
+TotalCrossSection
+

@@ -1,0 +1,21 @@
+#
+# input file for test18
+#
+# electron scattering from C6F3H3
+#
+ LMax   25     # maximum l to be used for wave functions
+ EMax  60.0    # EMax, maximum asymptotic energy in eV
+ EngForm       # Energy formulas
+   0 0         # charge, formula type
+  VCorr 'PZ'
+ ScatEng 30.   # list of scattering energies
+ FegeEng 9.5    # Energy correction used in the fege potential
+ ScatContSym 'A1PP'  # Scattering symmetry
+ LMaxK   10      # Maximum l in the K matirx 
+
+Convert '$pt/test18.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+Scat
+

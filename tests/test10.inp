@@ -1,0 +1,43 @@
+#
+# input file for test10
+#
+# electron scattering from N2 molden SCF, search for the pi-g shape resonance
+#
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 0         # charge, formula type
+
+  VCorr 'PZ'
+  FegeEng 15.6   # Energy correction (in eV) used in the fege potential
+  ScatContSym 'PG'  # Scattering symmetry
+  DPotEng  2.3  # Energy (in eV) for the local exchange potential
+  ResSearchEng
+  1                   # nengrb - number of energy step regions 
+  0.25 0.25     # first energy and step (in eV)
+   6.0          # final ending point, engrb(nengrb+1)
+   5.44                 # eendzi, largest imaginary part
+   1.088                # estpzi, imaginary energy step
+Convert '$pt/test10.molden2012' 'molden'
+GetBlms
+ExpOrb
+GetPot
+GetDPot
+FileName 'PlotData' 'test10.dat' 'REWIND'
+Label 'N2 pi-g'
+ResSearch
+FileName 'AWaveFun' 'test10AWaveFun.dat' 'REWIND'
+FileName 'SWaveFun' 'test10SWaveFun.dat' 'REWIND'
+ResWvFun 1
+FileName 'ViewOrb' 'test10ViewOrb.dat' 'REWIND'
+FileName 'ViewOrbGeom' 'test10ViewOrbGeom.dat' 'REWIND'
+ViewOrbGrid
+  0.0 0.0 0.0
+  0.0 0.0 1.0
+  1.0 0.0 0.0
+  -2.5 2.5 0.1
+  -2.0 2.0 0.1
+  0.0 0.0 0.1
+ViewOrb 'ResWvFun'
+FileName 'ViewOrb' 'test10ViewDPot.dat' 'REWIND'
+ViewOrb 'DPot'

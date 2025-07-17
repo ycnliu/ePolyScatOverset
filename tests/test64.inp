@@ -1,0 +1,61 @@
+#
+# Input file for test64
+#
+# SF6 S(1s)^{-1} photoionization, based on test14, gives the results from
+# Marante et al, Phys. Rev. A 102, 012815 (2020), Fig. 10
+# with LMaxK 25 and RMax 7.69
+#
+ cKohn
+
+LMax   30     # maximum l to be used for wave functions
+LMaxK 8
+NccZeta 3
+nrFEM 6
+NLambda 8
+N_rpnts_SG 15
+HFacGauss 8
+GridFac 2
+CnvgKMat 1.d-8
+RMax 40.0
+
+EMax  201.0    # EMax, maximum asymptotic energy in eV
+FegeEng 2490.0   # Energy correction (in eV) used in the fege potential
+FegeScale 0.0
+
+SpinDeg 1  # Total Scattering State is a Singlet
+
+InitSym 'A1G'      # Initial state symmetry
+InitSpinDeg 1     # Initial state spin degeneracy
+OrbOccInit        # occupation of the orbital groups of target
+2 4 6 2 2 6 2 6 4 2 6 6 4 6 6 6
+OrbOcc        # occupation of the orbital groups of target
+1 4 6 2 2 6 2 6 4 2 6 6 4 6 6 6
+SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+TargSym 'A1G'      # Symmetry of the target state
+TargSpinDeg 2     # Target spin degeneracy
+IPot 2490.   # ionization potentail
+
+Convert '$pt/test64.g03' 'g03'   # same as test14.g03
+GetBlms
+ExpOrb
+
+ScatEng 60
+
+# PrintFlag 1
+
+  # do the scattering with the center of mass at the origin
+
+ScatSym 'T1U'
+ScatContSym 'T1U'
+IterMax 100
+Orthog 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+
+
+Exit
+

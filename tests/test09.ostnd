@@ -1,0 +1,499 @@
+Execution on n0207.lr6
+
+----------------------------------------------------------------------
+ePolyScat Version E3
+----------------------------------------------------------------------
+
+Authors: R. R. Lucchese, N. Sanna, A. P. P. Natalense, and F. A. Gianturco
+https://epolyscat.droppages.com
+Please cite the following two papers when reporting results obtained with  this program
+F. A. Gianturco, R. R. Lucchese, and N. Sanna, J. Chem. Phys. 100, 6464 (1994).
+A. P. P. Natalense and R. R. Lucchese, J. Chem. Phys. 111, 5344 (1999).
+
+----------------------------------------------------------------------
+
+Starting at 2022-01-14  17:34:49.259 (GMT -0800)
+Using    20 processors
+Current git commit sha-1 836b26dfd5ffae0073e0f736b518bccf827345c3
+
+----------------------------------------------------------------------
+
+
++ Start of Input Records
+#
+# input file for test09
+#
+# Expand HOMO and LUMO of SF6
+#
+  LMax   15     # maximum l to be used for wave functions
+  LMaxI  40     # maximum l value used to determine numerical angular grids
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+CnvOrbSel  33 36
+Convert '/global/home/users/rlucchese/Applications/ePolyScat/tests/test09.g03' 'gaussian'
+GetBlms
+ExpOrb
+FileName 'ViewOrb' 'test09ViewOrb.dat' 'REWIND'
+FileName 'ViewOrbGeom' 'test09ViewOrbGeom.dat' 'REWIND'
+ViewOrbGrid
+  0.0 0.0 0.0
+  0.0 0.0 1.0
+  1.0 0.0 0.0
+  -2.5 2.5 0.1
+  -2.5 2.5 0.1
+  0.0 0.0 0.1
+ViewOrb 'ExpOrb' 1 3
+ViewOrb 'ExpOrb' 2
++ End of input reached
++ Data Record LMax - 15
++ Data Record LMaxI - 40
++ Data Record EMax - 50.0
++ Data Record CnvOrbSel - 33 36
+
++ Command Convert
++ '/global/home/users/rlucchese/Applications/ePolyScat/tests/test09.g03' 'gaussian'
+
+----------------------------------------------------------------------
+GaussianCnv - read input from Gaussian output
+----------------------------------------------------------------------
+
+Conversion using g03
+Changing the conversion factor for Bohr to Angstroms
+New Value is  0.5291772083000000
+Expansion center is (in Angstroms) -
+     0.0000000000   0.0000000000   0.0000000000
+Use orbitals    33  through    36
+Command line = # RHF/6-311G(2D,2P) 6D 10F SCF=TIGHT GFINPUT PUNCH=MO
+CardFlag =    T
+Normal Mode flag =    F
+Selecting orbitals
+from    33  to    36  number already selected     0
+Number of orbitals selected is     4
+Highest orbital read in is =   36
+Time Now =         0.0055  Delta time =         0.0055 End GaussianCnv
+
+Atoms found    7  Coordinates in Angstroms
+Z = 16 ZS = 16 r =   0.0000000000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   0.0000000000   0.0000000000   1.5602260000
+Z =  9 ZS =  9 r =   0.0000000000   1.5602260000   0.0000000000
+Z =  9 ZS =  9 r =  -1.5602260000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   1.5602260000   0.0000000000   0.0000000000
+Z =  9 ZS =  9 r =   0.0000000000  -1.5602260000   0.0000000000
+Z =  9 ZS =  9 r =   0.0000000000   0.0000000000  -1.5602260000
+Maximum distance from expansion center is    1.5602260000
+
++ Command GetBlms
++ 
+
+----------------------------------------------------------------------
+GetPGroup - determine point group from geometry
+----------------------------------------------------------------------
+
+Found point group  Oh   
+Reduce angular grid using nthd =  2  nphid =  4
+Found point group for abelian subgroup D2h  
+Time Now =         0.0390  Delta time =         0.0335 End GetPGroup
+List of unique axes
+  N  Vector                      Z   R
+  1  0.00000  0.00000  1.00000   9  1.56023   9  1.56023
+  2  0.00000  1.00000  0.00000   9  1.56023   9  1.56023
+  3 -1.00000  0.00000  0.00000   9  1.56023   9  1.56023
+List of corresponding x axes
+  N  Vector
+  1  1.00000  0.00000  0.00000
+  2  1.00000  0.00000  0.00000
+  3  0.00000  1.00000  0.00000
+Computed default value of LMaxA =   14
+Determining angular grid in GetAxMax  LMax =   15  LMaxA =   14  LMaxAb =   30
+MMax =    3  MMaxAbFlag =    1
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14   3
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1   3
+On the double L grid used for products
+For axis     1  mvals:
+   0   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18  19
+  20  21  22  23  24  25  26  27  28  29  30
+For axis     2  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+For axis     3  mvals:
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1  -1
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is Oh
+LMax    15
+ The dimension of each irreducable representation is
+    A1G   (  1)    A2G   (  1)    EG    (  2)    T1G   (  3)    T2G   (  3)
+    A1U   (  1)    A2U   (  1)    EU    (  2)    T1U   (  3)    T2U   (  3)
+ Number of symmetry operations in the abelian subgroup (excluding E) =    7
+ The operations are -
+    16    19    24     2     4     3     5
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ A1G       1         1          8       1  1  1  1  1  1  1
+ A2G       1         2          4       1  1  1  1  1  1  1
+ EG        1         3         12       1  1  1  1  1  1  1
+ EG        2         4         12       1  1  1  1  1  1  1
+ T1G       1         5         12      -1 -1  1  1 -1 -1  1
+ T1G       2         6         12      -1  1 -1  1 -1  1 -1
+ T1G       3         7         12       1 -1 -1  1  1 -1 -1
+ T2G       1         8         16      -1 -1  1  1 -1 -1  1
+ T2G       2         9         16      -1  1 -1  1 -1  1 -1
+ T2G       3        10         16       1 -1 -1  1  1 -1 -1
+ A1U       1        11          2       1  1  1 -1 -1 -1 -1
+ A2U       1        12          6       1  1  1 -1 -1 -1 -1
+ EU        1        13          8       1  1  1 -1 -1 -1 -1
+ EU        2        14          8       1  1  1 -1 -1 -1 -1
+ T1U       1        15         19      -1 -1  1 -1  1  1 -1
+ T1U       2        16         19      -1  1 -1 -1  1 -1  1
+ T1U       3        17         19       1 -1 -1 -1 -1  1  1
+ T2U       1        18         15      -1 -1  1 -1  1  1 -1
+ T2U       2        19         15      -1  1 -1 -1  1 -1  1
+ T2U       3        20         15       1 -1 -1 -1 -1  1  1
+Time Now =         0.3112  Delta time =         0.2722 End SymGen
+Number of partial waves for each l in the full symmetry up to LMaxA
+A1G   1    0(   1)    1(   1)    2(   1)    3(   1)    4(   2)    5(   2)    6(   3)    7(   3)    8(   4)    9(   4)
+          10(   5)   11(   5)   12(   7)   13(   7)   14(   8)
+A2G   1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   1)    7(   1)    8(   1)    9(   1)
+          10(   2)   11(   2)   12(   3)   13(   3)   14(   4)
+EG    1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)    6(   3)    7(   3)    8(   5)    9(   5)
+          10(   7)   11(   7)   12(   9)   13(   9)   14(  12)
+EG    2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)    6(   3)    7(   3)    8(   5)    9(   5)
+          10(   7)   11(   7)   12(   9)   13(   9)   14(  12)
+T1G   1    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)    6(   2)    7(   2)    8(   4)    9(   4)
+          10(   6)   11(   6)   12(   9)   13(   9)   14(  12)
+T1G   2    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)    6(   2)    7(   2)    8(   4)    9(   4)
+          10(   6)   11(   6)   12(   9)   13(   9)   14(  12)
+T1G   3    0(   0)    1(   0)    2(   0)    3(   0)    4(   1)    5(   1)    6(   2)    7(   2)    8(   4)    9(   4)
+          10(   6)   11(   6)   12(   9)   13(   9)   14(  12)
+T2G   1    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)    6(   4)    7(   4)    8(   6)    9(   6)
+          10(   9)   11(   9)   12(  12)   13(  12)   14(  16)
+T2G   2    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)    6(   4)    7(   4)    8(   6)    9(   6)
+          10(   9)   11(   9)   12(  12)   13(  12)   14(  16)
+T2G   3    0(   0)    1(   0)    2(   1)    3(   1)    4(   2)    5(   2)    6(   4)    7(   4)    8(   6)    9(   6)
+          10(   9)   11(   9)   12(  12)   13(  12)   14(  16)
+A1U   1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   0)    6(   0)    7(   0)    8(   0)    9(   1)
+          10(   1)   11(   1)   12(   1)   13(   2)   14(   2)
+A2U   1    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   1)    6(   1)    7(   2)    8(   2)    9(   3)
+          10(   3)   11(   4)   12(   4)   13(   5)   14(   5)
+EU    1    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)    6(   1)    7(   2)    8(   2)    9(   3)
+          10(   3)   11(   5)   12(   5)   13(   7)   14(   7)
+EU    2    0(   0)    1(   0)    2(   0)    3(   0)    4(   0)    5(   1)    6(   1)    7(   2)    8(   2)    9(   3)
+          10(   3)   11(   5)   12(   5)   13(   7)   14(   7)
+T1U   1    0(   0)    1(   1)    2(   1)    3(   2)    4(   2)    5(   4)    6(   4)    7(   6)    8(   6)    9(   9)
+          10(   9)   11(  12)   12(  12)   13(  16)   14(  16)
+T1U   2    0(   0)    1(   1)    2(   1)    3(   2)    4(   2)    5(   4)    6(   4)    7(   6)    8(   6)    9(   9)
+          10(   9)   11(  12)   12(  12)   13(  16)   14(  16)
+T1U   3    0(   0)    1(   1)    2(   1)    3(   2)    4(   2)    5(   4)    6(   4)    7(   6)    8(   6)    9(   9)
+          10(   9)   11(  12)   12(  12)   13(  16)   14(  16)
+T2U   1    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   2)    6(   2)    7(   4)    8(   4)    9(   6)
+          10(   6)   11(   9)   12(   9)   13(  12)   14(  12)
+T2U   2    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   2)    6(   2)    7(   4)    8(   4)    9(   6)
+          10(   6)   11(   9)   12(   9)   13(  12)   14(  12)
+T2U   3    0(   0)    1(   0)    2(   0)    3(   1)    4(   1)    5(   2)    6(   2)    7(   4)    8(   4)    9(   6)
+          10(   6)   11(   9)   12(   9)   13(  12)   14(  12)
+
+----------------------------------------------------------------------
+SymGen - generate symmetry adapted functions
+----------------------------------------------------------------------
+
+Point group is D2h
+LMax    30
+ The dimension of each irreducable representation is
+    AG    (  1)    B1G   (  1)    B2G   (  1)    B3G   (  1)    AU    (  1)
+    B1U   (  1)    B2U   (  1)    B3U   (  1)
+Abelian axes
+    1       1.000000       0.000000       0.000000
+    2       0.000000       1.000000       0.000000
+    3       0.000000       0.000000       1.000000
+Symmetry operation directions
+  1       0.000000       0.000000       1.000000 ang =  0  1 type = 0 axis = 3
+  2       0.000000       1.000000       0.000000 ang =  1  2 type = 2 axis = 2
+  3       1.000000       0.000000       0.000000 ang =  1  2 type = 2 axis = 1
+  4       0.000000       0.000000       1.000000 ang =  1  2 type = 2 axis = 3
+  5       0.000000       0.000000       1.000000 ang =  1  2 type = 3 axis = 3
+  6       0.000000       1.000000       0.000000 ang =  0  1 type = 1 axis = 2
+  7       1.000000       0.000000       0.000000 ang =  0  1 type = 1 axis = 1
+  8       0.000000       0.000000       1.000000 ang =  0  1 type = 1 axis = 3
+irep =    1  sym =AG    1  eigs =   1   1   1   1   1   1   1   1
+irep =    2  sym =B1G   1  eigs =   1  -1  -1   1   1  -1  -1   1
+irep =    3  sym =B2G   1  eigs =   1   1  -1  -1   1   1  -1  -1
+irep =    4  sym =B3G   1  eigs =   1  -1   1  -1   1  -1   1  -1
+irep =    5  sym =AU    1  eigs =   1   1   1   1  -1  -1  -1  -1
+irep =    6  sym =B1U   1  eigs =   1  -1  -1   1  -1   1   1  -1
+irep =    7  sym =B2U   1  eigs =   1   1  -1  -1  -1  -1   1   1
+irep =    8  sym =B3U   1  eigs =   1  -1   1  -1  -1   1  -1   1
+ Number of symmetry operations in the abelian subgroup (excluding E) =    7
+ The operations are -
+     2     3     4     5     6     7     8
+  Rep  Component  Sym Num  Num Found  Eigenvalues of abelian sub-group
+ AG        1         1        136       1  1  1  1  1  1  1
+ B1G       1         2        120      -1 -1  1  1 -1 -1  1
+ B2G       1         3        120       1 -1 -1  1  1 -1 -1
+ B3G       1         4        120      -1  1 -1  1 -1  1 -1
+ AU        1         5        105       1  1  1 -1 -1 -1 -1
+ B1U       1         6        120      -1 -1  1 -1  1  1 -1
+ B2U       1         7        120       1 -1 -1 -1 -1  1  1
+ B3U       1         8        120      -1  1 -1 -1  1 -1  1
+Time Now =         0.3158  Delta time =         0.0046 End SymGen
+
++ Command ExpOrb
++ 
+In GetRMax, RMaxEps =  0.10000000E-05  RMax =    5.8721300277 Angs
+
+----------------------------------------------------------------------
+GenGrid - Generate Radial Grid
+----------------------------------------------------------------------
+
+HFacGauss    10.00000
+HFacWave     10.00000
+GridFac       1
+MinExpFac   300.00000
+Maximum R in the grid (RMax) =     5.87213 Angs
+Factors to determine step sizes in the various regions:
+In regions controlled by Gaussians (HFacGauss) =   10.0
+In regions controlled by the wave length (HFacWave) =   10.0
+Factor used to control the minimum exponent at each center (MinExpFac) =  300.0
+Maximum asymptotic kinetic energy (EMAx) =  50.00000 eV
+Maximum step size (MaxStep) =   5.87213 Angs
+Factor to increase grid by (GridFac) =     1
+
+    1  Center at =     0.00000 Angs  Alpha Max = 0.93413E+05
+    2  Center at =     1.56023 Angs  Alpha Max = 0.24300E+05
+
+Generated Grid
+
+  irg  nin  ntot      step Angs     R end Angs
+    1    8     8    0.17314E-03     0.00139
+    2    8    16    0.18458E-03     0.00286
+    3    8    24    0.22753E-03     0.00468
+    4    8    32    0.34522E-03     0.00744
+    5    8    40    0.54886E-03     0.01183
+    6    8    48    0.87261E-03     0.01882
+    7    8    56    0.13873E-02     0.02991
+    8    8    64    0.22057E-02     0.04756
+    9    8    72    0.35067E-02     0.07561
+   10    8    80    0.55752E-02     0.12021
+   11    8    88    0.88638E-02     0.19112
+   12    8    96    0.14092E-01     0.30386
+   13    8   104    0.19060E-01     0.45635
+   14    8   112    0.20002E-01     0.61636
+   15    8   120    0.18519E-01     0.76451
+   16    8   128    0.17538E-01     0.90481
+   17    8   136    0.17168E-01     1.04216
+   18    8   144    0.17168E-01     1.17950
+   19    8   152    0.17233E-01     1.31737
+   20    8   160    0.11061E-01     1.40586
+   21    8   168    0.70308E-02     1.46210
+   22    8   176    0.44691E-02     1.49785
+   23    8   184    0.28407E-02     1.52058
+   24    8   192    0.18057E-02     1.53503
+   25    8   200    0.11477E-02     1.54421
+   26    8   208    0.72955E-03     1.55004
+   27    8   216    0.47544E-03     1.55385
+   28    8   224    0.37375E-03     1.55684
+   29    8   232    0.34071E-03     1.55956
+   30    8   240    0.82832E-04     1.56023
+   31    8   248    0.33947E-03     1.56294
+   32    8   256    0.36190E-03     1.56584
+   33    8   264    0.44612E-03     1.56941
+   34    8   272    0.67686E-03     1.57482
+   35    8   280    0.10761E-02     1.58343
+   36    8   288    0.17109E-02     1.59712
+   37    8   296    0.27201E-02     1.61888
+   38    8   304    0.43245E-02     1.65347
+   39    8   312    0.68754E-02     1.70848
+   40    8   320    0.10931E-01     1.79593
+   41    8   328    0.17379E-01     1.93496
+   42    8   336    0.17431E-01     2.07441
+   43    8   344    0.17453E-01     2.21403
+   44    8   352    0.19257E-01     2.36808
+   45    8   360    0.21220E-01     2.53784
+   46    8   368    0.23133E-01     2.72290
+   47    8   376    0.24995E-01     2.92286
+   48    8   384    0.26804E-01     3.13729
+   49    8   392    0.28559E-01     3.36577
+   50    8   400    0.30261E-01     3.60786
+   51    8   408    0.31909E-01     3.86313
+   52    8   416    0.33504E-01     4.13117
+   53    8   424    0.35046E-01     4.41154
+   54    8   432    0.36536E-01     4.70383
+   55    8   440    0.37975E-01     5.00763
+   56    8   448    0.39363E-01     5.32253
+   57    8   456    0.40702E-01     5.64815
+   58    8   464    0.27998E-01     5.87213
+Time Now =         0.3307  Delta time =         0.0148 End GenGrid
+
+----------------------------------------------------------------------
+AngGCt - generate angular functions
+----------------------------------------------------------------------
+
+Maximum scattering l (lmax) =   15
+Maximum scattering m (mmaxs) =   15
+Maximum numerical integration l (lmaxi) =   40
+Maximum numerical integration m (mmaxi) =   40
+Maximum l to include in the asymptotic region (lmasym) =   14
+Parameter used to determine the cutoff points (PCutRd) =  0.10000000E-07 au
+Maximum E used to determine grid (in eV) =       50.00000
+Print flag (iprnfg) =    0
+lmasymtyts =   14
+ Actual value of lmasym found =     14
+Number of regions of the same l expansion (NAngReg) =   11
+Angular regions
+    1 L =    2  from (    1)         0.00017  to (    7)         0.00121
+    2 L =    5  from (    8)         0.00139  to (   23)         0.00445
+    3 L =    6  from (   24)         0.00468  to (   31)         0.00710
+    4 L =    7  from (   32)         0.00744  to (   47)         0.01794
+    5 L =    8  from (   48)         0.01882  to (   55)         0.02853
+    6 L =   10  from (   56)         0.02991  to (   63)         0.04535
+    7 L =   11  from (   64)         0.04756  to (   71)         0.07211
+    8 L =   13  from (   72)         0.07561  to (   79)         0.11464
+    9 L =   14  from (   80)         0.12021  to (  127)         0.88727
+   10 L =   15  from (  128)         0.90481  to (  368)         2.72290
+   11 L =   14  from (  369)         2.74790  to (  464)         5.87213
+There are     2 angular regions for computing spherical harmonics
+    1 lval =   14
+    2 lval =   15
+Maximum number of processors is       57
+Last grid points by processor WorkExp =     1.500
+Proc id =   -1  Last grid point =       1
+Proc id =    0  Last grid point =      72
+Proc id =    1  Last grid point =      96
+Proc id =    2  Last grid point =     120
+Proc id =    3  Last grid point =     136
+Proc id =    4  Last grid point =     160
+Proc id =    5  Last grid point =     176
+Proc id =    6  Last grid point =     200
+Proc id =    7  Last grid point =     216
+Proc id =    8  Last grid point =     240
+Proc id =    9  Last grid point =     256
+Proc id =   10  Last grid point =     280
+Proc id =   11  Last grid point =     296
+Proc id =   12  Last grid point =     320
+Proc id =   13  Last grid point =     336
+Proc id =   14  Last grid point =     360
+Proc id =   15  Last grid point =     376
+Proc id =   16  Last grid point =     400
+Proc id =   17  Last grid point =     424
+Proc id =   18  Last grid point =     448
+Proc id =   19  Last grid point =     464
+Time Now =         0.3427  Delta time =         0.0120 End AngGCt
+
+----------------------------------------------------------------------
+RotOrb - Determine rotation of degenerate orbitals
+----------------------------------------------------------------------
+
+
+ R of maximum density
+     1  Orig    1  Eng =   -0.677520  T1G   1 at max irg =  280  r =   1.58343
+     2  Orig    2  Eng =   -0.677520  T1G   2 at max irg =  280  r =   1.58343
+     3  Orig    3  Eng =   -0.677520  T1G   3 at max irg =  280  r =   1.58343
+     4  Orig    4  Eng =    0.157879  A1G   1 at max irg =  160  r =   1.40586
+
+Rotation coefficients for orbital     1  grp =    1 T1G   1
+     1  0.0000000000    2  1.0000000000    3  0.0000000000
+
+Rotation coefficients for orbital     2  grp =    1 T1G   2
+     1 -1.0000000000    2  0.0000000000    3 -0.0000000000
+
+Rotation coefficients for orbital     3  grp =    1 T1G   3
+     1  0.0000000000    2  0.0000000000    3 -1.0000000000
+
+Rotation coefficients for orbital     4  grp =    2 A1G   1
+     1  1.0000000000
+Number of orbital groups and degeneracis are         2
+  3  1
+Number of orbital groups and number of electrons when fully occupied
+         2
+  6  2
+Time Now =         0.3944  Delta time =         0.0517 End RotOrb
+
+----------------------------------------------------------------------
+ExpOrb - Single Center Expansion Program
+----------------------------------------------------------------------
+
+ First orbital group to expand (mofr) =    1
+ Last orbital group to expand (moto) =    2
+Orbital     1 of  T1G   1 symmetry normalization integral =  0.97340206
+Orbital     2 of  A1G   1 symmetry normalization integral =  0.98573137
+Time Now =         0.6931  Delta time =         0.2987 End ExpOrb
+
++ Command FileName
++ 'ViewOrb' 'test09ViewOrb.dat' 'REWIND'
+Opening file test09ViewOrb.dat at position REWIND
+
++ Command FileName
++ 'ViewOrbGeom' 'test09ViewOrbGeom.dat' 'REWIND'
+Opening file test09ViewOrbGeom.dat at position REWIND
++ Data Record ViewOrbGrid
++ 0.0 0.0 0.0 / 0.0 0.0 1.0 / 1.0 0.0 0.0 / -2.5 2.5 0.1 / -2.5 2.5 0.1 / 0.0 0.0 0.1
+
++ Command ViewOrb
++ 'ExpOrb' 1 3
+
+----------------------------------------------------------------------
+vieworb - Orbital viewing program
+----------------------------------------------------------------------
+
+ Unit for output of orbitals on cartesian grid (iuvorb) =   64
+ Unit for output of flux on cartesian grid (iujorb) =    0
+ Unit for output of geometry information (iugeom) =   66
+Output will be in cartesian coordinates
+ Origin of coordinate system in angstroms
+         0.000000    0.000000    0.000000
+ Directional vectors as inputed
+     1         0.000000    0.000000    1.000000
+     2         1.000000    0.000000    0.000000
+ Directional vectors as computed
+     1         0.000000    0.000000    1.000000
+     2         1.000000    0.000000    0.000000
+     3         0.000000    1.000000    0.000000
+
+In direction 1
+(in Angstroms) cmin =   -2.500000  cmax =    2.500000  cstep =    0.100000
+
+In direction 2
+(in Angstroms) cmin =   -2.500000  cmax =    2.500000  cstep =    0.100000
+
+In direction 3
+(in Angstroms) cmin =    0.000000  cmax =    0.000000  cstep =    0.100000
+ Use     1 orbitals
+Time Now =         0.7012  Delta time =         0.0081 End ViewOrb
+
++ Command ViewOrb
++ 'ExpOrb' 2
+
+----------------------------------------------------------------------
+vieworb - Orbital viewing program
+----------------------------------------------------------------------
+
+ Unit for output of orbitals on cartesian grid (iuvorb) =   64
+ Unit for output of flux on cartesian grid (iujorb) =    0
+ Unit for output of geometry information (iugeom) =   66
+Output will be in cartesian coordinates
+ Origin of coordinate system in angstroms
+         0.000000    0.000000    0.000000
+ Directional vectors as inputed
+     1         0.000000    0.000000    1.000000
+     2         1.000000    0.000000    0.000000
+ Directional vectors as computed
+     1         0.000000    0.000000    1.000000
+     2         1.000000    0.000000    0.000000
+     3         0.000000    1.000000    0.000000
+
+In direction 1
+(in Angstroms) cmin =   -2.500000  cmax =    2.500000  cstep =    0.100000
+
+In direction 2
+(in Angstroms) cmin =   -2.500000  cmax =    2.500000  cstep =    0.100000
+
+In direction 3
+(in Angstroms) cmin =    0.000000  cmax =    0.000000  cstep =    0.100000
+ Use     2 orbitals
+Time Now =         0.7068  Delta time =         0.0056 End ViewOrb
+Time Now =         0.7070  Delta time =         0.0002 Finalize

@@ -1,0 +1,79 @@
+#
+# input file for test15
+#
+# CH4,  T2^-1 photoionization
+#
+  TestOut
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  ScatEng  0.1 5.8 15.8 25.8    # list of scattering energies
+
+ InitSym 'A1'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 6  # Orbital occupation of initial state
+
+ OrbOcc  2 2 5     # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'T2'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 14.2         # ionization potentail
+
+Convert '$pt/test15.g03' 'gaussian'
+GetBlms
+ExpOrb
+
+ FileName 'MatrixElements' 'test15T2T1.idy' 'REWIND'
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'T1'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro 'test15T2T1.idy'
+#
+
+ FileName 'MatrixElements' 'test15T2T2.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'T2'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1
+PhIonN 5.8 10.0 3
+GetCro 'test15T2T2.idy'
+#
+
+ FileName 'MatrixElements' 'test15T2E.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'E'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1 5.8 15.8 25.8
+GetCro 'test15T2E.idy'
+#
+ FileName 'MatrixElements' 'test15T2A1.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'A1'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1 5.8 15.8 25.8
+GetCro 'test15T2A1.idy'
+#
+#
+CatFiles '$po/test15.idy' 'test15T2A1.idy' 'test15T2E.idy' 'test15T2T2.idy'  'test15T2T1.idy'
+GetCro '$po/test15.idy'
+FileName 'DumpOut' '$po/test15dumpidy.dat'
+DumpIdy '$po/test15.idy' 5.8
+FileName 'DumpOut' '$po/test15dumpidyall.dat'
+DumpIdyAll '$po/test15.idy'
+#

@@ -1,0 +1,90 @@
+#
+# input file for test65, similar to test15 but using the cKohn code
+# Currnetly, the overset grid code does not get the correct answer
+# when the ion state is degenerate.
+#
+# CH4,  T2^-1 photoionization
+#
+  cKohn
+  LMax   15     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.
+#   ScatEng  0.1 5.8 15.8 25.8    # list of scattering energies
+
+ InitSym 'A1'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 6  # Orbital occupation of initial state
+ Orthog 1 1 1
+
+ OrbOcc  2 2 5     # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'T2'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 14.2         # ionization potentail
+
+  IterMax 60
+  CnvgKMat 1.0e-08
+  HFacGauss 16.
+  GridFac 1
+  nrFEM 12
+  NLambda 8
+  N_rpnts_SG 30
+  RMax 40.
+
+
+Convert '$pe/tests/test65.g03' 'gaussian'
+GetBlms
+ExpOrb
+
+ FileName 'MatrixElements' 'test65T2T1.idy' 'REWIND'
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'T1'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 5.8
+GetCro 'test65T2T1.idy'
+Exit
+
+#
+
+ FileName 'MatrixElements' 'test65T2T2.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'T2'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1
+PhIonN 5.8 10.0 3
+GetCro 'test65T2T2.idy'
+#
+
+ FileName 'MatrixElements' 'test65T2E.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'E'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1 5.8 15.8 25.8
+GetCro 'test65T2E.idy'
+#
+ FileName 'MatrixElements' 'test65T2A1.idy' 'REWIND'
+
+ ScatSym     'T2'  # Scattering symmetry of total final state
+ ScatContSym 'A1'  # Scattering symmetry of continuum electron
+
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 0.1 5.8 15.8 25.8
+GetCro 'test65T2A1.idy'
+#
+#
+GetCro 'test65T2A1.idy' 'test65T2E.idy' 'test65T2T2.idy'  'test65T2T1.idy'
+#

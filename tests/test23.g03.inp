@@ -1,0 +1,20 @@
+g03 <<eoi
+%Mem=800MB
+%NProc=4
+# HF/aug-cc-pVTZ SCF=tight 6D 10F Gfinput PUNCH=MO Freq=HPModes
+
+SiF4
+
+0 1
+ Si
+ F,1,R
+ F,1,R,2,T
+ F,1,R,2,T,3,120.,0
+ F,1,R,2,T,3,-120.,0
+      Variables:
+ R=1.54570751
+ T=109.47122063
+
+eoi
+#
+cat fort.7

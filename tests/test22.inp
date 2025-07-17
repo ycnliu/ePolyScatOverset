@@ -1,0 +1,29 @@
+#
+# input file for test22
+#
+# Photoionization of NO2
+#
+ LMax   15
+ LMaxI  40       # maximum l value used to determine numerical angular grids
+ EMax   50.0
+ FegeEng 16.3  # Energy correction used in the fege potential
+ InitSym 'A1'      # Initial state symmetry
+ InitSpinDeg 2     # Initial state spin degeneracy
+ OrbOccInit 2 2 2 2 2 2 2 2 2 2 2 1  # Orbital occupation of initial state
+ OrbOcc  2 2 2 2 2 2 2 2 2 2 1 1     # occupation of the orbital groups of target
+ SpinDeg 2         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'A2'      # Symmetry of the target state
+ TargSpinDeg 3     # Target spin degeneracy
+ ScatSym     'B2'  # Scattering symmetry of total final state
+ ScatContSym 'B1'  # Scattering symmetry of continuum electron
+ IPot 13.592        # ionization potentail
+
+Convert '$pt/test22.g03' 'gaussian'
+GetBlms
+ExpOrb
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon 5.0 10.0
+GetCro
+

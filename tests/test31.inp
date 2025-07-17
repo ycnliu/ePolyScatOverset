@@ -1,0 +1,58 @@
+#
+# input file for test31
+#
+# Ar SCF, (2p)^-1 photoionization
+#
+  LMax   5     # maximum l to be used for wave functions
+  EMax  50.0    # EMax, maximum asymptotic energy in eV
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+
+  ScatEng  0.341 4.241 5.471 9.541   # list of scattering energies
+
+ InitSym 'AG'      # Initial state symmetry
+ InitSpinDeg 1     # Initial state spin degeneracy
+ OrbOccInit 2 2 6 2 6  # Orbital occupation of initial state
+ OrbOcc     2 2 6 2 5  # occupation of the orbital groups of target
+ SpinDeg 1         # Spin degeneracy of the total scattering state (=1 singlet)
+ TargSym 'T1U'      # Symmetry of the target state
+ TargSpinDeg 2     # Target spin degeneracy
+ IPot 15.759   # ionization potentail
+
+Convert '$pt/test31.g03' 'gaussian'
+GetBlms
+ExpOrb
+
+ ScatSym     'T1U'  # Scattering symmetry of total final state
+ ScatContSym 'AG'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' 'test31AG.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+ ScatSym     'T1U'  # Scattering symmetry of total final state
+ ScatContSym 'HG'  # Scattering symmetry of continuum electron
+
+FileName 'MatrixElements' 'test31HG.idy' 'REWIND'
+GenFormPhIon
+DipoleOp
+GetPot
+PhIon
+GetCro
+#
+GetCro 'test31AG.idy' 'test31HG.idy'
+#
+  DPotEng  15.  # Energy (in eV) for the local exchange potential
+  ResSearchEng
+  1                   # nengrb - number of energy step regions 
+  1. 0.5     # first energy and step (in eV)
+   20.0          # final ending point, engrb(nengrb+1)
+   10.                 # eendzi, largest imaginary part
+   2.                # estpzi, imaginary energy step
+
+GetDPot
+ResSearch
+
+#

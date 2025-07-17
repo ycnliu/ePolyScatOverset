@@ -1,0 +1,75 @@
+#
+# input file for test62
+#
+# slightly larger calculation of electron scattering from CF4
+#
+  Comment "Using Molpro orbitals but with original Molpro orientation"
+  cKohn
+  
+  LMax 20
+  LMaxA 6
+  NccZeta 5
+  EMax  150.0    # EMax, maximum asymptotic energy in eV
+  EngForm        # Energy formulas
+   0 1           # charge, formula type
+   10             # number of terms in the formulas
+   2.0 -1.0      # orbital occupation and coefficient for the K operators
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+   2.0 -1.0
+
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  LMaxK   1     # Maximum l in the K matrix -- commenting this out means code figures it out
+
+  nrFEM 12
+  NLambda 8
+  N_rpnts_SG 30
+  HFacGauss 16.0
+  GridFac 1
+  NrfemFac 1.0
+  RMax 20.
+  IterMax 25
+  CnvgKMat 1e-8
+  ScatEng 11.5
+  OrbOcc  6  2  2  2  6  2  6  4  6  6
+
+  SpinDeg 2
+  TargSym 'A1'
+  TargSpinDeg 1
+
+  ScatSym 'A1'
+  ScatContSym 'A1'
+  
+Comment '--------------------------- Expansion at the CF4 - Td with D2 subgroup ----------------------------'
+Convert '$pe/tests/test62.molden2015' 'molden2015'
+GetBlms
+ExpOrb
+GetPot
+
+FileName 'MatrixElements' 'tmatrix_cf4_d2.dat' 'APPEND'
+
+  Scat
+  TotalCrossSection
+
+Comment '--------------------------- Expansion at the CF4 - With C2v subgroup ----------------------------'
+RotateForm 1 3 45.
+   0. 0. 0.
+Convert '$pe/tests/test62.molden2015' 'molden2015'
+GetBlms
+ExpOrb
+GetPot
+FileName 'MatrixElements' 'tmatrix_cf4_c2v.dat' 'APPEND'
+
+  Scat
+  TotalCrossSection
+
+Exit
+
+

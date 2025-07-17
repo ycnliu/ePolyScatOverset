@@ -1,0 +1,39 @@
+#
+# input file for test61
+#
+# electron scattering from CH4 static potential only in all symmetries
+# test the SaveBlms and ReadBlms commands
+# test61Blms.dat is created in test58 and is the same as test58Blms.dat which is created there
+#
+  EMax  100.0    # EMax, maximum asymptotic energy in eV
+  EngForm      # Energy formulas
+   0 1         # charge, formula type
+   3           # number of terms in the formulas
+   2.0 -0.0    # orbital occupation and coefficient for the K operators
+   2.0 -0.0
+   2.0 -0.0
+  FegeEng 13.0   # Energy correction (in eV) used in the fege potential
+  FegeScale 0.0
+  LMaxK   8     # Maximum l in the K matrix -- commenting this out means code figures it out
+  nrFEM 4
+  NLambda 15
+
+ReadBlms '$pe/tests/test61Blms.dat'
+
+ExpOrb
+GetPot
+IterMax 30
+CnvgKMat 0.5e-4
+
+  OrbOcc 2 2 6
+  ScatEng 5.0
+  ScatSym 'A1'
+  ScatContSym 'A1'
+  SpinDeg 2
+  TargSym 'A1'
+  TargSpinDeg 1
+Scat 
+FileName 'PlotData' '$maindir/${molec}L${LMax}${orb}.dat' 'APPEND'
+TotalCrossSection
+
+grepdat.exe "Sigma LENGTH" <$maindir/${molec}L${LMax}${orb}.dat >$maindir/${molec}L${LMax}${orb}SBL.dat

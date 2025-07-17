@@ -1,0 +1,10 @@
+prefix=/usr/local/libint/2.8.0
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Libint2
+Description: a library for the evaluation of molecular integrals of many-body operators over Gaussian functions
+Version: 2.8.0
+Libs: -L${libdir} -lint2
+Cflags: -I${includedir} -I${includedir}/libint2 -I/usr/local/opt/lapack/include -I/usr/local/include
