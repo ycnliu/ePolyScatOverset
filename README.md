@@ -1,1 +1,13 @@
 # ePolyScatOverset
+
+This is a private repository to share high-performance overset finite-element grid developments from my PhD work.  
+Only relevant and necessary source files are included for scientific reference, algorithm demonstration, and benchmarking.
+
+For inquiries about the **full ePolyScat program** or production versions, please visit the official website:  
+[https://epolyscat.droppages.com/](https://epolyscat.droppages.com/)
+
+**Note:**  
+- This repository is not intended for general distribution.  
+- If you are interested in scientific collaboration, method validation, or have questions about this work, please contact me directly.
+
+---
